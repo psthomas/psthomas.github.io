@@ -10,7 +10,9 @@ It is based on the [Minimal Mistakes](http://mmistakes.github.io/minimal-mistake
 * Author bio-image toggle in front matter of pages/posts
 * A variety of other style tweaks 
 
-Here is the initial commit detailing the changes: [link to commit]
+Here are the two commits showing the changes:
+[Deletions](https://github.com/psthomas/psthomas.github.io/commit/30b59fc6bb13ba3d1b471b216061fe1894aa7ba3)
+[Site Updates](https://github.com/psthomas/psthomas.github.io/commit/afd450bfd56a1778be1016385fd35cb5435a50f8)
 
 A more in-depth description of this theme's features is available at the Minimal Mistakes [theme setup page](http://mmistakes.github.io/minimal-mistakes/theme-setup/).  
 
@@ -46,7 +48,7 @@ This theme uses [grunt](http://gruntjs.com/) to minify the JavaScript and optimi
 2. npm install the `grunt-cli` command line tool
 2. cd to the root directory for your code
 3. npm install the requirements in package.json, which includes grunt
-4. run `grunt` at the command line to execute the code in `Gruntfile.js`, which will optimize the site.  
+4. Run `grunt` at the command line to execute the code in `Gruntfile.js`, which will optimize the site.  
 
 
 
