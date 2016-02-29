@@ -9,20 +9,13 @@ share: false
 
 ---
 
-I introduced the concept of Mount Stupid as a general warning against overconfidence in my [first post]({{site.baseurl}}/Ground-Rules/).  What many don’t realize is that the mountain is three dimensional, and the third axis is **audience size**.
+I introduced the concept of Mount Stupid as a general warning against overconfidence in my [first post]({{site.baseurl}}/2016/02/19/Ground-Rules).  What many don’t realize is that the mountain is three dimensional, and the third axis is **audience size**.
   
 <figure>
 	<a href="{{ site.baseurl }}/images/cliffnoreturn.png"><img src="{{ site.baseurl }}/images/cliffnoreturn.png"></a>
 	<figcaption>The Cliff of No Return, source: <a href="{{ site.baseurl }}/images/cliffnoreturn.png" title="Mount Stupid Comic">me</a>.</figcaption>
 </figure>
 
-<!---
-<figure class="half">
-	<a href="{{ site.baseurl }}/images/mtstupid.png"><img src="{{ site.baseurl }}/images/mtstupid.png"></a>
-	<a href="{{ site.baseurl }}/images/cliffnoreturn.png"><img src="{{ site.baseurl }}/images/cliffnoreturn.png"></a>
-	<figcaption>Two images.</figcaption>
-</figure>
---->
 
 If you have a hard time visualizing this, just imagine that the **The Cliff** is on the backside of Mt. Stupid and the  **knowledge** axis is coming out of the page at you.
 
