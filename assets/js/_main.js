@@ -12,6 +12,7 @@ var changeClass = function (r,className1,className2) {
     return r.className;
 };
 //  Creating our button in JS for smaller screens
+//  possibly disable? 
 var menuElements = document.getElementById('site-nav');
 menuElements.insertAdjacentHTML('afterBegin','<button type="button" role="button" id="menutoggle" class="navtoggle navicon-lines-button x" aria-hidden="true"><span class="navicon-lines"></span>menu</button>');
 
@@ -37,6 +38,7 @@ $(function() {
 });
 
 // Table of Contents toggle
+// how to default to hidden?
 $(function() {
   $(".toc h3").click(function () {
     $("#drawer").toggleClass("js-hidden");
@@ -44,7 +46,8 @@ $(function() {
 });
 
 // Add lightbox class to all image links
-$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
+// turn off for now
+//$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
 
 // Magnific-Popup options
 $(document).ready(function() {

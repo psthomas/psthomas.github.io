@@ -1,10 +1,11 @@
 # Site navigation links
 
+- title: Home 
+  url: /
+  
 - title: About
   url: /about/
 
-- title: Sample Posts
-  url: /posts/
+- title: Blog  #Sample Posts
+  url: /blog/  #/posts/, renamed posts folder in root to blog
 
-- title: Theme Setup
-  url: /theme-setup/

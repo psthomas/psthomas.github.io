@@ -8,6 +8,11 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
+	color: $textcolor;
+	//Added so headers stay text color w/ changes in link color
+	a {
+		color: $textcolor;
+	}
 }
 h1 {
 	@include font-size(32);
@@ -36,7 +41,9 @@ a {
 	text-decoration: none;
 	color: $link-color;
 	&:visited {
-		color: $linkcolorvisited;
+		//removed so headers, navbar text stays text color after visit, 
+		//or change in link color
+		//color: $linkcolorvisited;
 	}
 	&:hover {
 		color: $linkcolorhover;
@@ -108,9 +115,9 @@ figcaption {
    ========================================================================== */
 
 blockquote {
-	margin-left: -28px;
+	margin-left: 0px;//-28px;
 	padding-left: 20px;
-	border-left: 8px solid $border-color;
+	border-left: 4px solid $grayborder; //gray; //$textcolor; //$grayborder;//8px solid $border-color;
 	font-family: $alt-font;
 	font-style: italic;
 }
@@ -166,3 +173,4 @@ pre {
 	line-height: 1.5;
 	overflow-x: auto;
 }
+

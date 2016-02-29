@@ -1,23 +1,52 @@
-# Minimal Mistakes
+# psthomas.github.io
 
-**[Minimal Mistakes](http://mmistakes.github.io/minimal-mistakes)** is a two column responsive Jekyll theme perfect for powering your GitHub hosted blog built. Compatible with Jekyll 3.0 and up.
+This is the source code for my personal website, [pstblog.com](http://pstblog.com).  
 
-## Minimal Mistakes is all about:
+It is based on the [Minimal Mistakes](http://mmistakes.github.io/minimal-mistakes) theme.  Changes I have made this theme include:
 
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.
-* Minimal embellishments -- content first.
-* Optional large feature images for posts and pages.
-* Simple and clear permalink structure.
-* [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
-* Support for Disqus Comments
+* Disqus comments load on a button click rather than automatically
+* Typography changes, mainly to the body text and navigation bar
+* Wider text field for the body 
+* Author bio-image toggle in front matter of pages/posts
+* A variety of other style tweaks 
 
-![screenshot of Minimal Mistakes theme](http://mmistakes.github.io/minimal-mistakes/images/mm-theme-post-600.jpg)
+Here is the initial commit detailing the changes: [link to commit]
 
-See a [live version of Minimal Mistakes](http://mmistakes.github.io/minimal-mistakes/) hosted on GitHub.
+A more in-depth description of this theme's features is available at the Minimal Mistakes [theme setup page](http://mmistakes.github.io/minimal-mistakes/theme-setup/).  
 
-## Getting Started
+## Requirements
 
-Minimal Mistakes takes advantage of Sass and data files to make customizing easier. These features require [Jekyll 2.x](https://github.com/mmistakes/minimal-mistakes/releases/tag/2.1.3) and will not work with older versions of Jekyll.
+This template is compatible with Jekyll 3.0 and up, uses Rouge for code highlighting and Kramdown for markdown conversion.  As detailed below, ruby and node are needed as well, depending on how much you want to customize the site.  
 
-To learn how to install and use this theme check out the [Setup Guide](http://mmistakes.github.io/minimal-mistakes/theme-setup/) for more information.
+## Run Locally
+
+If you want to run this locally, there are a few steps. 
+
+1. Install `bundler` (`$ gem install bundler`) if you don't have it 
+2. Fork this repo, clone the fork, and cd to the clone
+3. Bundle install Jekyll and the dependencies in the `Gemfile`
+4. Update the site's _config.yml with your content (and remove mine)
+5. Serve the site locally using jekyll
+
+```
+$ gem install bundler 
+$ git clone url-for-your-clone
+$ cd path/to/clone
+$ bundle install
+$ bundle exec jekyll serve 
+```
+
+Then visit the development server at http://localhost:4000/ to view your site.  
+
+## Using grunt
+
+This theme uses [grunt](http://gruntjs.com/) to minify the JavaScript and optimize the images.  If you make changes to the JavaScript, you need to concatenate and minify the code for the changes to take effect. Follow these steps:  
+
+1. [Install Node.js, and update npm](https://docs.npmjs.com/getting-started/installing-node) if you don't have them
+2. npm install the `grunt-cli` command line tool
+2. cd to the root directory for your code
+3. npm install the requirements in package.json, which includes grunt
+4. run `grunt` at the command line to execute the code in `Gruntfile.js`, which will optimize the site.  
+
+
+
