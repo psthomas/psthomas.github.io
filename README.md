@@ -11,7 +11,7 @@ It is based on the [Minimal Mistakes](http://mmistakes.github.io/minimal-mistake
 * A variety of other style tweaks 
 
 Here are the two commits showing the changes:
-[Deletions](https://github.com/psthomas/psthomas.github.io/commit/30b59fc6bb13ba3d1b471b216061fe1894aa7ba3)
+[Deletions](https://github.com/psthomas/psthomas.github.io/commit/30b59fc6bb13ba3d1b471b216061fe1894aa7ba3), 
 [Site Updates](https://github.com/psthomas/psthomas.github.io/commit/afd450bfd56a1778be1016385fd35cb5435a50f8)
 
 A more in-depth description of this theme's features is available at the Minimal Mistakes [theme setup page](http://mmistakes.github.io/minimal-mistakes/theme-setup/).  

@@ -66,7 +66,7 @@ body {
 		font-weight: 400;
 	}
 	@media #{$small} {
-		font-weight: 600; //added
+		font-weight: 600; //added to override micro
 		@include grid(12,9);
 		@include prefix(12,0);
 		@include suffix(12,0);
