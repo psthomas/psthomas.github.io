@@ -2,7 +2,7 @@
 
 title:            pstblog
 locale:           en_US
-url:              #http://pstblog.com #comment out for local development
+url:              http://pstblog.com #comment out for local development
 
 #Cloud9: $ bundle exec jekyll serve --host $IP --port $PORT
 

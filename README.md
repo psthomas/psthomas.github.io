@@ -2,7 +2,7 @@
 
 This is the source code for my personal website, [pstblog.com](http://pstblog.com).  
 
-It is based on the [Minimal Mistakes](http://mmistakes.github.io/minimal-mistakes) theme.  Changes I have made this theme include:
+It is based on the [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) theme.  Changes I have made this theme include:
 
 * Disqus comments load on a button click rather than automatically
 * Typography changes, mainly to the body text and navigation bar
