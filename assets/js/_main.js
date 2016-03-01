@@ -18,6 +18,7 @@ var changeClass = function (r,className1,className2) {
 //menuElements.insertAdjacentHTML('afterBegin','<button type="button" role="button" id="menutoggle" class="navtoggle navicon-lines-button x" aria-hidden="true"><span class="navicon-lines"></span>menu</button>');
 
 //  Toggle the class on click to show / hide the menu
+/* comment out menu stuff for now
 document.getElementById('menutoggle').onclick = function() {
   changeClass(this, 'navtoggle active', 'navtoggle');
 };
@@ -32,6 +33,8 @@ document.onclick = function(e) {
     changeClass(mobileButton, 'navtoggle active', 'navtoggle');
   }
 };
+
+*/ 
 
 /*! Plugin options and other jQuery stuff */
 

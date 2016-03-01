@@ -41,9 +41,6 @@ body {
 	//padding: 10px 0;  //added
 	display: block;
 	@include font-rem(24); //24
-	@media #{$micro} {  //added to change line weight in mobile menu
-		font-weight: 400;
-	}
 	@media #{$small} {
 		@include grid(12,2);
 		@include prefix(12,0.5);
@@ -65,7 +62,11 @@ body {
 	//text-transform: uppercase;  //added, moved from wrapper
 	float: none;
 	display: block;//block;
+	@media #{$micro} {  //added to change line weight in mobile menu
+		font-weight: 400;
+	}
 	@media #{$small} {
+		font-weight: 600; //added
 		@include grid(12,9);
 		@include prefix(12,0);
 		@include suffix(12,0);
