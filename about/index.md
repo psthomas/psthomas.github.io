@@ -12,14 +12,13 @@ I have an academic background in biology and environmental engineering.  Recentl
 
 My other interests include **economics**, **public health** and **life sciences research**.  I'll write about some of these topics when I know enough to be competent, otherwise I'll defer to summarizing the views of others.  
 
-&nbsp;
 
 # Projects
 
 **React Todo**:  
 A simple todo app written with React, Node, Express and Ajax. [[source](https://github.com/psthomas/react-todo), [demo](http://psthomas.github.io/react-todo/)]   
-**psthomas.github.io**:   
-This site, built with Jekyll and hosted on GitHub. Based on the [Minimal-Mistakes](https://github.com/mmistakes/minimal-mistakes) theme. [[source]()]  
+**pstblog.com**:   
+This site, built with Jekyll and hosted on GitHub. Based on the [Minimal-Mistakes](https://github.com/mmistakes/minimal-mistakes) theme. [[source](https://github.com/psthomas/psthomas.github.io)]  
 **Stacked Chart**:   
 A public health data visualization built with D3.js. [[source](https://github.com/psthomas/stackedchart-d3js), [demo](http://bl.ocks.org/psthomas/raw/427b4c4a9ca2770e6c32/)]  
 **crud-restaurant**:   
@@ -32,7 +31,6 @@ A Flask application that scrapes websites, indexes them, and creates a graph vis
 Using a genetic algorithm and the Google Distance Matrix API to find the optimal sightseeing route through London. [[source](https://github.com/psthomas/optimal-transit-London), [demo](http://psthomas.github.io/optimal-transit-London/)]
  
 
-&nbsp;
 
 # Skillset
 
@@ -43,7 +41,6 @@ Using a genetic algorithm and the Google Distance Matrix API to find the optimal
 | **Intermediate**| [Algorithms](https://www.udacity.com/course/intro-to-computer-science--cs101), [Flask](https://github.com/psthomas/crud-restaurant)  | [Algorithms](http://www.freecodecamp.com/psthomas)   | [git](https://github.com/psthomas), bash, [Google App Engine](https://github.com/psthomas/textmail) |
 | **Advanced**  |   |               |  |
 
-&nbsp;
 
 # Contact 
 [GitHub](https://github.com/psthomas), [Linkedin](https://www.linkedin.com/in/philip-thomas-2805b97a), [Facebook](https://www.facebook.com/phil.thomas.5264)
