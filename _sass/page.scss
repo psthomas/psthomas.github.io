@@ -20,7 +20,7 @@ body {
 	padding: 2em 0 0.5em;  //2em 0 1em;
 	border-bottom: 2px solid #ddd; //added for header divison
 	font-family: $heading-font;
-	font-weight: 600;//600; //700;
+	//font-weight: 600;//600; //700;
 	//text-transform: uppercase;
 	@include clearfix;
 	//Added so navigation links stay textcolor with change in link color:
@@ -36,11 +36,14 @@ body {
 	@include suffix(12,1);
 	margin-bottom: 0em;//0.13em; //1em
 	margin-top: 0em; //get title close to flush with navbar .124em, changed font, now flush
-	//font-weight: 500; //added to separate from other nav elements
+	font-weight: 600; //added to separate from other nav elements
 	float: none;
 	//padding: 10px 0;  //added
 	display: block;
 	@include font-rem(24); //24
+	@media #{$micro} {  //added to change line weight in mobile menu
+		font-weight: 400;
+	}
 	@media #{$small} {
 		@include grid(12,2);
 		@include prefix(12,0.5);
@@ -61,7 +64,7 @@ body {
 	margin-bottom: 0.15em; //1em
 	//text-transform: uppercase;  //added, moved from wrapper
 	float: none;
-	display: block;
+	display: block;//block;
 	@media #{$small} {
 		@include grid(12,9);
 		@include prefix(12,0);
@@ -77,7 +80,7 @@ body {
 		list-style-type: none;
 	}
 	li {
-		display: block;
+		display: block; //block
 		list-style-type: none;
 		border-bottom: 1px solid lighten($black,80);
 		border-bottom: 1px solid fade($black,10);
@@ -85,7 +88,7 @@ body {
 		&:last-child {
 			border-bottom: 0 solid transparent;
 		}
-		@media #{$small} {
+		@media #{$small} {  //@media #{$small} {
 			display: inline;
 			margin-right: 25px;
 			white-space: nowrap;
@@ -179,17 +182,18 @@ $button-size: 1.5rem;
 }
 // Style the toggle menu link and hide it
 
-.nav .navtoggle {
+.nav .navtoggle {  //.nav .navtoggle {
 	@include font-rem(18);
-	font-weight: normal;
+	font-weight: normal; //normal;
 	background-color: $black;
 	color: $white;
 	border: none;
 	cursor: pointer;
 	@media #{$small} {
-		display: none;
+		display: none; //none;
 	}
 }
+
 .nav button {
 	border: none;
 	background: none;
@@ -206,25 +210,29 @@ $button-size: 1.5rem;
 .no-js .nav .navtoggle {
 	display: none;
 }
+
 //Disables in general, but horizontal nav disappears as well
 // .nav .navtoggle {
 // 	display: none;
 // }
 
 // When JavaScript is disabled, we show the menu
-.no-js .nav ul {
+.no-js .nav ul {   //.no-js .nav ul {
 	max-height: 30em;
 	overflow: hidden;
 }
 
 // When JavaScript is enabled, we hide the menu
-.js .nav ul {
-	max-height: 0;
-	overflow: hidden;
-	@media #{$small} {
-		max-height: 30em;
-	}
-}
+// turned off the default hide
+// turned off button insert in _main.js
+// .js .nav ul {
+// 	max-height: 0;
+// 	overflow: hidden;
+// 	@media #{$small} {
+// 		max-height: 30em;
+// 	}
+// }
+
 // Displaying the menu when the user has clicked on the button
 .js .nav .active + ul {
 	max-height: 30em;
