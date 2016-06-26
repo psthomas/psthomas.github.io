@@ -31,6 +31,7 @@ $black          : #111;
 $accentcolor    : $black;
 $graywrap       : #f7f7f7;
 $grayborder     : #d9d9d9;
+$border         : lighten($black,70);
 
 /* buttons */
 $primary			: rgba(51,51,51,0.80);//$textcolor;//$black;
