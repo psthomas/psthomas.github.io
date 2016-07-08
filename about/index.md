@@ -26,7 +26,7 @@ A CRUD web application for local restaurants built with Python, Flask and SQLAlc
 **TeXTmail**:   
 A Flask web application for checking your email via text message. [[source](https://github.com/psthomas/textmail)]  
 **web-graph**:   
-A Flask application that scrapes websites, indexes them, and creates a graph visualization of the linking structure. [[source]([[source](https://github.com/psthomas/textmail)]), [demo](http://web-graph.appspot.com/)]  
+A Flask application that scrapes websites, indexes them, and creates a graph visualization of the linking structure. [[source](https://github.com/psthomas/web-graph), [demo](http://web-graph.appspot.com/)]  
 **Optimal Transit London**:   
 Using a genetic algorithm and the Google Distance Matrix API to find the optimal sightseeing route through London. [[source](https://github.com/psthomas/optimal-transit-London), [demo](http://psthomas.github.io/optimal-transit-London/)]
  
@@ -37,8 +37,8 @@ Using a genetic algorithm and the Google Distance Matrix API to find the optimal
 
 |               | **Python**        |    **JavaScript** | **Other** |
 | ----- | ------------- | ------------- | ------------- |
-| **Basic** | [Scraping](https://github.com/psthomas/web-graph), [Pandas, Numpy](https://github.com/psthomas/efficient-frontier), Conda  | [Node, Express, React](https://github.com/psthomas/react-todo), [D3](https://github.com/psthomas/stackedchart-d3js), jQuery | Postgres, [SQLAlchemy](https://github.com/psthomas/crud-restaurant), SQLite, Bootstrap CSS, AWS |
-| **Intermediate**| [Algorithms](https://www.udacity.com/course/intro-to-computer-science--cs101), [Flask](https://github.com/psthomas/crud-restaurant)  | [Algorithms](http://www.freecodecamp.com/psthomas)   | [git](https://github.com/psthomas), bash, [Google App Engine](https://github.com/psthomas/textmail) |
+| **Basic** | [Scraping](https://github.com/psthomas/web-graph), [Pandas, NumPy](https://github.com/psthomas/efficient-frontier), Conda  | [Node, Express, React](https://github.com/psthomas/react-todo), jQuery | Postgres, [SQLAlchemy](https://github.com/psthomas/crud-restaurant), SQLite, Bootstrap CSS, AWS |
+| **Intermediate**| [Flask](https://github.com/psthomas/crud-restaurant)  | [D3](https://github.com/psthomas/stackedchart-d3js)   | [Git](https://github.com/psthomas), bash, [Google App Engine](https://github.com/psthomas/textmail) |
 | **Advanced**  |   |               |  |
 
 
