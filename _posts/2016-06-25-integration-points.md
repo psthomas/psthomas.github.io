@@ -14,9 +14,9 @@ share: false
 	<figcaption>The temperature bands for Chicago, which ranks pretty low in my final analysis.</figcaption>
 </figure>
 
-I was recently trying to find a way to determine which city has the most comfortable climate.  I came across the website [WeatherSpark](https://weatherspark.com), which provides a lot of great information on annual temperature, relative humidity, cloud cover, and precipitation all summed up in some pretty nice graphics.  I was trying to find the source of their data, but got tired after wading through NOAA’s [website](http://www.weather.gov/) for awhile.  
+I was recently trying to determine which city has the most comfortable climate.  I came across the website [WeatherSpark](https://weatherspark.com), which provides a lot of great information on annual temperature, relative humidity, cloud cover, and precipitation all summed up in some pretty nice graphics.  I was trying to find the source of their data, but couldn't find it on NOAA’s [website](http://www.weather.gov/).  
 
-But then I realized that the graphics themselves are a source of data -- I just needed to count the pixels associated with each temperature band in the graphic to build a passable dataset.  Below, I use a Python imaging library called [Pillow](https://python-pillow.org/) and images I scraped from WeatherSpark to find the US City with the most comfortable temperature throughout the year.  The final code is [here](https://gist.github.com/psthomas/a52b760fc6c1c1155c539da6ceb591ce).
+But then I realized that the graphics themselves are a source of data -- I just needed to count the pixels associated with each temperature band in the graphic to build a halfway decent dataset.  Below, I use a Python imaging library called [Pillow](https://python-pillow.org/) and images I scraped from WeatherSpark to find the US City with the most comfortable temperature throughout the year.  The final code is [here](https://gist.github.com/psthomas/a52b760fc6c1c1155c539da6ceb591ce).
 
 ## Getting the Images
 
@@ -169,7 +169,8 @@ The result of the above function is a dictionary like this one, with temperature
 'Sweltering': [457, 0.004982229684059045],
 'Frigid': [1659, 0.0180864749362231],
 'Cold': [23692, 0.2582909971000589],
-'Cool': [21276, 0.2319516821838955]}
+'Cool': [21276, 0.2319516821838955],
+'score': 46.655593249}
 {% endhighlight %}
 
 

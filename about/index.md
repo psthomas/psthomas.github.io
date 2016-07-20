@@ -12,35 +12,39 @@ I have an academic background in biology and environmental engineering.  Recentl
 
 My other interests include **economics**, **public health** and **life sciences research**.  I'll write about some of these topics when I know enough to be competent, otherwise I'll defer to summarizing the views of others.  
 
+<br/>
 
 # Projects
 
-**React Todo**:  
-A simple todo app written with React, Node, Express and Ajax. [[source](https://github.com/psthomas/react-todo), [demo](http://psthomas.github.io/react-todo/)]   
-**pstblog.com**:   
-This site, built with Jekyll and hosted on GitHub. Based on the [Minimal-Mistakes](https://github.com/mmistakes/minimal-mistakes) theme. [[source](https://github.com/psthomas/psthomas.github.io)]  
-**Stacked Chart**:   
-A public health data visualization built with D3.js. [[source](https://github.com/psthomas/stackedchart-d3js), [demo](http://bl.ocks.org/psthomas/raw/427b4c4a9ca2770e6c32/)]  
-**crud-restaurant**:   
-A CRUD web application for local restaurants built with Python, Flask and SQLAlchemy. [[source](https://github.com/psthomas/crud-restaurant)]  
 **TeXTmail**:   
 A Flask web application for checking your email via text message. [[source](https://github.com/psthomas/textmail)]  
 **web-graph**:   
 A Flask application that scrapes websites, indexes them, and creates a graph visualization of the linking structure. [[source](https://github.com/psthomas/web-graph), [demo](http://web-graph.appspot.com/)]  
+**React Todo**:  
+A simple todo app written with React, Node, Express and Ajax. [[source](https://github.com/psthomas/react-todo), [demo](http://psthomas.github.io/react-todo/)]   
+**pstblog.com**:   
+This site, built with Jekyll and hosted on GitHub. Based on the [Minimal-Mistakes](https://github.com/mmistakes/minimal-mistakes) theme. [[source](https://github.com/psthomas/psthomas.github.io)]  
+**Stacked Chart**:     
+A public health data visualization built with D3.js. [[source](https://github.com/psthomas/stackedchart-d3js), [demo](http://bl.ocks.org/psthomas/raw/427b4c4a9ca2770e6c32/)]  
+**Obesity Viz**:  
+A interactive D3 visualization showing global overweight and obesity trends from 1990 to 2013.  [[source](https://github.com/psthomas/transition-d3js), [demo](http://pstblog.com/transition-d3js/)]   
+**crud-restaurant**:   
+A CRUD web application for local restaurants built with Python, Flask and SQLAlchemy. [[source](https://github.com/psthomas/crud-restaurant)]  
 **Optimal Transit London**:   
 Using a genetic algorithm and the Google Distance Matrix API to find the optimal sightseeing route through London. [[source](https://github.com/psthomas/optimal-transit-London), [demo](http://psthomas.github.io/optimal-transit-London/)]
  
-
+<br/>
 
 # Skillset
 
 
 |               | **Python**        |    **JavaScript** | **Other** |
 | ----- | ------------- | ------------- | ------------- |
-| **Basic** | [Scraping](https://github.com/psthomas/web-graph), [Pandas, NumPy](https://github.com/psthomas/efficient-frontier), Conda  | [Node, Express, React](https://github.com/psthomas/react-todo), jQuery | Postgres, [SQLAlchemy](https://github.com/psthomas/crud-restaurant), SQLite, Bootstrap CSS, AWS |
-| **Intermediate**| [Flask](https://github.com/psthomas/crud-restaurant)  | [D3](https://github.com/psthomas/stackedchart-d3js)   | [Git](https://github.com/psthomas), bash, [Google App Engine](https://github.com/psthomas/textmail) |
-| **Advanced**  |   |               |  |
+| **Basic** | [Scraping](https://github.com/psthomas/web-graph), [Pandas, NumPy](https://github.com/psthomas/efficient-frontier), Conda  | [Node, Express, React](https://github.com/psthomas/react-todo), jQuery | Postgres, [SQLAlchemy](https://github.com/psthomas/crud-restaurant), SQLite, bash, Bootstrap CSS, AWS |
+| **Intermediate**| [Flask](https://github.com/psthomas/crud-restaurant)  | [D3](https://github.com/psthomas/stackedchart-d3js)   | [Git](https://github.com/psthomas), [Google App Engine](https://github.com/psthomas/textmail) |
+| **Advanced**  |   |               |  |  
 
+<br/>
 
 # Contact 
 [GitHub](https://github.com/psthomas), [Linkedin](https://www.linkedin.com/in/philip-thomas-2805b97a), [Facebook](https://www.facebook.com/phil.thomas.5264)

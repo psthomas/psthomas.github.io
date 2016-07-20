@@ -17,7 +17,7 @@ I was watching a World Bank [presentation](http://www.worldbank.org/en/events/20
 	<figcaption>Mount Stupid, source: <a href="http://www.smbc-comics.com/?id=2475" title="Mount Stupid Comic">SMBC</a>.</figcaption>
 </figure>
 
-I'm curious about a number of topics including economics, public health, life sciences research and software development.  Unfortunately, I don’t have much academic expertise in any of these fields, and there aren't enough hours in a day to keep up with the most recent developments.  
+I'm curious about a number of topics including economics, public health, and life sciences research.  Unfortunately, I don’t have much academic expertise in any of these fields, and there aren't enough hours in a day to keep up with the most recent developments.  
 
 When faced with these limitations, one can either **(a)** choose a subject, become an expert, and stick to this topic, or **(b)** build a more shallow understanding of a variety of subjects and risk ending up on Mt. Stupid.  I have generally chosen route **(a)** in life, but I still feel my curiosity pulling me towards route **(b)** regularly.  So when I speculate beyond my areas of expertise, I will generally follow these rules:  
 
@@ -30,18 +30,6 @@ When faced with these limitations, one can either **(a)** choose a subject, beco
 
 If I break these rules, call me out in the comments!  
 
-## Writing Style
-
-For writing style, I’ll borrow from George Orwell’s [“Politics and the English Language”](https://www.mtholyoke.edu/acad/intrel/orwell46.htm): 
-
-> (i) Never use a metaphor, simile, or other figure of speech which you are used to seeing in print.
-> (ii) Never use a long word where a short one will do.
-> (iii) If it is possible to cut a word out, always cut it out.
-> (iv) Never use the passive where you can use the active.
-> (v) Never use a foreign phrase, a scientific word, or a jargon word if you can think of an everyday English equivalent.
-> (vi) Break any of these rules sooner than say anything outright barbarous.
-
-Hopefully I haven’t broken these rules already!
 
 ## Onward    
 
