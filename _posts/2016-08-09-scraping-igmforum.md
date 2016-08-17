@@ -3,7 +3,7 @@ layout: post
 title: Getting Data From the IGM Experts Panel
 excerpt: "I scrape a dataset of all the IGM Panel responses from their website using Python"
 #modified: 2016-02-22
-tags: [intro]
+tags: [projects, IGM Forum, scraping, data analysis, Python, Pandas]
 comments: true
 share: false
 

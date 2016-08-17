@@ -6,7 +6,7 @@ body {
 	background-color: $bodycolor;
 	font-family: $base-font;
 	color: $text-color;
-	font-size: 19.5px;//18px; //defaults to ~16px: //best: 19.5
+	font-size: 18.5px;//18px; //defaults to ~16px: //best: 19.5
 					//https://github.com/mmistakes/minimal-mistakes/issues/226
 	line-height: 1.5; //1.5 //1.6
 }
@@ -271,7 +271,7 @@ $button-size: 1.5rem;
 			@include grid(12,6);  //12,6
 		}
 		@media #{$x-large} {
-			@include grid(12,5.75); //12,5 Changed to 5.5 for a little wider text
+			@include grid(12,6.0); //12,5 Changed to 5.75 for a little wider text
 		}
 	}
 }
@@ -326,7 +326,7 @@ table {
 }
 
 th, td {
-    padding: 10px;
+    padding: 8px;  //10px
     text-align: left;
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
@@ -335,6 +335,50 @@ th, td {
 th {background-color: #f2f2f2;}
 
 tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+
+/* Gists */
+
+// .gist {
+//   //max-width:800px;
+//   width: 800px;
+//   height: 1000px;
+//   overflow:auto;
+// }
+
+// .gist .blob-wrapper.data  {
+//   //max-height:800px;
+//   height: 1000px;
+//   overflow:auto;
+// }
+
+// .gist .blob-wrapper  {
+//   //max-height:800px;
+//   height: 1000px;
+//   overflow:auto;
+// }
+
+// .gist .render-wrapper  {
+//   //max-height:800px;
+//   height: 1000px;
+//   overflow:auto;
+// }
+
+// Works, I guess?
+.gist {width:1000px !important; height:1000px !important;}
+.gist-file {width:1000px !important; height:1000px !important;}
+.js-gist-file-update-container {width:1000px !important; height:1000px !important;}
+.js-task-list-container {width:1000px !important; height:1000px !important;}
+.file-box {width:1000px !important; height:1000px !important;}
+.file {width:1000px !important; height:1000px !important;}
+.render-wrapper {width:1000px !important; height:1000px !important;}
+.blob-wrapper {width:1000px !important; height:1000px !important;}
+.data {width:1000px !important; height:1000px !important;}
+.type-jupyter-notebook {width:1000px !important; height:1000px !important;}
+.render-viewer {width:1000px !important; height:1000px !important;}
+.gist-data {height: 1000px; max-height: 1000px; max-width: 1000px;}
+.gist-meta {max-height: 1000px; max-width: 1000px;}
 
 
 /* Large feature header image */
