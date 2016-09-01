@@ -18,7 +18,7 @@ There are a number of policy areas where decision making is based on the collect
 
 The voting process for the panel works like this: the members agree on the wording of a statement, then provide a vote (from `strongly disagree` to `strongly agree`), and a confidence level for their vote (`1-10`).  The end result is aggregated and published on their website.  
 
-There have been a few papers based on this data [[1](http://faculty.chicagobooth.edu/luigi.zingales/papers/research/economic-experts-vs-average-americans.pdf), [2](http://econweb.ucsd.edu/~gdahl/papers/views-among-economists.pdf)], but the most recent one was published in 2012.  I thought it would be interesting to look at the more recent data which isn’t published in a usable format anywhere, so I used Python, Pandas and BeautifulSoup to scrape the data from their website.  The final Python script is available [here](https://gist.github.com/psthomas/b7af76997fd939c7dd325f5ca3348815).  
+There have been a few papers based on this data [[1](http://faculty.chicagobooth.edu/luigi.zingales/papers/research/economic-experts-vs-average-americans.pdf), [2](http://econweb.ucsd.edu/~gdahl/papers/views-among-economists.pdf)], but the most recent one was published in 2012.  I thought it would be interesting to look at the more recent data which isn’t published in a usable format anywhere, so I used Python, Pandas and BeautifulSoup to scrape the data from their website.  The final Python script is available [here](https://gist.github.com/psthomas/663b75d178eeb0e6bc0aff69e0ad7208#file-scrape-py).  
 
 ## Finding a Pattern in the URLs
 
@@ -103,7 +103,7 @@ while current.next_sibling.next_sibling.name == 'h3':
 
 ## The Results
 
-After taking care of a few edge cases where economists were added late and the table was structured differently, the script works!  The final version of the script is posted [here](https://gist.github.com/psthomas/b7af76997fd939c7dd325f5ca3348815).  The final table of all data is available [here](https://dl.dropboxusercontent.com/u/44331453/output_all.csv).  Some of the data in the preceding table is repetitive, so I also split the files up into [questions](https://dl.dropboxusercontent.com/u/44331453/igm_questions.csv) and [responses](https://dl.dropboxusercontent.com/u/44331453/igm_responses.csv) tables, with the combination of columns `qtitle` and `subquestion` as the primary key between the two.  
+After taking care of a few edge cases where economists were added late and the table was structured differently, the script works!  The final version of the script is posted [here](https://gist.github.com/psthomas/663b75d178eeb0e6bc0aff69e0ad7208#file-scrape-py).  The final table of all data is available [here](https://dl.dropboxusercontent.com/u/44331453/output_all.csv).  Some of the data in the preceding table is repetitive, so I also split the files up into [questions](https://dl.dropboxusercontent.com/u/44331453/igm_questions.csv) and [responses](https://dl.dropboxusercontent.com/u/44331453/igm_responses.csv) tables, with the combination of columns `qtitle` and `subquestion` as the primary key between the two.  
 
 Here are some basic summary statistics of the data.  First, a summary of the numerical information:
 
