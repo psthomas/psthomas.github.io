@@ -1,0 +1,127 @@
+Location,Year,Age,Sex,Cause of death or injury,Measure,Value,Lower bound,Upper bound
+Global,1990,All ages,Both,"Forces of nature, war, and legal intervention",DALYs,13650843.806051,8198677.4941921,23356495.474653
+Global,1995,All ages,Both,"Forces of nature, war, and legal intervention",DALYs,11243358.692292,6430940.5832269,20036013.689167
+Global,2000,All ages,Both,"Forces of nature, war, and legal intervention",DALYs,13874813.144494,8648476.1306669,23398335.472656
+Global,2005,All ages,Both,"Forces of nature, war, and legal intervention",DALYs,11121526.833311,6687655.4739038,18862473.121176
+Global,2010,All ages,Both,"Forces of nature, war, and legal intervention",DALYs,18568961.216457,11665386.215099,33760218.249876
+Global,2013,All ages,Both,"Forces of nature, war, and legal intervention",DALYs,6113613.3914301,3504763.6298496,11068744.791165
+Global,1990,All ages,Both,Self-harm and interpersonal violence,DALYs,51569070.987782,45672502.930476,56517506.698122
+Global,1995,All ages,Both,Self-harm and interpersonal violence,DALYs,59857924.377229,50394389.073415,63884401.752114
+Global,2000,All ages,Both,Self-harm and interpersonal violence,DALYs,62437567.937576,51769974.471343,66771202.699285
+Global,2005,All ages,Both,Self-harm and interpersonal violence,DALYs,60826511.806918,51784070.832137,65431435.583509
+Global,2010,All ages,Both,Self-harm and interpersonal violence,DALYs,57851092.84044,50971759.462699,63954297.584151
+Global,2013,All ages,Both,Self-harm and interpersonal violence,DALYs,56574622.285112,48677728.122476,63256531.518475
+Global,1990,All ages,Both,Unintentional injuries,DALYs,133314804.78023,118613087.76469,144501355.61481
+Global,1995,All ages,Both,Unintentional injuries,DALYs,130423169.43194,117332832.44556,139785542.48554
+Global,2000,All ages,Both,Unintentional injuries,DALYs,120136312.43074,110833970.28304,128895880.97082
+Global,2005,All ages,Both,Unintentional injuries,DALYs,112791961.22049,104542265.9194,121686537.13888
+Global,2010,All ages,Both,Unintentional injuries,DALYs,108101689.7537,99920483.466755,117948701.70485
+Global,2013,All ages,Both,Unintentional injuries,DALYs,105941253.71098,96996077.712353,117265204.42129
+Global,1990,All ages,Both,Transport injuries,DALYs,71073872.796072,66763197.349942,77463422.202796
+Global,1995,All ages,Both,Transport injuries,DALYs,77143987.629999,72524208.463083,82462572.011071
+Global,2000,All ages,Both,Transport injuries,DALYs,80590805.851811,75177079.906494,85663358.961678
+Global,2005,All ages,Both,Transport injuries,DALYs,82941168.358593,75570235.786177,87805029.593084
+Global,2010,All ages,Both,Transport injuries,DALYs,80001007.375976,73415587.237951,85018295.837825
+Global,2013,All ages,Both,Transport injuries,DALYs,78952885.857564,72122760.977878,85115608.757064
+Global,1990,All ages,Both,Other non-communicable diseases,DALYs,146879539.22924,114717979.62686,189882549.25059
+Global,1995,All ages,Both,Other non-communicable diseases,DALYs,149744795.91521,116493512.27459,191987989.31211
+Global,2000,All ages,Both,Other non-communicable diseases,DALYs,152952067.35304,118016357.74168,198110931.11039
+Global,2005,All ages,Both,Other non-communicable diseases,DALYs,157897763.94495,120772083.00555,204769581.04044
+Global,2010,All ages,Both,Other non-communicable diseases,DALYs,165646967.25819,126753682.12588,216727730.02774
+Global,2013,All ages,Both,Other non-communicable diseases,DALYs,170947866.93894,130922861.09922,223484280.68446
+Global,1990,All ages,Both,Musculoskeletal disorders,DALYs,93120651.17864,66771566.204444,123125910.06609
+Global,1995,All ages,Both,Musculoskeletal disorders,DALYs,103068266.51483,73591077.132562,135766845.20659
+Global,2000,All ages,Both,Musculoskeletal disorders,DALYs,115324042.71548,82671072.367142,152951694.07844
+Global,2005,All ages,Both,Musculoskeletal disorders,DALYs,126874188.7161,91296694.855865,167000832.32563
+Global,2010,All ages,Both,Musculoskeletal disorders,DALYs,139921710.63207,100548044.14866,185076324.53069
+Global,2013,All ages,Both,Musculoskeletal disorders,DALYs,149435695.67933,106888457.63527,197565116.72208
+Global,1990,All ages,Both,"Diabetes, urogenital, blood, and endocrine diseases",DALYs,88146239.498295,73837892.096438,105772538.9588
+Global,1995,All ages,Both,"Diabetes, urogenital, blood, and endocrine diseases",DALYs,98441434.85529,82465202.361033,117459461.61993
+Global,2000,All ages,Both,"Diabetes, urogenital, blood, and endocrine diseases",DALYs,108807894.8233,91484978.944052,129738098.84612
+Global,2005,All ages,Both,"Diabetes, urogenital, blood, and endocrine diseases",DALYs,120976536.37959,101712425.44517,143463058.69459
+Global,2010,All ages,Both,"Diabetes, urogenital, blood, and endocrine diseases",DALYs,132530544.35258,111259080.03643,157020517.8349
+Global,2013,All ages,Both,"Diabetes, urogenital, blood, and endocrine diseases",DALYs,141620876.84825,118713361.19932,168158325.91501
+Global,1990,All ages,Both,Mental and substance use disorders,DALYs,119391779.6067,88049557.045225,153615223.4319
+Global,1995,All ages,Both,Mental and substance use disorders,DALYs,133390219.72662,98932373.923305,170877228.80278
+Global,2000,All ages,Both,Mental and substance use disorders,DALYs,145215468.82797,107756842.76304,186193591.16264
+Global,2005,All ages,Both,Mental and substance use disorders,DALYs,157899691.31193,117039422.20349,202585312.81565
+Global,2010,All ages,Both,Mental and substance use disorders,DALYs,167416182.27146,123438172.93892,214451205.37734
+Global,2013,All ages,Both,Mental and substance use disorders,DALYs,173177353.93506,127426537.91906,221734092.09843
+Global,1990,All ages,Both,Neurological disorders,DALYs,54226061.000297,42445250.850506,67768365.389474
+Global,1995,All ages,Both,Neurological disorders,DALYs,60276586.233091,47285843.260153,75476880.694477
+Global,2000,All ages,Both,Neurological disorders,DALYs,65730749.231067,51277117.999953,82129673.614911
+Global,2005,All ages,Both,Neurological disorders,DALYs,72438041.262194,56404573.897457,91027307.799446
+Global,2010,All ages,Both,Neurological disorders,DALYs,79398916.09608,61669081.554232,99440308.981272
+Global,2013,All ages,Both,Neurological disorders,DALYs,84048019.098076,65694159.264868,105692477.3193
+Global,1990,All ages,Both,Digestive diseases,DALYs,39687073.056407,36373491.130081,43478247.370744
+Global,1995,All ages,Both,Digestive diseases,DALYs,39844392.459362,36732748.361314,43474862.926004
+Global,2000,All ages,Both,Digestive diseases,DALYs,37728689.228588,34774323.061314,41239708.258684
+Global,2005,All ages,Both,Digestive diseases,DALYs,37037521.982011,33945126.639527,40627396.782208
+Global,2010,All ages,Both,Digestive diseases,DALYs,36947228.621712,33570323.435555,40978992.773345
+Global,2013,All ages,Both,Digestive diseases,DALYs,37341168.674407,33670444.245256,41452436.196022
+Global,1990,All ages,Both,Cirrhosis,DALYs,27158417.233866,26111696.338869,28160695.240313
+Global,1995,All ages,Both,Cirrhosis,DALYs,29768656.192603,28731556.566567,30872063.043186
+Global,2000,All ages,Both,Cirrhosis,DALYs,32183583.632611,31083416.35605,33430157.949005
+Global,2005,All ages,Both,Cirrhosis,DALYs,35528412.588327,34221253.678868,36967444.632309
+Global,2010,All ages,Both,Cirrhosis,DALYs,36799404.224502,35276961.617783,38560899.640862
+Global,2013,All ages,Both,Cirrhosis,DALYs,36858072.132488,35053939.418002,39022496.06961
+Global,1990,All ages,Both,Chronic respiratory diseases,DALYs,100889422.2831,91562337.606822,111500415.71095
+Global,1995,All ages,Both,Chronic respiratory diseases,DALYs,104281912.86899,94183564.606472,115691635.63057
+Global,2000,All ages,Both,Chronic respiratory diseases,DALYs,103495926.21107,92519451.085856,116127312.04743
+Global,2005,All ages,Both,Chronic respiratory diseases,DALYs,104250696.14256,92540678.694936,118201110.56014
+Global,2010,All ages,Both,Chronic respiratory diseases,DALYs,108387758.10071,95805442.856757,123231803.30033
+Global,2013,All ages,Both,Chronic respiratory diseases,DALYs,112710675.56955,98871939.344501,128147828.24065
+Global,1990,All ages,Both,Cardiovascular diseases,DALYs,258724410.17264,245952960.99881,271548717.04563
+Global,1995,All ages,Both,Cardiovascular diseases,DALYs,283824198.97444,272159930.53668,299146131.23134
+Global,2000,All ages,Both,Cardiovascular diseases,DALYs,295313689.68644,282464508.00081,309888622.73189
+Global,2005,All ages,Both,Cardiovascular diseases,DALYs,308887015.10705,294356731.21588,324066844.54902
+Global,2010,All ages,Both,Cardiovascular diseases,DALYs,319806684.24203,303334241.59834,335753099.90176
+Global,2013,All ages,Both,Cardiovascular diseases,DALYs,329705625.85767,311188849.32777,348206184.10405
+Global,1990,All ages,Both,Neoplasms,DALYs,152572467.0228,145836768.48491,157922292.80533
+Global,1995,All ages,Both,Neoplasms,DALYs,166143537.0017,159671415.66808,170918199.75874
+Global,2000,All ages,Both,Neoplasms,DALYs,174003118.23278,168305759.92108,178902450.02809
+Global,2005,All ages,Both,Neoplasms,DALYs,180409562.13365,175482251.16712,185592184.04564
+Global,2010,All ages,Both,Neoplasms,DALYs,189692312.62754,184098868.83057,196436457.59625
+Global,2013,All ages,Both,Neoplasms,DALYs,197093475.75036,189237038.15797,206258491.47315
+Global,1990,All ages,Both,"Other communicable, maternal, neonatal, and nutritional diseases",DALYs,40014567.457004,31121621.830173,51625554.922516
+Global,1995,All ages,Both,"Other communicable, maternal, neonatal, and nutritional diseases",DALYs,36096446.748856,28924002.450418,45619468.119378
+Global,2000,All ages,Both,"Other communicable, maternal, neonatal, and nutritional diseases",DALYs,33446987.639536,26747394.354588,41599803.638015
+Global,2005,All ages,Both,"Other communicable, maternal, neonatal, and nutritional diseases",DALYs,31457595.937352,24584459.519378,39680121.188153
+Global,2010,All ages,Both,"Other communicable, maternal, neonatal, and nutritional diseases",DALYs,28790259.865489,22942421.818461,35855380.386636
+Global,2013,All ages,Both,"Other communicable, maternal, neonatal, and nutritional diseases",DALYs,27114042.887558,21684059.552806,33977728.563284
+Global,1990,All ages,Both,Nutritional deficiencies,DALYs,94392564.035527,76804318.282912,115206365.6006
+Global,1995,All ages,Both,Nutritional deficiencies,DALYs,92912532.726185,75212791.37023,113638369.52571
+Global,2000,All ages,Both,Nutritional deficiencies,DALYs,84831230.949253,68555745.460561,105417284.38652
+Global,2005,All ages,Both,Nutritional deficiencies,DALYs,79695897.432086,63911438.446407,99518068.450085
+Global,2010,All ages,Both,Nutritional deficiencies,DALYs,74723078.701396,59820137.050348,94243520.447704
+Global,2013,All ages,Both,Nutritional deficiencies,DALYs,74834422.668375,59402014.720106,94084094.610872
+Global,1990,All ages,Both,Neonatal disorders,DALYs,301858842.81207,284240483.6321,315163643.20971
+Global,1995,All ages,Both,Neonatal disorders,DALYs,273478745.01651,262805991.5834,285014854.23136
+Global,2000,All ages,Both,Neonatal disorders,DALYs,246896836.14375,237360136.12135,256152154.8452
+Global,2005,All ages,Both,Neonatal disorders,DALYs,221687487.04936,213294958.55984,230283260.53873
+Global,2010,All ages,Both,Neonatal disorders,DALYs,200626516.81144,191276403.19553,209793778.72093
+Global,2013,All ages,Both,Neonatal disorders,DALYs,189600971.25696,179024142.56014,200043987.35199
+Global,1990,All ages,Both,Maternal disorders,DALYs,22739783.319585,20814564.704086,24623427.409136
+Global,1995,All ages,Both,Maternal disorders,DALYs,22188442.509279,20554523.1393,23948757.372022
+Global,2000,All ages,Both,Maternal disorders,DALYs,22202400.866301,20506876.574842,24083041.384913
+Global,2005,All ages,Both,Maternal disorders,DALYs,21717206.318467,19935360.501809,23449891.380605
+Global,2010,All ages,Both,Maternal disorders,DALYs,19497662.349948,17829416.22478,21294591.956506
+Global,2013,All ages,Both,Maternal disorders,DALYs,18027808.895169,16051840.861313,19989455.321829
+Global,1990,All ages,Both,Neglected tropical diseases and malaria,DALYs,98155689.665389,86989421.168848,110880244.06842
+Global,1995,All ages,Both,Neglected tropical diseases and malaria,DALYs,109037024.84414,96955217.291149,121246217.72678
+Global,2000,All ages,Both,Neglected tropical diseases and malaria,DALYs,114863244.41861,102791587.74039,127137982.84439
+Global,2005,All ages,Both,Neglected tropical diseases and malaria,DALYs,121587642.88578,108043821.72693,136597458.48932
+Global,2010,All ages,Both,Neglected tropical diseases and malaria,DALYs,104317807.6296,90378490.826457,120189596.6243
+Global,2013,All ages,Both,Neglected tropical diseases and malaria,DALYs,90676835.814257,75748926.182921,107737598.65154
+Global,1990,All ages,Both,"Diarrhea, lower respiratory, and other common infectious diseases",DALYs,549896019.88635,517230650.71962,583753938.12407
+Global,1995,All ages,Both,"Diarrhea, lower respiratory, and other common infectious diseases",DALYs,469801201.02852,442838582.62452,496690072.22213
+Global,2000,All ages,Both,"Diarrhea, lower respiratory, and other common infectious diseases",DALYs,399828665.78438,374602664.59163,424107794.35519
+Global,2005,All ages,Both,"Diarrhea, lower respiratory, and other common infectious diseases",DALYs,316908832.61419,298964265.21392,335711180.86001
+Global,2010,All ages,Both,"Diarrhea, lower respiratory, and other common infectious diseases",DALYs,266775784.99071,249498752.86512,284138757.22819
+Global,2013,All ages,Both,"Diarrhea, lower respiratory, and other common infectious diseases",DALYs,249855059.47002,231222072.98181,269625344.64395
+Global,1990,All ages,Both,HIV/AIDS and tuberculosis,DALYs,85637814.067559,79961534.552225,93697556.639676
+Global,1995,All ages,Both,HIV/AIDS and tuberculosis,DALYs,109126361.61084,101613800.06351,117409310.87244
+Global,2000,All ages,Both,HIV/AIDS and tuberculosis,DALYs,135681300.28934,126699485.65389,145034352.60525
+Global,2005,All ages,Both,HIV/AIDS and tuberculosis,DALYs,150303975.36683,141828209.93542,159539577.23457
+Global,2010,All ages,Both,HIV/AIDS and tuberculosis,DALYs,130143372.41006,123445967.56574,137779037.21477
+Global,2013,All ages,Both,HIV/AIDS and tuberculosis,DALYs,119179630.74736,112497733.24018,127584907.68463
