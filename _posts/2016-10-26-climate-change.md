@@ -149,7 +149,7 @@ Here are a few notable features of the data they point out in their [blog post](
 * 1950s-1970s: fairly flat temperatures as cooling sulphate aerosols mask the greenhouse gas warming
 * 1980-now: strong warming, with temperatures pushed higher in 1998 and 2016 due to strong El Nino events
 
-The rest of this post walks through how I built the visualization, focusing on the tricky parts like plotting a radial path, adding the gradient, and animating the path using a tween function.  I started with a [Nadieh Bremer's example code](http://bl.ocks.org/nbremer/a43dbd5690ccd5ac4c6cc392415140e7) as a base, and went from there.  
+The rest of this post walks through how I built the visualization, focusing on the tricky parts like plotting a radial path, adding the gradient, and animating the path using a tween function.  I started with a [Nadieh Bremer's example code](http://bl.ocks.org/nbremer/a43dbd5690ccd5ac4c6cc392415140e7) as a base, and went from there.  A full page version of the visualization is available [here](http://bl.ocks.org/psthomas/raw/269d0bd87f41135c95564cc032110c2b/), and the full code and data are available [here](https://gist.github.com/psthomas/269d0bd87f41135c95564cc032110c2b#file-index-html).    
 
 
 ## Getting the Data
