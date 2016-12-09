@@ -8,5 +8,4 @@ node_modules
 _asset_bundler_cache
 .jekyll-metadata
 Gruntfile.js
-packages.json
-
+package.json
