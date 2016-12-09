@@ -7,5 +7,6 @@ codekit-config.json
 node_modules
 _asset_bundler_cache
 .jekyll-metadata
-blarg
+Gruntfile.js
+packages.json
 
