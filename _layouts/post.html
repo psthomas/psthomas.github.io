@@ -57,9 +57,12 @@
       
     <br> 
     
+    
     <!-- Add Related articles under comments -->
+    
+<!--
     {% if site.related_posts.size > 0 %}
-    <div>  <!-- class="related-articles" -->
+    <div>  
 
     <hr />
     <h4>Related Posts <small class="pull-right"><a href="{{ site.url }}/blog/">(View all posts)</a></small></h4>
@@ -68,10 +71,9 @@
         <li><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
       {% endfor %}
       </ul>
-      <!--<hr />-->
-    </div><!-- /.related-articles -->
+    </div>
     {% endif %} 
-    
+-->
 
     
   <!-- moved to footer
@@ -108,8 +110,6 @@
     
     {% if page.share != false %}{% include _social-share.html %}{% endif %}
     
-    
-    <br>
     <br>
     
     <!-- footer -->
