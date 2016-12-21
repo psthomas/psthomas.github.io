@@ -27,7 +27,7 @@ This site, built with Jekyll and hosted on GitHub. Based on the [Minimal-Mistake
 **Stacked Chart**:     
 A public health data visualization built with D3.js. [[source](https://github.com/psthomas/stackedchart-d3js), [demo](http://bl.ocks.org/psthomas/raw/427b4c4a9ca2770e6c32/)]  
 **Obesity Viz**:  
-A interactive D3 visualization showing global overweight and obesity trends from 1990 to 2013.  [[source](https://github.com/psthomas/transition-d3js), [demo](http://pstblog.com/transition-d3js/)]   
+A interactive D3 visualization showing global overweight and obesity trends from 1990 to 2013.  [[source](https://github.com/psthomas/transition-d3js), [demo](http://bl.ocks.org/psthomas/raw/3d206756f93fdfcec7919dfb42c4e6fe/)]   
 **crud-restaurant**:   
 A CRUD web application for local restaurants built with Python, Flask and SQLAlchemy. [[source](https://github.com/psthomas/crud-restaurant)]  
 **Optimal Transit London**:   
