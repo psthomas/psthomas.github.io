@@ -20,7 +20,7 @@ These findings fit with other research on the [social determinants of health](ht
 
 The authors in the above study used `Potential Years of Life Lost (PYLL)` as one of the main measures of population health.  This metric doesn't include years lived with a disability `(YLD)`, so I was interested in seeing how a more comprehensive measure of population health like the Disability Adjusted Life Year `(YLLs + YLDs)` affects this analysis.  The [Global Burden of Disease](http://www.healthdata.org/gbd) regularly conducts a study of global DALY burdens, so I dowloaded their `1990-2015` results.  I also used per capita health and social services spending rather than spending as a percentage of GDP because I think the per capita figures are closer to what you want to measure.       
 
-The rest of this post looks at some of the relationships I found in the data.  All the code is available in an IPython notebook [here](https://gist.github.com/psthomas/51fc1a497d03005a05197bea53bf0cc3), and the input data is available in a zipped file [here](https://dl.dropboxusercontent.com/u/44331453/social_data.zip).  
+The rest of this post looks at some of the relationships I found in the data.  All the code is available in an IPython notebook [here](https://gist.github.com/psthomas/51fc1a497d03005a05197bea53bf0cc3), and the input data is available in a zipped file [here](https://www.dropbox.com/s/0kvyffe810hgbx6/social_data.zip?dl=1).  
 
 <br/>
   

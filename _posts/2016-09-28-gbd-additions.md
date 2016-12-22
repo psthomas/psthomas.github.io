@@ -57,7 +57,7 @@ The rest of this post looks at a few other disease burdens that it might make se
 
 # Importing the Data
 
-All of the data for this post can be accessed by visiting the [visualization](http://ihmeuw.org/3wfa) and clicking the download button in the upper right corner.  I obtained the life table that I use later from the Web Table 6 of the supplementary appendix: [PDF](http://www.thelancet.com/cms/attachment/2017336178/2037711222/mmc1.pdf).  The CSVs are also available as a zipped file [here](https://dl.dropboxusercontent.com/u/44331453/gbd_data.zip).
+All of the data for this post can be accessed by visiting the [visualization](http://ihmeuw.org/3wfa) and clicking the download button in the upper right corner.  I obtained the life table that I use later from the Web Table 6 of the supplementary appendix: [PDF](http://www.thelancet.com/cms/attachment/2017336178/2037711222/mmc1.pdf).  The CSVs are also available as a zipped file [here](https://www.dropbox.com/s/9mn545f8kz4bmgf/gbd_data.zip?dl=1).
 
 The initial data shows global DALY burden by cause for a number of years between 1990 and 2013.   
 
