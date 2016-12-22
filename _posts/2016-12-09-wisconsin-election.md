@@ -80,8 +80,8 @@ This visualization was built with D3.js, and the code is available [here](https:
 
 * There seems to be a large increase in turnout from 2000-2004.
 * Smaller rural counties are more erratic, swinging towards Obama in 2008, then back to Trump in 2016.
-* Milwaukee County had a 8% drop in turnout from 2012-2016, probably costing Clinton the state.  
 * Strong conservative counties like Waukesha actually shifted towards Democrats in 2016, suggesting a clash between establishment conservatism and Trump’s campaign.
+* Milwaukee County had a 8% drop in turnout from 2012-2016, probably costing Clinton the state (Take a look at the end of my [previous post](https://pstblog.com/2016/12/08/presidential-election) looking at the potential effects of the Voter ID law on this drop.  The takeaway is that Voter ID could have swung the election in this state).  
 
 ## Assumptions
 

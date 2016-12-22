@@ -411,3 +411,35 @@ Whatever the cause, I think it makes sense to study the differences between the 
 efforts likely at the state and now national level. 
 
 
+## Update on Voter ID and Turnout (12/22)
+ 
+I recently read an interesting paper [1] looking at the effect of Voter ID laws on Democratic and Republican turnout.  Until recently, people who have studied voter ID laws haven’t found much effect, but this study was different for a few reasons:
+
+1. It used validated voting data.  People, especially minority groups, tend to overreport voting behavior in surveys.  Using validated data eliminates the problem of inflated turnout by looking at voting records instead. 
+2. Rather than looking at the effect on overall turnout, they looked at the differential effect on minority voters.
+3. They studied the most recent Photo ID laws, which are more stringent than past laws.  
+
+Here’s what they found:  
+
+* “The analysis shows that strict photo identification laws have a differentially negative impact on the turnout of Hispanics, Blacks, and mixed-race Americans in primaries and general elections. Voter ID laws skew democracy in favor of whites and those on the political right.”
+* “In the general elections, the model predicts Latino turnout was `10.3` points lower in states with photo ID than in states without strict photo ID regulations, all else equal. For multi-racial Americans, turnout was `12.8` points lower under strict photo ID laws.”
+* “Multi-racial Americans voted at almost the exact same predicted rate as whites (a `0.2` point gap) in non-photo ID states but were `9.2` percent less likely than whites to participate in general elections in photo ID states.  Thus, while whites were largely unaffected by these laws, racial and ethnic minorities were falling further and further behind and increasingly losing their place in the democratic process.“
+* “Democratic turnout drops by an estimated `7.7` percentage points in general elections when strict photo identification laws are in place. By comparison, the predicted drop for Republicans is only `4.6` points.“
+
+So, if we naively apply these effects to Milwaukee data, what do we see?  I don’t have detailed demographic data for the voting population in Milwaukee, so I’ll use the general Democratic (`-7.7%`) and Republican (`-4.6%`) effect sizes from above. On the Democratic side, `1.077 x 288,986 = 311,238`, an increase of `22,252` votes.  For Republicans, `1.046 x 126,091 = 131,891`, an increase of `5,800` votes.  
+
+Milwaukee turnout was `65.4%`, but these additional votes would bring turnout up to `(311,238 + 25621 + 131,891)/ (668,249) = 70.1%`, which is still below the 2012 turnout of `73.1%`.  Trump won the state by `22,748` votes, so the increase in Democratic support in Milwaukee County alone would have made things much closer.  
+
+If we apply the same Voter ID effects to the rest of the counties in the state using the same approach as above, the result is a `1,489,434` to `1,471,751` Clinton victory.  This would bring overall turnout in the state to `(1,489,434 + 187320 + 1,471,751)/4,449,170 = 70.8%` from `69.6%`, which is still in the same ballpark as the 2008 and 2012 elections [2].
+
+**The takeaway: if the effect sizes from this paper are correct, the decline in turnout would be enough to swing the election in this state.**  However, the effect might be smaller in Wisconsin because we might have a smaller minority population than other red states that were included in the study.  Using the subgroup specific effects and demographic data from exit polls might be a better approach, but I can’t find a good source for that data.  Using the effects by subgroup could also help explain the difference in turnout between Milwaukee County (`60.6%` White) and Dane County (`84.7%` White).    
+
+A few political scientists from UW-Madison announced they’re going to [study the effects of the law](http://host.madison.com/ct/news/local/education/university/uw-study-to-explore-effects-of-voter-id-law-on/article_ee400380-614d-5560-b7a5-cfee73ca0338.html), so it’ll be interesting to compare this back-of-the-envelope estimate with their numbers when they come out next summer.
+
+## References
+
+[1] *Voter Identification Laws and the Suppression of Minority Votes.*  [http://pages.ucsd.edu/~zhajnal/page5/documents/voterIDhajnaletal.pdf](http://pages.ucsd.edu/~zhajnal/page5/documents/voterIDhajnaletal.pdf)
+
+[2] *Voter Turnout Estimated at 3.1 million.* [http://elections.wi.gov/node/4375](http://elections.wi.gov/node/4375)
+
+

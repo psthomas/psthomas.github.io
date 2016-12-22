@@ -661,18 +661,18 @@ print mixed_1.summary()
 
 # References
 
-[1] Health and social services expenditures: associations with health outcomes.  https://www.ncbi.nlm.nih.gov/pubmed/21447501
+[1] Health and social services expenditures: associations with health outcomes.  [https://www.ncbi.nlm.nih.gov/pubmed/21447501](https://www.ncbi.nlm.nih.gov/pubmed/21447501)
 
 [2] Different Perspectives for Assigining Weights to Determinants of Health.  
-https://uwphi.pophealth.wisc.edu/publications/other/different-perspectives-for-assigning-weights-to-determinants-of-health.pdf
+[https://uwphi.pophealth.wisc.edu/publications/other/different-perspectives-for-assigning-weights-to-determinants-of-health.pdf](https://uwphi.pophealth.wisc.edu/publications/other/different-perspectives-for-assigning-weights-to-determinants-of-health.pdf)
 
 [3] The Relative Contribution of Multiple Determinants to Health Outcomes. 
-http://healthaffairs.org/healthpolicybriefs/brief_pdfs/healthpolicybrief_123.pdf
+[http://healthaffairs.org/healthpolicybriefs/brief_pdfs/healthpolicybrief_123.pdf](http://healthaffairs.org/healthpolicybriefs/brief_pdfs/healthpolicybrief_123.pdf)
 
-[4] Bitter Pill: Why Medical Bills Are Killing Us. http://www.uta.edu/faculty/story/2311/Misc/2013,2,26,MedicalCostsDemandAndGreed.pdf
+[4] Bitter Pill: Why Medical Bills Are Killing Us. [http://www.uta.edu/faculty/story/2311/Misc/2013,2,26,MedicalCostsDemandAndGreed.pdf](http://www.uta.edu/faculty/story/2311/Misc/2013,2,26,MedicalCostsDemandAndGreed.pdf)
 
-[5] The True Levels of Government and Social Expenditures in Advanced Economies.  https://piie.com/publications/pb/pb15-4.pdf
+[5] The True Levels of Government and Social Expenditures in Advanced Economies.  [https://piie.com/publications/pb/pb15-4.pdf](https://piie.com/publications/pb/pb15-4.pdf)
     
-[6] Systematic review of the literature on the cost-effectiveness threshold. https://www.ncbi.nlm.nih.gov/books/NBK274312/
+[6] Systematic review of the literature on the cost-effectiveness threshold. [https://www.ncbi.nlm.nih.gov/books/NBK274312/](https://www.ncbi.nlm.nih.gov/books/NBK274312/)
     
-[7] Updating Cost-Effectiveness — The Curious Resilience of the $50,000-per-QALY Threshold. http://www.nejm.org/doi/full/10.1056/NEJMp1405158?af=R&rss=currentIssue&#t=article
+[7] Updating Cost-Effectiveness — The Curious Resilience of the $50,000-per-QALY Threshold. [http://www.nejm.org/doi/full/10.1056/NEJMp1405158?af=R&rss=currentIssue&#t=article](http://www.nejm.org/doi/full/10.1056/NEJMp1405158?af=R&rss=currentIssue&#t=article)
