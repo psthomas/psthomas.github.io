@@ -432,7 +432,13 @@ Milwaukee turnout was `65.4%`, but these additional votes would bring turnout up
 
 If we apply the same Voter ID effects to the rest of the counties in the state using the same approach as above, the result is a `1,489,434` to `1,471,751` Clinton victory.  This would bring overall turnout in the state to `(1,489,434 + 187320 + 1,471,751)/4,449,170 = 70.8%` from `69.6%`, which is still in the same ballpark as the 2008 and 2012 elections [2].
 
-**The takeaway: if the effect sizes from this paper are correct, the decline in turnout would be enough to swing the election in this state.**  However, the effect might be smaller in Wisconsin because we might have a smaller minority population than other red states that were included in the study.  Using the subgroup specific effects and demographic data from exit polls might be a better approach, but I can’t find a good source for that data.  Using the effects by subgroup could also help explain the difference in turnout between Milwaukee County (`60.6%` White) and Dane County (`84.7%` White).    
+**The takeaway: if the effect sizes from this paper are correct, the decline in turnout would be enough to swing the election in this state.**  
+
+Here are a few more reasons the above estimate could be wrong:
+
+* The effect size might be smaller in Wisconsin because we might have a smaller minority population than other red states that were included in the study.  Using the subgroup specific effects and demographic data from exit polls might be a better approach, but I can’t find a good source for that data.  Using the effects by subgroup could also help explain the difference in turnout between Milwaukee County (`60.6%` White) and Dane County (`84.7%` White).
+* There could be a large overlap of those without a voter ID and those that were uninspired by Clinton as a candidate.  Although an ID would have been an impediment, they might not have voted anyways.  
+* Although the quoted study controlled for many possible confounders, they could be missing one that reduces the effect size.  
 
 A few political scientists from UW-Madison announced they’re going to [study the effects of the law](http://host.madison.com/ct/news/local/education/university/uw-study-to-explore-effects-of-voter-id-law-on/article_ee400380-614d-5560-b7a5-cfee73ca0338.html), so it’ll be interesting to compare this back-of-the-envelope estimate with their numbers when they come out next summer.
 
