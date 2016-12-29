@@ -434,7 +434,7 @@ If we apply the same Voter ID effects to the rest of the counties in the state u
 
 **The takeaway: if the effect sizes from this paper are correct, the decline in turnout would be enough to swing the election in this state.**  
 
-Here are a few more reasons the above estimate could be wrong:
+Here are a few reasons the above estimate could be wrong:
 
 * The effect size might be smaller in Wisconsin because we might have a smaller minority population than other red states that were included in the study.  Using the subgroup specific effects and demographic data from exit polls might be a better approach, but I can’t find a good source for that data.  Using the effects by subgroup could also help explain the difference in turnout between Milwaukee County (`60.6%` White) and Dane County (`84.7%` White).
 * There could be a large overlap of those without a voter ID and those that were uninspired by Clinton as a candidate.  Although an ID would have been an impediment, they might not have voted anyways.  
