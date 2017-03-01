@@ -8,11 +8,7 @@
 </head>
 
 <body class="page">
-
-{% include _browser-upgrade.html %}
-
-{% include _navigation.html %}
-
+  
 {% if page.image.feature %}
   <div class="image-wrap">
   <img src=
@@ -32,7 +28,10 @@
   <div class="article-author-side">
     {% include _author-bio.html %}
   </div>
+
   <article class="page">
+    {% include _simplenav.html %} 
+    
     <h1>{{ page.title }}</h1>
     <div class="article-wrap">
       {{ content }}
