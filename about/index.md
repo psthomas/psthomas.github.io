@@ -12,7 +12,6 @@ I have an academic background in biology and environmental engineering.  Recentl
 
 My other interests include **economics**, **public health** and **life sciences research**.  I'll write about some of these topics when I know enough to be competent, otherwise I'll defer to summarizing the views of others.  
 
-<br/>
 
 # Projects
 
@@ -32,8 +31,7 @@ A interactive D3 visualization showing global overweight and obesity trends from
 A CRUD web application for local restaurants built with Python, Flask and SQLAlchemy. [[source](https://github.com/psthomas/crud-restaurant)]  
 **Optimal Transit London**:   
 Using a genetic algorithm and the Google Distance Matrix API to find the optimal sightseeing route through London. [[source](https://github.com/psthomas/optimal-transit-London), [demo](http://psthomas.github.io/optimal-transit-London/)]
- 
-<br/>
+
 
 # Skillset
 
@@ -43,8 +41,6 @@ Using a genetic algorithm and the Google Distance Matrix API to find the optimal
 | **Basic** | [Scraping](https://github.com/psthomas/web-graph), [Pandas, NumPy](https://github.com/psthomas/efficient-frontier), Conda  | [Node, Express, React](https://github.com/psthomas/react-todo), jQuery | Postgres, [SQLAlchemy](https://github.com/psthomas/crud-restaurant), SQLite, bash, Bootstrap CSS, AWS |
 | **Intermediate**| [Flask](https://github.com/psthomas/crud-restaurant)  | [D3](https://github.com/psthomas/stackedchart-d3js)   | [Git](https://github.com/psthomas), [Google App Engine](https://github.com/psthomas/textmail) |
 | **Advanced**  |   |               |  |  
-
-<br/>
 
 # Contact 
 [GitHub](https://github.com/psthomas), [Linkedin](https://www.linkedin.com/in/philip-thomas-2805b97a), [Facebook](https://www.facebook.com/phil.thomas.5264)

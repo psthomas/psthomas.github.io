@@ -1,42 +1,23 @@
 {% if site.owner.disqus-shortname %}
-
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    /* Configuration Variables*/
     var disqus_shortname = '{{ site.owner.disqus-shortname }}'; // required: replace example with your forum shortname
     
     // Trying an onclick load:
     $(document).ready(function() {
         $('#show-comments').on('click', function(){   //'.show-comments, changed to #show-comments'
-              //var disqus_shortname = 'YOUR-DISQUS-USERNAME'; // Replace this value with *your* username.
-    
               // ajax request to load the disqus javascript
               $.ajax({
                       type: "GET",
-                      url: "https://" + disqus_shortname + ".disqus.com/embed.js", //"http://", changed to https, back again
+                      url: "https://" + disqus_shortname + ".disqus.com/embed.js", 
                       dataType: "script",
                       cache: true
               });
-              // hide the button once comments load
+              //Hide the button once comments load
               $(this).fadeOut();
         });
     });
 
-    //Rest below is original, loads on page load instead of on button click
-
-    // /* * * DON'T EDIT BELOW THIS LINE * * */
-    // (function() {
-    //     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    //     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    //     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    // })();
-
-    // /* * * DON'T EDIT BELOW THIS LINE * * */
-    // (function () {
-    //     var s = document.createElement('script'); s.async = true;
-    //     s.type = 'text/javascript';
-    //     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    //     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    // }());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endif %}

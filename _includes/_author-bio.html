@@ -4,15 +4,13 @@
 
 <div itemscope itemtype="http://schema.org/Person">
 
-
 <!-- only include prof_img: true in about's index.md, exclude from rest of pages -->
 {% if author.avatar contains 'http' and page.prof_img %}
 	<img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo">  
 {% elsif page.prof_img %}
-	<img src="{{ site.url }}/images/{{ author.avatar }}" class="bio-photo"  alt="{{ author.name }} bio photo"> <!--{{ site.url }}/images/{{ author.avatar }}-->
+	<img src="{{ site.url }}/images/{{ author.avatar }}" class="bio-photo"  alt="{{ author.name }} bio photo"> 
 {% endif %}
 
-  <!-- was: <h4 itemprop="name">{{ author.name }}</h4> -->
   <h3 itemprop="name">{{ author.name }}</h3>
   <p>{{ author.bio }}</p>
   {% if author.email %}<a href="{{site.baseurl}}/images/email.png" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>{% endif %}  <!--a href="mailto:{{ author.email }}"-->
