@@ -75,7 +75,7 @@ body {
 		@include grid(12,6);
 	}
 	@media #{$x-large} {
-		@include grid(12,5.75); //12,5 widen to 5.75  5.5
+		@include grid(12,6.25); //12,5 widen to 5.75  5.5  6.25
 	}
 	h3 {
 		margin: 0;
@@ -227,7 +227,7 @@ th {background-color: #f2f2f2;}
 		display: block;
 		//@include grid(12,2);  //Original
 		@include grid(12,1.5);
-		@include prefix(12,0.75); //0.5  0.75 to space out more
+		@include prefix(12,.85); //0.5  0.75 to space out more
 		@include suffix(12,0.5);
 		h3,
 		p,
@@ -508,14 +508,14 @@ th {background-color: #f2f2f2;}
 			@include grid(12,6.25);  //6 enlarged
 			// @include prefix(12,3);
 			// @include suffix(12,3);
-			@include prefix(12,2.75);
+			@include prefix(12,2.85); //2.75
 			@include suffix(12,3);
 		}
 		@media #{$x-large} {
 			// @include grid(12,6); //12, 4.5, widen a bit to 6 
 			// @include prefix(12,3.25); //12, 4  //OK: 12,3.75
 			// @include suffix(12,2.75); //12,3.5 narrow to 2.25 //OK: 12,2.25
-			@include prefix(12,2.75);
+			@include prefix(12,2.85);
 			@include suffix(12,1);
 		}
 	}
