@@ -3,7 +3,7 @@ layout: post
 title: "Democratic Prospects for the 2018 Midterm"
 excerpt: "I look at potentially close seats in the House and Senate for 2018."
 #modified: 2016-02-22
-tags: [pandas, python, bokeh, politics, data visualization]
+tags: [pandas, python, d3.js, politics, data visualization]
 comments: true
 share: false
 
@@ -12,14 +12,14 @@ share: false
 
 Below, I look at the prospects for each party in the 2018 election.  Overall, the House actually looks pretty good for Democrats, with many Republicans up for re-election in districts that Clinton won.  The Senate is a different story, with many Democrats running in states that Trump won by a considerable margin.  But who knows what will happen if the election becomes a referendum on Trump.
 
-The data for this post come from [The DailyKos](https://docs.google.com/spreadsheets/d/1oRl7vxEJUUDWJCyrjo62cELJD2ONIVl-D9TSUKiK9jk/edit#gid=2132957126).  If you're viewing this notebook on Github, open it in [NBViewer](http://nbviewer.jupyter.org/) instead to see the interactive plots and tables.  I don't have an in-depth understanding of politics, so it's possible I'm missing some good indicators for midterm success.  Let me know if you have any ideas for additions.
+The data for this post come from [The DailyKos](https://docs.google.com/spreadsheets/d/1oRl7vxEJUUDWJCyrjo62cELJD2ONIVl-D9TSUKiK9jk/edit#gid=2132957126).  All the code for this post is available in a Jupyter notebook [here](http://nbviewer.jupyter.org/gist/psthomas/ed54ed0586f224544c5ad83763cb7267), including the interactive plots and tables.  I don't have an in-depth understanding of politics, so it's possible I'm missing some good indicators for midterm success.  Let me know if you have any ideas for additions.
 
 
 # House Seats at Risk
 
 The plot below shows the 2016 Deocratic presidential lead on the x-axis, and the 2016 Democratic House lead on the y-axis.  Any point near the x-axis was a close race, with those just above the axis won by Democrats and those just below won by Republicans.  Points in the top left quadrant are seats that are especially at risk for Democrats because Trump won these districts.  
 
-In the bottom right are districts that were won by Clinton in the presidential race, yet still held by House Republicans.  There seem to be more Republican House seats at risk in 2018, which could especially be dangerous if the election becomes a referendum on Trump.  
+In the bottom right are House Republican districts that were won by Clinton in the presidential race.  There seem to be more Republican House seats at risk in 2018, which could especially be dangerous for them if the election becomes a referendum on Trump.  
 
 
 <iframe srcdoc="
