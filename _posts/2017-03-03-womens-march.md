@@ -711,4 +711,4 @@ The Democratic margin for president is a fairly good indicator for the Women's M
 
 ## Conclusion
 
-Overall, this is pretty encouraging for Democrats.  The main challenge now is to harness this energy for political change.  Recent attendance at town halls and activism from grassroots organizations suggests this might already be happening already.  
+Overall, this is pretty encouraging for Democrats.  The main challenge now is to harness this energy for political change.  Recent attendance at town halls and activism from grassroots organizations suggests this might already be happening.  
