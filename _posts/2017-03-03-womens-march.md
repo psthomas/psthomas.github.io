@@ -284,9 +284,9 @@ svg.append(&quot;line&quot;)
     .attr(&quot;y1&quot;, y(1))
     .attr(&quot;x2&quot;, x(1e8))                         
     .attr(&quot;y2&quot;, y(1e8))
-    .attr(&quot;stroke-width&quot;, 1.25)
-    .attr(&quot;stroke&quot;, &quot;#888&quot;) //#999 #fff
-    .attr(&quot;opacity&quot;, &quot;0.6&quot;)
+    .attr(&quot;stroke-width&quot;, 2.0)
+    .attr(&quot;stroke&quot;, &quot;#fff&quot;) //#999 #fff
+    .attr(&quot;opacity&quot;, &quot;1&quot;)
     //.attr(&quot;fill&quot;, &quot;none&quot;)
     //.style(&quot;stroke-dasharray&quot;, (&quot;10, 10&quot;))
     .attr(&quot;class&quot;, &quot;trendline&quot;)
@@ -302,7 +302,7 @@ svg.append(&quot;line&quot;)
       .attr(&quot;cx&quot;, function(d) { return x(+d[keys[xName]] + 1); })
       .attr(&quot;cy&quot;, function(d) { return y(+d[keys[yName]] + 1); })
       .style(&quot;fill&quot;, 'steelblue' ) //red  gray
-      .attr('fill-opacity', 0.8) //0.6 0.9
+      .attr('fill-opacity', 0.7) //0.6 0.9
       .on(&quot;mouseover&quot;, function(d) { drawTooltip(d); })
       .on(&quot;mouseout&quot;, function() {
         div.style(&quot;opacity&quot;, 0);
@@ -533,8 +533,8 @@ Here's a table showing the data from the scatter plot above.  Click the headers 
     </script>
 
     </body>
-    </html>" style="width: 400px; height: 500px; display:block; margin: 25px auto; border: none"></iframe>
-            
+    </html>" style="width: 450px; height: 500px; 
+            display:block; margin: 25px auto; border: none"></iframe>
 
 
 

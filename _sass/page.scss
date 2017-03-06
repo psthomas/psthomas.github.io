@@ -49,7 +49,7 @@ body {
 			@include suffix(12,0);
 		}
 		@media #{$large} {
-			@include grid(12,6.25);  //12,6
+			@include grid(12,6.25);  //12,6  6.25
 		}
 		@media #{$x-large} {
 			//@include grid(12,6.0); //12,5 Changed to 5.75 for a little wider text
@@ -196,7 +196,8 @@ th {background-color: #f2f2f2;}
 /* Default social media links in author sidebar */
 .author-social {
   display: block;
-  margin-bottom: 5px;
+  //margin-bottom: 5px;
+  line-height: 1.4; //added
   @include font-rem(14);
   color: $black;
   &:visited {
@@ -215,13 +216,32 @@ th {background-color: #f2f2f2;}
 
 /* Author sidebar */
 .article-author-side {
-	margin-top: 10px; //added to adjust height
+	margin-top: 7px; //added to adjust height
 	display: none;
 	.bio-photo {
 		max-width: 110px;
 		margin-bottom: 10px; //added to make up for no h3 uppper margin
 		@include rounded(150px); //original
 		//@include rounded(20px);
+	}
+	.icon-link {
+	  display: inline-block;
+	  color: $black;
+	  font-size: 16px;
+	}
+	.icon {
+	  height: 15px;
+	  width: 15px;
+	  display: inline-block;
+	  vertical-align: middle;
+	  padding: 0px 6px 4.5px 4px;
+	  //margin: 2px 0px;
+	  //fill: $textcolor;
+	}
+	.icon-link:hover {
+	  //color: steelblue;
+	  //fill: steelblue;
+	  transform: scale(1.1);
 	}
 	@media #{$small} {
 		display: block;
@@ -237,15 +257,15 @@ th {background-color: #f2f2f2;}
 		}
 		h3 {
 			margin-top: 0px; //10px;
-			margin-bottom: 10px;
-			font-size: 24px;
+			margin-bottom: 6px;
+			font-size: 25px; //24
 		}
 		h4 {
 			margin-top: 0;
 			margin-bottom: 10px; //0
 		}
 		p {
-			margin-bottom: 15px; //20px
+			margin-bottom: 6px; //20px 15px
 		}
 		.author-social {
 			margin-bottom: 5px;
