@@ -227,7 +227,7 @@ th {background-color: #f2f2f2;}
 	}
 	.icon-link {
 	  display: inline-block;
-	  color: $black;
+	  color: #222;  //$black
 	  font-size: 16px;
 	}
 	.icon {
@@ -236,6 +236,7 @@ th {background-color: #f2f2f2;}
 	  display: inline-block;
 	  vertical-align: middle;
 	  padding: 0px 6px 4.5px 4px;
+	  fill: #222;
 	  //margin: 2px 0px;
 	  //fill: $textcolor;
 	}

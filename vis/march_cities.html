@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Women's March by City</title>
+<style>
+
+body {
+  position: relative;
+  width: 700px; /*960px*/
+}
+
+svg {font: 10px sans-serif;}
+
+rect {fill: #e5e5e5; }
+
+.label {
+    font-size: 12px;
+    /*stroke: #ddd;*/
+    fill: #555;
+}
+
+.dot {
+  /*stroke: #aaa;*/
+  /*stroke: red;*/
+  /*border: 1;*/
+}
+
+.dot:hover {fill-opacity: 0.4;}
+
+.axis path,
+.axis line {
+  stroke: #f4f4f4;  /* black;*/
+  fill: none; 
+  stroke-width: 1px;
+}
+
+#main-tick{
+  fill: none;
+  stroke: #777;  
+  stroke-width: 1px;
+  opacity: 1;
+}
+
+.buttons {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+button {
+  font: 16px sans-serif;
+  display: block;
+  border-radius: 0px;
+  width: 25px;
+  /*outline: none;*/
+  /*outline:0;*/
+  background-color: white;
+  border: none;
+}
+
+button:hover {
+  background-image:none;
+  background-color:#d5d5d5;
+}
+
+button:focus{ 
+/*outline-color: #ddd;
+outline:none;
+outline: 1;*/
+outline-color: #b5b5b5;
+}
+
+div.tooltip {
+  position: absolute;
+  padding: 5px;
+  font: 12px sans-serif;
+  background: white;
+  border: 0px;
+  border-radius: 0px;
+  pointer-events:none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="buttons">
+  <button data-zoom="+0.5">+</button>  <!-- data-zoom="+1" -->
+  <button data-zoom="-0.5">-</button>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 40, left: 40},
+    width = 700 - margin.left - margin.right,
+    height = 530 - margin.top - margin.bottom;
+    
+var fmtTh = d3.format(",");
+
+var keys = {"state": 1, "march_num": 2, "city": 0, "tea_num": 3};
+var data = [["Accident","MD",54.0,0.0],["Adak","AK",10.0,0.0],["Adrian","MI",150.0,0.0],["Ajo","AZ",250.0,0.0],["Alameda","CA",8.0,0.0],["Alamosa","CO",350.0,0.0],["Albany","CA",500.0,0.0],["Albany","NY",7900.0,1000.0],["Albuquerque","NM",8400.0,1000.0],["Alexandria","VA",17.0,0.0],["Alliance","NE",125.0,0.0],["Almanor West","CA",4.0,0.0],["Alpine","TX",96.0,0.0],["Altoona","PA",0.0,0.0],["Amarillo","TX",645.0,0.0],["Amelia Island","FL",1000.15,0.0],["Anacortes","WA",1200.0,0.0],["Anchorage","AK",2900.0,1500.0],["Angola","IN",42.0,0.0],["Ann Arbor","MI",11000.0,200.0],["Annapolis","MD",1600.0,2750.0],["Annville","PA",30.0,0.0],["Appleton","WI",3.0,0.0],["Arden","DE",45.0,0.0],["Arlington","VA",0.0,0.0],["Asbury Park","NJ",6000.0,0.0],["Asheville","NC",8350.0,0.0],["Ashland","OR",11150.0,0.0],["Aspen","CO",560.0,0.0],["Astoria","OR",1435.0,100.0],["Athens","GA",2635.0,0.0],["Athens","OH",390.0,0.0],["Atlanta","GA",61350.0,15000.0],["Augusta","GA",600.0,1700.0],["Augusta","ME",7250.0,600.0],["Austin","TX",50550.0,1250.0],["Avalon","CA",44.0,0.0],["Bailey","CO",5.0,0.0],["Bainbridge Island","WA",267.5,0.0],["Bakersfield","CA",119.0,2650.0],["Baltimore","MD",5000.0,150.0],["Bandon","OR",70.0,0.0],["Bar Harbor","ME",52.5,0.0],["Bayfield","WI",427.0,0.0],["Beaufort","NC",11.0,0.0],["Beaumont","TX",300.0,0.0],["Beaver","PA",288.0,0.0],["Beaver Island","MI",20.0,0.0],["Bellingham","WA",5450.0,1500.0],["Bemidji","MN",362.5,0.0],["Bend","OR",3900.0,1200.0],["Bennington","VT",100.0,0.0],["Bentonville","AR",435.0,0.0],["Berkeley","CA",560.0,0.0],["Bethel","AK",70.0,0.0],["Bethlehem","CT",2.0,0.0],["Bethlehem","PA",518.0,275.0],["Bettendorf","IA",525.0,0.0],["Beverly Hills","CA",275.0,0.0],["Binghamton","NY",2450.0,0.0],["Birmingham","AL",7250.0,0.0],["Bishop","CA",600.0,0.0],["Bismarck","ND",500.0,0.0],["Black Mountain","NC",317.5,0.0],["Block Island","RI",70.0,0.0],["Bloomsburg","PA",50.0,0.0],["Bluff","UT",48.0,0.0],["Boise","ID",5000.0,2500.0],["Borrego Springs","CA",145.0,0.0],["Boston","MA",175000.0,2500.0],["Bozeman","MT",13.0,0.0],["Brattleboro","VT",225.0,0.0],["Breen","CO",1.0,0.0],["Bridgewater","MA",12.0,0.0],["Brighton","MI",300.0,0.0],["Brookings","OR",275.0,0.0],["Broomfield","CO",150.0,0.0],["Brownsville","TX",340.5,0.0],["Brunswick","ME",345.0,0.0],["Buffalo","NY",2725.0,150.0],["Burbank","CA",300.0,0.0],["Burns","OR",20.0,0.0],["Burnsville","NC",80.0,0.0],["Cambridge","MN",22.0,0.0],["Canton","NY",217.5,0.0],["Cape Henlopen","DE",250.0,0.0],["Carbondale","CO",425.0,0.0],["Carbondale","IL",1900.0,50.0],["Carmel","CA",20.0,0.0],["Casper","WY",835.0,0.0],["Cathlamet","WA",2.0,0.0],["Cedaredge","CO",0.0,0.0],["Champaign","IL",5360.0,400.0],["Charleston","SC",2000.0,2500.0],["Charleston","WV",2450.0,550.0],["Charlotte","NC",24500.0,1500.0],["Charlottesville","VA",2225.0,1500.0],["Chattanooga","TN",1900.0,2000.0],["Chelan","WA",431.5,0.0],["Chesapeake Bay","MD",1.0,0.0],["Cheyenne","WY",1560.0,300.0],["Chicago","IL",250000.0,2000.0],["Chico","CA",1900.0,500.0],["Chillicothe","OH",1000.0,400.0],["Christiansted","VI",440.0,0.0],["Cincinnati","OH",8150.0,3000.0],["Clare","MI",49.5,0.0],["Clarion","PA",82.5,0.0],["Clemson","SC",500.0,0.0],["Cleveland","OH",15000.0,1500.0],["Cobb","CA",2.0,0.0],["Cobleskill","NY",350.0,0.0],["Cody","WY",445.0,250.0],["College Station","TX",50.0,0.0],["Colorado Springs","CO",7000.0,2000.0],["Columbia","MD",112.5,0.0],["Columbia","MO",2721.8,0.0],["Columbia","SC",2450.0,2650.0],["Columbus","OH",2650.0,2700.0],["Compton","CA",40.0,0.0],["Concord","NH",4900.0,600.0],["Conover","WI",1.0,0.0],["Conway","NH",0.0,0.0],["Cooperstown","NY",200.0,0.0],["Coos Bay","OR",200.0,100.0],["Copper Harbor","MI",28.0,0.0],["Cordova","AK",111.0,0.0],["Corpus Christi","TX",24.0,500.0],["Cortez","CO",447.0,0.0],["Corvallis","OR",100.0,0.0],["Craftsbury","VT",15.0,0.0],["Crested Butte","CO",418.0,0.0],["Crestone","CO",1.0,0.0],["Cruz Bay","VI",200.0,0.0],["Crystal River","FL",7.0,0.0],["Dallas","TX",6350.0,4000.0],["Davis","WV",12.0,0.0],["Dayton","OH",3000.0,0.0],["Daytona Beach","FL",300.0,0.0],["Decorah","IA",890.0,0.0],["Delaware","OH",128.5,0.0],["Delhi","NY",85.0,0.0],["Deming","NM",47.5,0.0],["Denton","TX",2635.0,950.0],["Denver","CO",145000.0,5000.0],["Des Moines","IA",26000.0,0.0],["Detroit","MI",4000.0,0.0],["Douglas-Saugatuck","MI",1785.0,0.0],["Doylestown","PA",1450.0,0.0],["Driggs","ID",1000.0,0.0],["Dubuque","IA",400.0,0.0],["Duluth","MN",1590.0,600.0],["Durango","CO",560.0,0.0],["Eagle Pass","TX",30.0,0.0],["East Haddam","CT",500.0,0.0],["East Liberty","PA",2000.0,0.0],["East Millinocket","ME",4.0,0.0],["Eastport","ME",111.0,0.0],["Eastsound","WA",250.0,0.0],["Eau Claire","WI",250.0,0.0],["Eau Gallie","FL",0.0,0.0],["El Centro","CA",100.0,0.0],["El Morro","NM",30.0,0.0],["El Paso","TX",1450.0,0.0],["Elgin","IL",560.0,0.0],["Elizabethtown","NY",0.0,0.0],["Elkton","OR",0.0,0.0],["Ellensburg","WA",237.5,0.0],["Ellsworth","ME",60.0,0.0],["Ely","MN",50.0,0.0],["Encinitas","CA",50.0,0.0],["Enterprise","OR",0.0,0.0],["Ephrata","WA",250.0,0.0],["Erie","PA",3175.0,0.0],["Esperanza","PR",322.5,0.0],["Eugene","OR",8350.0,0.0],["Eureka","CA",6350.0,0.0],["Evanston","WY",1.0,0.0],["Evansville","IN",0.0,150.0],["Fairbanks","AK",2000.0,0.0],["Fairfax","CA",238.75,0.0],["Fairfield","IA",200.0,0.0],["Fairmont","WV",95.0,0.0],["Falmouth","MA",1000.0,0.0],["Fargo","ND",1900.0,0.0],["Fayetteville","AR",1000.0,700.0],["Fernandina Beach","FL",1135.0,0.0],["Flagstaff","AZ",1450.0,0.0],["Florence","OR",300.0,0.0],["Floyd","VA",200.0,0.0],["Forks","WA",45.0,0.0],["Fort Atkinson","WI",200.0,0.0],["Fort Bragg","CA",2635.0,0.0],["Fort Collins","CO",600.0,1000.0],["Fort Sumner","NM",0.0,0.0],["Fort Wayne","IN",1000.0,0.0],["Fort Worth","TX",5450.0,3750.0],["Francestown","NH",134.0,0.0],["Frederick","MD",1000.0,0.0],["Fredonia","NY",95.0,0.0],["Fresno","CA",2000.0,1000.0],["Friday Harbor","WA",1500.0,0.0],["Gainesville","FL",2000.0,1000.0],["Galesburg","IL",335.0,0.0],["Gila","NM",1.0,0.0],["Glens Falls","NY",1225.0,0.0],["Glenwood Springs","CO",100.0,100.0],["Gloucester","NJ",225.0,0.0],["Gold Canyon","AZ",0.0,0.0],["Gouldsboro","ME",35.0,0.0],["Grand Forks","ND",304.0,0.0],["Grand Junction","CO",4725.0,2000.0],["Grand Marais","MN",108.5,0.0],["Grand Rapids","MI",2725.0,0.0],["Grants Pass","OR",1.0,0.0],["Green Bay","WI",200.0,0.0],["Green Valley","AZ",451.25,0.0],["Greenfield","MA",2000.0,0.0],["Greensboro","NC",4350.0,0.0],["Greensburg","IN",55.0,0.0],["Greenville","NC",150.0,200.0],["Greenville","SC",2000.0,0.0],["Greenwood","IN",0.0,0.0],["Gross Pointe","MI",1213.65,0.0],["Gualala","CA",251.5,0.0],["Guilford","CT",32.0,0.0],["Gulfport","MS",484.05,0.0],["Gustavus","AK",105.0,0.0],["Hagatna","GM",200.0,0.0],["Haines","AK",160.0,0.0],["Halfway","OR",31.0,0.0],["Hana","HI",30.0,0.0],["Harrisburg","PA",994.05,0.0],["Harrisville","MI",5.0,0.0],["Hartford","CT",10000.0,3000.0],["Harwich","MA",200.0,0.0],["Hattiesburg","MS",0.0,0.0],["Helena","AR",2.0,0.0],["Helena","MT",10000.0,200.0],["Hemet","CA",98.0,0.0],["Hilldale","UT",1.0,0.0],["Hillsboro","WI",0.0,0.0],["Hillsborough","NC",1010.0,0.0],["Hilo","HI",1815.0,0.0],["Holden Village","WA",49.5,0.0],["Homer","AK",900.0,0.0],["Honolulu (Oahu) HI","HI",5250.0,0.0],["Hood River","OR",200.0,0.0],["Hospital Ward","CA",5.0,0.0],["Houghton","MI",500.0,0.0],["Houlton","ME",47.5,0.0],["Houston","TX",21434.15,2000.0],["Howard County","MD",112.5,0.0],["Hudson","NY",2450.0,0.0],["Huntsville","AL",95.0,2000.0],["Huron","SD",12.0,0.0],["Idaho Falls","ID",500.0,0.0],["Idyllwild","CA",0.0,0.0],["Indiana","PA",150.0,0.0],["Indianapolis","IN",6700.0,3625.0],["Inverness","CA",5.0,0.0],["Iowa City","IA",1000.0,300.0],["Isla Vista","CA",500.0,0.0],["Issaquah","WA",56.0,0.0],["Ithaca","NY",8900.0,0.0],["Jackson","MS",2662.5,2500.0],["Jackson","NH",300.0,0.0],["Jackson Hole","WY",1000.0,0.0],["Jacksonville","FL",2450.0,4500.0],["Jefferson City","MO",6.5,200.0],["Jerome","AZ",92.5,0.0],["Jonesborough","TN",1000.0,0.0],["Joseph","OR",310.0,0.0],["June Lake","CA",21.0,0.0],["Juneau","AK",1000.0,0.0],["Kahului","HI",3075.0,250.0],["Kalamazoo","MI",1450.0,0.0],["Kanab","UT",175.0,0.0],["Kansas City","MO",7250.0,1000.0],["Kauai","HI",0.0,0.0],["Kaunakakai (Molokai)","HI",200.0,0.0],["Kawaihae","HI",50.0,0.0],["Keene","NH",404.75,0.0],["Kennebunk","ME",1000.0,0.0],["Kent","CT",190.0,0.0],["Kent","OH",100.0,0.0],["Ketchikan","AK",175.0,0.0],["Ketchum","ID",1067.5,0.0],["Key West","FL",3225.0,0.0],["Killington","VT",81.5,0.0],["King's Beach","CA",635.0,0.0],["Kingston","WA",60.0,0.0],["Klamath Falls","OR",250.0,0.0],["Knoxville","TN",3350.0,1700.0],["Kodiak","AK",364.25,0.0],["Kona","HI",3225.0,0.0],["Kotzebue","AK",35.5,0.0],["La Crosse","WI",113.0,0.0],["La Grande","OR",177.0,0.0],["Lafayette","CO",89.0,0.0],["Lafayette","IN",890.0,0.0],["Laguna Beach","CA",3725.0,0.0],["Lake Havasu City","AZ",35.0,0.0],["Lakeside","OH",300.0,0.0],["Lakeville","CT",92.5,0.0],["Lamoni","IA",24.0,0.0],["Lancaster","NH",400.0,0.0],["Lancaster","PA",1010.0,400.0],["Lander","WY",417.5,0.0],["Langley","WA",1245.0,0.0],["Lansdale","PA",3.0,0.0],["Lansing","MI",17900.0,4500.0],["Laramie","WY",0.0,0.0],["Las Cruces","NM",785.0,0.0],["Las Vegas","NM",50.0,0.0],["Las Vegas","NV",8950.0,500.0],["Leonia","NJ",190.0,0.0],["Lewes","DE",250.0,0.0],["Lewis","NY",227.1,0.0],["Lewisburg","PA",175.0,0.0],["Lexington","KY",7250.0,0.0],["Lihue (Kauai) HI","HI",1500.0,0.0],["Lilly","PA",4.0,0.0],["Lincoln","NE",2900.0,0.0],["Little Rock","AR",7000.0,500.0],["Logan","UT",75.0,0.0],["Lompoc","CA",100.0,0.0],["Longview","WA",200.0,0.0],["Longville","MN",67.0,0.0],["Los Angeles","CA",447500.0,0.0],["Louisville","KY",5000.0,1000.0],["Loup City","NE",125.0,0.0],["Lovell","ME",2.0,0.0],["Lovettsville","VA",5.0,0.0],["Lubbock","TX",642.5,0.0],["Lubec","ME",95.0,0.0],["Lyons","CO",27.5,0.0],["Madison","WI",86250.0,5000.0],["Manchester","VT",50.0,0.0],["Mankato","MN",95.0,200.0],["Marfa","TX",76.0,0.0],["Marina","CA",0.0,0.0],["Marquette","MI",470.0,0.0],["Marshall","MN",2.0,0.0],["Martha's Vineyard","MA",100.0,0.0],["Maryville","IL",45.0,0.0],["Mayaguez","PR",0.0,0.0],["McCall","ID",112.5,0.0],["McMinnville","OR",1015.0,0.0],["Melbourne\/Brevard County","FL",500.0,0.0],["Memphis","TN",5700.0,1000.0],["Menomonie","WI",312.5,0.0],["Mentone","AL",60.0,0.0],["Merrill","MI",0.0,0.0],["Miami","FL",16750.0,0.0],["Miami Beach","FL",0.0,0.0],["Midland","MI",400.0,0.0],["Midland","TX",75.0,0.0],["Midway Atoll","--",6.0,0.0],["Miles City","MT",500.0,0.0],["Milford","CT",120.0,0.0],["Milhelm","PA",50.0,0.0],["Milwaukee","WI",1000.0,80.0],["Minneapolis","MN",0.0,0.0],["Minocqua","WI",300.0,0.0],["Minturn","CO",6.0,0.0],["Missoula","MT",100.0,500.0],["Mitchell","IN",19.0,0.0],["Moab","UT",200.0,0.0],["Mobile","AL",945.0,1000.0],["Modesto","CA",945.0,400.0],["Monhegan Island","ME",22.0,0.0],["Monterey Bay","CA",0.0,0.0],["Montpelier","VT",17250.0,500.0],["Mooresville","NC",70.0,0.0],["Mora","NM",1.0,0.0],["Morganton","NC",545.0,0.0],["Morris","MN",250.0,0.0],["Moscow","ID",2500.0,100.0],["Mount Vernon","OH",25.0,0.0],["Mount Vernon","WA",920.0,0.0],["Mt. Laurel","NJ",20.0,0.0],["Mt. Shasta","CA",400.0,0.0],["Murfreesboro","TN",0.0,0.0],["Murray","KY",700.0,0.0],["Nacogdoches","TX",250.0,0.0],["Nantucket","MA",400.0,0.0],["Napa","CA",3000.0,50.0],["Naples","FL",3625.0,3000.0],["Nashville","TN",17250.0,2900.0],["Nebraska City","NE",3.0,0.0],["Nederland","CO",27.5,0.0],["Nevada City","CA",100.0,0.0],["New Bern","NC",480.0,1200.0],["New Haven","CT",200.0,1000.0],["New Orleans","LA",10600.0,0.0],["New Smyrna Beach","FL",1000.0,0.0],["New York","NY",445000.0,3500.0],["Newark","DE",1090.0,0.0],["Newark","NJ",1000.0,50.0],["Newport","OR",1500.0,0.0],["Nome","AK",90.0,0.0],["Norfolk","VA",2360.0,0.0],["Northampton","MA",2725.0,0.0],["Oak Ridge","TN",495.0,0.0],["Oakhurst","CA",200.5,0.0],["Oakland","CA",100000.0,50.0],["Ocala","FL",200.0,1000.0],["Ocean City","MD",380.0,0.0],["Ocean Shores","WA",175.0,0.0],["Ocracoke","NC",114.0,0.0],["Ogden","UT",250.0,0.0],["Oklahoma City","OK",9250.0,4500.0],["Old Saybrook","CT",890.0,0.0],["Olympia","WA",10000.0,4500.0],["Omaha","NE",14700.0,150.0],["Oneonta","NY",500.0,0.0],["Onley","VA",50.0,0.0],["Ontario","CA",200.0,0.0],["Orange County","CA",0.0,0.0],["Orcas Island","WA",200.0,0.0],["Orford","NH",7.0,0.0],["Orlando","FL",5250.0,0.0],["Owensboro","KY",22.5,0.0],["Oxford","MS",450.0,0.0],["Pacifica","CA",1200.0,0.0],["Palm Desert","CA",1000.0,0.0],["Palm Springs","CA",250.0,1000.0],["Palmdale","CA",24.0,0.0],["Palmer","AK",657.35,0.0],["Panama City","FL",500.0,0.0],["Paoli","IN",67.0,0.0],["Paonia","CO",40.0,0.0],["Paradox","NY",3.0,0.0],["Park City","UT",6350.0,0.0],["Pasadena","CA",1040.0,0.0],["Pence","WI",1.0,0.0],["Pendelton","OR",526.25,0.0],["Pensacola","FL",2000.0,500.0],["Pentwater","MI",2.0,0.0],["Peoria","IL",1725.0,500.0],["Pequannock Township","NJ",890.0,0.0],["Peterborough","NH",55.0,0.0],["Petersburg","AK",65.0,0.0],["Philadelphia","PA",50000.0,200.0],["Phoenix","AZ",22250.0,5000.0],["Pierre","SD",132.5,0.0],["Pikeville","KY",100.0,0.0],["Pinedale","WY",100.0,0.0],["Pittsburgh","PA",25000.0,0.0],["Pittsfield","MA",1500.0,0.0],["Plattsburgh","NY",415.1,100.0],["Plymouth","WI",200.0,0.0],["Pocatello","ID",1200.0,650.0],["Point Reyes Station","CA",60.0,0.0],["Pompton Plains","NJ",0.0,0.0],["Port Angeles","WA",150.0,0.0],["Port Jefferson","NY",2000.0,0.0],["Port Jervis","NY",417.5,0.0],["Port Orford","OR",290.0,0.0],["Port Townsend","WA",615.0,0.0],["Portales","NM",50.0,0.0],["Portland","ME",10000.0,0.0],["Portland","OR",83557.5,1000.0],["Portsmouth","NH",3900.0,200.0],["Potsdam","NY",20.0,0.0],["Poughkeepsie","NY",5672.2,0.0],["Prescott","AZ",1200.0,2000.0],["Providence","RI",5900.0,2000.0],["Provincetown","MA",300.0,0.0],["Quincy","CA",77.5,0.0],["Raleigh","NC",18350.0,1200.0],["Rapid City","SD",1450.0,1000.0],["Reading","PA",257.5,150.0],["Red Bank","NJ",290.0,0.0],["Redding","CA",300.0,0.0],["Redondo Beach","CA",2000.0,0.0],["Redwood City","CA",2500.0,0.0],["Reno","NV",10000.0,200.0],["Richland","WA",1675.0,0.0],["Richmond","VA",2000.0,3000.0],["Ridgecrest","CA",190.0,0.0],["Ridgway","CO",100.0,0.0],["Riegelsville","PA",185.0,0.0],["Riverside","CA",4000.0,0.0],["Roanoke","VA",3675.0,0.0],["Rochester","MN",780.0,0.0],["Rochester","NY",1725.0,750.0],["Rock Springs","WY",105.0,0.0],["Rockford","IL",1000.0,200.0],["Romney","WV",40.0,0.0],["Roswell","NM",2.0,0.0],["Roxbury","CT",57.5,0.0],["Sacramento","CA",28100.0,3500.0],["Sag Harbor","NY",250.0,0.0],["Salem","OR",2440.0,1500.0],["Salem","WI",2.0,0.0],["Salida","CO",45.0,0.0],["Salinas","CA",80.0,0.0],["Salisbury","CT",305.3,0.0],["Salt Lake City","UT",8800.0,1500.0],["San Anselmo","CA",4.0,0.0],["San Antonio","TX",2175.0,4500.0],["San Bernardino","CA",80.0,100.0],["San Clemente","CA",150.0,0.0],["San Diego","CA",34500.0,500.0],["San Francisco","CA",154000.0,500.0],["San Jose","CA",31750.0,1000.0],["San Juan","PR",290.0,0.0],["San Juan Island","WA",0.0,0.0],["San Leandro","CA",0.0,0.0],["San Luis Obispo","CA",8350.0,0.0],["San Marcos","CA",6150.0,0.0],["San Rafael","CA",500.0,0.0],["Sandpoint","ID",890.0,0.0],["Sandy","OR",0.0,0.0],["Sanford","ME",115.0,0.0],["Santa Ana","CA",22250.0,1000.0],["Santa Barbara","CA",6350.0,0.0],["Santa Cruz","CA",11150.0,0.0],["Santa Fe","NM",13150.0,0.0],["Santa Rosa","CA",5000.0,500.0],["Santurce","PR",0.0,0.0],["Sarasota","FL",8625.0,0.0],["Saugatuck","MI",1010.0,0.0],["Sault Ste Marie","MI",40.0,0.0],["Sausalito","CA",3.0,0.0],["Savannah","GA",1000.0,0.0],["Saxaphaw","NC",80.0,0.0],["Seaside","CA",1450.0,0.0],["Seattle","WA",133750.0,1100.0],["Sedona","AZ",1000.0,0.0],["Seldovia","AK",41.0,0.0],["Selingsgrove","PA",119.0,0.0],["Seneca Falls","NY",10000.0,0.0],["Sequim","WA",390.0,0.0],["Seward","AK",62.0,0.0],["Sharon","PA",700.0,0.0],["Sheboygan","WI",390.0,0.0],["Show Low","AZ",1.0,0.0],["Shreveport\/Bossier","LA",560.0,0.0],["Sicklerville","NJ",225.0,0.0],["Silver City","NM",500.0,0.0],["Silverton","CO",50.0,0.0],["Sioux Falls","SD",3300.0,3000.0],["Sitka","AK",700.0,12.0],["Skagway","AK",122.0,0.0],["Skykomish","WA",8.0,0.0],["Soldotna","AK",261.0,0.0],["Sonoma","CA",3000.0,0.0],["South Bend","IN",1450.0,0.0],["South Lake Tahoe","CA\/NV",590.0,0.0],["South Orange","NJ",2000.0,0.0],["Southborough","MA",50.0,0.0],["Spokane","WA",7600.0,2300.0],["Springfield","IL",1000.0,400.0],["Springfield","MA",40.0,0.0],["Springfield","MO",2000.0,0.0],["Springfield","OH",5.0,0.0],["St. Augustine","FL",1450.0,0.0],["St. Cloud","MN",40.0,450.0],["St. Croix","VI",250.0,0.0],["St. George","UT",1323.75,0.0],["St. John","VA",0.0,0.0],["St. John","VI",60.0,0.0],["St. Johnsbury","VT",60.0,0.0],["St. Joseph","MI",60.0,0.0],["St. Louis","MO",14500.0,2000.0],["St. Mary of the Woods","IN",190.0,0.0],["St. Mary's City","MD",10.0,0.0],["St. Paul\/Minneapolis","MN",94500.0,0.0],["St. Petersburg","FL",20000.0,0.0],["St. Thomas","VI",0.0,0.0],["Stamford","CT",5000.0,0.0],["Stanley","ID",30.0,0.0],["State College","PA",335.0,0.0],["Statesboro","GA",200.0,0.0],["Staunton","VA",125.0,100.0],["Steamboat Springs","CO",1000.0,0.0],["Surry","ME",0.0,0.0],["Syracuse","NY",2450.0,400.0],["Talkeetna","AK",30.0,0.0],["Tallahassee","FL",15800.0,1500.0],["Taos","NM",100.0,0.0],["Tecumseh","MI",35.0,0.0],["Telluride","CO",560.0,0.0],["Tenants Harbor","ME",57.5,0.0],["Terre Haute","IN",0.0,0.0],["The Dalles","OR",100.0,0.0],["Tillamook","OR",300.0,0.0],["Tisbury","MA",130.0,0.0],["Toledo","OH",200.0,0.0],["Topeka","KS",3450.0,1500.0],["Traverse City","MI",3000.0,0.0],["Trenton","NJ",6900.0,400.0],["Troy","OH",175.0,0.0],["Troy","PA",6.0,0.0],["Truckee","CA",150.0,0.0],["Truth or Consequences","NM",154.0,0.0],["Tucson","AZ",15000.0,1750.0],["Tulsa","OK",1000.0,3200.0],["Tupper Lake","NY",5.0,0.0],["Tuscarora","NV",7.0,0.0],["Twisp","WA",690.0,0.0],["Ukiah","CA",1725.0,0.0],["Unalakleet","AK",39.0,0.0],["Unalaska (Dutch Harbor)","AK",83.0,0.0],["Union","WA",57.5,0.0],["University Park","MD",80.0,0.0],["Utica","NY",250.0,0.0],["Utqiagvik (Barrow)","AK",28.5,0.0],["Valdez","AK",115.0,0.0],["Vallejo","CA",150.0,0.0],["Valparaiso","IN",368.0,0.0],["Vancouver","WA",175.0,0.0],["Vashon","WA",261.5,0.0],["Ventura","CA",2285.0,1000.0],["Vermillion","SD",500.0,0.0],["Vienna","VA",31.5,0.0],["Vieques","PR",200.0,0.0],["Vinalhaven","ME",76.0,0.0],["Vineyard Haven","MA",0.0,0.0],["Visalia","CA",500.0,0.0],["Walla Walla","WA",2180.0,0.0],["Walnut Creek","CA",6150.0,0.0],["Washington","DC",725000.0,1000.0],["Watertown","NY",250.0,0.0],["Watsonville","CA",390.0,0.0],["Wausau","WI",175.0,0.0],["Welches","OR",0.0,0.0],["Wellfleet","MA",113.0,0.0],["Wenatchee","WA",2000.0,0.0],["West Chester","PA",175.0,0.0],["West Jefferson","NC",297.5,0.0],["West Lima","WI",1.0,0.0],["West Orange","NJ",0.0,0.0],["West Palm Beach","FL",5900.0,600.0],["West Plains","MO",0.0,0.0],["Westfield","NJ",1450.0,0.0],["Westwood","CA",7.0,0.0],["Whitefish","MT",0.0,0.0],["Wichita","KS",3000.0,1000.0],["Wichita Falls","TX",150.0,800.0],["Williamsburg","VA",835.0,0.0],["Willits","CA",50.0,0.0],["Willow Springs","MO",0.0,0.0],["Wilmington","NC",1900.0,0.0],["Wilmington","OH",70.0,0.0],["Wilton","NH",112.5,0.0],["Winchester","VA",1245.0,0.0],["Winston-Salem","NC",0.0,900.0],["Winters","CA",200.0,0.0],["Women's March Online","--",415.0,0.0],["Woods Hole","MA",1.0,0.0],["Woodstock","NY",1000.0,0.0],["Woodstock","VA",400.0,0.0],["Wooster","OH",725.0,0.0],["Worcester","MA",0.0,0.0],["Wyckoff","NJ",390.0,0.0],["Yakima","WA",890.0,600.0],["Yellow Springs","OH",250.0,0.0],["Ypsilanti","MI",1200.0,0.0],["Yucca Valley","CA",138.0,0.0],["Yuma","AZ",10.0,1000.0],["Zebulon","GA",35.0,0.0],["Abilene","TX",0.0,800.0],["Abingdon","VA",0.0,400.0],["Ada","OK",0.0,200.0],["Albany","OR",0.0,140.0],["Anderson","IN",0.0,100.0],["Ashland","OH",0.0,600.0],["Ashtabula","OH",0.0,275.0],["Astacadero","CA",0.0,850.0],["Bad Axe","MI",0.0,100.0],["Bangor","ME",0.0,300.0],["Bartow","FL",0.0,200.0],["Baton Rouge","LA",0.0,1000.0],["Baxter","AR",0.0,1000.0],["Beaumount","TX",0.0,1000.0],["Bellevue","WA",0.0,200.0],["Belton","TX",0.0,2000.0],["Billings","MT",0.0,500.0],["Bloomington","IN",0.0,200.0],["Boiling Springs","SC",0.0,120.0],["Borger","TX",0.0,275.0],["Bossier City","LA",0.0,5000.0],["Bound Book","NJ",0.0,20.0],["Bradenton","FL",0.0,75.0],["Bremerton","WA",0.0,100.0],["Bristol","TN",0.0,100.0],["Burleson","TX",0.0,500.0],["Camden","NY",0.0,100.0],["Camdenton","MO",0.0,300.0],["Canton","OH",0.0,2500.0],["Carmel Mountain Ranch","CA",0.0,1000.0],["Carson City","NV",0.0,2000.0],["Carterville","IL",0.0,40.0],["Cedar Rapids","IA",0.0,600.0],["Chelsea","MI",0.0,250.0],["Chester","NY",0.0,80.0],["Chico","WA",0.0,100.0],["Clarksville","TN",0.0,500.0],["Cleveland","TN",0.0,200.0],["Coldwater","MI",0.0,200.0],["Columbus","GA",0.0,300.0],["Columbus","IN",0.0,2000.0],["Columbus","MS",0.0,400.0],["Corona","CA",0.0,65.0],["Cotulla","TX",0.0,80.0],["Council Bluffs","IA",0.0,150.0],["Craig","CO",0.0,221.0],["Crown Point","IN- 100",0.0,0.0],["Crystal Lake","IL",0.0,200.0],["Cullman","AL",0.0,1000.0],["Currituck","NC",0.0,150.0],["Defiance","OH",0.0,175.0],["Dekalb","AL",0.0,200.0],["Deland","FL",0.0,1500.0],["Des Monies","IA",0.0,5000.0],["Dickinson","ND",0.0,200.0],["Doral","FL",0.0,800.0],["Dover","NH",0.0,125.0],["Edenton","NC",0.0,400.0],["El Dorado","AR",0.0,300.0],["Elba","AL",0.0,400.0],["Elizabeth City","NC",0.0,150.0],["Elizabethtown","KY",0.0,275.0],["Emporia","KS",0.0,150.0],["Escondido","CA",0.0,2000.0],["Farmington","NM",0.0,600.0],["Fayetteville","GA",0.0,200.0],["Fayetteville","NC",0.0,300.0],["Fishersville","VA",0.0,500.0],["Flemington","NJ",0.0,200.0],["Florence","AL",0.0,350.0],["Fon du Lac","WI",0.0,300.0],["Fort Lauderdale","FL",0.0,1750.0],["Fort Mill","SC",0.0,80.0],["Fort Myers","FL",0.0,4000.0],["Fort Plain","NY",0.0,12.0],["Fort Scott","KS",0.0,200.0],["Fort Smith","AR",0.0,500.0],["Frankfort","KY",0.0,250.0],["Fremont","OH",0.0,100.0],["Friendswood","TX",0.0,300.0],["Frisco","CO",0.0,50.0],["Gadsden","AL",0.0,35.0],["Gardiner","NY",0.0,400.0],["Gastonia","NC",0.0,100.0],["Gilbert","AZ",0.0,1000.0],["Gilmer","TX",0.0,250.0],["Glendale","CA",0.0,275.0],["Goldsboro","NC",0.0,300.0],["Green Cove Springs","FL",0.0,30.0],["Greensboro","NC 1000",0.0,0.0],["Greenville","TN",0.0,100.0],["Hannibal","MO",0.0,200.0],["Harrisburg","IL",0.0,300.0],["Harrison","AR",0.0,300.0],["Havasu","AZ",0.0,2250.0],["Herrin","IL",0.0,65.0],["Hollidaysburg","PA",0.0,450.0],["Honolulu","HI",0.0,400.0],["Houma","LA",0.0,600.0],["Hudsonville","MI",0.0,1000.0],["Hyannis","MA",0.0,600.0],["Jackson","MI",0.0,450.0],["Joliet","IL",0.0,300.0],["Joplin","MO",0.0,1000.0],["Kalispell","MT",0.0,150.0],["Kingston","NY",0.0,100.0],["Lake City","WA",0.0,24.0],["Lakewood Ranch","FL",0.0,300.0],["Lexington","NE",0.0,400.0],["Lisbon","OH",0.0,500.0],["Lisle","IL",0.0,1000.0],["Livonia","MI",0.0,400.0],["Longview","TX",0.0,650.0],["Loveland","CO",0.0,1000.0],["Lynchburg","VA",0.0,1200.0],["Manchester","NH",0.0,1000.0],["Marble Falls","TX",0.0,1000.0],["Marietta","WV",0.0,500.0],["Marion","IL",0.0,100.0],["Martinsburg","WV",0.0,300.0],["Massapequa","NY",0.0,300.0],["Matamoras","PA",0.0,600.0],["Medina","OH",0.0,1000.0],["Merced","CA",0.0,200.0],["Meridian","MS",0.0,100.0],["Miami","OK",0.0,250.0],["Minden","LA",0.0,300.0],["Monterey","CA",0.0,600.0],["Montgomery","AL",0.0,1000.0],["Morristown","NJ",0.0,600.0],["Muskegon","MI",0.0,300.0],["Myrtle Beach","SC",0.0,500.0],["Naperville","IL",0.0,500.0],["Natchez","MS",0.0,75.0],["Natrona","WY",0.0,1000.0],["Neunan","GA",0.0,200.0],["New Braunfels","TX",0.0,300.0],["New Richmond","WI",0.0,80.0],["Newport News","VA",0.0,250.0],["Nicholasville","KY",0.0,250.0],["Nicholson","GA",0.0,50.0],["Nobelsville","IN",0.0,35.0],["North Platte","NE",0.0,50.0],["Norwalk","OH",0.0,250.0],["Oak Harbor","WA",0.0,100.0],["Oceanside","CA",0.0,1000.0],["Opelousas","AL",0.0,50.0],["Oswego","IL",0.0,200.0],["Palmer Township","PA",0.0,200.0],["Pappilon","NE",0.0,200.0],["Parkersburg","WV",0.0,300.0],["Pataskala","OH",0.0,30.0],["Pearland","TX",0.0,450.0],["Piscataway","NJ",0.0,500.0],["Pismo Beach","CA",0.0,200.0],["Pittsburg\/Antoich","CA",0.0,50.0],["Pittsfield","NY",0.0,100.0],["Plainville","CT",0.0,13.0],["Pleasanton","CA",0.0,2000.0],["Plymouth","MI",0.0,1000.0],["Port St. Lucie","FL",0.0,500.0],["Pullman","WA",0.0,150.0],["Redlands","CA",0.0,500.0],["Richmond","CA",0.0,30.0],["Richmond Hill","GA",0.0,60.0],["Rochester","NH",0.0,200.0],["Roseburg","OR",0.0,750.0],["Rowlett","TX",0.0,200.0],["Rutland","VT",0.0,300.0],["San Marcos","TX",0.0,90.0],["San Mateo","CA",0.0,250.0],["Sandusky","OH",0.0,300.0],["Scranton","PA",0.0,200.0],["Seal Beach","CA",0.0,1000.0],["Seguin","TX",0.0,200.0],["Selma","AL",0.0,30.0],["Sevierville","TN",0.0,40.0],["Shelton","CT",0.0,100.0],["Simi Valley","CA",0.0,150.0],["South Kitsap","WA",0.0,150.0],["Southlake","TX",0.0,500.0],["St. Paul","MN",0.0,2000.0],["St. Simons Island","FL",0.0,500.0],["Stockton","CA",0.0,200.0],["Stuart","FL",0.0,2000.0],["Superior","WI",0.0,200.0],["Tampa","FL",0.0,500.0],["Temecula","CA",0.0,1000.0],["Thousand Oaks","CA",0.0,338.0],["Troy","MI",0.0,2000.0],["Tuscaloosa","AL",0.0,600.0],["Tyler","TX",0.0,1500.0],["Valdosta","GA",0.0,400.0],["Vero Beach","FL",0.0,3500.0],["Vineland","NJ",0.0,100.0],["Virginia Beach","VA",0.0,650.0],["Waco","TX",0.0,1100.0],["Walton","FL",0.0,200.0],["Wasilla","AK",0.0,850.0],["Watkinsville","GA",0.0,150.0],["West Covina","CA",0.0,60.0],["Westerville","OH",0.0,50.0],["Wheeling","WV",0.0,2000.0],["Wilmington","DE",0.0,1000.0],["York","SC",0.0,300.0],["Youngstown","OH",0.0,200.0],["Yucaipa","CA",0.0,200.0]];
+var xName = "march_num";
+var yName = "tea_num";
+var xLabel = "Women's March (log)";
+var yLabel = "Tea Party (log)";
+
+var min_x = d3.min(data, function(d) { return +d[keys[xName]]; });
+var max_x = d3.max(data, function(d) { return +d[keys[xName]]; });
+var min_y = d3.min(data, function(d) { return +d[keys[yName]]; });
+var max_y = d3.max(data, function(d) { return +d[keys[yName]]; });
+var max = d3.max([min_x, min_y, max_x, max_y].map(Math.abs));
+
+var x = d3.scale.log()
+    .domain([0.7, 10*max_x])
+    .range([0, width]);
+
+var y = d3.scale.log()
+    .domain([0.7, 10*max_y])
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .ticks(10, ",.1s")
+    .tickSize(-height);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10, ",.1s")
+    .tickSize(-width); 
+    
+var zoom = d3.behavior.zoom()
+    .x(x)
+    .y(y)
+    //.scaleExtent([1, 10])
+    .center([width / 2, height / 2])
+    .size([width, height])
+    .on("zoom", zoomed);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .call(zoom);
+    
+
+//http://stackoverflow.com/questions/28723551
+//Create clip, then apply it to each dot
+var clip = svg.append("defs").append("svg:clipPath")
+    .attr("id", "clip")
+    .append("svg:rect")
+    .attr("id", "clip-rect")
+    .attr("x", "0")
+    .attr("y", "0")
+    .attr('width', width)
+    .attr('height', height);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+  
+// Tooltips
+var div = d3.select("body")
+    .append("div")  
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+        
+    
+svg.append("line")
+    .attr("x1", x(1))
+    .attr("y1", y(1))
+    .attr("x2", x(1e8))                         
+    .attr("y2", y(1e8))
+    .attr("stroke-width", 1.5)
+    .attr("stroke", "#fff") //#999 #fff
+    //.attr("opacity", "0.9")
+    //.attr("fill", "none")
+    //.style("stroke-dasharray", ("10, 10"))
+    .attr("class", "trendline")
+    .attr("clip-path", "url(#clip)");
+
+
+svg.selectAll(".dot")
+  .data(data)
+.enter().append("circle")
+  .attr("class", "dot")
+  .attr("clip-path", "url(#clip)")  //add the clip to each dot
+  .attr("r", 3.5) //3.5  4.5 3*zoom.scale()
+  .attr("cx", function(d) { return x(+d[keys[xName]] + 1); })
+  .attr("cy", function(d) { return y(+d[keys[yName]] + 1); })
+  .style("fill", 'steelblue' ) //red  gray
+  .attr('fill-opacity', 0.8) //0.6 0.9
+  .on("mouseover", function(d) { drawTooltip(d); })
+  .on("mouseout", function() {
+    div.style("opacity", 0);
+  });
+
+svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "middle")
+    .attr("x", width/2)
+    .attr("y", height + 30)
+    .text("Women's March (log)");
+
+svg.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "middle")
+    .attr("x", -height/2)
+    .attr("y", -30) //-30
+    .attr("transform", "rotate(-90)")
+    .text("Tea Party (log)");
+    
+
+d3.selectAll("button[data-zoom]")
+    .on("click", clicked);
+    
+
+function zoomed() {
+  svg.select(".x.axis").call(xAxis);
+  svg.select(".y.axis").call(yAxis);
+
+  //http://stackoverflow.com/questions/37573228
+  svg.selectAll(".dot")
+    //.attr("r", 3*zoom.scale())
+    .attr("cx", function (d) {
+        return x(+d[keys[xName]] + 1);
+    })
+    .attr("cy", function (d) {
+        return y(+d[keys[yName]] + 1);
+    });
+    
+    d3.selectAll('.trendline')
+        .attr("x1", x(1))
+        .attr("y1", y(1))
+        .attr("x2", x(1e8))                         
+        .attr("y2", y(1e8))   
+}
+
+function clicked() {
+  svg.call(zoom.event); // https://github.com/mbostock/d3/issues/2387
+
+  // Record the coordinates (in data space) of the center (in screen space).
+  var center0 = zoom.center(), translate0 = zoom.translate(), coordinates0 = coordinates(center0);
+  zoom.scale(zoom.scale() * Math.pow(2, +this.getAttribute("data-zoom")));
+
+  // Translate back to the center.
+  var center1 = point(coordinates0);
+  zoom.translate([translate0[0] + center0[0] - center1[0], translate0[1] + center0[1] - center1[1]]);
+
+  //svg.transition().duration(750).call(zoom.event);
+  svg.transition().duration(300).call(zoom.event);
+
+}
+
+function coordinates(point) {
+  var scale = zoom.scale(), translate = zoom.translate();
+  return [(point[0] - translate[0]) / scale, (point[1] - translate[1]) / scale];
+}
+
+function point(coordinates) {
+  var scale = zoom.scale(), translate = zoom.translate();
+  return [coordinates[0] * scale + translate[0], coordinates[1] * scale + translate[1]];
+}
+
+function drawTooltip(d) {
+        div.style("opacity", 1.0);
+        div.html(
+    "<b>Location:</b> " + d[keys.city] + ", " + d[keys.state] +
+    "<br><b>Women's March: </b>" + fmtTh(+d[keys.march_num]) +
+    "<br><b>Tea Party: </b>" + fmtTh(+d[keys.tea_num]) 
+)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY ) + "px");
+    }
+
+</script>
+</body>
+</html>

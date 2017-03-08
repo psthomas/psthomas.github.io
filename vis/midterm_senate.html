@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Midterm Senate 2018</title>
+<style>
+
+body {
+  position: relative;
+  width: 650px; /*960px*/
+}
+
+svg {font: 10px sans-serif;}
+
+rect {fill: #e5e5e5; }
+
+.label {
+    font-size: 12px;
+    /*stroke: #ddd;*/
+    fill: #555;
+}
+
+.dot {
+  /*stroke: #aaa;*/
+  /*stroke: red;*/
+  /*border: 1;*/
+}
+.dot:hover {fill-opacity: 0.4;}
+
+.axis path,
+.axis line {
+  stroke: #fff; /*black;*/
+  fill: none; 
+  stroke-width: 1px;
+}
+
+#main-tick{
+  fill: none;
+  stroke: #777;  
+  stroke-width: 1px;
+  opacity: 1;
+}
+
+.buttons {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+button {
+  font: 16px sans-serif;
+  display: block;
+  border-radius: 0px;
+  width: 25px;
+  /*outline: none;*/
+  /*outline:0;*/
+  background-color: white;
+  border: none;
+}
+
+button:hover {
+  background-image:none;
+  background-color:#d5d5d5;
+}
+
+button:focus{ 
+/*outline-color: #ddd;
+outline:none;
+outline: 1;*/
+outline-color: #b5b5b5;
+}
+
+div.tooltip {
+  position: absolute;
+  padding: 5px;
+  font: 12px sans-serif;
+  background: white;
+  border: 0px;
+  border-radius: 0px;
+  pointer-events:none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="buttons">
+  <button data-zoom="+1">+</button>
+  <button data-zoom="-1">-</button>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 40, left: 40},
+    width = 650 - margin.left - margin.right,
+    height = 515 - margin.top - margin.bottom;
+
+var keys = {"clinton_2016": 6, "sum": 14, "lastelect_rep": 11, "demlead_lastsenate": 13, "first": 3, "trump_2016": 7, "last": 4, "voting_age_pop": 9, "state": 0, "class": 1, "demlead_pres2016": 12, "prestotal_2016": 5, "lastelect_dem": 10, "pvi_2016": 8, "party": 2};
+var data = [["Arizona",2012.0,"Republican","Jeff","Flake",2604657.0,1161167.0,1252401.0,-2.93,4763003.0,46.16,49.18,-3.5,-3.02,-6.53],["California",2012.0,"Democratic","Dianne","Feinstein",14237884.0,8753788.0,4483810.0,15.09,27958916.0,62.52,37.48,29.99,25.05,55.04],["Connecticut",2012.0,"Democratic","Chris","Murphy",1644920.0,897572.0,673215.0,6.1,2757082.0,55.29,43.03,13.64,12.26,25.9],["Delaware",2012.0,"Democratic","Tom","Carper",443814.0,235603.0,185127.0,4.96,692169.0,66.42,28.95,11.37,37.47,48.84],["Florida",2012.0,"Democratic","Bill","Nelson",9501617.0,4504975.0,4617886.0,-1.66,14798498.0,55.23,42.23,-1.19,13.01,11.82],["Hawaii",2012.0,"Democratic","Mazie","Hirono",428937.0,266891.0,128847.0,16.4,1056483.0,62.6,37.4,32.18,25.2,57.39],["Indiana",2012.0,"Democratic","Joe","Donnelly",2757828.0,1033126.0,1557286.0,-11.02,4875504.0,50.03,44.3,-19.01,5.74,-13.27],["Maine",2012.0,"Independent - Dem Caucus","Angus","King",747927.0,357735.0,335593.0,0.41,1053828.0,52.89,30.74,2.96,22.15,25.11],["Maryland",2012.0,"Democratic","Ben","Cardin",2781446.0,1677928.0,943169.0,12.97,4420588.0,55.98,26.33,26.42,29.65,56.07],["Massachusetts",2012.0,"Democratic","Elizabeth","Warren",3325046.0,1995196.0,1090893.0,13.61,5128706.0,53.74,46.19,27.2,7.55,34.75],["Michigan",2012.0,"Democratic","Debbie","Stabenow",4824119.0,2268839.0,2279543.0,-1.16,7539572.0,58.8,37.98,-0.22,20.81,20.59],["Minnesota",2012.0,"Democratic","Amy","Klobuchar",2945233.0,1367825.0,1323232.0,-0.21,4019862.0,65.23,30.53,1.51,34.7,36.22],["Mississippi",2012.0,"Republican","Roger","Wicker",1211088.0,485131.0,700714.0,-10.14,2211742.0,40.55,57.16,-17.8,-16.6,-34.41],["Missouri",2012.0,"Democratic","Claire","McCaskill",2827673.0,1071068.0,1594511.0,-10.85,4563491.0,54.81,39.11,-18.51,15.7,-2.81],["Montana",2012.0,"Democratic","Jon","Tester",501822.0,177709.0,279240.0,-12.15,765852.0,48.58,44.86,-20.23,3.72,-16.51],["Nebraska",2012.0,"Republican","Deb","Fischer",844227.0,284494.0,495961.0,-14.59,1367120.0,42.23,57.77,-25.05,-15.55,-40.6],["Nevada",2012.0,"Republican","Dean","Heller",1125385.0,539260.0,512058.0,0.25,2035543.0,44.71,45.87,2.42,-1.16,1.26],["New Jersey",2012.0,"Democratic","Bob","Menendez",3906723.0,2148278.0,1601933.0,6.24,6726680.0,58.84,39.4,13.98,19.44,33.42],["New Mexico",2012.0,"Democratic","Martin","Heinrich",798318.0,385234.0,319666.0,3.61,1540507.0,51.01,45.28,8.21,5.73,13.94],["New York",2012.0,"Democratic","Kirsten","Gillibrand",7707363.0,4547562.0,2814589.0,10.05,15053150.0,72.22,26.34,22.48,45.88,68.36],["North Dakota",2012.0,"Democratic","Heidi","Heitkamp",344360.0,93758.0,216794.0,-20.85,522720.0,50.23,49.33,-35.73,0.9,-34.83],["Ohio",2012.0,"Democratic","Sherrod","Brown",5536528.0,2394164.0,2841005.0,-5.31,8805753.0,50.7,44.7,-8.07,6.0,-2.07],["Pennsylvania",2012.0,"Democratic","Bob","Casey",6166698.0,2926441.0,2970733.0,-1.42,9910224.0,53.69,44.59,-0.72,9.1,8.38],["Rhode Island",2012.0,"Democratic","Sheldon","Whitehouse",464144.0,252525.0,180543.0,7.27,828611.0,64.81,34.97,15.51,29.85,45.35],["Tennessee",2012.0,"Republican","Bob","Corker",2508027.0,870695.0,1522925.0,-14.68,4850104.0,30.41,64.89,-26.01,-34.48,-60.49],["Texas",2012.0,"Republican","Ted","Cruz",8969226.0,3877868.0,4685047.0,-5.76,18279734.0,40.62,56.46,-9.0,-15.83,-24.83],["Utah",2012.0,"Republican","Orrin","Hatch",1143601.0,310676.0,515231.0,-13.43,1892855.0,29.98,65.31,-17.89,-35.33,-53.22],["Vermont",2012.0,"Independent - Dem Caucus","Bernie","Sanders",315067.0,178573.0,95369.0,14.14,496508.0,71.04,24.87,26.41,46.17,72.58],["Virginia",2012.0,"Democratic","Tim","Kaine",3982752.0,1981473.0,1769443.0,1.78,6147347.0,52.87,46.96,5.32,5.91,11.23],["Washington",2012.0,"Democratic","Maria","Cantwell",3316996.0,1742718.0,1221747.0,7.74,5143186.0,60.45,39.55,15.71,20.9,36.61],["West Virginia",2012.0,"Democratic","Joe","Manchin",721231.0,188794.0,489371.0,-23.21,1465576.0,60.57,36.47,-41.68,24.1,-17.57],["Wisconsin",2012.0,"Democratic","Tammy","Baldwin",2976150.0,1382536.0,1405284.0,-1.44,4347494.0,51.41,45.86,-0.76,5.55,4.78],["Wyoming",2012.0,"Republican","John","Barrasso",255849.0,55973.0,174419.0,-26.75,428224.0,21.65,75.65,-46.3,-54.0,-100.3]];
+
+var xName = "demlead_pres2016";
+var yName = "demlead_lastsenate";
+var xLabel = "Democratic Lead, President 2016 (%)";
+var yLabel = "Democratic Lead, Last Senate (%)";
+
+var min_x = d3.min(data, function(d) { return +d[keys[xName]]; });
+var max_x = d3.max(data, function(d) { return +d[keys[xName]]; });
+var min_y = d3.min(data, function(d) { return +d[keys[yName]]; });
+var max_y = d3.max(data, function(d) { return +d[keys[yName]]; });
+var max = d3.max([min_x, min_y, max_x, max_y].map(Math.abs));
+
+var x = d3.scale.linear()
+        .domain([-1.2*max, 1.2*max])
+        .range([ 0, width ]);
+
+var y = d3.scale.linear()
+        //.domain([min_y - Math.abs(0.2*min_y), max_y + Math.abs(0.2*max_y)])
+        .domain([-1.2*max, 1.2*max])
+        .range([ height, 0 ]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .ticks(6)  //5
+    .tickSize(-height);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(6)  //5
+    .tickSize(-width);  //-width
+
+var zoom = d3.behavior.zoom()
+    .x(x)
+    .y(y)
+    .scaleExtent([1, 10])
+    .center([width / 2, height / 2])
+    .size([width, height])
+    .on("zoom", zoomed);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .call(zoom);
+
+//http://stackoverflow.com/questions/28723551
+//Create clip, then apply it to each dot
+var clip = svg.append("defs").append("svg:clipPath")
+    .attr("id", "clip")
+    .append("svg:rect")
+    .attr("id", "clip-rect")
+    .attr("x", "0")  //
+    .attr("y", "0")  //
+    .attr('width', width)
+    .attr('height', height);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+
+d3.selectAll('g.tick')
+  .filter(function(d){ return d==0;} )
+  .select('line') 
+  .attr('id', 'main-tick');
+
+// Tooltips
+var div = d3.select("body")
+    .append("div")  
+    .attr("class", "tooltip")
+    .style("opacity", 0); 
+
+svg.selectAll(".dot")
+  .data(data)
+.enter().append("circle")
+  .attr("class", "dot")
+  .attr("clip-path", "url(#clip)")  //add the clip to each dot
+  .attr("r", 4.0) //3.5  4.5 3*zoom.scale()
+  .attr("cx", function(d) { return x(+d[keys[xName]]); })
+  .attr("cy", function(d) { return y(+d[keys[yName]]); })
+  .style("fill", 'red' ) 
+  .attr('fill-opacity', 0.6)
+  .on("mouseover", function(d) { drawTooltip(d); })
+  .on("mouseout", function() {
+    div.style("opacity", 0);
+  });
+
+svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "middle")
+    .attr("x", width/2)
+    .attr("y", height + 30)
+    .text("Democratic Lead, President 2016 (%)");
+
+svg.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "middle")
+    .attr("x", -height/2)
+    .attr("y", -30) //-30
+    .attr("transform", "rotate(-90)")
+    .text("Democratic Lead, Last Senate (%)");
+
+d3.selectAll("button[data-zoom]")
+    .on("click", clicked);
+
+function zoomed() {
+  svg.select(".x.axis").call(xAxis);
+  svg.select(".y.axis").call(yAxis);
+
+  //http://stackoverflow.com/questions/37573228
+  svg.selectAll(".dot")
+    //.attr("r", 3*zoom.scale())
+    .attr("cx", function (d) {
+        return x(+d[keys[xName]]);
+    })
+    .attr("cy", function (d) {
+        return y(+d[keys[yName]]);
+    });
+
+    d3.selectAll('g.tick')
+      .filter(function(d){ return d==0;} )
+      .select('line') //grab the tick line
+      .attr('id', 'main-tick');
+}
+
+function clicked() {
+  svg.call(zoom.event); // https://github.com/mbostock/d3/issues/2387
+
+  // Record the coordinates (in data space) of the center (in screen space).
+  var center0 = zoom.center(), translate0 = zoom.translate(), coordinates0 = coordinates(center0);
+  zoom.scale(zoom.scale() * Math.pow(2, +this.getAttribute("data-zoom")));
+
+  // Translate back to the center.
+  var center1 = point(coordinates0);
+  zoom.translate([translate0[0] + center0[0] - center1[0], translate0[1] + center0[1] - center1[1]]);
+
+  svg.transition().duration(750).call(zoom.event);
+
+}
+
+function coordinates(point) {
+  var scale = zoom.scale(), translate = zoom.translate();
+  return [(point[0] - translate[0]) / scale, (point[1] - translate[1]) / scale];
+}
+
+function point(coordinates) {
+  var scale = zoom.scale(), translate = zoom.translate();
+  return [coordinates[0] * scale + translate[0], coordinates[1] * scale + translate[1]];
+}
+
+function drawTooltip(d) {
+    div.style("opacity", 1.0);
+    div.html(
+'<b>Class:</b> '+ d[keys.class] + 
+'<br><b>State:</b> '+ d[keys.state] + 
+'<br><b>Name:</b> ' + d[keys.first] + ' ' + d[keys.last] + 
+'<br><b>President:</b> ' + d[keys.demlead_pres2016] + "%" + 
+'<br><b>Last Senate:</b> ' + d[keys.demlead_lastsenate] +"%" 
+)
+        .style("left", (d3.event.pageX) + "px")
+        .style("top", (d3.event.pageY ) + "px");
+}
+
+</script>
+</body>
+</html>
