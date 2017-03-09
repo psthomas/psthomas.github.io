@@ -15,7 +15,7 @@ The Tea Party protests took the country by storm in 2009 and had an outsized imp
 	<a href="{{ site.baseurl }}/images/march/output_13_0.png"><img src="{{ site.baseurl }}/images/march/output_13_0.png"></a>
 </figure>
 
-Overall, there were ten times more Women's Marchers (**4,157,678**) than Tea Party marchers (**310,960**).  Interestingly, both protests had a similar median number of marchers (**322** vs **450**), and the majority of the marchers attended protests sized in the **100s** or **1000s**.  This means that the Tea Party wasn't any more "grassroots" than the Women's March, and both were geographically distributed.  Finally, almost every state had a larger percentage of the population turnout for the Women's March, with Colorado leading the way at **2.9%**.
+Overall, there were ten times more Women's Marchers (**4,157,678**) than Tea Party marchers (**310,960**).  Interestingly, both protests had a similar median number of marchers (**322** vs **450**), although the mean was  substantially higher for the Women's March (**6673** vs. **903**).  Finally, almost every state had a larger percentage of the population turnout for the Women's March, with Colorado leading the way at **2.9%**.  This means that although the march was more concentrated in cities, it was still a grassroots event distributed geographically throughout the 50 states.
 
 If the energy from the Women's March is put to use, it could have an even larger impact than the Tea Party.  We may be seeing the results in congress and town halls already.  
 
@@ -92,7 +92,7 @@ First, I look at this data by city.  The boxplot shows that the median march siz
 </div>
 
 
-Below is an interactive scatter plot of the number of protesters in each city for each movement.  This is created using an outer join, so the assumption is that any cities not shared by both lists had marchers in one city and not the other.  
+Below is an interactive scatter plot of the number of protesters in each city for each movement.  This is created using an outer join, so the assumption is that any cities not shared by both lists had protesters for one event and and not the other.  
 
 Any city above the 45 degree line had more Tea Party Marchers, and those below had more Women's Marchers.  These are log axes, so the cities do skew substantially towards the Women's march (especially the large ones).  
 
