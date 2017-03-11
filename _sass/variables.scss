@@ -9,7 +9,8 @@
 $doc-font-size: 14.0; //16; //13 good 13.5 best 13.75
 $doc-line-height: 26; //26;
 $paragraph-indent: false; //true !default;
-$base-font: "PT Sans", sans-serif; //'PT Serif', serif; current: "PT Sans", sans-serif;
+//http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html
+$base-font: Georgia, serif; //'PT Serif', serif; current: "PT Sans", sans-serif;  Georgia, serif;
 $heading-font: 'PT Sans Narrow', sans-serif; //current: 'PT Sans Narrow', sans-serif;
 $code-font: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 $alt-font: $base-font;

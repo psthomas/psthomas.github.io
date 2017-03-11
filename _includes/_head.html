@@ -7,6 +7,27 @@
         window.location.protocol = "https";
 </script>
 
+<!--Fonts-->
+<!--<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:700%7CPT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>-->
+<!--https://www.labnol.org/internet/reduce-google-fonts-size/21057/-->
+<!--<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700&text=1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%20%27%22|PT+Sans:400,400i,700&text=1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%20%27%22" rel="stylesheet" type='text/css'>-->
+<!--
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700|PT+Sans:400,400i,700&text=1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%20%27" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700|PT+Sans:400" rel="stylesheet" type='text/css'>
+-->
+
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700" rel="stylesheet" type='text/css'>
+
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
+<meta http-equiv="cleartype" content="on">
+
+<!-- Icons -->
+<link rel="shortcut icon" href="{{ site.url }}/favicon.ico"> <!--?v=2 to force reload remove for prod-->
+
+
 <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
 {% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
 <meta name="keywords" content="{{ page.tags | join: ', ' }}">
@@ -29,18 +50,5 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
-<meta http-equiv="cleartype" content="on">
-
-<!--Fonts-->
-<!--<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:700%7CPT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>-->
-<!--https://www.labnol.org/internet/reduce-google-fonts-size/21057/-->
-<!--<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700&text=1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%20%27%22|PT+Sans:400,400i,700&text=1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%20%27%22" rel="stylesheet" type='text/css'>-->
-<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700|PT+Sans:400,400i,700&text=1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%20%27" rel="stylesheet" type='text/css'>
-
-
-<!-- Icons -->
-<link rel="shortcut icon" href="{{ site.url }}/favicon.ico"> <!--?v=2 to force reload remove for prod-->
 
 

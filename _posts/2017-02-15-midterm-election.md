@@ -175,10 +175,10 @@ I also include the [Partisan Voter Index](https://en.wikipedia.org/wiki/Cook_Par
     </script>
 
     </body>
-    </html>" style="width: 725px; height: 500px; display:block; margin: 25px 0px; border: none"></iframe>
+    </html>" style="width: 725px; height: 500px; display:block; margin: 45px 0px; border: none"></iframe>
             
 
-<br>
+
 
 ## Close House Seats for Republicans
 
@@ -324,10 +324,9 @@ I do the same thing below for House Republicans, but this time a positive sum in
     </script>
 
     </body>
-    </html>" style="width: 725px; height: 500px; display:block; margin: 25px 0px; border: none"></iframe>
+    </html>" style="width: 725px; height: 500px; display:block; margin: 45px 0px; border: none"></iframe>
             
 
-<br>
 
 # Senate Seats at Risk
 
@@ -339,7 +338,7 @@ This plot makes it clear that Senate Democrats have a tough 2018 coming up, as 9
 
 
 <iframe src="{{site.url}}/vis/midterm_senate.html"
-    style="width: 960px; height: 600px; display:block; width: 100%; margin: 25px auto; border: none"></iframe>
+    style="width: 960px; height: 600px; display:block; width: 100%; margin: 25px 0px; border: none"></iframe>
 
 
 
@@ -489,10 +488,9 @@ These data make it clear that Senate Democrats have a very difficult election ah
     </script>
 
     </body>
-    </html>" style="width: 725px; height: 500px; display:block; margin: 25px 0px; border: none"></iframe>
+    </html>" style="width: 725px; height: 500px; display:block; margin: 45px 0px; border: none"></iframe>
             
 
-<br>
 
 ## Close Senate Seat(s) for Republicans
 
@@ -638,7 +636,7 @@ Relative to the Democrats, Senate Republicans have an easier 2018.  Dean Heller'
     </script>
 
     </body>
-    </html>" style="width: 725px; height: 275px; display:block; margin: 25px 0px; border: none"></iframe>
+    </html>" style="width: 725px; height: 275px; display:block; margin: 45px 0px; border: none"></iframe>
             
 
 So it seems clear that the Senate is much more difficult for Democrats, but who knows what will happen if Trump's popularity rating keeps going south.
