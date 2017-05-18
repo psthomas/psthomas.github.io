@@ -11,7 +11,7 @@ share: false
 
 The Tea Party protests took the country by storm in 2009 and had an outsized impact on the legislative process.  The recent Women's March and associated movement could have a similar effect, so I was curious to see how the two compared in size and location.  Below, I look at the distribution and size of the marches, compare turnout by city, then look at the fraction of each state that attended protests.
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/march/output_13_0.png"><img src="{{ site.baseurl }}/images/march/output_13_0.png"></a>
 </figure>
 
@@ -31,7 +31,7 @@ All the code for this post is available in a Jupyter notebook [here](http://nbvi
 
 First, I look at this data by city.  The boxplot shows that the median march size was actually very similar between cities (**322** vs **450**).  The mean, however, was an order of magnitude higher for the Women's March (**6673**), and there are more outliers at the high end of the march size.  There were also ten times more Women's Marchers (**4,157,678**) than Tea Party marchers (**310,960**).  
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/march/output_8_0.png"><img src="{{ site.baseurl }}/images/march/output_8_0.png"></a>
 </figure>
 
@@ -252,7 +252,7 @@ Here's a table showing the data from the scatter plot above.  Click the headers 
 This next plot groups the marches by size and counts them.  It's clear that the majority of both protests took place in groups of 200,000 or less, and that the Women's March dwarfed the Tea Party in size.  
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/march/output_13_0.png"><img src="{{ site.baseurl }}/images/march/output_13_0.png"></a>
 </figure>
 
@@ -261,7 +261,7 @@ This next plot groups the marches by size and counts them.  It's clear that the 
 
 Next, I look at the marchers grouped by state.  Every state except West Virginia had a larger percentage participate in the Women's March, with Colorado leading with **2.9%** of their population.  California had the largest total number of protesters, at **910,830**. 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/march/output_17_0.png"><img src="{{ site.baseurl }}/images/march/output_17_0.png"></a>
 </figure>
 
@@ -414,7 +414,7 @@ Next, I look at the marchers grouped by state.  Every state except West Virginia
 
 The Democratic margin for president is a fairly good indicator for the Women's March participation.  Some states overperformed (CA, OR, MA, VT, WA, IL) or underperformed the linear regression line, although some of the underperformers are states adjacent to DC.   
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/march/output_19_0.png"><img src="{{ site.baseurl }}/images/march/output_19_0.png"></a>
 </figure>
 

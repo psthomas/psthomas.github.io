@@ -14,7 +14,7 @@ share: false
 </figure>
 
 
-Like many people, I'm still recovering from the results of the election.  A part of the process for me is coming up with an accurate description of what actually happened, so this post attempts to do so by building a few visualizations.
+Like many people, I'm still recovering from the results of the election.  Part of the process for me is coming up with an accurate description of what actually happened, so this post attempts to do so by building a few visualizations.
 
 Building a graphic that clearly communicates the election results is difficult because you need to do a few things simultaneously:
 
