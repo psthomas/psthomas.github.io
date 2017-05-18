@@ -3,7 +3,9 @@
 {% include _head.html %}
 </head>
 
-<body class="home">
+<body > <!-- class="home"-->
+  
+{% include _simplenav.html %}
 
 {% if page.image.feature %}
   <div class="image-wrap">
@@ -22,19 +24,21 @@
 
 <div id="main" role="main">
   
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
+  <!--<div class="article-author-side">-->
+  <!--  include _author-bio.html-->
+  <!--</div>-->
   
   <div id="index">
+    <div class="wrapper">
 
-    {% include _simplenav.html %}
+    <!--include _simplenav.html-->
 
-    <p>Hello, I'm Philip Thomas.  This is my portfolio site and blog where I write about subjects
-    ranging from economics and public health to my most recent coding projects.  Feel free to take a look around and comment! &mdash; <a href="{{site.url}}/about/">about</a></p>
+    <p>Hello, I'm <strong>Philip Thomas</strong>, an aspiring software developer. 
+    This is my portfolio site and blog where I write about subjects ranging from economics and public health to my most recent projects. 
+    Feel free to explore the site and comment! &mdash; <a href="{{site.url}}/about/">about</a></p>
     
-    <h3><a href="{{ site.url}}/blog/">Recent Posts</a></h3>
-    {% for post in site.posts limit:6 %}
+    <!--<h3><a href="{{ site.url}}/blog/">Recent Posts</a></h3>-->
+    {% for post in site.posts limit:7 %}
     <article>
       {% if post.link %}
         <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a></h2>
@@ -44,10 +48,11 @@
       {% endif %}
     </article>
     {% endfor %}
-  </div><!-- /#index -->
+    </div><!--/wrapper-->
+  </div> <!-- /#index -->
 </div><!-- /#main -->
 
-<div class="footer-wrap">
+<div class="footer-wrap">   
   <footer>
     {% include _footer.html %}
   </footer>

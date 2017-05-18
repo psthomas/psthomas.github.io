@@ -7,7 +7,10 @@
 {% include _head.html %}
 </head>
 
-<body class="page">
+<body class="page" >  
+  
+{% include _simplenav.html %}  
+
   
 {% if page.image.feature %}
   <div class="image-wrap">
@@ -25,14 +28,17 @@
 {% endif %}
 
 <div id="main" role="main">
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
+  
+  <!--<div class="article-author-side">-->
+  <!--  include _author-bio.html -->
+  <!--</div>-->
+  <div class="wrapper">
 
   <article class="page">
-    {% include _simplenav.html %} 
+    <!--include _simplenav.html -->
     
-    <h1>{{ page.title }}</h1>
+    
+    <!--<h1>{{ page.title }}</h1>-->
     <div class="article-wrap">
       {{ content }}
       {% if page.share != false %}
@@ -44,7 +50,8 @@
       <section id="disqus_thread"></section><!-- /#disqus_thread -->
     {% endif %}
   </article>
-</div><!-- /#index -->
+  </div> <!-- /.wrapper -->
+</div><!-- /#main -->
 
 <div class="footer-wrap">
   <footer>

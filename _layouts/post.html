@@ -8,6 +8,8 @@
 </head>
 
 <body class="post">
+  
+{% include _simplenav.html %}
 
 {% if page.image.feature %}
   <div class="image-wrap">
@@ -25,14 +27,13 @@
 {% endif %}
 
 <div id="main" role="main">
-  <div class="article-author-side">
-     {% include _author-bio.html %} <!--comment out to remove bio from posts-->
-    <!--&nbsp;  to remove author bio from posts, use space as placeholder for format-->
-  </div>
+  <!--<div class="article-author-side">-->
+  <!--   include _author-bio.html-->
+  <!--</div>-->
+  
+  <div class="wrapper">
 
   <article class="post">
-    
-    {% include _simplenav.html %}
     
     <div class="headline-wrap">
       {% if page.link %}
@@ -50,9 +51,12 @@
 
     </div><!-- /.article-wrap -->
     
-    <br>
+    
+    <!--<hr>-->
+    
   
   </article>
+  </div><!-- /.wrapper-->
 
 </div><!-- /#main -->
 
@@ -60,11 +64,11 @@
 
   <footer>
     <!-- Add comments to footer -->
-    <h2>Comments</h2>
+    <!--<h2>Comments</h2>-->
     {% if site.owner.disqus-shortname and page.comments == true %}
       <section id="disqus_thread">
         <!-- added all below to try button loading: -->
-        <button class="btn" id="show-comments">Load Disqus Comments</button> <!--class="show-comments"-->
+        <button class="btn" id="show-comments">Load Comments</button> <!--class="show-comments"-->
         <!-- The empty element required for Disqus to loads comments into -->  
         <div id="disqus_thread"></div>
         
@@ -74,6 +78,7 @@
     {% if page.share != false %}{% include _social-share.html %}{% endif %}
     
     <br>
+    
     
     <!-- footer -->
     {% include _footer.html %}
