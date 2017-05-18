@@ -8,10 +8,14 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
+	letter-spacing: -0.03em;
 	color: $textcolor;
 	//Added so headers stay text color w/ changes in link color
 	a {
 		color: $textcolor;
+	}
+	a:hover {
+		color: $linkcolor;
 	}
 	
 }
@@ -120,7 +124,7 @@ blockquote {
 	padding-left: 20px;
 	border-left: 4px solid $grayborder; //gray; //$textcolor; //$grayborder;//8px solid $border-color;
 	font-family: $alt-font;
-	font-style: italic;
+	//font-style: italic;
 }
 
 /*

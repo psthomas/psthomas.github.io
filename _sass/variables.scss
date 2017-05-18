@@ -10,8 +10,8 @@ $doc-font-size: 14.0; //16; //13 good 13.5 best 13.75
 $doc-line-height: 26; //26;
 $paragraph-indent: false; //true !default;
 //http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html
-$base-font: "PT Sans", sans-serif; //'PT Serif', serif; current: "PT Sans", sans-serif;  Georgia, serif;
-$heading-font: 'PT Sans Narrow', sans-serif; //current: 'PT Sans Narrow', sans-serif;
+$base-font: "Trebuchet MS", sans-serif; // Georgia, serif; 'PT Serif', serif; current: "PT Sans", sans-serif;  
+$heading-font: "Trebuchet MS", serif; //current: 'PT Sans Narrow', sans-serif;
 $code-font: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 $alt-font: $base-font;
 
@@ -56,9 +56,9 @@ $vimeo-color        : #1ab7ea;
 $youtube-color      : #ff3333;
 
 /* links */
-$linkcolor 		   : #326891; //#3b5998;//#343434; //red: #EC2028;
+$linkcolor 		   : steelblue; //#326891; //#3b5998;//#343434; //red: #EC2028;
 $link-color       : $linkcolor;
-$linkcolorhover 	: darken($linkcolor, 10);
+$linkcolorhover 	: darken($linkcolor, 5); //10
 $linkcolorvisited : lighten($linkcolorhover, 20);
 $linkcolorfocus 	: darken($linkcolorvisited, 10);
 
