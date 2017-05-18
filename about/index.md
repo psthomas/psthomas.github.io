@@ -9,6 +9,8 @@ prof_img: true
 ---
 
 
+<!--style="display:block; float:right"-->
+
 <div style="display:block; float:right" class="article-author-about">
 <img src="https://pstblog.com/images/author.jpg" class="bio-photo"  alt="{{ author.name }} bio photo">
 <div>

@@ -34,7 +34,7 @@ body {
 }
 
 .navwrapper{
-	max-width: 95%; //780px;  95%
+	max-width: 820px; //780px;  95%
 	margin: 0px auto; 
 	padding: 0 30px;
 }
@@ -183,6 +183,25 @@ body {
 	}
 }
 
+/* SVG Centering */
+
+div.outer {
+    width: 300px; 
+    margin: 0 auto; 
+    overflow: visible;
+}
+div.inner {
+    position:relative;
+    float: right;
+    right: 50%;
+}
+div.inner svg {
+    position: relative; 
+    right:-50%;
+}
+
+
+
 /* Tables */
 
 table {
@@ -317,17 +336,20 @@ th {background-color: #f2f2f2;}
 	//width: 100%;
     margin:auto;
     overflow:hidden;
-    display:inline; //inline-block;
+    display:block; //inline; //inline-block;
+    float:right;
     text-align:center;
+    
+    padding: 0px 0px 0px 20px;
     
 	//margin-left: auto;
 	//margin-right: auto;
 	//display: none;
 	.bio-photo {
 		//float: right;
-		max-width: 150px;
+		max-width: 170px;
 		margin-bottom: 5px; //added 10 to make up for no h3 uppper margin
-		@include rounded(150px); //150px original  20px
+		@include rounded(20px); //150px original  20px
 		border: 8px solid #ddd;
 		//@include rounded(20px);
 	}
