@@ -6,7 +6,7 @@ body {
 	background-color: $bodycolor;
 	font-family: $base-font;
 	color: $text-color;
-	font-size: 17.5px; //https://github.com/mmistakes/minimal-mistakes/issues/226  o:18.5px
+	font-size: 16.5px; //https://github.com/mmistakes/minimal-mistakes/issues/226  o:18.5px
 	line-height: 1.6; //1.5 //1.6 1.65
 	//letter-spacing: -0.1px;
 }
@@ -347,10 +347,10 @@ th {background-color: #f2f2f2;}
 	//display: none;
 	.bio-photo {
 		//float: right;
-		max-width: 170px;
+		max-width: 150px;
 		margin-bottom: 5px; //added 10 to make up for no h3 uppper margin
-		@include rounded(20px); //150px original  20px
-		border: 8px solid #ddd;
+		@include rounded(150px); //150px original  20px
+		border: 2px solid #aaa;
 		//@include rounded(20px);
 	}
 	.icon-link {
