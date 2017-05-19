@@ -61,9 +61,11 @@ share: false
   /*line-height: 1;*/
   font: 16px serif;/*18px serif "Helvetica Neuesans-serif;  "PT Sans"*/
   /*font-weight: bold;*/
-  /*padding: 5px;*/ 
-  /*background: #fcfcfa;*/ /*rgba(0, 0, 0, 0.8) */ 
-  color: #999;   /*#fff #888; #999*/
+  padding: 8px;
+  position: absolute;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.85);  /*#fcfcfa; */
+  color: #666;   /*#fff #888; #999*/
   /*border-radius: 2px;*/
   max-width: 400px;
 }
@@ -191,13 +193,13 @@ var leftOffset = document.getElementById("electionvis").offsetLeft,
 //Statically place tooltip:
 //http://stackoverflow.com/questions/30051141
 // var tooltip = d3.select("body")
-var tooltip = d3.select("#electionvis")
+var tooltip = d3.select("body")  //"#electionvis"
 	.append("div")    
-	.style("position", "absolute")
+	//.style("position", "absolute")
     // .style("position", "inherit")
 	.style("visibility", "hidden")
-	.style("left", leftOffset + width/2 + margin.left + 8 + "px")
-	.style("top", topOffset + height - margin.bottom - 8 + "px")
+	//.style("left", leftOffset + width/2 + margin.left + 8 + "px")
+	//.style("top", topOffset + height - margin.bottom - 8 + "px")
 	.attr("class", "tooltip");
 
 
@@ -207,6 +209,8 @@ function tooltipOn(d) {
 	// 	.duration(500)
 	// 	.style("visibility", "visible");
 	tooltip.style("visibility", "visible")
+		.style("left", (d3.event.pageX) + "px")		
+    	.style("top", (d3.event.pageY) + "px")  //-28px
 		.html(
 		"County: " + d.county + "<br>" +
 		"D: " + pctFormat(d.num_dem/d.county_num) +
@@ -290,6 +294,8 @@ d3.csv("{{ site.baseurl }}/rawdata/county_results_20002016.csv", parseRows, func
 	function dragged(d) {
 		//Remove transitions temporarily
 		d3.selectAll("circle").transition();
+		
+		//tooltip.style("visibility", "hidden");
 
 		//Issue when dragged across 0 threshold, county_num = 0
 
@@ -409,7 +415,11 @@ d3.csv("{{ site.baseurl }}/rawdata/county_results_20002016.csv", parseRows, func
 			})
 			.call(drag)
 			.on("mouseover", tooltipOn)
-			.on("mouseout", function(d){return tooltip.style("visibility", "hidden");});
+			.on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-35)+"px").style("left",(d3.event.pageX+15)+"px");})
+			.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+			//.on("mouseover", tooltipOn)
+			//.on("mouseout", function(d){return tooltip.style("visibility", "hidden");});
 
 		//Update circles
 		svg.selectAll("circle").data(yearData)
