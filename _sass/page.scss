@@ -34,13 +34,13 @@ body {
 }
 
 .navwrapper{
-	max-width: 820px; //780px;  95%
+	max-width: 800px; //780px;  95% 820
 	margin: 0px auto; 
 	padding: 0 30px;
 }
 
 .wrapper{
-	max-width: 820px; //780px;
+	max-width: 800px; //780px;  820
 	margin: 0px auto; 
 	padding: 0 30px;
 }
@@ -92,7 +92,7 @@ body {
 // }
 #main {
 	margin-top: 2em; //2em; 1.5em
-	margin-bottom: 5em;
+	margin-bottom: 4em;
 	.post,
 	.page {
 		h1 {
@@ -727,7 +727,7 @@ th {background-color: #f2f2f2;}
 		@include font-rem(14);
 	}
 	footer {
-		max-width: 820px;
+		max-width: 800px;  //820
 		margin: 0px auto; 
 		padding: 0 20px;
 	}
