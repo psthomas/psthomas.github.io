@@ -93,6 +93,7 @@ body {
 #main {
 	margin-top: 2em; //2em; 1.5em
 	margin-bottom: 4em;
+	min-height: calc(100vh - 258px );  //http://stackoverflow.com/questions/42294
 	.post,
 	.page {
 		h1 {
