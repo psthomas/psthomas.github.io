@@ -33,12 +33,12 @@
 
     <!--include _simplenav.html-->
 
-    <p>Hello, I'm <strong>Philip Thomas</strong>, an aspiring software developer. 
+    <p style="font-size:1.1rem; margin: 0 0 3rem;">Hello, I'm <strong>Philip Thomas</strong>, an aspiring software developer. 
     This is my portfolio site and blog where I write about subjects ranging from economics and public health to my most recent projects. 
     Feel free to explore the site and comment! &mdash; <a href="{{site.url}}/about/">about</a></p>
     
     <!--<h3><a href="{{ site.url}}/blog/">Recent Posts</a></h3>-->
-    {% for post in site.posts limit:7 %}
+    {% for post in site.posts limit:8 %}
     <article>
       {% if post.link %}
         <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a></h2>
