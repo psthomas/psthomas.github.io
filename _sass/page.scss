@@ -92,7 +92,7 @@ body {
 // }
 #main {
 	margin-top: 2em; //2em; 1.5em
-	margin-bottom: 3em;  // 4em;
+	//margin-bottom: 3em;  // 4em;
 	//min-height: calc(100vh - 258px );  //http://stackoverflow.com/questions/42294
 	.post,
 	.page {
@@ -177,7 +177,7 @@ body {
 			}
 		}
 		p {
-			@include font-rem(16); //14
+			//@include font-rem(16); //14
 		}
 		p+p {
 			text-indent: 0;
