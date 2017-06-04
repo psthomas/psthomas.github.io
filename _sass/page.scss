@@ -18,7 +18,7 @@ body {
 .basicnav {
 	//border-bottom: 1px solid #ddd; // #ddd; //1px solid lighten($black,70);  1px solid $grayborder; 
 	margin-bottom: 0.8em;
-	background-color: $graywrap; //Added to separate from page
+	background-color: $graywrap; //Added to separate from page  $graywrap
 	border-bottom: 1px solid $grayborder; //Added
 	//padding-bottom: 0em;
 	padding: 0.9em 0em;  //0.9em
@@ -92,14 +92,15 @@ body {
 // }
 #main {
 	margin-top: 2em; //2em; 1.5em
-	margin-bottom: 4em;
-	min-height: calc(100vh - 258px );  //http://stackoverflow.com/questions/42294
+	margin-bottom: 3em;  // 4em;
+	//min-height: calc(100vh - 258px );  //http://stackoverflow.com/questions/42294
 	.post,
 	.page {
 		h1 {
 			margin-top: 0.8em; //20px;
 			margin-bottom: 0.2em; //10px
-			line-height: 1em;
+			line-height: 1.1em;
+			//font-size: 2.3em;
 			//text-align: center;
 		}
 		h2, h3, h4, h5 {
@@ -176,7 +177,7 @@ body {
 			}
 		}
 		p {
-			@include font-rem(14);
+			@include font-rem(16); //14
 		}
 		p+p {
 			text-indent: 0;
@@ -274,16 +275,18 @@ th {background-color: #f2f2f2;}
 
 //Added
 // .headline-wrap {
-// 	text-align: center;
-	
+// 	//text-align: center;
+// 	font-size: 2.3em;
+// 	line-height: 1.1em;
 // }
 
 
 /* Post byline */
 .byline {
 	clear: both;
-	font-size: 80%;
+	font-size: 80%;  //0.9rem;
 	margin-bottom: 1rem;
+	//font-weight: 400;
 }
 .article-author-side,
 .article-author-bottom {
@@ -713,9 +716,9 @@ th {background-color: #f2f2f2;}
 // 	}
 // }
 .footer-wrap {
-	background-color: $graywrap; //Added to separate from page
-	border-top: 1px solid $grayborder; //Added
-	padding-top: 2em; //2em
+	//background-color: $graywrap; //Added to separate from page
+	//border-top: 1px solid $grayborder; //Added
+	//padding-top: 2em; //2em
 	padding-bottom: 2em;  //3em //2.5 2
 	a,
 	a:active,

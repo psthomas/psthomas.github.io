@@ -11,7 +11,7 @@ $doc-line-height: 26; //26;
 $paragraph-indent: false; //true !default;
 //http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html
 $base-font: "Trebuchet MS", sans-serif; // Georgia, serif; 'PT Serif', serif; current: "PT Sans", sans-serif;  
-$heading-font: Georgia, serif; //current: 'PT Sans Narrow', sans-serif;
+$heading-font: "Trebuchet MS", sans-serif; //current: 'PT Sans Narrow', sans-serif;  Georgia, serif
 $code-font: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 $alt-font: $base-font;
 
@@ -30,8 +30,8 @@ $bordercolor    : $basecolor;
 $white          : #fff;
 $black          : #111;
 $accentcolor    : $black;
-$graywrap       : #f7f7f7;
-$grayborder     : #d9d9d9;
+$graywrap       : #fafafa;  //#f7f7f7;  fafafa
+$grayborder     : #ebebeb;  //#d9d9d9;
 $border         : lighten($black,70);
 
 /* buttons */
