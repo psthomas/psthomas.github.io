@@ -34,15 +34,15 @@ body {
 }
 
 .navwrapper{
-	max-width: 800px; //780px;  95% 820
+	max-width: 825px; //780px;  95% 820
 	margin: 0px auto; 
-	padding: 0 30px;
+	padding: 0 15px;
 }
 
 .wrapper{
-	max-width: 800px; //780px;  820
+	max-width: 825px; //780px;  820
 	margin: 0px auto; 
-	padding: 0 30px;
+	padding: 0 15px;
 }
 
 
@@ -187,17 +187,17 @@ body {
 
 /* SVG Centering */
 
-div.outer {
+.outer {
     width: 300px; 
     margin: 0 auto; 
     overflow: visible;
 }
-div.inner {
+.inner {
     position:relative;
     float: right;
     right: 50%;
 }
-div.inner svg {
+.inner svg {
     position: relative; 
     right:-50%;
 }
@@ -209,7 +209,7 @@ div.inner svg {
 table {
     overflow-x: auto;
     display: block;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 th, td {
@@ -731,9 +731,9 @@ th {background-color: #f2f2f2;}
 		@include font-rem(14);
 	}
 	footer {
-		max-width: 800px;  //820
+		max-width: 825px;  //820
 		margin: 0px auto; 
-		padding: 0 20px;
+		padding: 0 15px;
 	}
 }
 
