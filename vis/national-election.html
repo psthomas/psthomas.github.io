@@ -56,7 +56,7 @@ svg {
 }
 
 .circle {
-   stroke: white;
+    stroke: white;
 	stroke-width: 0.1px;
 	/*https://stackoverflow.com/questions/5697067*/
 	cursor: pointer; /* grab; pointer; move; -webkit-grab;*/
@@ -72,14 +72,14 @@ svg {
 
 #formholder {
   position: absolute;
-  right: 50px;
-  top: 25px;
+  right: 25px; /*50px*/
+  top: 0px;  /*25px*/
   font: 16px serif;
 }
 
-input {
-  font: 14px serif;
-}
+/*input, button {*/
+/*  font: 14px serif;*/
+/*}*/
 
 
 
@@ -91,7 +91,7 @@ input {
 
 <div id="formholder" >  
 <form id="searchform" name="myform" onSubmit="return handleClick()" >   
-        <input type="text" id="myVal" size="30" placeholder="NY, WI, Los Angeles County">
+        <input type="text" id="myVal" size="30" placeholder="NY, WI, Marin County">
         <input id="search" name="Submit" type="button"  onclick="handleClick();" value="Search" >  
         <input type="button" value="X" onclick="document.myform.reset(); handleClick();">
 </form>
@@ -108,13 +108,13 @@ input {
 
 // {top: 20, right: 20, bottom: 50, left: 30}
 
-var margin = {top: 20, right: 20, bottom: 50, left: 50},  
+var margin = {top: 30, right: 20, bottom: 50, left: 50},  
 	width = 0.95*window.innerWidth - margin.left - margin.right,   
 	height = 0.9*window.innerHeight - margin.top - margin.bottom;
 
 //Formatting Functions
-var pctFormat = d3.format(".2%")
-var thsdFormat = d3.format(",")
+var pctFormat = d3.format(".2%");
+var thsdFormat = d3.format(",");
 
 //Create SVG
 var svg = d3.select("body").append("svg")

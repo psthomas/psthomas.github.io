@@ -17,7 +17,7 @@ In my continuing quest to understand the 2016 election, I decided to build anoth
 * Clicking and dragging the counties updates the vote percentages and electoral counts if the vote threshold for the state is crossed.  I find this is a good way to consider "what if" scenarios for the elections.     
 
 
-All the code and data are available at a GitHub repo [here](https://github.com/psthomas/election-vis) .   
+All the code and data are available at a GitHub repo [here](https://github.com/psthomas/election-vis).   
 
 
 <!--https://stackoverflow.com/questions/5867985-->
@@ -66,7 +66,7 @@ It's pretty interesting to click through the years and see the turnout and margi
 
 I'm fairly confident that the aggregate data are accurate because vote counts and electoral outcomes are similar to those of David Leip's [Election Atlas](http://uselectionatlas.org/).  But even if the aggregates are accurate, it's still possible that there are problems at the individual county level.   
 
-The turnout exceeded 100% in 16 counties, which I made note of and filtered out in the [Jupyter notebook](https://github.com/psthomas/election-vis/blob/master/voting_national.ipynb).  This issue is either caused by bad county level vote tallies or bad voting age population data.  I think the latter is most likely, as I had to use the 2005-2009 American Community Survey estimates for the 2004 and 2008 elections.  It's possible that the individual year estimates exist somewhere, I just couldn't find them.  I relied on kyaroch's [GitHub repo](https://github.com/kyaroch/2012_and_2016_presidential_election_results_by_county) for the 2012 and 2016 data.  The author uses the annual voting age population data and voting data from The Guardian and the Census Bureau. 
+The turnout exceeded 100% in 16 counties, which I made note of and filtered out in the [Jupyter notebook](https://github.com/psthomas/election-vis/blob/master/voting_national.ipynb).  This issue is either caused by bad county level vote tallies or bad voting age population data.  I think the latter is most likely, as I had to use the 2005-2009 American Community Survey average estimates for the 2004 and 2008 elections.  It's possible that the individual year estimates exist somewhere, I just couldn't find them.  I relied on kyaroch's [GitHub repo](https://github.com/kyaroch/2012_and_2016_presidential_election_results_by_county) for the 2012 and 2016 data.  The author uses the annual voting age population data and voting data from The Guardian and the Census Bureau. 
 
 One final thing to mention is the [distinction](http://www.electproject.org/home/voter-turnout/faq/denominator) between Voting Age Population (VAP) and Voting Eligible Population (VEP).  VEP estimates remove non-citizens, felons (depending on state law), and other groups that are ineligible to vote.  This means that using the VAP data could underestimate turnout in counties with e.g. high felony convictions.  The Sentencing Project [estimates](http://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2016/10/10/more-than-six-million-felons-cant-vote-in-2016) that 6 million felons were ineligible to vote in 2016, so the effect on estimated turnout could be substantial.  Unfortunately, VEP data isn't available at the county level so I used VAP data instead.  This might be preferable in some ways though because it highlights a problem -- close to 2.5 percent of the US Population isn't being represented by their government.     
    
