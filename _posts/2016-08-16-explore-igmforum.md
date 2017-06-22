@@ -19,7 +19,7 @@ An earlier paper [[1, PDF]](http://econweb.ucsd.edu/~gdahl/papers/views-among-ec
 
 The main takeaway from this analysis is the amazing amount of consensus among leading economists.  The mean and median distance away from the consensus responses are `0.63` and `0.45` points on a five point scale.  Roughly `90 percent` of the responses are within `1.5` units of the consensus for all questions.  These results are consistend with Gordon and Dahl's earlier findings [[2, URL]](http://voxeu.org/article/views-among-economists-are-economists-really-so-divided).   
 
-<br/>
+**Update:** A recent study [[2]](https://www.sociologicalscience.com/articles-v3-45-1028/) took a look at these data and they make a few important points.  First, if the intention of the forum is to show consensus in the economics profession, this might introduce a selection bias towards non-controversial questions. Second, they do find evidence of institutional and political bias but suggest it is a result of the hiring process rather than the educational process.
 
 ## Descriptive Statistics
 
@@ -860,10 +860,15 @@ df_responses.groupby(['female']).agg({'confidence': {'mean': 'mean', 'std':'std'
 
 ![png]({{ site.baseurl }}/images/igmimages/output_26_1.png)
 
-<br/>
 
 ## Conclusion
 
 This is just a first look at the data, and overall there seem to be some pretty interesting patterns.  There are probably some other interesting ways to augment this data with other information, like which institution an economist studied at, so I might do that in the future.  
 
 Feel free to use the data, let me know what you find!
+
+## Sources
+
+[1] *Views among Economists: Professional Consensus or Point-Counterpoint?* Roger Gordon and Gordon B. Dahl.  [http://econweb.ucsd.edu/~gdahl/papers/views-among-economists.pdf](http://econweb.ucsd.edu/~gdahl/papers/views-among-economists.pdf)
+
+[2] *Consensus, Polarization, and Alignment in the Economics Profession.* Tod S. Van Gunten, John Levi Martin, Misha Teplitskiy. [https://www.sociologicalscience.com/articles-v3-45-1028/](https://www.sociologicalscience.com/articles-v3-45-1028/)

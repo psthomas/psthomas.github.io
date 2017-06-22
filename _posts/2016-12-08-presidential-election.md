@@ -417,7 +417,7 @@ I recently read an interesting paper [1] looking at the effect of Voter ID laws 
 
 1. It used validated voting data.  People, especially minority groups, tend to overreport voting behavior in surveys.  Using validated data eliminates the problem of inflated turnout by looking at voting records instead. 
 2. Rather than looking at the effect on overall turnout, they looked at the differential effect on minority voters.
-3. They studied the most recent Photo ID laws, which are more stringent than past laws.  
+3. They studied the most recent Photo ID laws, which are more stringent than past laws. 
 
 Here’s what they found:  
 
@@ -432,7 +432,7 @@ Milwaukee turnout was `65.4%`, but these additional votes would bring turnout up
 
 If we apply the same Voter ID effects to the rest of the counties in the state using the same approach as above, the result is a `1,489,434` to `1,471,751` Clinton victory.  This would bring overall turnout in the state to `(1,489,434 + 187320 + 1,471,751)/4,449,170 = 70.8%` from `69.6%`, which is still in the same ballpark as the 2008 and 2012 elections [2].
 
-**The takeaway: if the effect sizes from this paper are correct, the decline in turnout would be enough to swing the election in this state.**  
+**The takeaway: if the effect sizes from this paper are correct, the decline in turnout would be enough to swing the election in this state.**
 
 Here are a few reasons the above estimate could be wrong:
 
@@ -442,10 +442,12 @@ Here are a few reasons the above estimate could be wrong:
 
 A few political scientists from UW-Madison announced they’re going to [study the effects of the law](http://host.madison.com/ct/news/local/education/university/uw-study-to-explore-effects-of-voter-id-law-on/article_ee400380-614d-5560-b7a5-cfee73ca0338.html), so it’ll be interesting to compare this back-of-the-envelope estimate with their numbers when they come out next summer.
 
+**Note:** The results of the above paper have been called into question [3] for data quality issues and some of the problems I mentioned above.  The authors haven't formally issued a response yet, so we're in "wait and see" mode.  This [Vox article](https://www.vox.com/identities/2017/3/15/14909764/study-voter-id-racism) makes the point that the current body of research shows pretty small effects of ID laws on turnout.  But as far as I know, the earlier research hasn't included more stringent photo ID requirements so it's likely there isn't a single "Voter ID Effect".  Instead, the effect probably depends on the context and specific characteristics of the law.  
+
 ## References
 
 [1] *Voter Identification Laws and the Suppression of Minority Votes.*  [http://pages.ucsd.edu/~zhajnal/page5/documents/voterIDhajnaletal.pdf](http://pages.ucsd.edu/~zhajnal/page5/documents/voterIDhajnaletal.pdf)
 
 [2] *Voter Turnout Estimated at 3.1 million.* [http://elections.wi.gov/node/4375](http://elections.wi.gov/node/4375)
 
-
+[3] *Comment on “Voter Identification Laws and the Suppression of Minority Votes”* [http://stanford.edu/~jgrimmer/comment_final.pdf](http://stanford.edu/~jgrimmer/comment_final.pdf)

@@ -17,7 +17,7 @@ One of the interesting things that Gordon and Dahl looked at in their 2012 paper
 
 Below, I join this dataset of individual characteristics with the responses data from an earlier post, and look at some of the relationships graphically.  I don't have background in economics or a very good understanding of regression analysis, so I stick to plotting trends rather than claiming statistical significance.  All of the code for this post is available in an IPython notebook [here](https://gist.github.com/psthomas/6fe0c7c8025becc285631346afff6dee)  
 
-<br/>
+**Update:** A recent study [[2]](https://www.sociologicalscience.com/articles-v3-45-1028/) took a look at these data and they make a few important points.  First, if the intention of the forum is to show consensus in the economics profession, this might introduce a selection bias towards non-controversial questions. Second, they do find evidence of institutional and political bias but suggest it is a result of the hiring process rather than the educational process.
 
 ## Loading the Data
 
@@ -643,7 +643,6 @@ df_all.groupby('cohort').agg({'distance_median':{'mean': 'mean', 'median':'media
 
 ![png]({{ site.baseurl }}/images/igmindvs/output_16_3.png)
 
-<br/>
 
 ## Conclusion
 
@@ -651,3 +650,8 @@ Ok, that's it for now.  There do seem to be some interesting patterns in this da
 
 Thanks for reading, and let me know if you have any comments or questions.  
 
+## Sources
+
+[1] *Views among Economists: Professional Consensus or Point-Counterpoint?* Roger Gordon and Gordon B. Dahl.  [http://econweb.ucsd.edu/~gdahl/papers/views-among-economists.pdf](http://econweb.ucsd.edu/~gdahl/papers/views-among-economists.pdf)
+
+[2] *Consensus, Polarization, and Alignment in the Economics Profession.* Tod S. Van Gunten, John Levi Martin, Misha Teplitskiy. [https://www.sociologicalscience.com/articles-v3-45-1028/](https://www.sociologicalscience.com/articles-v3-45-1028/)

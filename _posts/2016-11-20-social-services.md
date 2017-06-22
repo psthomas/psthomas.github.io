@@ -21,8 +21,6 @@ These findings fit with other research on the [social determinants of health](ht
 The authors in the above study used `Potential Years of Life Lost (PYLL)` as one of the main measures of population health.  This metric doesn't include years lived with a disability `(YLD)`, so I was interested in seeing how a more comprehensive measure of population health like the Disability Adjusted Life Year `(YLLs + YLDs)` affects this analysis.  The [Global Burden of Disease](http://www.healthdata.org/gbd) regularly conducts a study of global DALY burdens, so I dowloaded their `1990-2015` results.  I also used per capita health and social services spending rather than spending as a percentage of GDP because I think the per capita figures are closer to what you want to measure.       
 
 The rest of this post looks at some of the relationships I found in the data.  All the code is available in an IPython notebook [here](https://gist.github.com/psthomas/51fc1a497d03005a05197bea53bf0cc3), and the input data is available in a zipped file [here](https://www.dropbox.com/s/0kvyffe810hgbx6/social_data.zip?dl=1).  
-
-<br/>
   
 # Getting the Data
 
@@ -549,7 +547,6 @@ When it comes to the policy implications, though, everyone and their mother seem
 
 One nice side effect of the units that I used is that without the log transforms, the slope between variables has units of cost effectiveness `(DALY/$)`.  See `Appendix B` for a version of the regression without the natural log.  
 
-<br/>
 
 # Conclusion
 
@@ -563,7 +560,6 @@ Although I'm not certain about the results of the regression, I still think it's
 
 4. Some OECD countries, especially Japan and Israel, spend much less on both health and social services than the US with much better outcomes.  This suggests there's at least some room to increase the efficiency of spending.  Given the likely political climate over the next few years, increases in efficiency will probably be the only way to improve health outcomes across the US through public policy.  Paper [5] has an interesting take on the efficiency of social services spending, although I don't fully agree with it.  
 
-<br/>
 
 # Appendix A: How does the Mixed Linear Model work?
 
@@ -614,7 +610,6 @@ plt.show()
 
 ![png]({{ site.baseurl }}/images/social_img/output_26_0.png)
 
-<br/>
 
 # Appendix B: Alternate Regression
 
