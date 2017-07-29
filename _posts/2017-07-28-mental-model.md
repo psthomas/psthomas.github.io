@@ -10,7 +10,11 @@ share: false
 ---
 
 
-Models are useful because they force us to be explicit about how we view the world and open those views up for criticism.  I decided to create an interactive visualization to communicate my ideas about the world, which is included below.  Although it's not meant to be mathematically perfect, I think it captures what I see as the important features and interactions between markets, government and research.  People are too often overconfident in their explicit or implicit models of the world, so feel free to critique or [contribute](https://github.com/psthomas/mental-model). 
+One reason models are useful is because they force us to be explicit about how we view the world, which opens our views up to criticism.  I decided to create an interactive visualization to communicate my model of the world, which is included below.  Although it's not meant to be mathematically perfect, I think it captures what I see as the important features and interactions between markets, government and research.  People are often too confident in their explicit or implicit models of the world, so feel free to critique or [contribute](https://github.com/psthomas/mental-model).
+
+There are three sectors in this model: markets, government, and research.  Research is technically a subset of government, but it behaves sufficiently different to warrant it's own category.  Each circle represents a project that needs funding.  In the market each circle could represent a new product for a company to pursue, in government it could represent a new policy initiative, and in research it could represent the ongoing research in a lab.  
+
+The radius of the circle is proportional to the room for more project funding -- when the project has been fully funded the radius and marginal impact of additional funding drop to zero.  The x-axis represents the variation in project outcome and the y-axis represents the [marginal](https://en.wikipedia.org/wiki/Marginal_value) social impact of the project using units of something like wellbeing per dollar spent.  
 
 
 <!--https://stackoverflow.com/questions/5867985-->
@@ -36,10 +40,6 @@ d3.request("https://raw.githubusercontent.com/psthomas/mental-model/master/model
 
 
 ## How It Works
-
-There are three sectors in this model: markets, government, and research.  Research is technically a subset of government, but it behaves sufficiently different to warrant it's own category.  Each circle represents a project that needs funding.  In the market each circle could represent a new product for a company to pursue, in government it could represent a new policy initiative, and in research it could represent the ongoing research in a lab.  
-
-The radius of the circle is proportional to the room for more project funding -- when the project has been fully funded the radius and marginal impact of additional funding drop to zero.  The x-axis represents the variation in project outcome and the y-axis represents the [marginal](https://en.wikipedia.org/wiki/Marginal_value) social impact of the project using units of something like wellbeing per dollar spent.  
 
 There can be large differences in the impacts of different projects so I generate the data using a [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) [lognormal](https://en.wikipedia.org/wiki/Log-normal_distribution) probability distribution with a correlation between the risk and impact.  The specifics of how the joint distributions are generated is in the appendix below if you're interested.  I leave numbers and units off the axes because I don't think there's a single measure of wellbeing and the relationship between the sectors matters more than the numerical values.      
 
