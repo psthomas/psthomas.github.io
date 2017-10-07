@@ -15,7 +15,7 @@ The Tea Party protests took the country by storm in 2009 and had an outsized imp
 	<a href="{{ site.baseurl }}/images/march/output_13_0.png"><img src="{{ site.baseurl }}/images/march/output_13_0.png"></a>
 </figure>
 
-Overall, there were ten times more Women's Marchers (**4,157,678**) than Tea Party marchers (**310,960**).  Interestingly, both protests had a similar median number of marchers (**322** vs **450**), although the mean was  substantially higher for the Women's March (**6673** vs. **903**).  Finally, almost every state had a larger percentage of the population turnout for the Women's March, with Colorado leading the way at **2.9%**.  This means that although the march was more concentrated in cities, it was still a grassroots event distributed geographically throughout the 50 states.
+Overall, there were ten times more Women's Marchers (**4,157,678**) than Tea Party marchers (**310,960**).  Interestingly, both protests had a similar median number of marchers (**322** vs **450**), although the mean was substantially higher for the Women's March (**6673** vs. **903**).  Finally, almost every state had a larger percentage of the population turnout for the Women's March, with Colorado leading the way at **2.9%**.  This means that although the march was more concentrated in cities, it was still a grassroots event distributed geographically throughout the 50 states.
 
 If the energy from the Women's March is put to use, it could have an even larger impact than the Tea Party.  We may be seeing the results in congress and town halls already.  
 
@@ -249,7 +249,9 @@ Here's a table showing the data from the scatter plot above.  Click the headers 
 
 ## Binned and Counted
 
-This next plot groups the marches by size and counts them.  It's clear that the majority of both protests took place in groups of 200,000 or less, and that the Women's March dwarfed the Tea Party in size.  
+This next plot groups the marches by size and counts them.  It's clear that the majority of both protests took place in groups of 200,000 or less, and that the Women's March dwarfed the Tea Party in size.
+
+One issue that makes these number hard to interpret is that Democrats may have a higher baseline protest rate because they're more concentrated in cities.  It's less of an ask to get people to walk out their front doors than to get someone to drive a few hours to a city to protest.  Still, the Democratic numbers seem abnormally high.    
 
 
 <figure style="text-align:center">

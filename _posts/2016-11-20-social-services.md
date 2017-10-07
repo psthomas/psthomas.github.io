@@ -407,7 +407,7 @@ scatter_matrix(model_df[['dalyrate', 'gdp_cap', 'social_exp', 'health_exp']],
 
 # A Closer Look at Social Services and DALYs
 
-Below is scatter of the social services expenditure against the `DALY burden`.  There seems to be a clear `log-linear`, or even `log-log` relationship between the two, which makes sense given the [Preston curve](https://en.wikipedia.org/wiki/Preston_curve).
+Below is scatter of the social services expenditure against the `DALY burden`.  There seems to be a clear `log-linear` relationship between the two, which makes sense given the [Preston curve](https://en.wikipedia.org/wiki/Preston_curve).
 
 I also color coded each year to show the general shift down and to the right over time (better health, and more social services spending).  
 
@@ -541,7 +541,7 @@ I'm not very confident in the results of this regression for a few reasons:
 Regardless of the above problems, the relationship between GDP and health outcomes is pretty constant between models, so I am fairly confident that association is significant.  This fits with the narrative that there are some social determinants like GDP growth that are very important for health, and that social or health services expenditures might not be sufficient replacements for the effects of growth.
 
 
-When it comes to the policy implications, though, everyone and their mother seems to want to increase long term economic growth.  But slow growth in the West seems to be a very tough problem to crack.  **So, in practice, increasing social services spending in a cost effective way might be the most actionable policy advice for improving health.** 
+When it comes to the policy implications, though, everyone seems to want to increase long term economic growth.  But slow growth in the West seems to be a very tough problem to crack.  **So, in practice, increasing social services spending in a cost effective way might be the most actionable policy advice for improving health.** 
 
 ## Cost Effectiveness
 
@@ -615,7 +615,7 @@ plt.show()
 
 This version of the regression doesn't take the natural log of any of the variables.  Only GDP per capita is significant, with neither social or health expenditures significant at the 5% level.  In this case, the coefficient units are DALY/100,000 USD, which are pretty similar to a [common](https://en.wikipedia.org/wiki/Disability-adjusted_life_year) cost effectiveness measure in the field of healthcare economics.
 
-The US government does not specifically put a monetary value on a year of life but, informally, the limit is probably in the 50,000-100,000 USD range [6,7].  So, if this regression is correct and the relationship is causative, increasing GDP isn't a very cost effective health intervention (100,000 USD/0.195 DALY =  512,820 USD /DALY).  I'll have to think a little more about what this unit actually means, though, because I don't think it has the same meaning as one in a public health context where a budget is being allocated based on cost effectiveness (the increase in GDP isn't really being "spent" on direct care).  In addition, there are probably [declining marginal health returns](https://en.wikipedia.org/wiki/Preston_curve) from GDP increases, so maybe the log-log regression I do above provides a better picture of the relationship after all.   
+The US government does not specifically put a monetary value on a year of life but, informally, the limit is probably in the 50,000-100,000 USD range [6,7].  So, if this regression is correct and the relationship is causative, increasing GDP isn't a very cost effective health intervention (100,000 USD/0.195 DALY =  512,820 USD /DALY).  I'll have to think a little more about what this unit actually means, though, because I don't think it has the same meaning as one in a public health context where a budget is being allocated based on cost effectiveness (the increase in GDP isn't really being "spent" on direct care).  In addition, there are probably [declining marginal health returns](https://en.wikipedia.org/wiki/Preston_curve) from GDP increases, so maybe the log regression I do above provides a better picture of the relationship after all.   
 
 
 

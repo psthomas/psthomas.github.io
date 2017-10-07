@@ -108,7 +108,7 @@ Research, on the other hand, largely functions by shifting the future into the p
 
 ## The Explore-Exploit Tradeoff
 
-This tradeoff is common in optimization problems across many different domains [[6](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4410143/), [7](http://lazerlab.net/publication/network-structure-exploration-and-exploitation), [8](https://en.wikipedia.org/wiki/Multi-armed_bandit)].  Every society needs to find an equilibrium between present and future benefits, so I thought this would be an important concept to build into the model. 
+This tradeoff is common in optimization problems across many different domains [[6](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4410143/), [7](http://lazerlab.net/publication/network-structure-exploration-and-exploitation), [8](https://en.wikipedia.org/wiki/Multi-armed_bandit), [9](https://www.cgdev.org/publication/searching-devil-details-learning-about-development-program-design-working-paper-434)] .  Every society needs to find an equilibrium between present and future benefits, so I thought this would be an important concept to build into the model. 
 
 ## Possible Negative Effects
 
@@ -118,14 +118,15 @@ Not every exploration results in a project with an positive expected marginal im
 
 Philanthropists could act in this model in a few ways.  First, they could try to choose a existing project with a high marginal impact and fund it until it's marginal impact is lower than a different project, then switch to a new one.  Second, they could fund the exploration phase of research to try to create an opportunity that is better than the existing options.  Finally, they could try to change the model parameters by influencing the political process or funding research about the optimal model settings.  
 
-Philanthropists tend to take many different approaches in society, but I think taking big risks to create new ideas or trying to influence policy for the better are among the best opportunities [[9](http://bostonreview.net/forum/foundations-philanthropy-democracy), [10](http://www.openphilanthropy.org/blog/hits-based-giving), [11](https://ssir.org/articles/entry/the_elusive_craft_of_evaluating_advocacy)].  
+Philanthropists tend to take many different approaches in society, but I think taking big risks to create new ideas or trying to influence policy for the better are among the best opportunities [[10](http://bostonreview.net/forum/foundations-philanthropy-democracy), [11](http://www.openphilanthropy.org/blog/hits-based-giving), [12](https://ssir.org/articles/entry/the_elusive_craft_of_evaluating_advocacy)].  
 
 
 ## Model Problems
 
 There are a number of problems with this model.  In addition to the ones I mentioned above, here are a few more:
 
-* **Causation isn't so clear cut**.  For example, good economic policy might lead to better functioning markets, which might free up more money for research, which might result in research that improves economic policy.  This seems to operate more like a mutually beneficial relationship where you can't neatly divide things up by causation.  
+* **Causation isn't so clear cut**.  For example, good economic policy might lead to better functioning markets, which might free up more money for research, which might result in research that improves economic policy.  This seems to operate more like a mutually beneficial relationship where you can't neatly divide things up by causation.
+* **Growth isn't fixed**.  I set the growth rate at three percent in this model, but in reality there would be a feedback between the settings and growth.  I might create a future version where the user can change the rate and observe the effect, but adding a feedback would get very complicated.     
 * **Can wellbeing be summed?** There are a few [philosophical objections](https://en.wikipedia.org/wiki/Utilitarianism#Aggregating_utility) to summing wellbeing.  Also, some make the point that measuring total wellbeing doesn't account for the distribution of that wellbeing, which is a valid point.    
 * **Can money buy everything?**  In the case of a well functioning government, funding might not be the limiting factor on competence.  No amount of project funding will suddenly improve decision making skills in a crisis.  Government competence is something that needs to be built over [decades and centuries](https://www.cgdev.org/publication/capability-traps-mechanisms-persistent-implementation-failure-working-paper-234), and probably depends on something other than funding levels.   
 * **Different distributions?** It's possible that the lognormal distribution isn't the best fit for opportunities to do good in the world.  Maybe a power-law distribution would fit better, or maybe I need to change the existing lognormal parameters.  Right now they're tuned for visual communication, not accuracy.  
@@ -219,10 +220,12 @@ A nice feature of this approach is that you can use any combination of distribut
 
 [8] Multi-armed bandit. Wikipedia. [https://en.wikipedia.org/wiki/Multi-armed_bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit)
 
-[9]  What Are Foundations For? Boston Review. [http://bostonreview.net/forum/foundations-philanthropy-democracy](http://bostonreview.net/forum/foundations-philanthropy-democracy) 
+[9] Searching for the Devil in the Details: Learning about Development Program Design.  Center for Global Development.  [https://www.cgdev.org/publication/searching-devil-details-learning-about-development-program-design-working-paper-434](https://www.cgdev.org/publication/searching-devil-details-learning-about-development-program-design-working-paper-434)
 
-[10] Hits-based Giving. Open Philanthropy Project. [http://www.openphilanthropy.org/blog/hits-based-giving](http://www.openphilanthropy.org/blog/hits-based-giving)
+[10]  What Are Foundations For? Boston Review. [http://bostonreview.net/forum/foundations-philanthropy-democracy](http://bostonreview.net/forum/foundations-philanthropy-democracy) 
 
-[11] The Elusive Craft of Evaluating Advocacy.  Stanford Social Innovation Review.  [https://ssir.org/articles/entry/the_elusive_craft_of_evaluating_advocacy](https://ssir.org/articles/entry/the_elusive_craft_of_evaluating_advocacy)
+[11] Hits-based Giving. Open Philanthropy Project. [http://www.openphilanthropy.org/blog/hits-based-giving](http://www.openphilanthropy.org/blog/hits-based-giving)
 
-[12] Capability Traps? The Mechanisms of Persistent Implementation Failure. Center for Global Development. [https://www.cgdev.org/publication/capability-traps-mechanisms-persistent-implementation-failure-working-paper-234](https://www.cgdev.org/publication/capability-traps-mechanisms-persistent-implementation-failure-working-paper-234)
+[12] The Elusive Craft of Evaluating Advocacy.  Stanford Social Innovation Review.  [https://ssir.org/articles/entry/the_elusive_craft_of_evaluating_advocacy](https://ssir.org/articles/entry/the_elusive_craft_of_evaluating_advocacy)
+
+[13] Capability Traps? The Mechanisms of Persistent Implementation Failure. Center for Global Development. [https://www.cgdev.org/publication/capability-traps-mechanisms-persistent-implementation-failure-working-paper-234](https://www.cgdev.org/publication/capability-traps-mechanisms-persistent-implementation-failure-working-paper-234)
