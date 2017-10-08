@@ -34,13 +34,13 @@ body {
 }
 
 .navwrapper{
-	max-width: 875px; //780px;  95% 825
+	max-width: 900px; //780px; 875
 	margin: 0px auto; 
 	padding: 0 15px;
 }
 
 .wrapper{
-	max-width: 875px; //780px;  825
+	max-width: 900px; //780px; 875
 	margin: 0px auto; 
 	padding: 0 15px;
 }
@@ -103,7 +103,7 @@ body {
 			//font-size: 2.3em;
 			//text-align: center;
 			a {
-				font-size: 45px;
+				font-size: 43px;  //Post Title
 			}
 		}
 		h2, h3, h4, h5 {
@@ -734,7 +734,7 @@ th {background-color: #f2f2f2;}
 		@include font-rem(14);
 	}
 	footer {
-		max-width: 875px;  //825
+		max-width: 900px;  //875
 		margin: 0px auto; 
 		padding: 0 15px;
 	}
