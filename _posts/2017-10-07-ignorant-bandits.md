@@ -17,7 +17,7 @@ I'm especially interested in this problem because I think it's a good exercise f
 
 The traditional problem above has some good solutions, but I recently thought of a twist that hasn't been researched yet: What if you only know the collective score of a group of machines each round rather than the score of each individual machine (each individual is "ignorant" of it's own score)?  This seems to be precisely the problem we have in many policy situations: we change some policy but we're not sure if the effect we observe is due to our change, some other change (possibly from a different time step), or random noise.  Running a [randomized trial](https://en.wikipedia.org/wiki/Randomized_controlled_trial) (RCT) can help cancel out the random noise and other effects, but even RCTs have issues with applicability, external validity, and scale.
 
-Below I lay out the problem in Python and propose a few initial solutions, one of which converges.  For now, I limit the effect of each machine to a single time step and only change one at a time.  This isn't as complicated as reality but it allows me to reach an initial solution.
+Below I lay out the problem in Python and propose a few initial solutions, one of which converges.  For now, I limit the effect of each machine to a single time step and only change one at a time.  This isn't as complicated as reality but it allows me to reach an initial solution.  The code for this post is available [here](https://gist.github.com/psthomas/4cf8b490a74ec1d7aee083b72c40c61a).  
 
 
 ## Initial Approach

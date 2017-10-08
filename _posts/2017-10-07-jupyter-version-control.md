@@ -22,7 +22,6 @@ I use a tool called [nbstripout](https://github.com/kynan/nbstripout) (installab
 # Save your notebook and run this cell to create 
 # a cleaned file for version control:
 import os
-import nbstripout
 from datetime import datetime
 
 notebook_path = os.path.join(os.getcwd(),'notebook_working.ipynb')
