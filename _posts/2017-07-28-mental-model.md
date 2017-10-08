@@ -135,7 +135,7 @@ There are a number of problems with this model.  In addition to the ones I menti
 
 I hope you find this model interesting.  It's a first draft, so feel free to critique or [contribute](https://github.com/psthomas/mental-model).  In the future I might create a version that allows people to choose the probability distributions parameters to fit with their intuitions about the world, so stay tuned.  
 
-## Appendix
+## Appendix A
 
 Generating samples from a correlated, [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) lognormal distribution ended up being much more difficult than I thought it would be.  There are a number of resources out there and packages for languages like Python and R, but nothing for JavaScript.  I ended up using [jStat](https://github.com/jstat/jstat) for many of it's distributions and helper functions, along with this [Stackoverflow answer](https://stackoverflow.com/questions/32718752/how-to-generate-correlated-uniform0-1-variables).  
 
