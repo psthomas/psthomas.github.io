@@ -42,9 +42,9 @@ Here are how the values are calculated:
 
 ## Data Sources 
 
-It's pretty difficult to find datasets that quantify their uncertainty while also using a cross-intervention measure of impact, so it's taken me awhile to stumble across enough data to complete this analysis.  The `scrape.py` file included in [the repo]() for this projects outlines how I accessed and cleaned data from each source.  
+It's pretty difficult to find datasets that quantify their uncertainty while also using a cross-intervention measure of impact, so it's taken me awhile to stumble across enough data to complete this analysis.  The `scrape.py` file included in [the repo](https://github.com/psthomas/risk-return) for this projects outlines how I accessed and cleaned data from each source.  
 
-All the code for this post is available [here]()  TODO github link
+All the code and data for this post are available [here](https://github.com/psthomas/risk-return).  
   
 
 ## Evidence from Public Policy
@@ -1218,7 +1218,7 @@ Again, these numbers follow the patterns of earlier estimates with some research
 </figure>
 
 
-This is the first dataset that allows us to look at both the standard deviation and downside risk.  This shows us that while there is a strong positive relationship between uncertainty and impact, there is a weaker negative relationship between downside risk and impact.
+So while there is a strong positive relationship between uncertainty and impact, there is a weaker negative relationship between downside risk and impact.
 
 ### Research Citation Counts
 
