@@ -9,10 +9,9 @@ share: false
 
 ---
 
-If you're hoping to do good in the world, it makes sense to ask where your efforts will make the biggest impact.  Some have claimed that high risk projects with the potential for high returns are most promising because those areas are less crowded.  For example, here's a quote from Robert Reich's [essay](http://bostonreview.net/forum/foundations-philanthropy-democracy) on the role of philanthropic foundations in society: 
+If you're hoping to do good in the world, it makes sense to ask where your efforts will make the biggest impact.  Some have claimed that high risk, high return projects are most promising because those areas are less crowded.  For example, here's a quote from Robert Reich's [essay](http://bostonreview.net/forum/foundations-philanthropy-democracy) on the role of philanthropic foundations in society: 
 
-> When it comes to the ongoing work of experimentation, foundations have a structural advantage over market and state institutions: a longer time horizon. Once more, the lack of accountability may be a surprising advantage. Commercial entities in the marketplace do not have an incentive structure that systematically rewards high-risk, long time horizon experimentation; they need to show quarterly results. Similarly, public officials in a democracy do not have an incentive structure that rewards high-risk, long time horizon experimentation; they need to show results quickly from the expenditure of public dollars in order to get re-elected. In contrast, foundations are not subject to earnings reports, impatient investors or stockholders, or short-term election cycles.  
-> Foundations, answerable only to the diverse preferences and ideas of their donors, with a protected endowment permitted to exist in perpetuity, may be uniquely situated to engage in the sort of high-risk, long-run policy innovation and experimentation that is healthy in a democratic society.
+> When it comes to the ongoing work of experimentation, foundations have a structural advantage over market and state institutions: a longer time horizon. Once more, the lack of accountability may be a surprising advantage. . . foundations are not subject to earnings reports, impatient investors or stockholders, or short-term election cycles.  Foundations, answerable only to the diverse preferences and ideas of their donors, with a protected endowment permitted to exist in perpetuity, may be uniquely situated to engage in the sort of high-risk, long-run policy innovation and experimentation that is healthy in a democratic society.
 
 The Open Philanthropy Project outlines a similar approach in [a post](https://www.openphilanthropy.org/blog/hits-based-giving) about their giving philosophy: 
 
@@ -27,12 +26,7 @@ Before I continue, I think it makes sense to define the terms **risk** and **ret
 
 The definition of the term **risk** is tricky to pin down.  To some, it's just a measure of the noisiness of an estimate and is measured using something like the [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation).  To others, an intervention is only risky when it could potentially underperform some target (e.g. [downside risk](https://en.wikipedia.org/wiki/Downside_risk)) or cause harm.  The best [definition](https://medium.com/guesstimate-blog/the-confusion-of-risk-vs-uncertainty-1c6cd512aa69) that I have found is that risk is the subset of uncertainty that underperforms a target outcome.  Because people seem to use risk and uncertainty interchangeably, and I think both are useful, I include both in my analysis where possible. 
 
-I see the uncertainty and risk values useful for answering two separate but related questions:  
-
-1. Do we tend to be more uncertain about actions with high expected value?
-2. Do actions with large expected value also have more potential to cause harm (or underperform the mean action)?  
-
-If (1) is correct, I think this is useful to know because we can be more confident in taking actions even if they have a high error around the estimated impact.   If (2) is correct, it might be ok to take actions that often perform poorly or have the potential to cause harm if they still have a high expected impact.   
+The uncertainty and risk values are useful for answering two separate but related questions: **(1)** Do we tend to be more uncertain about actions with high expected value?;  **(2)** Do actions with large expected value also have more potential to cause harm (or underperform the mean action)?  If **(1)** is correct, I think this is useful to know because we can be more confident in taking actions even if they have a high error around the estimated impact.   If **(2)** is correct, it might be ok to take actions that often perform poorly or have the potential to cause harm if they still have a high expected impact.   
 
 Here are how the values are calculated:
 

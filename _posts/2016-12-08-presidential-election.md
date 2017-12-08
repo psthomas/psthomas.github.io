@@ -438,11 +438,29 @@ Here are a few reasons the above estimate could be wrong:
 
 * The effect size might be smaller in Wisconsin because we might have a smaller minority population than other red states that were included in the study.  Using the subgroup specific effects and demographic data from exit polls might be a better approach, but I can’t find a good source for that data.  Using the effects by subgroup could also help explain the difference in turnout between Milwaukee County (`60.6%` White) and Dane County (`84.7%` White).
 * There could be a large overlap of those without a voter ID and those that were uninspired by Clinton as a candidate.  Although an ID would have been an impediment, they might not have voted anyways.  
-* Although the quoted study controlled for many possible confounders, they could be missing one that reduces the effect size.  
+* Although the quoted study controlled for many possible confounders, they could be missing one that reduces the effect size. 
 
-A few political scientists from UW-Madison announced they’re going to [study the effects of the law](http://host.madison.com/ct/news/local/education/university/uw-study-to-explore-effects-of-voter-id-law-on/article_ee400380-614d-5560-b7a5-cfee73ca0338.html), so it’ll be interesting to compare this back-of-the-envelope estimate with their numbers when they come out next summer.
+The results of the above paper have been called into question [3] for data quality issues and some of the problems I mentioned above.  The authors haven't formally issued a response yet, so we're in "wait and see" mode.  This [Vox article](https://www.vox.com/identities/2017/3/15/14909764/study-voter-id-racism) makes the point that the current body of research shows pretty small effects of ID laws on turnout.  But as far as I know, the earlier research hasn't included more stringent photo ID requirements so it's likely there isn't a single "Voter ID Effect".  Instead, the effect probably depends on the context and specific characteristics of the law. 
 
-**Note:** The results of the above paper have been called into question [3] for data quality issues and some of the problems I mentioned above.  The authors haven't formally issued a response yet, so we're in "wait and see" mode.  This [Vox article](https://www.vox.com/identities/2017/3/15/14909764/study-voter-id-racism) makes the point that the current body of research shows pretty small effects of ID laws on turnout.  But as far as I know, the earlier research hasn't included more stringent photo ID requirements so it's likely there isn't a single "Voter ID Effect".  Instead, the effect probably depends on the context and specific characteristics of the law.  
+A few political scientists from UW-Madison announced they’re going to [study the effects of the law](http://host.madison.com/ct/news/local/education/university/uw-study-to-explore-effects-of-voter-id-law-on/article_ee400380-614d-5560-b7a5-cfee73ca0338.html), so it’ll be interesting to compare this back-of-the-envelope estimate with their numbers when they come out next summer.  **Update:** Their study has now been completed.  Here's a summary of the results: 
+
+> A survey of registered voters in Dane and Milwaukee Counties who did not
+vote in the 2016 presidential election found that 11.2% of eligible nonvoting registrants
+were deterred by the Wisconsin’s voter ID law. This corresponds to 16,801 people in the
+two counties deterred from voting, and could be as high as 23,252 based on the confidence
+interval around the 11.2% estimate, which is between 7.8% and 15.5%. The survey further
+found that 6% of nonvoters were prevented from voting because they lacked ID or cited ID
+as the main reason they did not vote, which corresponds to 9,001 people, and could be as
+high as 14,101 based on the confidence interval of between 3.5% and 9.4%.
+Roughly 80% of registrants who were deterred from voting by the ID law, and 77% of
+those prevented from voting, cast ballots in the 2012 election.
+
+> Based on these estimates, if all of the affected registrants voted the voter ID requirement
+reduced turnout in the two counties by 2.24 percentage points under the main measure of
+effect, and by 1.2 percentage points under a conservative measure.
+
+So the turnout effects are smaller than in [1], but still substantial enough to flip the state, especially if you found a reasonable way to extrapolate the effects to the rest of the state.  
+
 
 ## References
 
@@ -451,3 +469,5 @@ A few political scientists from UW-Madison announced they’re going to [study t
 [2] *Voter Turnout Estimated at 3.1 million.* [http://elections.wi.gov/node/4375](http://elections.wi.gov/node/4375)
 
 [3] *Comment on “Voter Identification Laws and the Suppression of Minority Votes”* [http://stanford.edu/~jgrimmer/comment_final.pdf](http://stanford.edu/~jgrimmer/comment_final.pdf)
+
+[4] *Voter ID Study Shows Turnout Effects in 2016 Wisconsin Presidential Election.* [https://elections.wisc.edu/news/Voter-ID-Study.html](https://elections.wisc.edu/news/Voter-ID-Study.html), [https://elections.wisc.edu/news/Voter-ID-Study/Voter-ID-Study-Release.pdf](https://elections.wisc.edu/news/Voter-ID-Study/Voter-ID-Study-Release.pdf)
