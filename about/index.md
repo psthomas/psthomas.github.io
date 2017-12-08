@@ -50,7 +50,7 @@ I have summaries of most of the above notebooks on my [blog]({{site.baseurl}}/bl
 **Visualizations**  
 I'm a fan of using D3.js to create interactive visualizations.  A few of them are here: [[demo](https://bl.ocks.org/psthomas)]  
 
-
+<!--
 ## Technologies
 
 
@@ -59,6 +59,7 @@ I'm a fan of using D3.js to create interactive visualizations.  A few of them ar
 | **Basic** | [Scraping](https://github.com/psthomas/web-graph), [Pandas, NumPy](https://github.com/psthomas/efficient-frontier), Conda  | [Node, Express, React](https://github.com/psthomas/react-todo), jQuery | Postgres, [SQLAlchemy](https://github.com/psthomas/crud-restaurant), SQLite, bash, Bootstrap CSS, AWS |
 | **Intermediate**| [Flask](https://github.com/psthomas/crud-restaurant)  | [D3](https://github.com/psthomas/stackedchart-d3js)   | [Git](https://github.com/psthomas), [Google App Engine](https://github.com/psthomas/textmail) |
 | **Advanced**  |   |               |  |  
+-->
 
 <!--# Contact -->
 <!--[GitHub](https://github.com/psthomas), [Linkedin](https://www.linkedin.com/in/philip-thomas-2805b97a), [Facebook](https://www.facebook.com/phil.thomas.5264)-->
