@@ -43,11 +43,11 @@ A simple todo app written with React, Node, Express and Ajax. [[source](https://
 
 I enjoy asking questions and trying to answer them with data.  My tools of choice are Python, Jupyter Notebooks, Pandas, Matplotlib, D3.js, Requests and Beautiful Soup.  Most of these projects would be considered "data analysis" rather than "data science".
 
-**Jupyter Notebooks**  
+**Jupyter Notebooks**:  
 I have a number of notebooks on Jupyter NBViewer outlining most of the work I've done: [[source](https://nbviewer.jupyter.org/gist/psthomas)]  
-**Blog Posts**  
+**Blog Posts**:  
 I have summaries of most of the above notebooks on my [blog]({{site.baseurl}}/blog).  
-**Visualizations**  
+**Visualizations**:  
 I'm a fan of using D3.js to create interactive visualizations.  A few of them are here: [[demo](https://bl.ocks.org/psthomas)]  
 
 <!--
