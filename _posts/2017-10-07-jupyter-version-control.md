@@ -54,8 +54,42 @@ You could even use .gitignore to completely untrack the working version if you d
     # .gitignore
     notebook_working.ipynb
     
-This approach makes it clear how the files are being tracked and doesn't resort to user specific configuration files that seem prone to error.  
+## An Alternative
 
+Another option is to use Jupyter's built-in `nbconvert` to output your notebook as a Python file, then track changes to that file to make it easier to read commits.  This approach is nice because it doesn't require an external dependency, but the downside is you still need to track the notebook and it's incremental outputs.  
 
+Here's an example of how this could work:
+
+{% highlight python %}
+#Save, then run
+import os
+notebook_path = os.path.join(os.getcwd(),'notebook1.ipynb')
+
+#Bash:
+!jupyter nbconvert --to script {notebook_path}
+{% endhighlight %}
+
+    [NbConvertApp] Converting notebook <current directory>/notebook1.ipynb to script
+    [NbConvertApp] Writing 588 bytes to <current directory>/nbconvert_test/notebook1.py
+
+Then just track the resulting Python file each time you commit the notebook.  If you have multiple files that you want to convert at once for version control, you could include a cell like this:
+
+{% highlight python %}
+#Save, then run
+import os
+path1 = os.path.join(os.getcwd(),'notebook1.ipynb')
+path2 = os.path.join(os.getcwd(),'notebook2.ipynb')
+path_str = ' '.join([path1, path2])
+
+#Bash:
+!jupyter nbconvert --to script {path_str}
+{% endhighlight %}
+
+    [NbConvertApp] Converting notebook <current directory>/notebook1.ipynb to script
+    [NbConvertApp] Writing 588 bytes to <current directory>/nbconvert_test/notebook1.py
+    [NbConvertApp] Converting notebook <current directory>/notebook2.ipynb to script
+    [NbConvertApp] Writing 588 bytes to <current directory>/nbconvert_test/notebook2.py
+
+Both these approaches makes it a little more clear how the files are being tracked and don't resort to user specific configuration files that seem prone to error.
 
 
