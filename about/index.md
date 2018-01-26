@@ -50,6 +50,8 @@ I have summaries of most of the above notebooks on my [blog]({{site.baseurl}}/bl
 **Visualizations**:  
 I'm a fan of using D3.js to create interactive visualizations.  A few of them are here: [[demo](https://bl.ocks.org/psthomas)]  
 
+<br>
+
 <!--
 ## Technologies
 

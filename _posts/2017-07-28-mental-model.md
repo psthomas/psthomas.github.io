@@ -10,11 +10,11 @@ share: false
 ---
 
 
-I think most people have some type of explicit or implicit [mental model](https://en.wikipedia.org/wiki/Mental_model) of how the world works.  I decided to try to create a visualization of mine, which I included below.  Although it’s not meant to be comprehensive or mathematically perfect, I think it captures what I see as the important features and interactions between markets, government and research. The goal is to improve this over time so hopefully this visualization opens my ideas up for critique or [contributions](https://github.com/psthomas/mental-model).   
+I think most people have some type of explicit or implicit [mental model](https://en.wikipedia.org/wiki/Mental_model) of how the world works.  I decided to try to create a visualization of mine, which I included below.  Although it’s not meant to be comprehensive or mathematically perfect, I think it captures what I see as the important features and interactions between different sectors of society. The goal is to improve this over time so hopefully this visualization opens my ideas up for critique or [contributions](https://github.com/psthomas/mental-model).   
 
-There are three sectors in this model: markets, government, and research. Each circle is a project that needs funding, which could represent an existing product or service in the market, a program like Medicaid within the government, or the ongoing work of a university lab in the research sector.  
+There are three sectors in this model: markets, government, and research. Each circle is a project that needs funding, which could represent an existing product or service in the market, a program like Medicaid within the government, or the ongoing work of a university lab in the research sector.  The radius of each circle is proportional to the room for more funding -- when the project has been fully funded the radius and marginal impact of additional funding drop to zero.  The x-axis represents the variation in project outcome and the y-axis represents the [marginal](https://en.wikipedia.org/wiki/Marginal_value) social impact of the project using units of something like wellbeing per dollar spent.
 
-The radius of the circle is proportional to the room for more funding -- when the project has been fully funded the radius and marginal impact of additional funding drop to zero.  The x-axis represents the variation in project outcome and the y-axis represents the [marginal](https://en.wikipedia.org/wiki/Marginal_value) social impact of the project using units of something like wellbeing per dollar spent.  The respective budgets are spent on the projects as the user clicks through the years, resulting in wellbeing that is added into the Impact and Impact/Year categories.  The end goal is to get a high Impact/Year score.   
+The user can set the percentage of the budget devoted to each sector and the allocation of each sector's money between exploitation (funding existing projects), and exploration (searching for new projects).  Any money allocated to the explore budget is spent on generating new circles, drawn from lognormal distributions.  The respective exploit budgets are spent on the projects when the user clicks the "Next" button, resulting in wellbeing that is added into the Impact and Impact/Year categories.  The end goal is to get a high Impact/Year score.   
 
 
 <!--https://stackoverflow.com/questions/5867985-->
@@ -37,44 +37,6 @@ d3.request("https://raw.githubusercontent.com/psthomas/mental-model/master/model
 
 
 </script>
-
-
-## How It Works
-
-There can be large differences in the impacts of different actions so I generate the data using a [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) [lognormal](https://en.wikipedia.org/wiki/Log-normal_distribution) probability distribution with a correlation between the risk and impact.  The specifics of how the joint distributions are generated are in the appendix below if you're interested.  I leave numbers and units off the axes because I don't think there's a single measure of wellbeing and the relationship between the sectors matters more than the numerical values.      
-
-The user can set the percentage of the budget devoted to each sector and the allocation of each sector's money between exploitation (funding existing projects), and exploration (searching for new projects).  When the user clicks the "Next" button, the exploit budget is allocated to each circle by finding the maximum percentage that can be multiplied times the project funding needs in each sector while staying below the budget.  This means that society funds every project by some amount because it doesn't always know the real marginal impact of each project.  
-
-Here's the section of the code that finds the percentage funding level: 
-
-{% highlight javascript %}
-
-var sum = 0.0,
-    pct = 0.0;
-
-while (sum <= exploit_budget) {
-    sum = 0.0;
-    pct += 0.001;
-    for (var j = 0; j < sector.length; j++) {
-    	sum += pct * sector[j].size;
-    }
-}
-
-{% endhighlight %}
-
-As the research projects are funded, the variation associated with each project declines and the bubbles diffuse through the market.  Once a research project has a low enough variation, there's a ten percent chance that it will transition to the market's budget each year.  This aspect of the model isn't perfect, as the transition to markets should be governed by risk with respect to market returns, not risk with respect to social impact.  But if the two are at least correlated I think it's an okay assumption. 
-
-For exploratory funding, new circles are generated from [lognormal distributions](https://en.wikipedia.org/wiki/Log-normal_distribution) with unique mus and sigmas for each of the sectors.  This model is somewhat informed by the concept of an [efficient frontier](https://en.wikipedia.org/wiki/Modern_portfolio_theory#Efficient_frontier_with_no_risk-free_asset) from modern portfolio theory.  Generally, I think there's a positive relationship between risk taking and societal impact, although greater potential for societal harm comes at high levels of risk as well.  
-
-Because markets are driven by a profit motive and have a shorter time horizon, their risk profile and corresponding social impact are lower (smaller mus and sigmas).  Governments and basic research can play at higher levels of risk, so they're rewarded accordingly with higher marginal social impacts (higher mus and sigmas).  Research has more projects in areas of moderately high social impact than government (higher mu), but government has a heavier tail at the very high levels of impact (higher sigma).  The heavier tail for Government is driven by situations like nuclear crises where decisions have the potential to dwarf all the other areas in impact. 
-
-
-<figure >
-	<a href="{{ site.baseurl }}/images/prob_dist.png"><img src="{{ site.baseurl }}/images/prob_dist.png"></a>
-	<figcaption>The probability distributions for the marginal impacts of different sectors.</figcaption>
-</figure>
-
-Finally, three percent of the money allocated to markets is added to the budget each year.  This is meant to simulate the importance of economic growth, and penalizes putting too much money into research or government.  The growth rate and money allocated to markets are some of the most important factors in the long term performance of the model.  
 
 Here are a few things I hope this visualization demonstrates:
 
@@ -133,9 +95,46 @@ There are a number of problems with this model.  In addition to the ones I menti
 
 ## Conclusion
 
-I hope you find this model interesting.  It's a first draft, so feel free to critique or [contribute](https://github.com/psthomas/mental-model).  In the future I might create a version that allows people to choose the probability distributions parameters to fit with their intuitions about the world, so stay tuned.  
+I hope you find this model interesting.  It's a first draft, so feel free to critique or [contribute](https://github.com/psthomas/mental-model).  In the future I might create a version that allows people to choose the probability distributions parameters to fit with their intuitions about the world, so stay tuned.
 
-## Appendix A
+## Appendix A: How It Works
+
+There can be large differences in the impacts of different actions so I generate the data using a [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) [lognormal](https://en.wikipedia.org/wiki/Log-normal_distribution) probability distribution with a correlation between the risk and impact.  The specifics of how the joint distributions are generated are in the Appendix B below if you're interested.  I leave numbers and units off the axes because I don't think there's a single measure of wellbeing and the relationship between the sectors matters more than the numerical values.      
+
+The user can set the percentage of the budget devoted to each sector and the allocation of each sector's money between exploitation (funding existing projects), and exploration (searching for new projects).  When the user clicks the "Next" button, the exploit budget is allocated to each circle by finding the maximum percentage that can be multiplied times the project funding needs in each sector while staying below the budget.  This means that society funds every project by some amount because it doesn't always know the real marginal impact of each project.  
+
+Here's the section of the code that finds the percentage funding level: 
+
+{% highlight javascript %}
+
+var sum = 0.0,
+    pct = 0.0;
+
+while (sum <= exploit_budget) {
+    sum = 0.0;
+    pct += 0.001;
+    for (var j = 0; j < sector.length; j++) {
+    	sum += pct * sector[j].size;
+    }
+}
+
+{% endhighlight %}
+
+As the research projects are funded, the variation associated with each project declines and the bubbles diffuse through the market.  Once a research project has a low enough variation, there's a ten percent chance that it will transition to the market's budget each year.  This aspect of the model isn't perfect, as the transition to markets should be governed by risk with respect to market returns, not risk with respect to social impact.  But if the two are at least correlated I think it's an okay assumption. 
+
+For exploratory funding, new circles are generated from [lognormal distributions](https://en.wikipedia.org/wiki/Log-normal_distribution) with unique mus and sigmas for each of the sectors.  This model is somewhat informed by the concept of an [efficient frontier](https://en.wikipedia.org/wiki/Modern_portfolio_theory#Efficient_frontier_with_no_risk-free_asset) from modern portfolio theory.  Generally, I think there's a positive relationship between risk taking and societal impact, although greater potential for societal harm comes at high levels of risk as well.  
+
+Because markets are driven by a profit motive and have a shorter time horizon, their risk profile and corresponding social impact are lower (smaller mus and sigmas).  Governments and basic research can play at higher levels of risk, so they're rewarded accordingly with higher marginal social impacts (higher mus and sigmas).  Research has more projects in areas of moderately high social impact than government (higher mu), but government has a heavier tail at the very high levels of impact (higher sigma).  The heavier tail for Government is driven by situations like nuclear crises where decisions have the potential to dwarf all the other areas in impact. 
+
+
+<figure >
+	<a href="{{ site.baseurl }}/images/prob_dist.png"><img src="{{ site.baseurl }}/images/prob_dist.png"></a>
+	<figcaption>The probability distributions for the marginal impacts of different sectors.</figcaption>
+</figure>
+
+Finally, three percent of the money allocated to markets is added to the budget each year.  This is meant to simulate the importance of economic growth, and penalizes putting too much money into research or government.  The growth rate and money allocated to markets are some of the most important factors in the long term performance of the model. 
+
+## Appendix B
 
 Generating samples from a correlated, [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) lognormal distribution ended up being much more difficult than I thought it would be.  There are a number of resources out there and packages for languages like Python and R, but nothing for JavaScript.  I ended up using [jStat](https://github.com/jstat/jstat) for many of it's distributions and helper functions, along with this [Stackoverflow answer](https://stackoverflow.com/questions/32718752/how-to-generate-correlated-uniform0-1-variables).  
 
