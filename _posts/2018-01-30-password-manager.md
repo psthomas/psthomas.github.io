@@ -20,7 +20,7 @@ After reading this, I realized it might be possible to make this system a little
 3. Click a memorable starting cell for the pattern, such as the grid location [A,N] for **a**mazo**n**.com.  If you chose an automated pattern, the password will be generated after you click.  
 4. When you need the password in the future, repeat steps 1-3 above. 
 
-Try it out below or try the [full page](https://pstblog.com/projects/tabula-embed.html) version.  The source code is available on [GitHub](https://github.com/psthomas/tabula).
+Try it out below or try the [full page](https://pstblog.com/projects/tabula.html) version.  The source code is available on [GitHub](https://github.com/psthomas/tabula).
 
 **Note**: This project is still experimental, so it needs more scrutiny before I'd recommend using it. If you do, print out a copy of the table so you have a backup if I change the code.
 
