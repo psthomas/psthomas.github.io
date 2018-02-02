@@ -4,10 +4,15 @@
 <!--https://developers.google.com/analytics/devguides/collection/analyticsjs/-->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', '{{ site.owner.google.analytics }}', 'auto');
+//ga('create', '{{ site.owner.google.analytics }}', 'auto');
+ga('create', '{{ site.owner.google.analytics }}', {
+  'storage': 'none',
+  'storeGac': false});
+ga("set", "anonymizeIp", true);
 ga('send', 'pageview');
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--<script async src='https://www.google-analytics.com/analytics_debug.js'></script>-->
 <!-- End Google Analytics -->
 
 {% endif %}
