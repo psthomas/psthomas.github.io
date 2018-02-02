@@ -70,8 +70,8 @@
     {% if site.owner.disqus-shortname and page.comments == true %}
       <section id="disqus_thread">
         <!-- added all below to try button loading: -->
-        <button class="btn" style="margin:15px 0px 30px 0px;" id="show-comments">Load Comments</button> <!--class="show-comments"-->
-        <!-- The empty element required for Disqus to loads comments into -->  
+        <button class="btn" style="margin:15px 0px 30px 0px;" onclick="disqus(); return false;" id="show-comments">Load Comments</button> <!--class="show-comments"-->
+        <!-- The empty element required for Disqus to load comments into -->  
         <div id="disqus_thread"></div>
         
       </section><!-- /#disqus_thread -->

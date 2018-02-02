@@ -1,25 +1,45 @@
 {% if site.owner.disqus-shortname %}
 <!-- Include jquery for ajax-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
 
 <script type="text/javascript">
     /* Configuration Variables*/
     var disqus_shortname = '{{ site.owner.disqus-shortname }}'; // required: replace example with your forum shortname
     
-    // Trying an onclick load:
-    $(document).ready(function() {
-        $('#show-comments').on('click', function(){   //'.show-comments, changed to #show-comments'
-              // ajax request to load the disqus javascript
-              $.ajax({
-                      type: "GET",
-                      url: "https://" + disqus_shortname + ".disqus.com/embed.js", 
-                      dataType: "script",
-                      cache: true
-              });
-              //Hide the button once comments load
-              $(this).fadeOut();
-        });
-    });
+    //Replace jQuery, avoids CORS issues:
+    //https://www.robertwent.com/blog/loading-disqus-comments-on-demand-without-jquery-or-ajax/
+    //https://www.labnol.org/internet/load-disqus-comments-on-click/28653/
+    var disqus_loaded = false;
+    function disqus() {
+        if (!disqus_loaded)  {
+            disqus_loaded = true;
+            var e = document.createElement("script");
+            e.type = "text/javascript";
+            e.async = true;
+            e.src = "https://" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] ||
+            document.getElementsByTagName("body")[0])
+            .appendChild(e);
+            //Hide the button after opening
+            document.getElementById("show-comments").style.display = "none";
+        }
+    }
+    
+    // Old jQuery onclick load:
+    // $(document).ready(function() {
+    //     $('#show-comments').on('click', function(){   //'.show-comments, changed to #show-comments'
+    //           // ajax request to load the disqus javascript
+    //           $.ajax({
+    //                   type: "GET",
+    //                   url: "https://" + disqus_shortname + ".disqus.com/embed.js", 
+    //                   dataType: "script",
+    //                   cache: true
+    //           });
+    //           //Hide the button once comments load
+    //           $(this).fadeOut();
+    //     });
+    // });
+
 
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
