@@ -1,6 +1,4 @@
 {% if site.owner.disqus-shortname %}
-<!-- Include jquery for ajax-->
-<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
 
 <script type="text/javascript">
     /* Configuration Variables*/
@@ -25,22 +23,6 @@
         }
     }
     
-    // Old jQuery onclick load:
-    // $(document).ready(function() {
-    //     $('#show-comments').on('click', function(){   //'.show-comments, changed to #show-comments'
-    //           // ajax request to load the disqus javascript
-    //           $.ajax({
-    //                   type: "GET",
-    //                   url: "https://" + disqus_shortname + ".disqus.com/embed.js", 
-    //                   dataType: "script",
-    //                   cache: true
-    //           });
-    //           //Hide the button once comments load
-    //           $(this).fadeOut();
-    //     });
-    // });
-
-
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endif %}
