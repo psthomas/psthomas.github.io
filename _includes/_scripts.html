@@ -16,6 +16,14 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 {% endif %}
+<!-- New analytics experiment -->
+<script>
+var url = 'https://august-ensign-194411.appspot.com' + window.location.pathname;
+var req = new XMLHttpRequest();
+req.open('GET', url, true);
+req.send();
+</script>
+
 {% if page.comments %}
   {% include _disqus_comments.html %}
 {% endif %}
