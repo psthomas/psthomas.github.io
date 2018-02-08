@@ -3,6 +3,7 @@
 <!-- New Google Analytics Snippet -->
 <!--https://developers.google.com/analytics/devguides/collection/analyticsjs/-->
 <script>
+/*
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 //ga('create', '{{ site.owner.google.analytics }}', 'auto');
 ga('create', '{{ site.owner.google.analytics }}', {
@@ -10,10 +11,30 @@ ga('create', '{{ site.owner.google.analytics }}', {
   'storeGac': false});
 ga("set", "anonymizeIp", true);
 ga('send', 'pageview');
+*/
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--<script async src='https://www.google-analytics.com/analytics.js'></script>-->
 <!--<script async src='https://www.google-analytics.com/analytics_debug.js'></script>-->
 <!-- End Google Analytics -->
+
+
+<script>
+//Manual Analytics Snippet
+//https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
+var ls = [];
+var cid = Math.floor(100+Math.random()*900);
+var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt'];
+var values = [1, '{{ site.owner.google.analytics }}', cid, 'pageview', 1,
+              '1.2.3.4', window.location.href, document.title]; 
+for (var i = 0; i<fields.length; i++) {
+	ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
+}
+var url = "https://www.google-analytics.com/r/collect?" + ls.join('&');
+var request = new XMLHttpRequest();
+request.open("GET", url, true);
+request.send();
+
+</script>
 
 {% endif %}
 <!-- New analytics experiment -->
