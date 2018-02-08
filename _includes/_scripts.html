@@ -21,28 +21,32 @@ ga('send', 'pageview');
 <script>
 //Manual Analytics Snippet
 //https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
-var ls = [];
-var cid = Math.floor(100+Math.random()*900);
-var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt'];
-var values = [1, '{{ site.owner.google.analytics }}', cid, 'pageview', 1,
-              '1.2.3.4', window.location.href, document.title]; 
-for (var i = 0; i<fields.length; i++) {
-	ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
+function sendData() {
+  var ls = [];
+  var cid = Math.floor(100+Math.random()*900);
+  var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt'];
+  var values = [1, '{{ site.owner.google.analytics }}', cid, 'pageview', 1,
+                '1.2.3.4', window.location.href, document.title]; 
+  for (var i = 0; i<fields.length; i++) {
+  	ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
+  }
+  var url = "https://www.google-analytics.com/r/collect?" + ls.join('&');
+  var request = new XMLHttpRequest();
+  request.open("GET", url, true);
+  request.send();
 }
-var url = "https://www.google-analytics.com/r/collect?" + ls.join('&');
-var request = new XMLHttpRequest();
-request.open("GET", url, true);
-request.send();
+sendData();
+
 
 </script>
 
 {% endif %}
 <!-- New analytics experiment -->
 <script>
-var url = 'https://august-ensign-194411.appspot.com' + window.location.pathname;
-var req = new XMLHttpRequest();
-req.open('GET', url, true);
-req.send();
+// var url = 'https://august-ensign-194411.appspot.com' + window.location.pathname;
+// var req = new XMLHttpRequest();
+// req.open('GET', url, true);
+// req.send();
 </script>
 
 {% if page.comments %}
