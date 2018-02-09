@@ -31,15 +31,15 @@ My other interests include **economics**, **public health** and **life sciences 
 I'm mostly familiar with Python and Flask for web development and JavaScript on the frontend.  I also enjoy asking questions and trying to answer them with data, using tools like Jupyter Notebooks, Pandas, D3.js, and Beautiful Soup.
 
 **Tabula**  
-A simple, stateless password manager built with JavaScript: [[source](https://github.com/psthomas/tabula), [demo](https://pstblog.com/projects/tabula.html)]  
+A simple, stateless password manager built with JavaScript. [[source](https://github.com/psthomas/tabula), [demo](https://pstblog.com/projects/tabula.html)]  
 **Jupyter Notebooks**  
-I have a number of notebooks outlining most of my data projects, along with descriptions on my [blog]({{site.baseurl}}/blog): [[source](https://nbviewer.jupyter.org/gist/psthomas)]  
+I have a number of notebooks outlining my data projects here: [[source](https://nbviewer.jupyter.org/gist/psthomas)]  
 **Visualizations**  
-I'm a fan of using D3.js to create interactive visualizations.  A few of them are here: [[demo](https://bl.ocks.org/psthomas)]  
+Some of the interactive visualizations I've build with D3.js: [[demo](https://bl.ocks.org/psthomas)]  
 **React Todo**  
 A simple todo app written with React, Node, Express and Ajax. [[source](https://github.com/psthomas/react-todo), [demo](http://psthomas.github.io/react-todo/)]   
 **notebook-html**  
-A JavaScript module for rendering Jupyter Notebooks as HTML: [[source](https://github.com/psthomas/notebook-html), [demo](https://psthomas.github.io/notebook-html/)]
+A JavaScript module for rendering Jupyter Notebooks as HTML. [[source](https://github.com/psthomas/notebook-html), [demo](https://psthomas.github.io/notebook-html/)]
 
 
 <!--## Web Projects-->
