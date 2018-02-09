@@ -1,53 +1,28 @@
 
 {% if site.owner.google.analytics %}
-<!-- New Google Analytics Snippet -->
-<!--https://developers.google.com/analytics/devguides/collection/analyticsjs/-->
+<!-- Manual Analytics Snippet -->
+<!-- https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters-->
 <script>
-/*
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-//ga('create', '{{ site.owner.google.analytics }}', 'auto');
-ga('create', '{{ site.owner.google.analytics }}', {
-  'storage': 'none',
-  'storeGac': false});
-ga("set", "anonymizeIp", true);
-ga('send', 'pageview');
-*/
-</script>
-<!--<script async src='https://www.google-analytics.com/analytics.js'></script>-->
-<!--<script async src='https://www.google-analytics.com/analytics_debug.js'></script>-->
-<!-- End Google Analytics -->
-
-
-<script>
-//Manual Analytics Snippet
-//https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
 function sendData() {
-  var ls = [];
-  var cid = Math.floor(100+Math.random()*900);
-  var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt'];
-  var values = [1, '{{ site.owner.google.analytics }}', cid, 'pageview', 1,
-                '1.2.3.4', window.location.href, document.title]; 
-  for (var i = 0; i<fields.length; i++) {
-  	ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
-  }
-  var url = "https://www.google-analytics.com/r/collect?" + ls.join('&');
-  var request = new XMLHttpRequest();
-  request.open("GET", url, true);
-  request.send();
+    var ls = [];
+    var tid = '{{ site.owner.google.analytics }}';  //Analytics ID
+    var cid = Math.floor(100+Math.random()*900);
+    var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt']; 
+    var values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; 
+    for (var i = 0; i<fields.length; i++) {
+        ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
+    }
+    var data = ls.join('&');
+    var request = new XMLHttpRequest();
+    request.open("POST", "https://www.google-analytics.com/collect", true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(data);
 }
 sendData();
-
-
 </script>
 
 {% endif %}
-<!-- New analytics experiment -->
-<script>
-// var url = 'https://august-ensign-194411.appspot.com' + window.location.pathname;
-// var req = new XMLHttpRequest();
-// req.open('GET', url, true);
-// req.send();
-</script>
+
 
 {% if page.comments %}
   {% include _disqus_comments.html %}
