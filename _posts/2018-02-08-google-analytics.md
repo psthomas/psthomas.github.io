@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "You might not need (most of) Google Analytics"
-excerpt: "I manually build analytics queries for better page speed and more privacy."
+excerpt: "Manually building analytics queries for better page speed and more privacy."
 tags: [JavaScript, privacy, pagespeed, Google Analytics]
 comments: true
 share: false
 
 ---
 
-When I started this blog, I automatically included [Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/) because it was convenient and useful.  I've recently been thinking more about privacy and page speed, so I've been looking for alternatives.  I ended up coming up with the following solution that still uses Google Analytics (GA), but is faster and more respectful of a user's privacy.    
+When I started this blog, I automatically included [Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/) because it was convenient and useful.  I've recently been thinking more about privacy and page speed, so I've been looking for alternatives.  I ended up coming up with the following solution that still uses Google Analytics, but is faster and more respectful of a user's privacy.    
 
 ## How Google Analytics Works
 

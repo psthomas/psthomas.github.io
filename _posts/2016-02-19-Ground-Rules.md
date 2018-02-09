@@ -13,7 +13,7 @@ I was watching a World Bank [presentation](http://www.worldbank.org/en/events/20
 
 
 <figure>
-	<a href="{{ site.baseurl }}/images/mtstupid.png"><img src="{{ site.baseurl }}/images/mtstupid.png"></a>
+	<a href="{{ site.baseurl }}/images/mtstupid.png"><img style="width:100%;max-width:700px;" src="{{ site.baseurl }}/images/mtstupid.png"></a>
 	<figcaption>Mount Stupid, source: <a href="http://www.smbc-comics.com/?id=2475" title="Mount Stupid Comic">SMBC</a>.</figcaption>
 </figure>
 
