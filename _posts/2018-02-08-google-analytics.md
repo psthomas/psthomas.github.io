@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "You might not need most of Google Analytics"
-excerpt: "Manually build analytics requests for better page speed and more privacy."
+title: "Privacy With Google Analytics"
+excerpt: "I manually build analytics requests for better page speed and more privacy."
 tags: [JavaScript, privacy, page speed, Google Analytics]
 comments: true
 share: false
 
 ---
 
-When I started this blog, I automatically included [Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/) because it was convenient and useful.  I've recently been thinking more about privacy, so I've been looking for alternatives.  I ended up coming up with the following solution that still uses Google Analytics, but sends less information (while loading faster).
+When I started this blog, I automatically included [Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/) because it was convenient and useful.  I've recently been thinking more about privacy, so I've been looking for alternatives.  I ended up coming up with the following solution that still uses Google Analytics, but sends less user information (and loads faster).
 
 ## How Analytics.js Works
 
@@ -41,7 +41,7 @@ The problem with the above approach is that you depend on what Google is willing
 
 ## The Measurement Protocol
 
-An alternative to loading analytics.js is to manually collect whatever data you need, and then send it using their [measurement protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/reference).  This way you don't have to load analytics.js, and you have more [fine tuned](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters) control over what data is sent.  Here's an example script that sends a `GET` request (an example `POST` request is in the appendix):
+An alternative to loading analytics.js is to manually collect whatever data you need, then send it to them using the [measurement protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/reference).  This way you don't have to load analytics.js, and you have more [fine tuned](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters) control over what data is sent.  Here's an example script that sends a `GET` request (an example `POST` request is in the appendix):
 
 {% highlight javascript %}
 
