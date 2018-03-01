@@ -613,17 +613,8 @@ Next, I look at the Senate seats at risk for each party.  Below is a plot simila
 This plot makes it clear that Senate Democrats have a tough 2018 coming up, as 9 senators are up for re-election in states that Trump won.  
 
 
-<iframe src="{{site.url}}/vis/midterm_senate.html"
-    style="width: 960px; height: 600px; display:block; width: 100%; margin: 25px 0px; border: none"></iframe>
-
-
-
-## Close Senate Seats for Democrats
-
-The Senate is a little different because voting happens every six years.  I order this by the sum of the Democratic lead in the 2016 presidential election and the Senator's lead in their last election.  A district could shift quite a bit during a Senator's term, so this sum should be taken with a grain of salt.  
-
-These data make it clear that Senate Democrats have a very difficult election ahead in 2018. 
-
+<!--<iframe src="{{site.url}}/vis/midterm_senate.html"-->
+<!--    style="width: 960px; height: 600px; display:block; width: 100%; margin: 25px 0px; border: none"></iframe>-->
 
 <iframe srcdoc="
     <!DOCTYPE html>
@@ -903,6 +894,157 @@ These data make it clear that Senate Democrats have a very difficult election ah
     </body>
     </html>
     " style="width: 960px; height: 600px; display:block; width: 100%; margin: 15px auto; border: none"></iframe>
+
+
+
+## Close Senate Seats for Democrats
+
+The Senate is a little different because voting happens every six years.  I order this by the sum of the Democratic lead in the 2016 presidential election and the Senator's lead in their last election.  A district could shift quite a bit during a Senator's term, so this sum should be taken with a grain of salt.  
+
+These data make it clear that Senate Democrats have a very difficult election ahead in 2018. 
+
+<iframe srcdoc="
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset=&quot;utf-8&quot;>
+    <style>
+
+    /*
+    body {
+        width: 800px;
+    }*/
+
+    table {
+        font-size: 12px;
+        border-collapse: collapse;
+        border-top: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+
+    th {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #f2f2f2;
+    }
+
+    th, td {
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+    td {
+        padding: 5px 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #F0F8FF; /*#f9f9f9;*/
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+    <div id =&quot;tableInsert&quot;></div>
+
+    <script>
+    //http://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript
+
+    function sortTable(table, col, reverse) {
+        var tb = table.tBodies[0], 
+            tr = Array.prototype.slice.call(tb.rows, 0), // put rows into array
+            i;
+
+        reverse = -((+reverse) || -1);
+        tr = tr.sort(function (a, b) { 
+            var first = a.cells[col].textContent.trim();
+            var second = b.cells[col].textContent.trim();
+
+            if (isNumeric(first) &amp;&amp; isNumeric(second)) {        
+                return reverse * (Number(first) - Number(second));
+            } else {
+                return reverse * first.localeCompare(second);
+            };
+        });
+        for(i = 0; i < tr.length; ++i) {  // append each row in order
+            tb.appendChild(tr[i]);
+        }
+    }
+
+    //http://stackoverflow.com/questions/18082
+    function isNumeric(n) {
+      return !isNaN(parseFloat(n)) &amp;&amp; isFinite(n);
+    }
+
+    function makeSortable(table) {
+        var th = table.tHead, i;
+        th &amp;&amp; (th = th.rows[0]) &amp;&amp; (th = th.cells);
+        if (th) i = th.length;
+        else return; // if no `<thead>` then do nothing
+        while (--i >= 0) (function (i) {
+            var dir = 1;
+            th[i].addEventListener('click', function () {sortTable(table, i, (dir = 1 - dir))});
+        }(i));
+    }
+
+    function makeAllSortable(parent) {
+        parent = parent || document.body;
+        var t = parent.getElementsByTagName('table'), i = t.length;
+        while (--i >= 0) makeSortable(t[i]);
+    }
+
+    function addTable() {
+        var tableDiv = document.getElementById(&quot;tableInsert&quot;)
+        var table = document.createElement('table')
+        var tableHead = document.createElement('thead')
+        var tableBody = document.createElement('tbody')
+
+        table.appendChild(tableHead)
+        table.appendChild(tableBody);
+
+        var heading = [&quot;state&quot;, &quot;class&quot;, &quot;party&quot;, &quot;first&quot;, &quot;last&quot;, &quot;demlead_lastsenate&quot;, &quot;demlead_pres2016&quot;, &quot;sum&quot;, &quot;pvi_2016&quot;];
+        var data = [[&quot;North Dakota&quot;,2012.0,&quot;Democratic&quot;,&quot;Heidi&quot;,&quot;Heitkamp&quot;,0.9,-35.73,-34.83,-20.85],[&quot;West Virginia&quot;,2012.0,&quot;Democratic&quot;,&quot;Joe&quot;,&quot;Manchin&quot;,24.1,-41.68,-17.57,-23.21],[&quot;Montana&quot;,2012.0,&quot;Democratic&quot;,&quot;Jon&quot;,&quot;Tester&quot;,3.72,-20.23,-16.51,-12.15],[&quot;Indiana&quot;,2012.0,&quot;Democratic&quot;,&quot;Joe&quot;,&quot;Donnelly&quot;,5.74,-19.01,-13.27,-11.02],[&quot;Missouri&quot;,2012.0,&quot;Democratic&quot;,&quot;Claire&quot;,&quot;McCaskill&quot;,15.7,-18.51,-2.81,-10.85],[&quot;Ohio&quot;,2012.0,&quot;Democratic&quot;,&quot;Sherrod&quot;,&quot;Brown&quot;,6.0,-8.07,-2.07,-5.31],[&quot;Wisconsin&quot;,2012.0,&quot;Democratic&quot;,&quot;Tammy&quot;,&quot;Baldwin&quot;,5.55,-0.76,4.78,-1.44],[&quot;Pennsylvania&quot;,2012.0,&quot;Democratic&quot;,&quot;Bob&quot;,&quot;Casey&quot;,9.1,-0.72,8.38,-1.42],[&quot;Virginia&quot;,2012.0,&quot;Democratic&quot;,&quot;Tim&quot;,&quot;Kaine&quot;,5.91,5.32,11.23,1.78],[&quot;Florida&quot;,2012.0,&quot;Democratic&quot;,&quot;Bill&quot;,&quot;Nelson&quot;,13.01,-1.19,11.82,-1.66],[&quot;New Mexico&quot;,2012.0,&quot;Democratic&quot;,&quot;Martin&quot;,&quot;Heinrich&quot;,5.73,8.21,13.94,3.61],[&quot;Michigan&quot;,2012.0,&quot;Democratic&quot;,&quot;Debbie&quot;,&quot;Stabenow&quot;,20.81,-0.22,20.59,-1.16],[&quot;Connecticut&quot;,2012.0,&quot;Democratic&quot;,&quot;Chris&quot;,&quot;Murphy&quot;,12.26,13.64,25.9,6.1],[&quot;New Jersey&quot;,2012.0,&quot;Democratic&quot;,&quot;Bob&quot;,&quot;Menendez&quot;,19.44,13.98,33.42,6.24],[&quot;Massachusetts&quot;,2012.0,&quot;Democratic&quot;,&quot;Elizabeth&quot;,&quot;Warren&quot;,7.55,27.2,34.75,13.61],[&quot;Minnesota&quot;,2012.0,&quot;Democratic&quot;,&quot;Amy&quot;,&quot;Klobuchar&quot;,34.7,1.51,36.22,-0.21],[&quot;Washington&quot;,2012.0,&quot;Democratic&quot;,&quot;Maria&quot;,&quot;Cantwell&quot;,20.9,15.71,36.61,7.74],[&quot;Rhode Island&quot;,2012.0,&quot;Democratic&quot;,&quot;Sheldon&quot;,&quot;Whitehouse&quot;,29.85,15.51,45.35,7.27],[&quot;Delaware&quot;,2012.0,&quot;Democratic&quot;,&quot;Tom&quot;,&quot;Carper&quot;,37.47,11.37,48.84,4.96],[&quot;California&quot;,2012.0,&quot;Democratic&quot;,&quot;Dianne&quot;,&quot;Feinstein&quot;,25.05,29.99,55.04,15.09],[&quot;Maryland&quot;,2012.0,&quot;Democratic&quot;,&quot;Ben&quot;,&quot;Cardin&quot;,29.65,26.42,56.07,12.97],[&quot;Hawaii&quot;,2012.0,&quot;Democratic&quot;,&quot;Mazie&quot;,&quot;Hirono&quot;,25.2,32.18,57.39,16.4],[&quot;New York&quot;,2012.0,&quot;Democratic&quot;,&quot;Kirsten&quot;,&quot;Gillibrand&quot;,45.88,22.48,68.36,10.05]];
+
+        //TABLE HEAD
+        var tr = document.createElement('tr');
+        tableHead.appendChild(tr);
+        for (i = 0; i < heading.length; i++) {
+            var th = document.createElement('th')
+            //th.width = '75';
+            th.appendChild(document.createTextNode(heading[i]));
+            tr.appendChild(th);
+        }
+
+        //TABLE ROWS
+        for (i = 0; i < data.length; i++) {
+            var tr = document.createElement('TR');
+            for (j = 0; j < data[i].length; j++) {
+                var td = document.createElement('TD')
+                td.appendChild(document.createTextNode(data[i][j]));
+                tr.appendChild(td)
+            }
+            tableBody.appendChild(tr);
+        }  
+        tableDiv.appendChild(table)
+
+    }
+
+    window.onload = function () {addTable(); makeAllSortable(); };
+    // use callback makeAllSortable(); at end?
+    // window.onload = function () {addTable(makeAllSortable);  };  
+
+    </script>
+
+    </body>
+    </html>" style="width: 800px; height: 500px; 
+            display:block; margin: 25px; border: none"></iframe>
+
             
 
 ## Close Senate Seat(s) for Republicans
@@ -1055,7 +1197,7 @@ Relative to the Democrats, Senate Republicans have an easier 2018.  Dean Heller'
 So it seems clear that the Senate is much more difficult for Democrats, but who knows what will happen if Trump's popularity rating keeps going south.
  
 
-# Special Elections Update - 2018
+## Special Elections Update - 2018
 
 As an early 2018 follow up, I thought it would make sense to see how some special elections are going.  I found this [great dataset](https://docs.google.com/spreadsheets/d/1C2MVeM2K7WgqmJw5RCQbWyTo2u73CX1pI8zw_G-7BJo) collected by The Daily Kos that includes every special election post Trump:   
 

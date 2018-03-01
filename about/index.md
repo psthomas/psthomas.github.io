@@ -8,7 +8,6 @@ prof_img: true
 
 ---
 
-
 <!--style="display:block; float:right"-->
 
 <div class="article-author-about">
