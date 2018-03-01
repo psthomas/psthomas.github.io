@@ -28,12 +28,12 @@ My other interests include **economics**, **public health** and **life sciences 
 
 ## Projects 
 
-I'm mostly familiar with Python and Flask for web development and JavaScript on the frontend.  I also enjoy asking questions and trying to answer them with data, using tools like Jupyter Notebooks, Pandas, D3.js, and Beautiful Soup.
+I'm mostly familiar with Python and Flask for web development along with JavaScript on the frontend.  I also enjoy asking questions and trying to answer them with data, using tools like Jupyter Notebooks, Pandas, and D3.js.
 
 **Tabula**  
 A simple, stateless password manager built with JavaScript. [[source](https://github.com/psthomas/tabula), [demo](https://pstblog.com/projects/tabula.html)]  
 **Jupyter Notebooks**  
-I have a number of notebooks outlining my data projects here: [[source](https://nbviewer.jupyter.org/gist/psthomas)]  
+There are a number of notebooks outlining my data projects here: [[source](https://nbviewer.jupyter.org/gist/psthomas)]  
 **Visualizations**  
 Some of the interactive visualizations I've build with D3.js: [[demo](https://bl.ocks.org/psthomas)]  
 **React Todo**  
