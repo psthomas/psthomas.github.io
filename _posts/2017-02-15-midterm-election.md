@@ -17,11 +17,10 @@ The data for this post come from [The DailyKos](https://docs.google.com/spreadsh
 
 # House Seats at Risk
 
-The plot below shows the 2016 Deocratic presidential lead on the y-axis, and the 2016 Democratic House lead on the x-axis.  Any point near the x-axis was a close race, with those just above the axis won by Democrats and those just below won by Republicans.  Any point above the 45 degree line performed better for Democrats than predicted by the previous House lead.  
+The plot below shows the 2016 Deocratic presidential lead on the y-axis, and the 2016 Democratic House lead on the x-axis.  Any point near an axis was a close race, with those on the positive side won by Democrats.  Any point above the 45 degree line performed better for Democrats in the presidential race than predicted by the House lead.   
 
-Points in the bottom right quadrant are seats that are especially at risk for Democrats because Trump won these districts.  In the top left are districts that were won by Clinton in the presidential race, yet still held by House Republicans.  There seem to be more Republican House seats at risk in 2018, which could especially be dangerous if the election becomes a referendum on Trump.  
-
-
+Points in the bottom right quadrant are seats that are especially at risk for Democrats because Trump won these districts.  In the top left are districts that were won by Clinton, so these might be the most likely to switch if the election becomes a referendum on Trump.  Overall, there seem to be more Republican House seats at risk in 2018.  
+ 
 <!--<iframe src="{{site.url}}/vis/midterm_house.html" -->
 <!--    style="width: 960px; height: 600px; display:block; width: 100%; margin: 25px auto; border: none"></iframe>-->
 
