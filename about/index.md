@@ -62,11 +62,6 @@ A JavaScript module for rendering Jupyter Notebooks as HTML. [[source](https://g
 <!--**Visualizations**:  -->
 <!--I'm a fan of using D3.js to create interactive visualizations.  A few of them are here: [[demo](https://bl.ocks.org/psthomas)]  -->
 
-<br>
-<br>
-<br>
-
-
 <!--
 ## Technologies
 
