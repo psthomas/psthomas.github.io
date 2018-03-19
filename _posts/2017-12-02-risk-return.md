@@ -959,6 +959,8 @@ So if you prefer to use the standard deviation as a measure, there do seem to be
 
 I have two sources of data on the impact of scientific research.  The first is from the Future of Humanity Institute's (FHI) [research](http://www.fhi.ox.ac.uk/research-into-neglected-diseases/) looking at the long term impact of  neglected tropical disease research.  The second is data I collected from Google Scholar on the variation in citation counts vs. mean citation counts for individual researchers. 
 
+I also found a few related papers in the existing "Science of Science" literature, and summarize those at the end.  
+
 ### FHI Estimates
 
 These numbers differ from the GiveWell numbers above because they are estimates of the value of scientific research, and aren't derived from randomized control trials of existing treatments.  This means we should be much more [uncertain about this model](https://en.wikipedia.org/wiki/Uncertainty_quantification#Sources_of_uncertainty) and the inputs.
@@ -1288,7 +1290,25 @@ The assumption here is that citation count is proportional to real world impact.
 </figure>
 
 
-Using the standard deviation in a situation like this doesn't make a lot of sense.  By default, a very successful researcher might have a high standard deviation in their citations as they progress in their career from lowly cited papers to highly cited papers.  I think the downside risk metric is more useful here, and it shows that highly cited researchers outperform the mean researcher more often.
+Using the standard deviation in a situation like this doesn't make a lot of sense.  By default, a very successful researcher might have a higher standard deviation in their citations as they progress through their career [10].  I think the downside risk metric is more useful here, and it shows that highly cited researchers outperform the mean researcher more often.
+
+## Uncertainty in Peer Review
+
+An alternate way to look at this question would be to try to relate peer reviewer uncertainty with eventual citation counts.  At least theoretically, it could be rational to fund a study with a lower mean reviewer score if there is sufficient uncertainty [11].  While some research has found a positive relationship between mean reviewer score and eventual citation counts [12], and others have studied the variation in reviewer scores [13], nobody has related the variation in reviewer scores with eventual citation counts.  I contacted the NIH and they don't keep a record of individual reviewer scores for privacy reasons, so this type of study doesn't seem possible currently.  
+
+## Surprise as Risk
+
+Another fascinating study takes a different approach by measuring if the subject matter of the paper is risky/[surprising](https://en.wikipedia.org/wiki/Self-information) [14].  They do this by comparing the chemicals discussed in the paper with an existing network of chemical knowledge.  Studies that propose a new type of connection or a jump to new knowledge are judged to be more risky (Figure 1), and are eventually associated with higher citation counts and more scientific awards (Figure 3).  
+
+<figure>
+	<a href="{{ site.baseurl }}/images/returns/network.png"><img src="{{ site.baseurl }}/images/returns/network.png"></a>
+</figure>
+
+<figure>
+	<a href="{{ site.baseurl }}/images/returns/scatter.png"><img src="{{ site.baseurl }}/images/returns/scatter.png"></a>
+</figure>
+
+The effect size in this paper isn't huge -- a research strategy that is an order of magnitude less probable receives 2.26 more citations on average.  But I think this paper gets closer to measuring the concept of scientific risk than anything else.  They also conclude that a scientist trying to maximize citation count would probably focus on repeat projects, so specific policies to encourage higher risk science might be needed.  
 
 ## Conclusion
 
@@ -1320,5 +1340,13 @@ Whether or not there are returns to risk, then, depends on your definition of ri
 
 [9] *Uncertainty Quantification.*  Wikipedia.  [https://en.wikipedia.org/wiki/Uncertainty_quantification#Sources_of_uncertainty](https://en.wikipedia.org/wiki/Uncertainty_quantification#Sources_of_uncertainty)
 
-[10] *Chebyshev's Inequality.*  Wikipedia. [https://en.wikipedia.org/wiki/Chebyshev's_inequality](https://en.wikipedia.org/wiki/Chebyshev's_inequality)
+[10] *Quantifying the evolution of individual scientific impact.*  [http://science.sciencemag.org/content/354/6312/aaf5239](http://science.sciencemag.org/content/354/6312/aaf5239)
+
+[11] *Improving the Peer review process: Capturing more information and enabling high-risk/high-return research.* [https://www.sciencedirect.com/science/article/pii/S0048733316301111](https://www.sciencedirect.com/science/article/pii/S0048733316301111)
+
+[12] *Big names or big ideas: Do peer-review panels select the best science proposals?*  [http://science.sciencemag.org/content/348/6233/434](http://science.sciencemag.org/content/348/6233/434)
+
+[13] *Peer Review Evaluation Process of Marie Curie Actions under EU’s Seventh Framework Programme for Research.* [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4488366/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4488366/)
+
+[14] *Tradition and Innovation in Scientists’ Research Strategies.* [http://journals.sagepub.com/doi/abs/10.1177/0003122415601618](http://journals.sagepub.com/doi/abs/10.1177/0003122415601618)
 
