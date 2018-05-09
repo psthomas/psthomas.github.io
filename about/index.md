@@ -9,7 +9,6 @@ prof_img: true
 ---
 
 <!--style="display:block; float:right"-->
-
 <div class="article-author-about">
 <img src="https://pstblog.com/images/author.jpg" class="bio-photo"  alt="{{ author.name }} bio photo">
 <div>
@@ -19,7 +18,6 @@ prof_img: true
 <a href="http://github.com/psthomas" title="GitHub"> Github</a>
 </div>
 </div>  <!--/.article-author-about-->
-
 
 I have an academic background in biology and environmental engineering.  Recently, I have been learning some __Python__ and __JavaScript__, focusing mainly on web development.  I enjoy creating things using these two languages, which seem capable of building just about anything. 
 

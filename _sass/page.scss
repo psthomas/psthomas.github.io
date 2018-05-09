@@ -6,7 +6,7 @@ body {
 	background-color: $bodycolor;
 	font-family: $base-font;
 	color: $text-color;
-	font-size: 16px; //https://github.com/mmistakes/minimal-mistakes/issues/226  o:18.5px, 16.5px 15.5
+	font-size: 15.5px; //https://github.com/mmistakes/minimal-mistakes/issues/226  o:18.5px, 16.5px 15.5
 	line-height: 1.65; //1.5 //1.6 1.65
 	//letter-spacing: -0.1px;
 }
@@ -214,7 +214,7 @@ body {
 table {
     overflow-x: auto;
     display: block;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 th, td {
