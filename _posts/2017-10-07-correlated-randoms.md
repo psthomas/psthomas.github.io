@@ -13,8 +13,8 @@ I recently worked on a [visualization](https://pstblog.com/2017/07/28/mental-mod
 
 
 <figure style="text-align:center">
-	<a href="https://upload.wikimedia.org/wikipedia/commons/9/95/Multivariate_normal_sample.svg">
-	<img width="500px" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Multivariate_normal_sample.svg">
+	<a href="{{ site.baseurl }}/images/Multivariate_normal_sample.png">
+	<img width="500px" src="{{ site.baseurl }}/images/Multivariate_normal_sample.png">
 	</a>
 	<figcaption>An example of a joint normal distribution, <a href="https://upload.wikimedia.org/wikipedia/commons/9/95/Multivariate_normal_sample.svg">source</a>.</figcaption>
 </figure>

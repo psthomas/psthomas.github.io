@@ -1292,11 +1292,11 @@ The assumption here is that citation count is proportional to real world impact.
 
 Using the standard deviation in a situation like this doesn't make a lot of sense.  By default, a very successful researcher might have a higher standard deviation in their citations as they progress through their career [10].  I think the downside risk metric is more useful here, and it shows that highly cited researchers outperform the mean researcher more often.
 
-## Uncertainty in Peer Review
+### Uncertainty in Peer Review
 
 An alternate way to look at this question would be to try to relate peer reviewer uncertainty with eventual citation counts.  At least theoretically, it could be rational to fund a study with a lower mean reviewer score if there is sufficient uncertainty [11].  While some research has found a positive relationship between mean reviewer score and eventual citation counts [12], and others have studied the variation in reviewer scores [13], nobody has related the variation in reviewer scores with eventual citation counts.  I contacted the NIH and they don't keep a record of individual reviewer scores for privacy reasons, so this type of study doesn't seem possible currently.  
 
-## Surprise as Risk
+### Surprise as Risk
 
 Another fascinating study takes a different approach by measuring if the subject matter of the paper is risky/[surprising](https://en.wikipedia.org/wiki/Self-information) [14].  They do this by comparing the chemicals discussed in the paper with an existing network of chemical knowledge.  Studies that propose a new type of connection or a jump to new knowledge are judged to be more risky (Figure 1), and are eventually associated with higher citation counts and more scientific awards (Figure 3).  
 
