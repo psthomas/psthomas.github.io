@@ -9,14 +9,14 @@ share: false
 
 ---
 
-One interesting effect of the electoral college is that some states have higher ratios of electoral votes to people than others.  This, combined with the fact that we have swing states means the importance of a vote varies considerably by location.  
+One interesting feature of the electoral college is that some states have more electoral votes per person than others.  This, combined with the fact that some states swing between parties, means the importance of a vote varies considerably by location.  
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower/vpi2016.png"><img src="{{ site.baseurl }}/images/votepower/vpi2016.png"></a>
 	<figcaption>The Voting Power Index by county for the 2016 Presidential Election.</figcaption>
 </figure>
 
-Andrew Gelman has done [some](http://andrewgelman.com/2016/11/07/chance-vote-will-decide-election/) [work](https://pkremp.github.io/pr_decisive_vote.html) calculating the probability a voter will swing a presidential election. Below, I ask a different but related question: "Given an election turned out the way it did, how valuable was an additional vote in each state?"  This alternate metric, called the Voting Power Index (VPI), is discussed more at the DailyKos [here](https://www.dailykos.com/stories/2016/12/19/1612252/-Voter-Power-Index-Just-How-Much-Does-the-Electoral-College-Distort-the-Value-of-Your-Vote).  Rather than rely on predicted probabilities of electoral outcomes, this metric simply divides the state's electoral votes by the realized vote margin:
+Andrew Gelman has done [some](http://andrewgelman.com/2016/11/07/chance-vote-will-decide-election/) [work](https://pkremp.github.io/pr_decisive_vote.html) on this subject by calculating the probability a voter will swing a presidential election. Below, I ask a different but related question: "Given an election turned out the way it did, how valuable was an additional vote in each state?"  This alternate metric, called the Voting Power Index (VPI), is discussed more at the DailyKos [here](https://www.dailykos.com/stories/2016/12/19/1612252/-Voter-Power-Index-Just-How-Much-Does-the-Electoral-College-Distort-the-Value-of-Your-Vote).  Rather than rely on predicted probabilities of electoral outcomes, this metric simply divides the state's electoral votes by the realized vote margin:
 
 * `state_vpi = state_electoral_votes/(dem_voters - rep_voters)`
 
