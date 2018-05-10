@@ -9,7 +9,7 @@ share: false
 
 ---
 
-One interesting feature of the electoral college is that some states have more electoral votes per person than others.  This, combined with the fact that some states swing between parties, means the importance of a vote varies considerably by location.  
+One interesting feature of the electoral college is that some states have more electoral votes per person than others.  This, combined with the fact that we have swing states, means the importance of a vote varies considerably by location.  
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower/vpi2016.png"><img src="{{ site.baseurl }}/images/votepower/vpi2016.png"></a>
