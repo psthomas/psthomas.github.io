@@ -6,6 +6,7 @@ excerpt: "I scrape a dataset of all the IGM Panel responses from their website u
 tags: [projects, IGM Forum, scraping, data analysis, Python, Pandas]
 comments: true
 share: false
+published: false
 
 ---
 

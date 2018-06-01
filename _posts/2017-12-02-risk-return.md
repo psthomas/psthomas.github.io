@@ -858,7 +858,257 @@ These estimates follow a similar pattern to the WSIPP data, with the top interve
 </figure>
 
 
-So it seems there might be returns to risk taking when using the spread as the (somewhat imperfect) measure of risk.  
+So it seems there might be returns to risk taking when using the spread as the (somewhat imperfect) measure of risk.
+
+The second dataset I found is from [a meta-analysis](https://academic.oup.com/jpubhealth/article/34/1/37/1554654) looking at the cost effectiveness of public health interventions within the English National Health Service (NHS) [15].  This dataset is similar to the DCP2 data above because the only measure of uncertainty is the spread of the estimates.  Overall, there seems to be a similar but weaker pattern here:
+
+<table >
+  <thead>
+    <tr>
+      <th></th>
+      <th>guidance_topic</th>
+      <th>comparator</th>
+      <th>median</th>
+      <th>num_estimates</th>
+      <th>spread</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>53</th>
+      <td>Smoking cessation—general population: client c...</td>
+      <td>Background quit rate; no intervention or usua...</td>
+      <td>20.000000</td>
+      <td>8.0</td>
+      <td>2.288330</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Exercise prescriptions</td>
+      <td>Advice</td>
+      <td>12.987013</td>
+      <td>4.0</td>
+      <td>7.194245</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Smoking cessation—general population: recruitm...</td>
+      <td>Background quit rate; no intervention or advice</td>
+      <td>3.846154</td>
+      <td>15.0</td>
+      <td>0.074499</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Smoking cessation —general population: dentist...</td>
+      <td>Usual care</td>
+      <td>3.311258</td>
+      <td>3.0</td>
+      <td>10.989011</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Smoking cessation—general population: incentiv...</td>
+      <td>Intervention no NRT</td>
+      <td>2.793296</td>
+      <td>2.0</td>
+      <td>1.597444</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BA (5 min plus self-help)</td>
+      <td>Background quit rate</td>
+      <td>2.702703</td>
+      <td>8.0</td>
+      <td>1.801802</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Smoking cessation—general population: proactiv...</td>
+      <td>Usual care or intervention but no telephone c...</td>
+      <td>2.341920</td>
+      <td>9.0</td>
+      <td>0.683527</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Smoking cessation—general population: identify...</td>
+      <td>No intervention</td>
+      <td>1.984127</td>
+      <td>4.0</td>
+      <td>0.243902</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Smoking cessation—general population: pharmaci...</td>
+      <td>Usual care</td>
+      <td>1.831502</td>
+      <td>2.0</td>
+      <td>4.608295</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>BA only (5 min)</td>
+      <td>Background quit rate</td>
+      <td>1.366120</td>
+      <td>8.0</td>
+      <td>0.909091</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>PA counselling</td>
+      <td>No intervention</td>
+      <td>1.157407</td>
+      <td>2.0</td>
+      <td>1.353180</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Smoking cessation—disadvantaged groups: client...</td>
+      <td>No intervention</td>
+      <td>0.639386</td>
+      <td>3.0</td>
+      <td>0.166889</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BA [5 min plus nicotine replacement therapy (N...</td>
+      <td>Background quit rate</td>
+      <td>0.473934</td>
+      <td>8.0</td>
+      <td>0.315557</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Smoking cessation—disadvantaged groups: NHS SSS</td>
+      <td>No intervention</td>
+      <td>0.372301</td>
+      <td>2.0</td>
+      <td>3.311258</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Smoking cessation—disadvantaged groups: pharma...</td>
+      <td>No intervention</td>
+      <td>0.317360</td>
+      <td>2.0</td>
+      <td>0.235738</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>Screening and BA during GP consultation</td>
+      <td>No intervention</td>
+      <td>0.303030</td>
+      <td>3.0</td>
+      <td>0.151515</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Life-skills training</td>
+      <td>Normal education</td>
+      <td>0.286369</td>
+      <td>3.0</td>
+      <td>0.180180</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Statins—disadvantaged groups: invitation for s...</td>
+      <td>Usual care or no intervention</td>
+      <td>0.230097</td>
+      <td>2.0</td>
+      <td>1.445087</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Statins—general population: pharmacist based</td>
+      <td>Usual care or no intervention</td>
+      <td>0.204415</td>
+      <td>4.0</td>
+      <td>0.151837</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Individual stress management</td>
+      <td>No intervention</td>
+      <td>0.200080</td>
+      <td>3.0</td>
+      <td>0.086498</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Curricular</td>
+      <td>No intervention or standard education</td>
+      <td>0.138889</td>
+      <td>4.0</td>
+      <td>0.093721</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Urban trail</td>
+      <td>No intervention</td>
+      <td>0.095740</td>
+      <td>4.0</td>
+      <td>0.044425</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Brief counselling</td>
+      <td>Didactic messages</td>
+      <td>0.082008</td>
+      <td>2.0</td>
+      <td>4.385965</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Accelerated partner therapy—doxycycline</td>
+      <td>Patient referral</td>
+      <td>0.071301</td>
+      <td>2.0</td>
+      <td>0.106952</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Information motivation and behaviour skills</td>
+      <td>Didactic information</td>
+      <td>0.070706</td>
+      <td>2.0</td>
+      <td>0.129634</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Accelerated partner therapy—azithromycin</td>
+      <td>Patient referral</td>
+      <td>0.051480</td>
+      <td>2.0</td>
+      <td>0.077220</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Advice about PA</td>
+      <td>Usual care</td>
+      <td>0.027855</td>
+      <td>2.0</td>
+      <td>0.051546</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Enhanced counselling</td>
+      <td>Didactic messages</td>
+      <td>0.021927</td>
+      <td>2.0</td>
+      <td>0.083243</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure>
+	<a href="{{ site.baseurl }}/images/returns/output_35_0.png"><img src="{{ site.baseurl }}/images/returns/output_35_0.png"></a>
+</figure>
+
+<figure>
+	<a href="{{ site.baseurl }}/images/returns/output_36_0.png"><img src="{{ site.baseurl }}/images/returns/output_36_0.png"></a>
+</figure>
+
 
 ## Evidence from Philanthropy
 
@@ -1349,4 +1599,6 @@ Whether or not there are returns to risk, then, depends on your definition of ri
 [13] *Peer Review Evaluation Process of Marie Curie Actions under EU’s Seventh Framework Programme for Research.* [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4488366/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4488366/)
 
 [14] *Tradition and Innovation in Scientists’ Research Strategies.* [http://journals.sagepub.com/doi/abs/10.1177/0003122415601618](http://journals.sagepub.com/doi/abs/10.1177/0003122415601618)
+
+[15] *The cost-effectiveness of public health interventions.*  Journal of Public Health.  [https://academic.oup.com/jpubhealth/article/34/1/37/1554654](https://academic.oup.com/jpubhealth/article/34/1/37/1554654)
 

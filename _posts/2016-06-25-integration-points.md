@@ -6,6 +6,7 @@ excerpt: "Using the python library Pillow to build a dataset by counting the pix
 tags: [project, Python, Pillow, requests, temperature, climate]
 comments: true
 share: false
+published: false
 
 ---
 
