@@ -17,8 +17,7 @@ The Open Philanthropy Project outlines a similar approach in [a post](https://ww
 
 > One of our core values is our tolerance for philanthropic “risk.” Our overarching goal is to do as much good as we can, and as part of that, we’re open to supporting work that has a high risk of failing to accomplish its goals. We’re even open to supporting work that is more than 90% likely to fail, as long as the overall expected value is high enough.
 
-It seems [intuitive](https://blog.givewell.org/2013/05/02/broad-market-efficiency/) that there are returns to risk taking but I was wondering if there were any datasets out there that would support this idea.  Below I attempt to answer this question by looking at evidence from science, philanthropy, and public policy.   
-
+It seems [intuitive](https://blog.givewell.org/2013/05/02/broad-market-efficiency/) that there are returns to risk taking but I was wondering if there were any datasets out there that would support this idea.  Below I attempt to answer this question by looking at evidence from science, philanthropy, and public policy.  I just finished a [meta-analysis](https://pstblog.com/2018/06/27/meta-returns) that combines the interventions from below that have similar units, so take a look at that as well.     
 
 ## Definitions
 
@@ -31,7 +30,15 @@ The uncertainty and risk values are useful for answering two separate but relate
 Here are how the values are calculated:
 
 * `standard deviation = np.stdev(series)`  
-* `downside risk (semideviation) = np.sqrt((np.minimum(0.0, series - t)**2).sum()/series.size)`, where `t` is the mean intervention outcome  
+* `downside risk (semideviation) = np.sqrt((np.minimum(0.0, series - t)**2).sum()/series.size)`, where `t` is the mean intervention outcome
+
+Finally, how do you determine if there is a **return to risk taking**?  One approach would be to run a linear regression through the data and see if it has a positive slope.  This is what I do for most of the sources below, but there's a problem with this approach.  To see why, imagine calculating the cost effectiveness of every possible action, including bogus things like "lighting $1000 on fire".  You'd end up with a lot of useless interventions that would mess up the slope of the linear regression.  So another approach would be to just see if the frontier that encloses the top end of the estimates has a positive slope.  In Modern Portfolio Theory, this frontier is called the [efficient frontier](https://en.wikipedia.org/wiki/Efficient_frontier):
+
+<figure style="text-align:center">
+	<a href="{{ site.baseurl }}/images/metareturns/frontier.jpg"><img src="{{ site.baseurl }}/images/metareturns/frontier.jpg"></a>
+</figure>
+
+I've written about this idea [before](https://github.com/psthomas/efficient-frontier) but didn't have the data to test the concept out until now.  I stick with linear regression for this notebook, but I run the data through a portfolio optimization algorithm to create an efficient frontier in my [meta-analysis](https://pstblog.com/2018/06/27/meta-returns) blogpost.
 
 
 ## Data Sources 
@@ -1110,6 +1117,27 @@ The second dataset I found is from [a meta-analysis](https://academic.oup.com/jp
 </figure>
 
 
+Finally, I look at a massive dataset from the [Global Health Cost Effectiveness Analysis Registry](http://healtheconomics.tuftsmedicalcenter.org/ghcearegistry/) (GHCEA).  First, I look at the full distribution of cost effectiveness estimates.  It's pretty clear they're lognormally distributed:
+
+<figure>
+	<a href="{{ site.baseurl }}/images/returns/fullhist.png"><img src="{{ site.baseurl }}/images/returns/fullhist.png"></a>
+</figure>
+
+
+Next, I look at just the estimates that have confidence intervals, which ends up being about 900 out of the 5000 original estimates.  The confidence interval column was too erratic, so I went through by hand and found the upper and lower bound.  I also filtered out studies with an overall quality rating below 4.5 (on a 1-7 scale).  The end result is 653 estimates that have confidence intervals.  Here's a histogram of the filtered results -- note that there's a hole in the distribution where some of the estimates were filtered out:
+
+<figure>
+	<a href="{{ site.baseurl }}/images/returns/filterhist.png"><img src="{{ site.baseurl }}/images/returns/filterhist.png"></a>
+</figure>
+
+Finally, here's a scatterplot.  It's not the prettiest relationship in the world, but it does seem to have an upward slope: 
+
+<figure>
+	<a href="{{ site.baseurl }}/images/returns/filterscatter.png"><img src="{{ site.baseurl }}/images/returns/filterscatter.png"></a>
+</figure>
+
+
+
 ## Evidence from Philanthropy
 
 GiveWell is an organization that does in-depth charity evaluations, often using cost effectiveness estimates in their decision process.  They've recently changed their approach to [explicitly accommodate](https://www.givewell.org/how-we-work/our-criteria/cost-effectiveness/cost-effectiveness-models) different philosophical positions, but the [older models](https://docs.google.com/spreadsheets/d/1KiWfiAGX_QZhRbC9xkzf3I8IqsXC5kkr-nwY_feVlcM/edit#gid=2064365103) had their staff estimate different parameters for direct input.  
@@ -1601,4 +1629,6 @@ Whether or not there are returns to risk, then, depends on your definition of ri
 [14] *Tradition and Innovation in Scientists’ Research Strategies.* [http://journals.sagepub.com/doi/abs/10.1177/0003122415601618](http://journals.sagepub.com/doi/abs/10.1177/0003122415601618)
 
 [15] *The cost-effectiveness of public health interventions.*  Journal of Public Health.  [https://academic.oup.com/jpubhealth/article/34/1/37/1554654](https://academic.oup.com/jpubhealth/article/34/1/37/1554654)
+
+[16] *The Global Health Cost Effectiveness Analysis Registry* Tufts University.  [http://healtheconomics.tuftsmedicalcenter.org/ghcearegistry/](http://healtheconomics.tuftsmedicalcenter.org/ghcearegistry/)
 
