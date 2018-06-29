@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Returns to Altruistic Risk Taking"
+title: "The Social Returns to Risk Taking"
 excerpt: "A meta-analysis looking at the relationship between intervention uncertainty and impact."
 #modified:
 tags: [Python, Jupyter notebook, risk, return, meta-analysis, DALYs, cost-effectiveness, altair]
@@ -9,31 +9,29 @@ share: false
 
 ---
 
-If you're trying to improve the world, should you avoid uncertainty or embrace it?  Is it better to spend money on a temporary health intervention or fund research to eventually find a cure?  [In a previous post](https://pstblog.com/2017/12/02/risk-return), I tried to answer these questions by looking at standalone data from a variety of sources. Some of the sources shared similar enough units that they could be combined, so I tried to do so below.  
+If you're trying to improve the world, should you avoid uncertainty or embrace it?  Is it better to spend money on a temporary health intervention or fund research to eventually find a cure?  I tried to answer these questions in a [previous post](https://pstblog.com/2017/12/02/risk-return)  by looking at standalone data from a variety of sources. Some of the sources shared similar enough units that they could be combined, so I try to do so below. 
 
-I take two approaches to determine if there is evidence of a return to risk.  The first is to run a simple linear regression through the data to see if it has a positive slope. This technique isn't ideal though -- imagine if you calculated the cost effectiveness for every possible action including things like "lighting $1000 on fire".  This would result in many useless interventions that would pull down the slope of the linear regression.  
-
-<figure style="text-align:center">
-	<a href="{{ site.baseurl }}/images/metareturns/frontier.jpg"><img src="{{ site.baseurl }}/images/metareturns/frontier.jpg"></a>
+<figure style="text-align:center;">
+	<a href="{{ site.baseurl }}/images/metareturns/output_18_0.png">
+	<img style="max-width:500px;" src="{{ site.baseurl }}/images/metareturns/output_18_0.png"></a>
+	<!--<figcaption>One of the results from below.</figcaption>-->
 </figure>
-
-So my second approach is to see if the frontier that encloses the top estimates has a positive slope.  In Modern Portfolio Theory, this frontier is called the [efficient frontier](https://en.wikipedia.org/wiki/Efficient_frontier), which I've written about [before](https://github.com/psthomas/efficient-frontier).  I didn't have enough data to test out this theory in the past, but the combination of all these sources makes it possible to do so now.  
 
 All the code and data for this project are available on GitHub [here](https://github.com/psthomas/risk-return).  
 
 ## Data Wrangling
 
-Because both the GiveWell and Future of Humanity Institute (FHI) data share the same units, we can combine them to get a sense of the scale. Also, if we lazily assume that we can estimate the standard deviation of the Disease Control Priorities (DCP2) and National Institute for Health and Care Excellence (NICE) estimates by dividing the [range of the estimates by two](https://stats.stackexchange.com/questions/69575/relationship-between-the-range-and-the-standard-deviation), we can include those as well.  Note also that the NICE estimates are median results while Givewell and FHI are mean results, so this might need to be changed.  There are more in-depth descriptions of the sources for these data in my [previous post](https://pstblog.com/2017/12/02/risk-return).
+Because both the GiveWell and Future of Humanity Institute (FHI) data share the same units, I can combine them to get a sense of the scale. Also, if I lazily assume that I can estimate the standard deviation of the Disease Control Priorities (DCP2) and National Institute for Health and Care Excellence (NICE) estimates by dividing the [range of the estimates by two](https://stats.stackexchange.com/questions/69575/relationship-between-the-range-and-the-standard-deviation), those can be included as well.  Note also that the NICE estimates are median results while Givewell and FHI are mean results, so this might need to be changed.  There are more in-depth descriptions of the sources for these data in my [previous post](https://pstblog.com/2017/12/02/risk-return).
 
 All the other conversions are pretty straightforward, but the [Global Health Cost Effectiveness Analysis Registry](http://healtheconomics.tuftsmedicalcenter.org/ghcearegistry/) (GHCEA) data required more wrangling.  First, I needed to convert the confidence intervals to standard deviations, which requires making a bunch of assumptions.  Here's what the Cochrane Review [has to say](http://handbook-5-1.cochrane.org/chapter_7/7_7_3_2_obtaining_standard_deviations_from_standard_errors_and.htm) about this process: 
 
 > Confidence intervals for means can also be used to calculate standard deviations . . . Most confidence intervals are 95% confidence intervals. If the sample size is large (say bigger than 100 in each group), the 95% confidence interval is 3.92 standard errors wide (3.92 = 2 × 1.96). The standard deviation for each group is obtained by dividing the length of the confidence interval by 3.92, and then multiplying by the square root of the sample size:  
-> `SD = np.sqrt(N) * (upper_limit - lower_limit)/3.92`  
+> &emsp; &emsp; `SD = np.sqrt(N) * (upper_limit - lower_limit)/3.92`  
 > For 90% confidence intervals 3.92 should be replaced by 3.29, and for 99% confidence intervals it should be replaced by 5.15.
 
-So if I assume a 95% confidence intervals unless otherwise stated, N=1000 simulations for their monte carlo analyses, and simulations samples that follow a normal distribution, I can back-calculate the standard deviation.  This assumes quite a lot (especially the N=1000 simulations part), so I'd be open to advice on how to better handle this.  In addition to the calculations above, I filter out any GHCEA studies that were rated below 4.5 by reviewers on a 1-7 quality scale.  The end result is 653 interventions with standard deviations and cost effectiveness estimates.  
+So if I assume a 95% confidence intervals unless otherwise stated, N=1000 simulations for their monte carlo analyses, and simulated samples that follow a normal distribution, I can back-calculate the standard deviation.  This assumes quite a lot (especially the N=1000 simulations part), so I'd be open to advice on how to better handle this.  In addition to the calculations above, I filter out any GHCEA studies that were rated below 4.5 by reviewers on a 1-7 quality scale.  The end result is 653 interventions with standard deviations and cost effectiveness estimates.  
 
-One final thing to consider: the Givewell estimates are from shovel-ready charities accepting donations, while many of the others measure impact against a counterfactual using an [Incremental Cost Effectiveness Ratio](https://en.wikipedia.org/wiki/Incremental_cost-effectiveness_ratio) without a clear avenue for donors to make that change happen.  Instead, many of these interventions probably need to be implemented at the hospital, insurer, or federal policy level rather than through a charity.  
+One final thing to consider: the Givewell estimates are from shovel-ready charities accepting donations, while many of the others measure impact against a counterfactual using an [Incremental Cost Effectiveness Ratio](https://en.wikipedia.org/wiki/Incremental_cost-effectiveness_ratio) without a clear avenue for donors to make that change happen.  Instead, many of these interventions probably need to be implemented at the hospital, insurer, or government policy level rather than through a charity.  
 
 ## Putting It All Together
 
@@ -496,7 +494,18 @@ And here are histograms of the individual sources:
 	<a href="{{ site.baseurl }}/images/metareturns/output_15_1.png"><img src="{{ site.baseurl }}/images/metareturns/output_15_1.png"></a>
 </figure>
 
-Next, I fit a power law and a linear regression to the results.  The power law has a slightly higher r-squared value, but this [isn't really](http://blog.minitab.com/blog/adventures-in-statistics-2/why-is-there-no-r-squared-for-nonlinear-regression) a valid measure of goodness of fit for nonlinear curves.  The first plot uses standard axes to get a sense of the scale:
+## Fitting Some Curves
+
+So how do I determine if there is a **return to risk taking**?  One approach would be to run a linear regression through the data and see if it has a positive slope.  This is what I do first below, but there's a problem with this approach.  To see why, imagine calculating the cost effectiveness of every possible action, including bogus things like lighting $1000 on fire.  You'd end up with a lot of useless interventions that would mess up the slope of the linear regression.  
+
+So my second approach is to just see if the frontier that encloses the top end of the estimates has a positive slope.  In Modern Portfolio Theory, this frontier is called the [efficient frontier](https://en.wikipedia.org/wiki/Efficient_frontier), which I've written about [before](https://github.com/psthomas/efficient-frontier).  I didn't have enough data to test out this theory in the past, but the combination of all these sources makes it possible to do so now. 
+
+<figure style="text-align:center">
+	<a href="{{ site.baseurl }}/images/metareturns/frontier.jpg"><img src="{{ site.baseurl }}/images/metareturns/frontier.jpg"></a>
+	<figcaption>An example of an efficient frontier.</figcaption>
+</figure>
+
+Below, I fit a linear regression and a power law to the results.  The power law has a slightly higher r-squared value, but this [isn't really](http://blog.minitab.com/blog/adventures-in-statistics-2/why-is-there-no-r-squared-for-nonlinear-regression) a valid measure of goodness of fit for nonlinear curves.  The first plot uses standard axes to get a sense of the scale:
 
 <figure>
 	<a href="{{ site.baseurl }}/images/metareturns/output_17_0.png"><img src="{{ site.baseurl }}/images/metareturns/output_17_0.png"></a>
@@ -506,13 +515,11 @@ Here's the same plot with log-log axes to get a better view the data:
 
 <figure>
 	<a href="{{ site.baseurl }}/images/metareturns/output_18_0.png"><img src="{{ site.baseurl }}/images/metareturns/output_18_0.png"></a>
-	<!--<figcaption>The Voting Power Index by county for the 2016 Presidential Election.</figcaption>-->
 </figure>
 
+## The Efficient Frontier
 
-## An Efficient Frontier
-
-Finally, I use a modified version of an algorithm [described on Quantopian](https://blog.quantopian.com/markowitz-portfolio-optimization-2/) to generate an efficient frontier.  Each point along the curve represents a portfolio of interventions with the highest expected impact for the level of risk.  The covariance matrix I used as input is empty except for the variances, although this could be changed if you have some reason to think intervention outcomes are correlated in some way.  
+Finally, I use a modified version of an algorithm [described on Quantopian](https://blog.quantopian.com/markowitz-portfolio-optimization-2/) to generate an efficient frontier.  Each point along the curve represents a portfolio of interventions with the highest expected impact for the level of risk.  The covariance matrix I used as input is all zeros except for the variances, although this could be changed if you have some reason to think intervention outcomes are correlated in some way.  
 
 Note that the plot below is interactive with tooltips and scroll-to-zoom enabled.  
 
@@ -523,8 +530,9 @@ Note that the plot below is interactive with tooltips and scroll-to-zoom enabled
 ## Conclusion
 
 * It seems like there are returns to risk taking for both the individual and combined estimates. This is useful to know because it means a a large error bound on a cost effectiveness estimate shouldn’t be disqualifying on it’s own.
-* This framework could be a useful sanity check for future estimates.  For example, if an estimate is far above the existing frontier, it might be worth reviewing it for an incorrect calculation or poor assumption.  But it's important to be careful when doing this because these estimates only cover a small fraction of the possible actions one could take in the world.    
-* The intervention with the highest expected impact (and highest uncertainty) is research into diarrheal disease.  This suggests that uncertainty that comes with research is worth it in some cases.  This relationship might be even more clear if we were to add estimates from more esoteric forms of basic research, although some forms of research might not be amenable to this type of analysis.
+* Plots like these could be useful for identifying promising interventions, especially when many independent estimates point in the same direction.  This seems to be the case for many malaria, HIV, and smoking cessation interventions in the plot above.  
+* This framework could also provide a useful sanity check for future estimates.  For example, if an estimate is far above the existing frontier, it might be worth reviewing it for an incorrect calculation or poor assumption.  But it's important to be careful when doing this because these estimates only cover a small fraction of the possible actions one could take in the world.    
+* The intervention with the highest expected impact (and highest uncertainty) is research into diarrheal disease.  This suggests that research can be very beneficial even if it's more uncertain.  This relationship might be even more clear if we were to add estimates from more esoteric forms of basic research, although some forms of research might not be amenable to this type of analysis.
 
 ## References
 
