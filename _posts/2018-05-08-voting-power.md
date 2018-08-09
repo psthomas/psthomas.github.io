@@ -1418,6 +1418,8 @@ An interesting point Nate Cohn [made](https://twitter.com/Nate_Cohn/status/97260
 	<a href="{{ site.baseurl }}/images/votepower/cohnpersuasion.png"><img src="{{ site.baseurl }}/images/votepower/cohnpersuasion.png"></a>
 </figure>
 
+But when you turn out a strong Democratic voter they're likely to vote for every Democrat on the ballot, while persuading a Republican to vote for a particular candidate might only lead to a [split ticket](https://en.wikipedia.org/wiki/Split-ticket_voting).  So the net political effect of increased turnout might be larger when you consider every candidate on the ballot and their political power.    
+
 These results are interesting, but aren't informative until we have data on the cost effectiveness of each approach, which probably depends on things like the population density and price of ad buys in different locations.  Rather than thinking in binary terms, I think it makes sense to ask which strategy is better depending on the location.  
 
 ## Conclusion

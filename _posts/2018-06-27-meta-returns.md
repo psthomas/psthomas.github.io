@@ -11,11 +11,14 @@ share: false
 
 If you're trying to improve the world, should you avoid uncertainty or embrace it?  Is it better to spend money on a temporary health intervention or fund research to eventually find a cure?  I tried to answer these questions in a [previous post](https://pstblog.com/2017/12/02/risk-return)  by looking at standalone data from a variety of sources. Some of the sources shared similar enough units that they could be combined, so I try to do so below. 
 
-<figure style="text-align:center;">
-	<a href="{{ site.baseurl }}/images/metareturns/output_18_0.png">
-	<img style="max-width:500px;" src="{{ site.baseurl }}/images/metareturns/output_18_0.png"></a>
-	<!--<figcaption>One of the results from below.</figcaption>-->
-</figure>
+<!--<figure style="text-align:center;">-->
+<!--	<a href="{{ site.baseurl }}/images/metareturns/output_18_0.png">-->
+<!--	<img style="max-width:500px;" src="{{ site.baseurl }}/images/metareturns/output_18_0.png"></a>-->
+<!--</figure>-->
+
+<iframe id="vis" src="{{ site.baseurl }}/vis/meta-returns.html"
+    style="width: 100%; height:500px; border: none; position: relative; scrolling:no;">
+</iframe>
 
 All the code and data for this project are available on GitHub [here](https://github.com/psthomas/risk-return).  
 
