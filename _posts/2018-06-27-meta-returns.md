@@ -11,14 +11,14 @@ share: false
 
 If you're trying to improve the world, should you avoid uncertainty or embrace it?  Is it better to spend money on a temporary health intervention or fund research to eventually find a cure?  I tried to answer these questions in a [previous post](https://pstblog.com/2017/12/02/risk-return)  by looking at standalone data from a variety of sources. Some of the sources shared similar enough units that they could be combined, so I try to do so below. 
 
-<!--<figure style="text-align:center;">-->
-<!--	<a href="{{ site.baseurl }}/images/metareturns/output_18_0.png">-->
-<!--	<img style="max-width:500px;" src="{{ site.baseurl }}/images/metareturns/output_18_0.png"></a>-->
-<!--</figure>-->
+<figure style="text-align:center;">
+	<a href="{{ site.baseurl }}/images/metareturns/output_18_0.png">
+	<img style="max-width:500px;" src="{{ site.baseurl }}/images/metareturns/output_18_0.png"></a>
+</figure>
 
-<iframe id="vis" src="{{ site.baseurl }}/vis/meta-returns.html"
-    style="width: 100%; height:500px; border: none; position: relative; scrolling:no;">
-</iframe>
+<!--<iframe id="vis" src="{{ site.baseurl }}/vis/meta-returns.html"-->
+<!--    style="width: 100%; height:500px; border: none; position: relative; scrolling:no;">-->
+<!--</iframe>-->
 
 All the code and data for this project are available on GitHub [here](https://github.com/psthomas/risk-return).  
 
@@ -503,7 +503,8 @@ So how do I determine if there is a **return to risk taking**?  One approach wou
 
 So my second approach is to just see if the frontier that encloses the top end of the estimates has a positive slope.  In Modern Portfolio Theory, this frontier is called the [efficient frontier](https://en.wikipedia.org/wiki/Efficient_frontier), which I've written about [before](https://github.com/psthomas/efficient-frontier).  I didn't have enough data to test out this theory in the past, but the combination of all these sources makes it possible to do so now. 
 
-<figure style="text-align:center">
+
+<figure style="text-align:center" >
 	<a href="{{ site.baseurl }}/images/metareturns/frontier.jpg"><img src="{{ site.baseurl }}/images/metareturns/frontier.jpg"></a>
 	<figcaption>An example of an efficient frontier.</figcaption>
 </figure>

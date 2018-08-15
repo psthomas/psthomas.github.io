@@ -29,13 +29,10 @@ The user can set the percentage of the budget devoted to each sector and the all
 <script src="https://d3js.org/d3.v4.js"></script>
 
 <script>
-
-d3.request("https://raw.githubusercontent.com/psthomas/mental-model/master/model.html")
+d3.request("https://raw.githubusercontent.com/psthomas/mental-model/master/model/model.html")
     .get(function(a) {
         document.getElementById("vis").srcdoc = a.response;
     });
-
-
 </script>
 
 Here are a few things I hope this visualization demonstrates:
