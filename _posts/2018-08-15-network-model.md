@@ -31,17 +31,15 @@ Next, here's a visualization I made based on the network described in the origin
 
 I'm not sure I agree with every aspect of this model, but I think it provides a good example of how a complex network operates.  In this case, although spending on money on outreach for movement growth is the most connected node (Node 8), the total impact is smaller than improving policies related to [global catastrophic risks](https://en.wikipedia.org/wiki/Global_catastrophic_risk) (Node 6).  Another interesting takeaway is that interventions can be harmful in one domain and beneficial in another.  For example, donating money to [GiveDirectly](https://www.givedirectly.org/) improves the lives of the beneficiaries through increased consumption, but this consumption might also lead to a slight increases in carbon emissions that could partially offset the benefits.
 
-### Model Problems
+The main challenge with this model seems to be choosing accurate values for the elasticities and differentials, which is difficult because they need to be derived from experimental data or expert judgement.  One potential fix would be to use probability distributions and [monte carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method) methods rather than point estimates.  Although this won't really solve the underlying problem, it would at least convey some level of uncertainty.  
 
-The main challenge with these models seems to be choosing accurate values for the elasticities and differentials, which is difficult because they need to be derived from experimental data or expert judgement.  One potential fix would be to use probability distributions and [monte carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method) methods rather than point estimates.  This won't really solve the underlying problem, but at least it would convey some level of uncertainty.  
+Another challenge is that it's hard to represent nonlinear relationships using differentials and elasticities.  For example, my first inclination is to add a fluctuating growth rate to the model to see how it affects the long term GDP.  But this is difficult because representing a [compound interest](https://en.wikipedia.org/wiki/Compound_interest#Periodic_compounding) formula like `P' = P(1+r)^t` isn't possible using elasticities and differentials (as far as I can tell).  So maybe using a [system dynamics](https://en.wikipedia.org/wiki/System_dynamics) model that can handle non-linear relationships would be a better approach.  There seem to be a number of options for these models in Python [[1](https://github.com/JamesPHoughton/pysd), [2](https://github.com/jdherman/stockflow)], as well as a pretty cool [in-browser option](https://insightmaker.com/) that's [open source](https://github.com/scottfr/insightmaker). 
 
-Second, it's hard to represent non-linear relationships using differentials and elasticities.  For example, my first inclination is to add a fluctuating growth rate to the model to see how influences on growth affect the long term GDP.  But this is challenging because it isn't possible to represent a [compound interest](https://en.wikipedia.org/wiki/Compound_interest#Periodic_compounding) formula like `P' = P(1+r)^t` using elasticities or differentials (as far as I can tell).  So maybe using a [system dynamics](https://en.wikipedia.org/wiki/System_dynamics) model that can handle non-linear relationships would be a better approach.  There seem to be a number of options for these models in Python [[1](https://github.com/JamesPHoughton/pysd), [2](https://github.com/jdherman/stockflow)], as well as a pretty cool [in-browser option](https://insightmaker.com/) that's [open source](https://github.com/scottfr/insightmaker). 
+## Places to Intervene in a System
 
-## Sage Advice 
+Finally, here's a fascinating quote from an [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) I came across discussing the best places to intervene in a system: 
 
-Finally, I thought I'd mention a really interesting [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) I came across while researching this topic.  Here's an excerpt discussing the best places to intervene in a system: 
-
-> **PLACES TO INTERVENE IN A SYSTEM** (in increasing order of effectiveness)  
+> **Places to Intervene in a System** (in increasing order of effectiveness)  
 9. Constants, parameters, numbers (subsidies, taxes, standards).  
 8. Regulating negative feedback loops.  
 7. Driving positive feedback loops.  
@@ -52,7 +50,7 @@ Finally, I thought I'd mention a really interesting [article](http://donellamead
 2. The goals of the system.  
 1. The mindset or paradigm out of which the system — its goals, power structure, rules, its culture — arises.
 
-Many of the best options in the network above score pretty well on this list.  For example, global catastrophic risk (GCR) policy is the most effective node to work on, which mainly functions by increasing concern about GCRs in academia and governments.  So this node affects the world through a combination of step #2 (changing the goals of the system) and step #1 (changing the mindset that the system arises from).   
+Many of the best options in the network above score pretty well on this list.  For example, influencing global catastrophic risk (GCR) policy is so effective because it increases concern about GCRs within academia and government.  So it's influential through a combination of step 2 (changing the goals of the system) and step 1 (changing the mindset that the system arises from).   
 
 ## Conclusion
 
