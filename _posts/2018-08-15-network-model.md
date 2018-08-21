@@ -21,7 +21,7 @@ Your goal in the network below is to get the highest score by clicking a single 
 
 Hopefully you found the best option, which might be a little surprising given its small direct effect.  In this case, the strong connections with the rest of the nodes in the network result in a high indirect score.  
 
-## A Complex Network
+## A Complicated Network
 
 Next, here's a visualization I made based on the network described in the original [forum post](http://effective-altruism.com/ea/1h6/causal_networks_model_i_introduction_user_guide/), which evaluates potential focus areas for the effective altruism movement.  When you click a node with a dark outline below, it's the equivalent of giving one million dollars to that cause area.  The effect of the money then cascades through the network based on the differentials and elasticities defined by the authors.  In the end, red nodes represent beneficial changes and blue nodes harmful ones.  The final impact, in [quality adjusted life years](https://en.wikipedia.org/wiki/Quality-adjusted_life_year), is reported at the top.    
 
@@ -29,7 +29,7 @@ Next, here's a visualization I made based on the network described in the origin
     style="width: 100%; height:700px; border: none; position: relative; scrolling:no;">
 </iframe>
 
-I'm not sure I agree with every aspect of this model, but I think it provides a good example of how a complex network operates.  In this case, although spending on money on outreach for movement growth is the most connected node (Node 8), the total impact is smaller than improving policies related to [global catastrophic risks](https://en.wikipedia.org/wiki/Global_catastrophic_risk) (Node 6).  Another interesting takeaway is that interventions can be harmful in one domain and beneficial in another.  For example, donating money to [GiveDirectly](https://www.givedirectly.org/) improves the lives of the beneficiaries through increased consumption, but this consumption might also lead to a slight increases in carbon emissions that could partially offset the benefits.
+I'm not sure I agree with every aspect of this model, but I think it provides a good example of how a network operates.  In this case, although spending on money on outreach for movement growth is the most connected node (Node 8), the total impact is smaller than improving policies related to [global catastrophic risks](https://en.wikipedia.org/wiki/Global_catastrophic_risk) (Node 6).  Another interesting takeaway is that interventions can be harmful in one domain and beneficial in another.  For example, donating money to [GiveDirectly](https://www.givedirectly.org/) improves the lives of the beneficiaries through increased consumption, but this consumption might also lead to a slight increases in carbon emissions that could partially offset the benefits.
 
 The main challenge with this model seems to be choosing accurate values for the elasticities and differentials, which is difficult because they need to be derived from experimental data or expert judgement.  One potential fix would be to use probability distributions and [monte carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method) methods rather than point estimates.  Although this won't really solve the underlying problem, it would at least convey some level of uncertainty.  
 
@@ -37,7 +37,7 @@ Another challenge is that it's hard to represent nonlinear relationships using d
 
 ## Places to Intervene in a System
 
-Finally, here's a fascinating quote from an [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) I came across discussing the best places to intervene in a system: 
+Finally, here's a quote from an interesting [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) discussing the best places to intervene in a system: 
 
 > **Places to Intervene in a System** (in increasing order of effectiveness)  
 9. Constants, parameters, numbers (subsidies, taxes, standards).  
@@ -50,7 +50,7 @@ Finally, here's a fascinating quote from an [article](http://donellameadows.org/
 2. The goals of the system.  
 1. The mindset or paradigm out of which the system — its goals, power structure, rules, its culture — arises.
 
-Many of the best options in the network above score pretty well on this list.  For example, influencing global catastrophic risk (GCR) policy is so effective because it increases concern about GCRs within academia and government.  So it's influential through a combination of step 2 (changing the goals of the system) and step 1 (changing the mindset that the system arises from).   
+What this list doesn't consider is that it's more difficult to intervene at higher levels -- influencing goals, mindsets and power distributions seems difficult.  But many of the best options in the network above score well on this list.  For example, global catastrophic risk (GCR) strategy is so effective because it increases concern about GCRs within academia and government.  So it's influential through a combination of step #2 (changing the goals of the system) and step #1 (changing the mindset that the system arises from).   
 
 ## Conclusion
 
