@@ -29,7 +29,7 @@ Next, here's a visualization I made based on the network described in the origin
     style="width: 100%; height:700px; border: none; position: relative; scrolling:no;">
 </iframe>
 
-I'm not sure I agree with every aspect of this model, but I think it provides a good example of how a network operates.  In this case, although spending on money on outreach for movement growth is the most connected node (Node 8), the total impact is smaller than improving policies related to [global catastrophic risks](https://en.wikipedia.org/wiki/Global_catastrophic_risk) (Node 6).  Another interesting takeaway is that interventions can be harmful in one domain and beneficial in another.  For example, donating money to [GiveDirectly](https://www.givedirectly.org/) improves the lives of the beneficiaries through increased consumption, but this consumption might also lead to a slight increases in carbon emissions that could partially offset the benefits.
+I'm not sure I agree with every aspect of this model, but I think it provides a good example of how a complicated network operates.  In this case, although spending on money on outreach for movement growth is the most connected node (Node 8), the total impact is smaller than improving policies related to [global catastrophic risks](https://en.wikipedia.org/wiki/Global_catastrophic_risk) (Node 6).  Another interesting takeaway is that interventions can be harmful in one domain and beneficial in another.  For example, donating money to [GiveDirectly](https://www.givedirectly.org/) improves the lives of the beneficiaries through increased consumption, but this consumption might also lead to a slight increases in carbon emissions that could partially offset the benefits.
 
 The main challenge with this model seems to be choosing accurate values for the elasticities and differentials, which is difficult because they need to be derived from experimental data or expert judgement.  One potential fix would be to use probability distributions and [monte carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method) methods rather than point estimates.  Although this won't really solve the underlying problem, it would at least convey some level of uncertainty.  
 
@@ -37,9 +37,9 @@ Another challenge is that it's hard to represent nonlinear relationships using d
 
 ## Places to Intervene in a System
 
-Finally, here's a quote from an interesting [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) discussing the best places to intervene in a system: 
+Finally, here's a quote from an interesting [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) discussing the best ways to affect a system: 
 
-> **Places to Intervene in a System** (in increasing order of effectiveness)  
+> Places to Intervene in a System (in increasing order of effectiveness):  
 9. Constants, parameters, numbers (subsidies, taxes, standards).  
 8. Regulating negative feedback loops.  
 7. Driving positive feedback loops.  
@@ -50,11 +50,13 @@ Finally, here's a quote from an interesting [article](http://donellameadows.org/
 2. The goals of the system.  
 1. The mindset or paradigm out of which the system — its goals, power structure, rules, its culture — arises.
 
-What this list doesn't consider is that it's more difficult to intervene at higher levels -- influencing goals, mindsets and power distributions seems difficult.  But many of the best options in the network above score well on this list.  For example, global catastrophic risk (GCR) strategy is so effective because it increases concern about GCRs within academia and government.  So it's influential through a combination of step #2 (changing the goals of the system) and step #1 (changing the mindset that the system arises from).   
+Many of the best options in the network above score well on this list.  For example, global catastrophic risk (GCR) strategy is so effective because it increases concern about GCRs within academia and government.  So it's influential through a combination of step #2 (changing the goals of the system) and step #1 (changing the mindset that the system arises from).  
+
+What this list doesn't consider is that it's often more difficult to intervene at the higher levels of a system -- influencing goals, mindsets and power distributions seems hard.  But the model does account for this because areas that are harder to influence will have smaller incoming differentials and elasticities.       
 
 ## Conclusion
 
-I'm not sure how useful these models are for practical decision making, but I think they're a good reminder to consider indirect effects when trying to influence a complex system.  I also think they're useful for getting people to state their assumptions about the world in a way that's open to critique.  In the future, I hope to make my own model incorporating areas like scientific research, other types of policy advocacy, and economic policy, so stay tuned. 
+I'm not sure how useful these models are for practical decision making but I think they're a good reminder to consider indirect effects when trying to influence a complex system.  I also think they're useful for getting people to state their assumptions about the world in a way that's open to critique.  In the future, I hope to make my own model incorporating areas like scientific research, other types of policy advocacy, and economic policy, so stay tuned. 
 
 ## Appendix A: How it Works
 

@@ -15,7 +15,7 @@ prof_img: true
 <strong>Philip Thomas</strong><br>
 <a href="{{site.baseurl}}/images/email.png" title="Email">Email</a>, 
 <a href="https://www.linkedin.com/in/philip-thomas-2805b97a" title="Linkedin"> LinkedIn</a>,
-<a href="http://github.com/psthomas" title="GitHub"> Github</a>
+<a href="http://github.com/psthomas" title="GitHub"> GitHub</a>
 </div>
 </div>  <!--/.article-author-about-->
 
