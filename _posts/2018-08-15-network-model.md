@@ -37,7 +37,7 @@ Another challenge is that it's hard to represent nonlinear relationships using d
 
 ## Places to Intervene in a System
 
-Finally, here's a quote from an interesting [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) discussing the best ways to affect a system: 
+Finally, here's a quote from an interesting [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) discussing the best ways to influence a system: 
 
 > Places to Intervene in a System (in increasing order of effectiveness):  
 9. Constants, parameters, numbers (subsidies, taxes, standards).  
