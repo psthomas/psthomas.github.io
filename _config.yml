@@ -3,8 +3,12 @@
 title:            pstblog
 locale:           en_US
 url:              https://pstblog.com #comment out for local development
+#c9.io development:
+# url: "https://ruby-blog-psthomas.c9users.io"
+# baseurl: ""
 
 #Cloud9: $ bundle exec jekyll serve --host $IP --port $PORT
+# bundle exec jekyll serve --host $IP --port $PORT --config _config.yml
 #Grunt png issue is known: https://github.com/gruntjs/grunt-contrib-imagemin/issues/69
 
 # Jekyll configuration
