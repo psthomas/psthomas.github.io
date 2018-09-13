@@ -9,3 +9,6 @@ _asset_bundler_cache
 .jekyll-metadata
 Gruntfile.js
 package.json
+Vagrantfile
+bootstrap.sh
+

@@ -12,7 +12,7 @@ $paragraph-indent: false; //true !default;
 //http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html
 //"Palatino Linotype","Book Antiqua", Palatino, serif; Georgia, serif; 
 //"Trebuchet MS", sans-serif; 'PT Serif', serif; current: "PT Sans", sans-serif; 
-$base-font: "Trebuchet MS", sans-serif; //   
+$base-font:  "Trebuchet MS", sans-serif;// "Trebuchet MS", sans-serif;  Georgia, serif;
 $heading-font: "Trebuchet MS", sans-serif; //current: 'PT Sans Narrow', sans-serif;  Georgia, serif
 $code-font: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 $alt-font: $base-font;
@@ -23,7 +23,7 @@ $alt-font: $base-font;
 
 $bodycolor      : #fff;
 $body-color     : $bodycolor;
-$textcolor      : rgba(35,35,35,0.88);  //#333332; rgba(51,51,51,0.85); rgba(35,35,35,0.9); 0.95
+$textcolor      : rgba(35,35,35,0.9);  //#333332; rgba(51,51,51,0.85); rgba(35,35,35,0.9); 0.95 0.88
 $text-color     : $textcolor;
 $border-color   : $text-color;
 $basecolor 		 : #343434;
