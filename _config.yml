@@ -2,7 +2,7 @@
 
 title:            pstblog
 locale:           en_US
-url:              #https://pstblog.com #comment out for local development
+url:              https://pstblog.com #comment out for local development
 
 #Cloud9: $ bundle exec jekyll serve --host $IP --port $PORT
 #Grunt png issue is known: https://github.com/gruntjs/grunt-contrib-imagemin/issues/69
