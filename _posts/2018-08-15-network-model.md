@@ -40,15 +40,15 @@ Another challenge is that it's hard to represent nonlinear relationships using d
 Finally, here's a quote from an interesting [article](http://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/) discussing the best ways to influence a system: 
 
 > Places to Intervene in a System (in increasing order of effectiveness):  
-9. Constants, parameters, numbers (subsidies, taxes, standards).  
-8. Regulating negative feedback loops.  
-7. Driving positive feedback loops.  
-6. Material flows and nodes of material intersection.  
-5. Information flows.  
-4. The rules of the system (incentives, punishments, constraints).  
-3. The distribution of power over the rules of the system.  
-2. The goals of the system.  
-1. The mindset or paradigm out of which the system — its goals, power structure, rules, its culture — arises.
+9: Constants, parameters, numbers (subsidies, taxes, standards).  
+8: Regulating negative feedback loops.  
+7: Driving positive feedback loops.  
+6: Material flows and nodes of material intersection.  
+5: Information flows.  
+4: The rules of the system (incentives, punishments, constraints).  
+3: The distribution of power over the rules of the system.  
+2: The goals of the system.  
+1: The mindset or paradigm out of which the system — its goals, power structure, rules, its culture — arises.
 
 Many of the best options in the network above score well on this list.  For example, global catastrophic risk (GCR) strategy is so effective because it increases concern about GCRs within academia and government.  So it's influential through a combination of step #2 (changing the goals of the system) and step #1 (changing the mindset that the system arises from).  
 
