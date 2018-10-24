@@ -29,7 +29,7 @@ Here are the steps:
 4. Convert the correlated normal samples to correlated uniform samples using the standard normal cumulative distribution function (CDF).  I think the result of this is considered a [copula](https://en.wikipedia.org/wiki/Copula_(probability_theory)).    
 5. Use the inverted CDF of the desired distributions to convert the correlated uniform samples into correlated samples.  This is called [inverse transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling) sampling.     
 
-Note that the lognormal correlation won't be exactly what you specified in the correlation matrix, but it was close enough for my purposes.  If you need a specific correlation, you could always write a while loop that repeats this process until it's within a certain threshold of your desired correlation.  Here's the code for a joint lognormal distribution:
+Note that the sample correlation won't be exactly what you specified in the correlation matrix, but it was close enough for my purposes.  If you need a specific correlation, you could always write a while loop that repeats this process until it's within a certain threshold of your desired correlation.  Here's the code for a joint lognormal distribution:
 
 {% highlight javascript %}
 
