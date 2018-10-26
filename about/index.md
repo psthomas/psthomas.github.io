@@ -19,7 +19,7 @@ prof_img: true
 </div>
 </div>  <!--/.article-author-about-->
 
-I have an academic background in biology and environmental engineering.  Recently, I have been learning some Python and JavaScript, focusing mainly on web development.  I enjoy creating things using these two languages, which seem capable of building just about anything. 
+I have an academic background in biology and environmental engineering.  Recently, I have been learning some Python and JavaScript, focusing mainly on web development.  I enjoy working with these two languages, which seem capable of building just about anything. 
 
 My other interests include economics, public health and life sciences research.  I'll write about some of these topics when I know enough to be competent, otherwise I'll stick to summarizing the views of others.  
 
