@@ -8,7 +8,7 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
-	//letter-spacing: -0.015em;  //-0.03em
+	letter-spacing: -0.01em;  //-0.03em
 	color: $textcolor;
 	//Added so headers stay text color w/ changes in link color
 	a {
