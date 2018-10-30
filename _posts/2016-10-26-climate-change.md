@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Creating a Climate Change Visualization using D3.js"
+title: "Creating a Climate Change Visualization Using D3.js"
 excerpt: "I re-create the polar climate change visualization that went viral using d3.js."
 #modified: 2016-02-22
 tags: [visualization, d3.js, D3.js, Plots, html, css, javascript]
@@ -10,9 +10,7 @@ share: false
 ---
 
 
-[Ed Hawkins](http://www.met.reading.ac.uk/~ed/home/index.php) from the University of Reading created a pretty neat [climate change visualization](http://www.climate-lab-book.ac.uk/spirals/) that went viral a few months ago. It was seen by millions of people, and was eventually feautured in the opening ceremony of the olympics. 
-
-I think the visualization was so effective because it shows a clear, undeniable trend in a format that is pretty simple to interpret.  The color palette is also pretty effective, with the orange and red communicating "danger" as the temperature seems to spiral out of control.  
+[Ed Hawkins](http://www.met.reading.ac.uk/~ed/home/index.php) from the University of Reading created a pretty neat [climate change visualization](http://www.climate-lab-book.ac.uk/spirals/) that went viral a few months ago. It was seen by millions of people, and was eventually feautured in the opening ceremony of the olympics. I think the visualization was so effective because it shows a clear, undeniable trend in a format that is pretty simple to interpret.  The color palette is also pretty effective, with the orange and red communicating "danger" as the temperature seems to spiral out of control.  
 
 The original was created in MATLAB, and distributed as a GIF, with a new image overlaid for each year.  I thought it would be interesting to re-create this visualization using [d3.js](https://d3js.org/), which is a JavaScript data visualization library.  Using d3.js allows you to build a visualization that loads faster, and is more interactive and customizable than a GIF.  Try it out by clicking the play button below:
 

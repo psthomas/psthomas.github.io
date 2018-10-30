@@ -41,7 +41,7 @@ Here are a few things I hope this visualization demonstrates:
 
 The marginal impact of each project declines linearly as it's room for funding is used up.  This is a pretty fundamental [concept in economics](https://en.wikipedia.org/wiki/Diminishing_returns) and I think it applies to most situations in the real world.  One aspect of the model that avoids diminishing returns is the exploration phase, as the probability of generating a bubble in each location remains constant over time for each sector.   This fits well with my intuition about the world -- there are diminishing returns to exploiting existing knowledge but not to generating new knowledge.
 
-## Importance of Economic Growth
+## The Importance of Economic Growth
 
 I think the [income](https://en.wikipedia.org/wiki/Gross_domestic_product#Income_approach) approach to measuring GDP is most helpful for thinking about economic growth in this model.  A certain amount of income is generated in each time step, most of which goes to corporations and individuals.  We as a society then decide what to do with this money in the next time step.  We can leave it with individuals and corporations which ends up largely being invested in markets, or we can tax it and put it into government services or basic research. 
 
