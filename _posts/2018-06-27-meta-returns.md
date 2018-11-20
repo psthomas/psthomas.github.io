@@ -509,7 +509,7 @@ So my second approach is to just see if the frontier that encloses the top end o
 	<figcaption>An example of an efficient frontier.</figcaption>
 </figure>
 
-Below, I fit a linear regression and a power law to the results.  The power law doesn't have an r-squared value because it [isn't really](http://blog.minitab.com/blog/adventures-in-statistics-2/why-is-there-no-r-squared-for-nonlinear-regression) a valid measure of goodness of fit for nonlinear curves.  The first plot uses standard axes to get a sense of the scale:
+Below, I fit a linear regression and a power law to the results.  The power law doesn't have an r-squared value because this [isn't really](http://blog.minitab.com/blog/adventures-in-statistics-2/why-is-there-no-r-squared-for-nonlinear-regression) a valid measure of goodness of fit for nonlinear curves.  The first plot uses standard axes to get a sense of the scale:
 
 <figure>
 	<a href="{{ site.baseurl }}/images/metareturns/output_17_0.png"><img src="{{ site.baseurl }}/images/metareturns/output_17_0.png"></a>
