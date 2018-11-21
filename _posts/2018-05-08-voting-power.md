@@ -36,12 +36,7 @@ These data were compiled for a [previous visualization]({{ site.baseurl }}/2017/
 
 ## Visualizing the County Data
 
-These plots show that the VPI follows a lognormal or power law distribution, with some years like 2012 having fewer outlying values.  A power law distribution wouldn't be too surprising here because the values are derived using population values for counties, which probably follow something close to a power law themselves.  Note that I adjusted all of the county values so the median value across all years is one.   
-
-<figure>
-	<a href="{{ site.baseurl }}/images/votepower/output_9_1.png"><img src="{{ site.baseurl }}/images/votepower/output_9_1.png"></a>
-	<figcaption>Boxplot of the VPI for each county by year, note the log y-axis.</figcaption>
-</figure>
+These plots show that the VPI follows a lognormal or power law distribution, with some years like 2012 having fewer outlying values.  A power law distribution wouldn't be too surprising because the values are derived from county population values, which follow something close to a power law themselves. 
 
 <figure>
 	<a href="{{ site.baseurl }}/images/votepower/output_10_1.png"><img src="{{ site.baseurl }}/images/votepower/output_10_1.png"></a>
@@ -925,11 +920,6 @@ The above 2016 analysis is interesting but if we want values that are more gener
 Here's a map of the averages:
 
 <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="{{ site.baseurl }}/vis/vpi_folium-2004-2016.html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
-
-<figure>
-	<a href="{{ site.baseurl }}/images/votepower/output_24_1.png"><img src="{{ site.baseurl }}/images/votepower/output_24_1.png"></a>
-</figure>
-
 
 ### Which counties are important for Democrats, on average?
 
