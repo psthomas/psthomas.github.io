@@ -36,7 +36,7 @@ These data were compiled for a [previous visualization]({{ site.baseurl }}/2017/
 
 ## Visualizing the County Data
 
-It's pretty clear from these plots that the VPI is lognormally distributed, with some years like 2012 having fewer outlying values.  Note that I adjusted all of the county values so the median value across all years is one.   
+These plots show that the VPI follows a lognormal or power law distribution, with some years like 2012 having fewer outlying values.  A power law distribution wouldn't be too surprising here because the values are derived using population values for counties, which probably follow something close to a power law themselves.  Note that I adjusted all of the county values so the median value across all years is one.   
 
 <figure>
 	<a href="{{ site.baseurl }}/images/votepower/output_9_1.png"><img src="{{ site.baseurl }}/images/votepower/output_9_1.png"></a>
@@ -1330,6 +1330,22 @@ avg_df[(avg_df['state_dem_margin'] - avg_df['state_dem_margin_std'])  < 0] \
 </table>
 </div>
 
+## How well does the VPI predict the future?
+
+One purpose of this analysis is to use the VPI to predict the locations that will be important for future elections, so below I run a few regressions to estimate the predictive power.  Note that I use the state level VPI for these regressions because the county level observations aren't independent (they're all derived from the state level VPI).  First is a regression showing how the previous election predicts the next one:
+
+<figure>
+  <a href="{{ site.baseurl }}/images/votepower/output_25_1.png"><img src="{{ site.baseurl }}/images/votepower/output_25_1.png"></a>
+</figure>
+
+So, looking at the R^2 values, the ability of the previous election to predict the next one varies but overall seems pretty unstable.  Next, I look at how the average of the last three elections predicts the 2016 election:
+
+<figure>
+  <a href="{{ site.baseurl }}/images/votepower/output_26_1.png"><img src="{{ site.baseurl }}/images/votepower/output_26_1.png"></a>
+</figure>
+
+This seems like it might do a little better job, but it's still pretty inconsistent at the high end of VPIs which is where you'd want to use it to allocate resources.  So overall the VPI seems like it might be more useful as a metric to describe the results of past elections rather than predict the future.     
+
 ## Turnout vs. Persuasion
 
 Next, I sum the persuasion and turnout values for each election, and then calculate their ratio.  This shows that persuasion wins out in every election, but that these ratios can vary considerably.  The average pesuasion to turnout ratio is `1.6:1`, but the ratio was only `1.3:1` in 2012, a year with low turnout and few close states.  
@@ -1418,16 +1434,20 @@ An interesting point Nate Cohn [made](https://twitter.com/Nate_Cohn/status/97260
 	<a href="{{ site.baseurl }}/images/votepower/cohnpersuasion.png"><img src="{{ site.baseurl }}/images/votepower/cohnpersuasion.png"></a>
 </figure>
 
-But when you turn out a strong Democratic voter they're likely to vote for every Democrat on the ballot, while persuading a Republican to vote for a particular candidate might only lead to a [split ticket](https://en.wikipedia.org/wiki/Split-ticket_voting).  So the net political effect of increased turnout might be larger when you consider every candidate on the ballot and their political power.    
+But when you turn out a strong Democratic voter they're likely to vote for every Democrat on the ballot, while persuading a Republican to vote for a particular candidate might only lead to a [split ticket](https://en.wikipedia.org/wiki/Split-ticket_voting).  So the net political effect of increased turnout might be larger when you consider every candidate on the ballot and their political power.  In addition, if voting is habit forming, the benefits of increased turnout could extend to future elections [7].      
 
-These results are interesting, but aren't informative until we have data on the cost effectiveness of each approach, which probably depends on things like the population density and price of ad buys in different locations.  Rather than thinking in binary terms, I think it makes sense to ask which strategy is better depending on the location.  
+These results are interesting, but aren't informative until we have data on the cost effectiveness of each approach, which probably depends on things like the population density and price of ad buys in different locations.  Rather than thinking in binary terms, I think it makes sense to ask which strategy is better depending on the location.  For more on this discussion, see this [twitter thread](https://twitter.com/davidshor/status/1055918122371350530):
+
+<figure>
+  <a href="{{ site.baseurl }}/images/votepower/cost-effectiveness.png"><img src="{{ site.baseurl }}/images/votepower/cost-effectiveness.png"></a>
+</figure>
 
 ## Conclusion
 
-* Voting power is lognormally distributed, so some counties/voters are much more powerful than others.  
+* Voting power is lognormally or power law distributed, so some counties/voters are much more powerful than others.  
 * Certain locations in NH, NM, MO, NV, MI, WI, PA, and FL regularly top the list.   
 * At least according to this metric, persuasion has more power than turnout (an average 1.6:1 ratio), but the cost of each approach needs to be considered before drawing any conclusions.  
-* It seems like it would be a good idea to use something like the Voting Power Index as the baseline, then update away from it using current polling numbers during an election.  That way, you'd need very strong evidence to ignore counties that tend to be important.    
+* The VPI doesn't do a very good job of predicting future elections, so it's probably more useful as a way to describe results from the past.    
 
 ## Next steps
 
@@ -1448,4 +1468,6 @@ One thing I could do is create a [synthetic population](https://github.com/UDST/
 [5] Voter Power Index: Just How Much Does the Electoral College Distort the Value of Your Vote?  [https://www.dailykos.com/stories/2016/12/19/1612252/-Voter-Power-Index-Just-How-Much-Does-the-Electoral-College-Distort-the-Value-of-Your-Vote](https://www.dailykos.com/stories/2016/12/19/1612252/-Voter-Power-Index-Just-How-Much-Does-the-Electoral-College-Distort-the-Value-of-Your-Vote)
 
 [6] Synthpop: Synthetic populations from census data.  [https://github.com/UDST/synthpop](https://github.com/UDST/synthpop)
+
+[7] Is Voting Habit Forming? New Evidence from Experiments and Regression Discontinuities.  [https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12210](https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12210)
 
