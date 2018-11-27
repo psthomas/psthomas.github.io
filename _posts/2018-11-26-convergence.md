@@ -21,11 +21,11 @@ Each point in the graphic above represents the slope of the regression between t
 	<a href="{{ site.baseurl }}/images/convergence/output_23_3.png"><img src="{{ site.baseurl }}/images/convergence/output_23_3.png"></a>
 </figure>
 
-So the slopes become negative, then level out again over the 1970-2010 time period. All the code and data for this post are available on GitHub [here](https://github.com/convergence/).
+So the slopes become negative, then level out again over the 1970-2010 time period. All the code and data for this post are available on GitHub [here](https://github.com/psthomas/convergence).
 
 ## The Great Recession
 
-One question I had when looking at the original graphic is how the great recession influenced these results.  First, I re-created their code in Python and made the original beta plot:
+One question I had when looking at the original graphic is how the great recession influenced these results.  First, I re-created [their code](https://www.dropbox.com/sh/eu5sob3hs56oymg/AAALaoQOCPt--3u1fQaHMihua?dl=0) in Python and made the original beta plot:
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/convergence/output_14_3.png"><img src="{{ site.baseurl }}/images/convergence/output_14_3.png"></a>
