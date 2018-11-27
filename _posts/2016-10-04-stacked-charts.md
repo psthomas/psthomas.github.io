@@ -37,9 +37,6 @@ df = pd.DataFrame(rows, columns=headers)
 df
 {% endhighlight %}
 
-
-
-
 <div>
 <table class="dataframe">
   <thead>
@@ -109,7 +106,6 @@ df
 </table>
 </div>
 
-<br/>
 
 # Iterative Solution
 
@@ -136,7 +132,6 @@ plt.show()
 
 ![png]({{ site.baseurl }}/images/stacked_charts/output_3_0.png)
 
-<br/>
 
 # Using a Pivot
 

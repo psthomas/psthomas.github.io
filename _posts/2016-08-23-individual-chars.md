@@ -74,7 +74,6 @@ df_responses.shape
 
     (8402, 18)
 
-<br/>
 
 ## Loading and Parsing the Individual Variables
 
@@ -241,8 +240,6 @@ print df_all.shape
 {% endhighlight %}
     (8402, 26)
 
-<br/>
-
 ## Confidence by Education
 
 One of the interesting things Gordon and Dahl found was that economists that were educated at MIT and the University of Chicago seemed to be more confident.  I find less evidence of this in the newer data, although this is just a boxplot, not a regression analysis.  
@@ -351,11 +348,8 @@ df_all.groupby('phdfrom').agg({'confidence':{'mean': 'mean', 'median':'median',
 </div>
 
 
-
-
 ![png]({{ site.baseurl }}/images/igmindvs/output_8_1.png)
 
-<br/>
 
 ## Distance from Median by Education
 
@@ -479,7 +473,6 @@ df_all.groupby('phdfrom').agg({'distance_median':{'mean': 'mean', 'median':'medi
 
 ![png]({{ site.baseurl }}/images/igmindvs/output_10_2.png)
 
-<br/>
 
 ## Washington Insiders
 
@@ -507,7 +500,6 @@ df_all.boxplot(column='distance_median', by='washington', whis=[5.0,95.0])
 
 ![png]({{ site.baseurl }}/images/igmindvs/output_12_2.png)
 
-<br/>
 
 ## How do responses differ by field of study?
 
@@ -540,7 +532,6 @@ df_all.boxplot(column='distance_median', by='ifield', rot=90, whis=[5.0,95.0])
 
 ![png]({{ site.baseurl }}/images/igmindvs/output_14_2.png)
 
-<br/>
 
 ## Responses by Age Cohort
 
@@ -562,8 +553,6 @@ df_all.groupby('cohort').agg({'distance_median':{'mean': 'mean', 'median':'media
 
 
 {% endhighlight %}
-
-
 
 
 <div>

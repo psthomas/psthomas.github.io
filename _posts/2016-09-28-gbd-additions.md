@@ -53,107 +53,14 @@ The rest of this post looks at a few other disease burdens that it might make se
 **First**, I think they should add the annualized burden of potential pandemic disease to the study.  **Second**, it might make sense to increase the reference life expectancy so that years of life lost due to future increases in the life expectancy are incorporated into the estimates.  I provide the computations and graphics to visualize the scale of each one of these new burdens below.  All of the code for this post is available in an IPython notebook [here](https://gist.github.com/psthomas/fbda754b145dbdcf3c7c266228db51af).
 
 
-<br/>
-
-# Importing the Data
+## Importing the Data
 
 All of the data for this post can be accessed by visiting the [visualization](http://ihmeuw.org/3wfa) and clicking the download button in the upper right corner.  I obtained the life table that I use later from the Web Table 6 of the supplementary appendix: [PDF](http://www.thelancet.com/cms/attachment/2017336178/2037711222/mmc1.pdf).  The CSVs are also available as a zipped file [here](https://www.dropbox.com/s/9mn545f8kz4bmgf/gbd_data.zip?dl=1).
 
 The initial data shows global DALY burden by cause for a number of years between 1990 and 2013.   
 
 
-{% highlight python %}
-gbd_df = pd.read_csv('./GBD_global_data.csv')
-gbd_df.head()
-{% endhighlight %}
-
-
-
-
-<div>
-<table>
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>﻿Location</th>
-      <th>Year</th>
-      <th>Age</th>
-      <th>Sex</th>
-      <th>Cause of death or injury</th>
-      <th>Measure</th>
-      <th>Value</th>
-      <th>Lower bound</th>
-      <th>Upper bound</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Global</td>
-      <td>1990</td>
-      <td>All ages</td>
-      <td>Both</td>
-      <td>Forces of nature, war, and legal intervention</td>
-      <td>DALYs</td>
-      <td>13650843.806051</td>
-      <td>8198677.494192</td>
-      <td>23356495.474653</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Global</td>
-      <td>1995</td>
-      <td>All ages</td>
-      <td>Both</td>
-      <td>Forces of nature, war, and legal intervention</td>
-      <td>DALYs</td>
-      <td>11243358.692292</td>
-      <td>6430940.583227</td>
-      <td>20036013.689167</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Global</td>
-      <td>2000</td>
-      <td>All ages</td>
-      <td>Both</td>
-      <td>Forces of nature, war, and legal intervention</td>
-      <td>DALYs</td>
-      <td>13874813.144494</td>
-      <td>8648476.130667</td>
-      <td>23398335.472656</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Global</td>
-      <td>2005</td>
-      <td>All ages</td>
-      <td>Both</td>
-      <td>Forces of nature, war, and legal intervention</td>
-      <td>DALYs</td>
-      <td>11121526.833311</td>
-      <td>6687655.473904</td>
-      <td>18862473.121176</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Global</td>
-      <td>2010</td>
-      <td>All ages</td>
-      <td>Both</td>
-      <td>Forces of nature, war, and legal intervention</td>
-      <td>DALYs</td>
-      <td>18568961.216457</td>
-      <td>11665386.215099</td>
-      <td>33760218.249876</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<br/>
-
-# The Plotting Function
+## The Plotting Function
 
 Below, I create a plotting function to re-create a view of the GBD Compare tool, showing the total DALY burden per year, separated into cause areas.  Note that you can see a general trend downwards, and the red area of infectious disease is shrinking with time.  
 
@@ -207,9 +114,7 @@ stacked_plot(gbd_df, 0.85, 3.0e9, colors)
 
 ![png]({{ site.baseurl }}/images/gbd_images/output_5_0.png)
 
-<br/>
-
-# How would including pandemic disease risk change the picture?
+## How would including pandemic disease risk change the picture?
 
 
 I recently read a paper called *The Neglected Dimension of Global Security: A Framework to Counter Infectious Disease Crises* [1], which looked at the risk of a global pandemic disease and called for a number of policy changes to increase our preparedness.  It's pretty surprising how little emphasis we put on pandemic disease risk, given the potential health and economic costs.  So I was interested in adding an annualized `DALY (YLL only)` burden to the plot to get a feel for the relative scale of the problem.  
@@ -246,9 +151,8 @@ stacked_plot(pandemic_df, 0.1, 3.0e9, colors)
 
 ![png]({{ site.baseurl }}/images/gbd_images/output_7_1.png)
 
-<br/>
 
-# What if we use a longer life expectancy as the reference?
+## What if we use a longer life expectancy as the reference?
 
 
 In order to calculate DALYs, you need two numbers: the years of life lost (YLL) and the years lived with disability (YLD).  In order to calculate YLL for an individual, you need to know their age at death and their life expectancy at that age.  
@@ -263,7 +167,7 @@ Another argument against the extended life expectancy is that people are express
 
 Anyways, the purpose of this article isn't to hash out every ethical consideration -- I just want to get a sense of the scale of the potential disease burden.  So how would using a life expectancy of, say, `100` change the analysis?  Below I use two methods, one a simple estimate, and a second more in-depth estimate using life tables and global deaths by age.  The end result is that using a life expectancy of `100` would result in an extra disease burden of around `500 million YLL` due to premature aging each year.  
 
-# Simple Estimate
+## Simple Estimate
 
 {% highlight python %}
 # Aging annualized burden, simple estimate
@@ -283,9 +187,8 @@ print 'Years lost due to premature aging, simple estimate (billions): ', aging_y
 
     Years lost due to premature aging, simple estimate (billions):  0.763815675
 
-<br/>
 
-# Life Table Estimate
+## Life Table Estimate
 
 The second approach accounts for the fact that after you've lived through younger age cohorts, your current life expectancy actually exceeds your life expectancy at birth.  This is why someone at age 105 in the `life_table` below can still expect to live `1.63` more years even if this exceeds their life expectancy at birth.  *Of the people that reach that age, the average length of life afterwards is `1.63` years.*  Ok, so how do we take that into account?  
 
@@ -354,231 +257,7 @@ deaths_df.sort_values(by='lower_age')
 
     Years lost due to premature aging, life table estimate (billions):  0.552019602523
 
-
-
-
-
-<div>
-<table >
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>num_deaths</th>
-      <th>lower_age</th>
-      <th>upper_age</th>
-      <th>avg_age</th>
-      <th>avg_lost_years</th>
-      <th>age_cohort_lifeexp</th>
-      <th>aging_yll</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>17</th>
-      <td>0-1</td>
-      <td>4463724.165644</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.5</td>
-      <td>86.020</td>
-      <td>86.520</td>
-      <td>60171001.752885</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1-4</td>
-      <td>1816195.614709</td>
-      <td>1</td>
-      <td>4</td>
-      <td>2.5</td>
-      <td>83.725</td>
-      <td>86.225</td>
-      <td>25018094.592611</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>5-9</td>
-      <td>476742.274921</td>
-      <td>5</td>
-      <td>9</td>
-      <td>7.0</td>
-      <td>79.260</td>
-      <td>86.260</td>
-      <td>6550438.857416</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10-14</td>
-      <td>365474.428165</td>
-      <td>10</td>
-      <td>14</td>
-      <td>12.0</td>
-      <td>74.280</td>
-      <td>86.280</td>
-      <td>5014309.154428</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>15-19</td>
-      <td>600613.932945</td>
-      <td>15</td>
-      <td>19</td>
-      <td>17.0</td>
-      <td>69.320</td>
-      <td>86.320</td>
-      <td>8216398.602691</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>20-24</td>
-      <td>900540.161535</td>
-      <td>20</td>
-      <td>24</td>
-      <td>22.0</td>
-      <td>64.370</td>
-      <td>86.370</td>
-      <td>12274362.401721</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>25-29</td>
-      <td>1075687.420244</td>
-      <td>25</td>
-      <td>29</td>
-      <td>27.0</td>
-      <td>59.430</td>
-      <td>86.430</td>
-      <td>14597078.292715</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>30-34</td>
-      <td>1175301.526232</td>
-      <td>30</td>
-      <td>34</td>
-      <td>32.0</td>
-      <td>54.490</td>
-      <td>86.490</td>
-      <td>15878323.619396</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>35-39</td>
-      <td>1329198.871632</td>
-      <td>35</td>
-      <td>39</td>
-      <td>37.0</td>
-      <td>49.580</td>
-      <td>86.580</td>
-      <td>17837848.857304</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>40-44</td>
-      <td>1571115.297667</td>
-      <td>40</td>
-      <td>44</td>
-      <td>42.0</td>
-      <td>44.710</td>
-      <td>86.710</td>
-      <td>20880122.305997</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>45-49</td>
-      <td>1992295.351683</td>
-      <td>45</td>
-      <td>49</td>
-      <td>47.0</td>
-      <td>39.900</td>
-      <td>86.900</td>
-      <td>26099069.107050</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>50-54</td>
-      <td>2527296.211479</td>
-      <td>50</td>
-      <td>54</td>
-      <td>52.0</td>
-      <td>35.190</td>
-      <td>87.190</td>
-      <td>32374664.469052</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>55-59</td>
-      <td>3186138.279997</td>
-      <td>55</td>
-      <td>59</td>
-      <td>57.0</td>
-      <td>30.550</td>
-      <td>87.550</td>
-      <td>39667421.585968</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>60-64</td>
-      <td>4097604.891095</td>
-      <td>60</td>
-      <td>64</td>
-      <td>62.0</td>
-      <td>26.000</td>
-      <td>88.000</td>
-      <td>49171258.693144</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>65-69</td>
-      <td>4174311.206536</td>
-      <td>65</td>
-      <td>69</td>
-      <td>67.0</td>
-      <td>21.550</td>
-      <td>88.550</td>
-      <td>47795863.314839</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>70-74</td>
-      <td>5155833.993336</td>
-      <td>70</td>
-      <td>74</td>
-      <td>72.0</td>
-      <td>17.280</td>
-      <td>89.280</td>
-      <td>55270540.408560</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>75-79</td>
-      <td>5501272.621034</td>
-      <td>75</td>
-      <td>79</td>
-      <td>77.0</td>
-      <td>13.270</td>
-      <td>90.270</td>
-      <td>53527382.602658</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>80-105</td>
-      <td>14454418.859887</td>
-      <td>80</td>
-      <td>105</td>
-      <td>92.5</td>
-      <td>4.960</td>
-      <td>97.460</td>
-      <td>36714223.904113</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<br/>
-
-# What's the relative scale?
+## What's the relative scale?
 
 Finally, here is an updated visualization and table showing the added YLL due to premature aging.  The premature aging column turns out to be quite large.  In reality, this burden would be split up among all the different causes of death, but it's interesting to see it as a stand-alone category. 
 
@@ -603,9 +282,6 @@ gbd2013add_df.sort_values(by='Value')
 
 
 ![png]({{ site.baseurl }}/images/gbd_images/output_13_0.png)
-
-
-
 
 
 <div>
@@ -905,12 +581,7 @@ gbd2013add_df.sort_values(by='Value')
 </table>
 </div>
 
-<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-
-<br />
-
-# References
+## References
 
 [1] "The Neglected Dimension of Global Security: A Framework to Counter Infectious Disease Crises." Commission on a Global Health Risk Framework for the Future.  [https://nam.edu/initiatives/global-health-risk-framework/](https://nam.edu/initiatives/global-health-risk-framework/)
 
@@ -924,6 +595,9 @@ gbd2013add_df.sort_values(by='Value')
 
 [6] "Comprehensive Systematic Analysis of Global Epidemiology: Definitions, Methods, Simplification of DALYs, and Comparative Results from the Global Burden of Disease 2010 Study." Web Table 6: Single year standard lifetable.  [http://www.thelancet.com/cms/attachment/2017336178/2037711222/mmc1.pdf](http://www.thelancet.com/cms/attachment/2017336178/2037711222/mmc1.pdf)
 
+
+
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script type="text/javascript">
   // Original stacked graph source: https://gist.github.com/mstanaland/6100713
@@ -1134,4 +808,4 @@ gbd2013add_df.sort_values(by='Value')
     });
 
   }
-  </script>
+</script>

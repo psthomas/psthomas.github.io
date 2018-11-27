@@ -47,7 +47,7 @@ So a similar pattern is present, but the betas aren't convincingly negative anym
 	<a href="{{ site.baseurl }}/images/convergence/euprojections.png"><img src="{{ site.baseurl }}/images/convergence/euprojections.png"></a>
 </figure>
 
-So the financial crisis seems to have had an immediate and lasting effect, and we keep underperforming the projections even after the effects of the recession have been taken into account.  Many economists seem to think that the post recession stimulus was [net beneficial](http://www.igmchicago.org/surveys/economic-stimulus-revisited), and that more stimulus could have been done.  So the GDP performance and beta plots above could look significantly different if we had a better policy response to the great recession.  
+So the financial crisis seems to have had an immediate and lasting effect, and we keep underperforming the projections even after the effects of the recession have been taken into account.  Many economists seem to think that the post financial crisis stimulus was [net beneficial](http://www.igmchicago.org/surveys/economic-stimulus-revisited), and that more stimulus could have been done.  So the GDP performance and beta plots above could look significantly different if we had a better policy response to the great recession.  
 
 If you want to make the deeper point that, for political reasons, western countries don't seem capable of enacting competent policy responses anymore, you're probably right.  And excusing political dysfunction in advanced economies while treating it as a natural part of low income economies doesn't quite seem fair.  
 

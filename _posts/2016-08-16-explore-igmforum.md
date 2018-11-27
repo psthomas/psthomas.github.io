@@ -106,7 +106,6 @@ df_responses.describe(include = ['O'])[cols]
 </table>
 </div>
 
-<br/>
 
 ## Confidence Grouped by Vote Type
 
@@ -202,7 +201,6 @@ df_responses[df_responses['vote'].isin(r_list)].groupby('vote').agg(
 
 ![png]({{ site.baseurl }}/images/igmimages/output_4_1.png)
 
-<br/>
 
 ## Vote Distance from the Median 
 
@@ -291,7 +289,6 @@ grouped
 
 ![png]({{ site.baseurl }}/images/igmimages/output_6_1.png)
 
-<br/>
 
 ## Making a Continuous Vote Column
 
@@ -392,7 +389,6 @@ df_responses[df_responses['qtitle'] == 'Brexit II'][
 </table>
 </div>
 
-<br/>
 
 ## Visualizing the Spread of the Votes
 
@@ -424,7 +420,6 @@ print 'Stdev: ' + str(df_responses['distance_median'].std())
 
 ![png]({{ site.baseurl }}/images/igmimages/output_10_2.png)
 
-<br/>
 
 ## Which questions are most controversial?
 
@@ -449,8 +444,6 @@ qs_most.boxplot(column='incr_votenum',by=['qtitle','subquestion'], whis=[5.0,95.
 
 ![png]({{ site.baseurl }}/images/igmimages/output_14_1.png)
 
-<br/>
-
 ## Which questions are least controversial?
 
 
@@ -469,7 +462,6 @@ qs_least_df.boxplot(column='incr_votenum',by=['qtitle','subquestion'], rot=90, w
 
 ![png]({{ site.baseurl }}/images/igmimages/output_16_1.png)
 
-<br/>
 
 ## Which economists give more controversial responses? 
 
@@ -597,7 +589,6 @@ grouped_econstd[grouped_econstd.loc[:, ('distance_median', 'mean')] < 0.50].sort
 </table>
 </div>
 
-<br/>
 
 ## Do any institutions give more controversial responses?
 
@@ -689,7 +680,6 @@ grouped_inststd
 
 ![png]({{ site.baseurl }}/images/igmimages/output_22_1.png)
 
-<br/>
 
 ## Are any institutions more confident than others?
 
@@ -787,7 +777,6 @@ grouped_conf
 
 ![png]({{ site.baseurl }}/images/igmimages/output_24_1.png)
 
-<br/>
 
 ## Are male economists more confident? 
 
