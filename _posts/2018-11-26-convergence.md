@@ -39,7 +39,7 @@ Note that this looks a little different because I extended the axis through 2020
 
 So a similar pattern is present, but the betas aren't convincingly negative anymore.  One might argue that excluding post 2006 data is unfair because it leaves out years of high growth for low and middle income countries.  This is true, and I could try to construct a non-recession counterfactual for the rich countries to help deal with this but I won't for now.  
 
-One could also argue that the recession and subsequent lower growth years were due to natural structural features of our economy so a policy response wouldn't have helped.  I disagree with this argument for a few reasons discussed more [here](https://www.nytimes.com/2018/09/30/opinion/the-economic-future-isnt-what-it-used-to-be-wonkish.html) and [here](https://voxeu.org/article/europes-fiscal-policy-doom-loop).  Mainly, I find it implausible that structural factors would manifest themselves immediately during a financial crisis rather than steadily over time.  For example, here are the projected vs. actual GDP numbers for the US and EU for the past few years: 
+One could also argue that the recession and subsequent lower growth years were due to natural structural features of our economy so a policy response wouldn't have helped.  I disagree with this argument for a few reasons discussed more [here](https://www.nytimes.com/2018/09/30/opinion/the-economic-future-isnt-what-it-used-to-be-wonkish.html) and [here](https://voxeu.org/article/europes-fiscal-policy-doom-loop).  Mainly, I find it implausible that structural factors would manifest themselves immediately during a financial crisis rather than steadily over time.  For example, here are the projected vs. actual GDP numbers for the US and Eurozone for the past few years: 
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/convergence/usprojections.png"><img src="{{ site.baseurl }}/images/convergence/usprojections.png"></a>
@@ -48,7 +48,7 @@ One could also argue that the recession and subsequent lower growth years were d
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/convergence/euprojections.png"><img src="{{ site.baseurl }}/images/convergence/euprojections.png"></a>
-	<figcaption>EU projected vs. actual GDP, <a href="https://voxeu.org/article/europes-fiscal-policy-doom-loop">source</a>.</figcaption>
+	<figcaption>Eurozone projected vs. actual GDP, <a href="https://voxeu.org/article/europes-fiscal-policy-doom-loop">source</a>.</figcaption>
 </figure>
 
 So the financial crisis seems to have had an immediate and lasting effect, and we keep underperforming the projections even after the effects of the recession have been taken into account.  Many economists seem to think that the post financial crisis stimulus was [net beneficial](http://www.igmchicago.org/surveys/economic-stimulus-revisited), and that more could have been done to stimulate the economy at the time.  So the GDP performance and beta plots above could look significantly different if we had a better policy response to the crisis.  
