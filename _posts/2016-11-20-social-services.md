@@ -23,9 +23,7 @@ The rest of this post looks at some of the relationships I found in the data.  A
   
 ## Getting the Data
 
-I downloaded the `2015` Global Burden of Disease data from IHME's website [here](http://ghdx.healthdata.org/gbd-results-tool?params=querytool-permalink/f9beb45ff4d57cba4999f86081a58ca8).  The units are `DALYs per 100,000 population`, and it's [age standardized](https://en.wikipedia.org/wiki/Age_adjustment) across the countries.  I also downloaded the OECD Social Services spending and GDP data from their [website](http://stats.oecd.org/viewhtml.aspx?datasetcode=SOCX_AGG&lang=en#), with units of `constant 2010 US dollars per capita`, at purchasing power parity. 
-
-I'll skip all of the data munging steps, but those are available in the IPython notebook.  
+I downloaded the `2015` Global Burden of Disease data from IHME's website [here](http://ghdx.healthdata.org/gbd-results-tool?params=querytool-permalink/f9beb45ff4d57cba4999f86081a58ca8).  The units are `DALYs per 100,000 population`, and it's [age standardized](https://en.wikipedia.org/wiki/Age_adjustment) across the countries.  I also downloaded the OECD Social Services spending and GDP data from their [website](http://stats.oecd.org/viewhtml.aspx?datasetcode=SOCX_AGG&lang=en#), with units of `constant 2010 US dollars per capita`, at purchasing power parity.  
 
 ## A First Look
 

@@ -9,7 +9,7 @@ share: false
 
 ---
 
-One puzzle in the field of development economics is the lack of [catch-up growth](https://en.wikipedia.org/wiki/Convergence_(economics)) in low income countries.  At least according to [basic theory](https://en.wikipedia.org/wiki/Solow%E2%80%93Swan_model), low income countries should grow more quickly because they have better opportunities for capital investments and technology transfers.  The real world can diverge from basic theory for a number of reasons (e.g. bad institutions, poor provision of public goods, frictions in R&D and technology transfer, or low human capital investments), but I recently came across a [blogpost](https://www.cgdev.org/blog/everything-you-know-about-cross-country-convergence-now-wrong) that suggests that this isn't really a puzzle anymore.  Low and middle income economies do seem to be growing more quickly relative to the advanced economies:
+The lack of [catch-up growth](https://en.wikipedia.org/wiki/Convergence_(economics)) in low income countries is a persistent puzzle in the field of development economics.  According to [basic theory](https://en.wikipedia.org/wiki/Solow%E2%80%93Swan_model), low income countries should grow more quickly because they have better opportunities for capital investments and technology transfer.  There are a number of reasons the real world can diverge from basic theory (e.g. bad institutions, poor provision of public goods, frictions in technology transfer), but I recently came across a [blogpost](https://www.cgdev.org/blog/everything-you-know-about-cross-country-convergence-now-wrong) that suggests that this isn't really a puzzle anymore.  Low and middle income economies do seem to be growing more quickly relative to the advanced economies:
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/convergence/patel-sandefur-subramanian-beta_by_series-NEW.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/convergence/patel-sandefur-subramanian-beta_by_series-NEW.png"></a>
@@ -53,11 +53,11 @@ One could also argue that the recession and subsequent lower growth years were d
 
 So the financial crisis seems to have had an immediate and lasting effect, and we keep underperforming the projections even after the effects of the recession have been taken into account.  Many economists seem to think that the post financial crisis stimulus was [net beneficial](http://www.igmchicago.org/surveys/economic-stimulus-revisited), and that more could have been done to stimulate the economy at the time.  So the GDP performance and beta plots above could look significantly different if we had a better policy response to the crisis.  
 
-A final argument one could make is that, for political reasons, western countries aren't able to enact competent policy responses anymore. This is probably true, so maybe the poor performance seen above is just the new normal.  And excusing political dysfunction in advanced economies while treating it as a natural part of low income economies doesn't quite seem fair.    
+A final argument one could make is that, for political reasons, western countries aren't able to enact competent policy responses anymore. This is probably true, so maybe the poor performance seen above is just the new normal.  And if we start excluding data on the basis of policy incompetence, there's plenty of that to go around, so we might be left without any data to study at all!    
 
 ## Recession or Acceleration?
 
-So the negative beta values could be caused by a few things:
+So looking at the full dataset, negative beta values could be caused by a few things:
 
 1. Slower growth in rich countries.  
 2. Higher growth in poor countries.    
@@ -73,7 +73,7 @@ I actually think this plot is more informative than the beta plot above because 
 
 ## The Road Ahead
 
-Finally, I thought it would be interesting to just include a plot of per capita GDP over time for a few key countries:
+Finally, I thought it would be interesting to include a plot of per capita GDP over time for a few key countries:
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/convergence/output_10_3.png"><img src="{{ site.baseurl }}/images/convergence/output_10_3.png"></a>
