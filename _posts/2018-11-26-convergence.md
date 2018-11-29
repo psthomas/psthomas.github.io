@@ -53,7 +53,7 @@ One could also argue that the recession and subsequent lower growth years were d
 
 So the financial crisis seems to have had an immediate and lasting effect, and we keep underperforming the projections even after the effects of the recession have been taken into account.  Many economists seem to think that the post financial crisis stimulus was [net beneficial](http://www.igmchicago.org/surveys/economic-stimulus-revisited), and that more could have been done to stimulate the economy at the time.  So the GDP performance and beta plots above could look significantly different if we had a better policy response to the crisis.  
 
-A final argument one could make is that, for political reasons, western countries aren't able to enact competent policy responses anymore. This is probably true, so maybe the poor performance seen above is just the new normal.  And if we start excluding data on the basis of policy incompetence, there's plenty of that to go around, so we might be left without any data to study at all!    
+But if we start excluding data on the basis of policy incompetence, there's plenty of that to go around, so we might be left without any data to study in the end.  So I guess even bad policy responses need to be considered part of the economy eventually.  Maybe western countries just aren't able to enact reforms in some situations because of the political consequences, so the poor performance above should be considered the new normal for the time being.
 
 ## Recession or Acceleration?
 
