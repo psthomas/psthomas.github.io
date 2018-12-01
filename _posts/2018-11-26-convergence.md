@@ -51,7 +51,7 @@ One could also argue that the recession and subsequent lower growth years were d
 	<figcaption>Eurozone projected vs. actual GDP, <a href="https://voxeu.org/article/europes-fiscal-policy-doom-loop">source</a>.</figcaption>
 </figure>
 
-So the financial crisis seems to have had an immediate and lasting effect, and we keep underperforming the projections even after the effects of the recession have been taken into account.  Many economists seem to think that the post financial crisis stimulus was [net beneficial](http://www.igmchicago.org/surveys/economic-stimulus-revisited), and that more could have been done to stimulate the economy at the time.  So the GDP performance and beta plots above could look significantly different if we had a better policy response to the crisis.  
+So the financial crisis seems to have had an immediate and lasting effect, and we keep underperforming the projections even after the effects of the recession have been taken into account.  Many economists seem to think that the post financial crisis stimulus was [net beneficial](http://www.igmchicago.org/surveys/economic-stimulus-revisited), and [more](http://www.igmchicago.org/surveys/infrastructure) could have been done by spending on things like infrastructure, which needs to be [done eventually anyways](http://larrysummers.com/2016/09/12/building-the-case-for-greater-infrastructure-investment/).  So the GDP performance and beta plots above could look significantly different if we had a better policy response to the crisis.  
 
 But if we start excluding data on the basis of policy incompetence, there's plenty of that to go around, so we might be left without any data to study in the end.  So I guess even bad policy responses need to be considered part of the economy eventually.  Maybe western countries just aren't able to enact reforms in some situations because of the political consequences, so the poor performance above should be considered the new normal for the time being.
 
@@ -79,9 +79,9 @@ Finally, I thought it would be interesting to include a plot of per capita GDP o
 	<a href="{{ site.baseurl }}/images/convergence/output_10_3.png"><img src="{{ site.baseurl }}/images/convergence/output_10_3.png"></a>
 </figure>
 
-This plot highlights the differences between economies and the large gap lower income countries need to cover.  Dietrich Vollrath made this point in a [post](https://growthecon.com/blog/Convergence/) where he estimated it could take close to 190 years for economies to converge at the beta rates estimated above.  That's a long time to sustain the current levels of growth.  
+This plot highlights the differences between economies and the large gap lower income countries need to make up.  Dietrich Vollrath made this point in a [post](https://growthecon.com/blog/Convergence/) where he estimated it could take close to 190 years for economies to converge at the beta rates estimated above.  That's a long time to sustain the current levels of growth.  
 
-There are reasons to be concerned that a few economies, especially in Sub-Saharan Africa, will have a tough time maintaining that growth.  Dani Rodrik and others have made this point in their work on [premature deindustrialization](https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html), which suggests a traditional development model via structural transformation might not be possible anymore.  So these countries probably need to [invent new ways](https://www.youtube.com/watch?v=xsAjHzAGZDU) of growing their economies that aren't so dependent on manufacturing.  But even with the challenges ahead, the recent growth in lower income countries is encouraging.      
+There are reasons to be concerned that a few economies, especially in Sub-Saharan Africa, will have a tough time maintaining that growth.  Dani Rodrik and others have made this point in their work on [premature deindustrialization](https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html), which suggests a traditional development model via structural transformation might not be possible anymore.  So these countries probably need to [invent new ways](https://www.youtube.com/watch?v=xsAjHzAGZDU) of growing their economies that aren't so dependent on manufacturing or [actively promote](https://jrc.princeton.edu/news/industrial-policies-and-production-networks) certain upstream industries through policy.  But even with the challenges ahead, the recent growth in lower income countries is encouraging.      
 
 ## References
 
@@ -99,13 +99,19 @@ There are reasons to be concerned that a few economies, especially in Sub-Sahara
 
 [7] Economic Stimulus Revisited. IGM Economic Experts Panel. [http://www.igmchicago.org/surveys/economic-stimulus-revisited](http://www.igmchicago.org/surveys/economic-stimulus-revisited)
 
-[8] New evidence on convergence. Dietrich Vollrath. [https://growthecon.com/blog/Convergence/](https://growthecon.com/blog/Convergence/)
+[8] Infrastructure. IGM Economic Experts Panel. [http://www.igmchicago.org/surveys/infrastructure](http://www.igmchicago.org/surveys/infrastructure)
 
-[9] Premature deindustrialization in the developing world.  Dani Rodrik. [https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html](https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html)
+[9]Building the case for greater infrastructure investment. Larry Summers. [http://larrysummers.com/2016/09/12/building-the-case-for-greater-infrastructure-investment/](http://larrysummers.com/2016/09/12/building-the-case-for-greater-infrastructure-investment/)
 
-[10] Are emerging economies deindustrializing too quickly?  [https://ourworldindata.org/growth-and-structural-transformation-are-emerging-economies-industrializing-too-quickly](https://ourworldindata.org/growth-and-structural-transformation-are-emerging-economies-industrializing-too-quickly)
+[10] New evidence on convergence. Dietrich Vollrath. [https://growthecon.com/blog/Convergence/](https://growthecon.com/blog/Convergence/)
 
-[11] Premature Deindustrialization.  Tyler Cowen.  [https://www.youtube.com/watch?v=xsAjHzAGZDU](https://www.youtube.com/watch?v=xsAjHzAGZDU)
+[11] Premature deindustrialization in the developing world.  Dani Rodrik. [https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html](https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html)
+
+[12] Are emerging economies deindustrializing too quickly?  [https://ourworldindata.org/growth-and-structural-transformation-are-emerging-economies-industrializing-too-quickly](https://ourworldindata.org/growth-and-structural-transformation-are-emerging-economies-industrializing-too-quickly)
+
+[13] Premature Deindustrialization.  Tyler Cowen.  [https://www.youtube.com/watch?v=xsAjHzAGZDU](https://www.youtube.com/watch?v=xsAjHzAGZDU)
+
+[14] Industrial policies and production networks. Ernest Liu. [https://jrc.princeton.edu/news/industrial-policies-and-production-networks](https://jrc.princeton.edu/news/industrial-policies-and-production-networks)
 
 
 
