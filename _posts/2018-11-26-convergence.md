@@ -69,7 +69,7 @@ So what's the main driver?  Below, I bin the earlier scatterplot by initial GDP 
 	<a href="{{ site.baseurl }}/images/convergence/output_24_3.png"><img src="{{ site.baseurl }}/images/convergence/output_24_3.png"></a>
 </figure>
 
-I actually think this plot is more informative than the beta plot above because I'm more interested in absolute rather than relative levels of growth.  This is because the largest marginal improvements to health and wellbeing probably come at early stages of growth due to improvements in things like infrastructure and public health systems, regardless of the GDP relative to other countries.  So it's great that low and middle income countries are growing more quickly!
+I actually think this plot is more informative than the beta plot above because I'm more interested in absolute rather than relative levels of growth.  This is because the [largest marginal improvements](https://ourworldindata.org/life-expectancy#life-expectancy-and-gdp) to health and wellbeing probably come at early stages of growth due to improvements in things like infrastructure and public health systems, regardless of the GDP relative to other countries.  So it's great that low and middle income countries are growing more quickly!
 
 ## The Road Ahead
 
@@ -81,7 +81,7 @@ Finally, I thought it would be interesting to include a plot of per capita GDP o
 
 This plot highlights the differences between economies and the large gap lower income countries need to make up.  Dietrich Vollrath made this point in a [post](https://growthecon.com/blog/Convergence/) where he estimated it could take close to 190 years for economies to converge at the beta rates estimated above.  That's a long time to sustain the current levels of growth.  
 
-There are reasons to be concerned that a few economies, especially in Sub-Saharan Africa, will have a tough time maintaining that growth.  Dani Rodrik and others have made this point in their work on [premature deindustrialization](https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html), which suggests a traditional development model via structural transformation might not be possible anymore.  So these countries probably need to [invent new ways](https://www.youtube.com/watch?v=xsAjHzAGZDU) of growing their economies that aren't so dependent on manufacturing or [actively promote](https://jrc.princeton.edu/news/industrial-policies-and-production-networks) certain upstream industries through policy.  But even with the challenges ahead, the recent growth in lower income countries is encouraging.      
+There are reasons to be concerned that a few economies, especially in Sub-Saharan Africa, will have a tough time maintaining that growth.  Dani Rodrik and others have made this point in their work on [premature deindustrialization](https://rodrik.typepad.com/dani_rodriks_weblog/2015/02/premature-deindustrialization-in-the-developing-world.html), which suggests a traditional development model via structural transformation might not be possible anymore.  So these countries probably need to [invent new ways](https://www.youtube.com/watch?v=xsAjHzAGZDU) of growing their economies that aren't so dependent on manufacturing, or [actively promote](https://jrc.princeton.edu/news/industrial-policies-and-production-networks) certain upstream industries through policy.  But even with the challenges ahead, the recent growth in lower income countries is encouraging.      
 
 ## References
 
@@ -101,7 +101,7 @@ There are reasons to be concerned that a few economies, especially in Sub-Sahara
 
 [8] Infrastructure. IGM Economic Experts Panel. [http://www.igmchicago.org/surveys/infrastructure](http://www.igmchicago.org/surveys/infrastructure)
 
-[9]Building the case for greater infrastructure investment. Larry Summers. [http://larrysummers.com/2016/09/12/building-the-case-for-greater-infrastructure-investment/](http://larrysummers.com/2016/09/12/building-the-case-for-greater-infrastructure-investment/)
+[9] Building the case for greater infrastructure investment. Larry Summers. [http://larrysummers.com/2016/09/12/building-the-case-for-greater-infrastructure-investment/](http://larrysummers.com/2016/09/12/building-the-case-for-greater-infrastructure-investment/)
 
 [10] New evidence on convergence. Dietrich Vollrath. [https://growthecon.com/blog/Convergence/](https://growthecon.com/blog/Convergence/)
 
