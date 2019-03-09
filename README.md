@@ -7,7 +7,6 @@ It is based on the [Minimal Mistakes](https://github.com/mmistakes/minimal-mista
 * Disqus comments load on a button click rather than automatically
 * Typography changes, mainly to the body text and navigation bar
 * Wider text field for the body 
-* Author bio-image toggle in front matter of pages/posts
 * A variety of other style tweaks 
 
 Here are the two commits showing the changes:
@@ -39,16 +38,3 @@ $ bundle exec jekyll serve
 ```
 
 Then visit the development server at http://localhost:4000/ to view your site.  
-
-## Using grunt
-
-This theme uses [grunt](http://gruntjs.com/) to minify the JavaScript and optimize the images.  If you make changes to the JavaScript, you need to concatenate and minify the code for the changes to take effect. Follow these steps:  
-
-1. [Install Node.js, and update npm](https://docs.npmjs.com/getting-started/installing-node) if you don't have them
-2. npm install the `grunt-cli` command line tool
-2. cd to the root directory for your code
-3. npm install the requirements in package.json, which includes grunt
-4. Run `grunt` at the command line to execute the code in `Gruntfile.js`, which will optimize the site.  
-
-
-

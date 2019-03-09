@@ -1,19 +1,15 @@
 # Site wide configuration
-
 title:            pstblog
 locale:           en_US
 url:              https://pstblog.com #comment out for local development
 #c9.io development:
 # url: "https://ruby-blog-psthomas.c9users.io"
 # baseurl: ""
-
 #Cloud9: $ bundle exec jekyll serve --host $IP --port $PORT
 # bundle exec jekyll serve --host $IP --port $PORT --config _config.yml
-#Grunt png issue is known: https://github.com/gruntjs/grunt-contrib-imagemin/issues/69
 
 # Jekyll configuration
-
-permalink:   /:year/:month/:day/:title  #/:categories/:title/
+permalink:   /:year/:month/:day/:title 
 markdown:    kramdown
 kramdown:     #Added
   input: GFM  #Added, but is default
@@ -21,9 +17,6 @@ highlighter: rouge
 sass:
   sass_dir: _sass
   style: compressed
-# gems:
-#   - jekyll-sitemap
-#   - jekyll-gist
 
 kramdown:
   auto_ids: true
@@ -32,26 +25,10 @@ kramdown:
   toc_levels: 1..6
   enable_coderay: false
 
-
-# # Octopress
-
-# # Default extensions
-# post_ext: md
-# page_ext: md
-
-# # Found in _templates/
-# post_layout: post
-# page_layout: page
-
-# # Format titles with titlecase?
-# titlecase: false 
-
-
 # Site owner
 owner:
   name: Philip Thomas
   avatar: author.jpg
-  bio: "Aspiring developer, generally curious" 
   email: pthomas.v3@gmail.com
   disqus-shortname: "psthomas"
   twitter: #username
@@ -66,19 +43,7 @@ owner:
   github: psthomas #username
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: philip-thomas-2805b97a #username
-  xing: #username
-  instagram: #username
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
-  youtube: #username
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
-  codepen: #username
+
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
