@@ -7,7 +7,8 @@ It is based on the [Minimal Mistakes](https://github.com/mmistakes/minimal-mista
 * Disqus comments load on a button click rather than automatically
 * Typography changes, mainly to the body text and navigation bar
 * Wider text field for the body 
-* A variety of other style tweaks 
+* A variety of other style tweaks
+* Remove the Grunt build tool and dependancies.   
 
 Here are the two commits showing the changes:
 [Deletions](https://github.com/psthomas/psthomas.github.io/commit/30b59fc6bb13ba3d1b471b216061fe1894aa7ba3), 
@@ -17,7 +18,7 @@ A more in-depth description of this theme's features is available at the Minimal
 
 ## Requirements
 
-This template is compatible with Jekyll 3.0 and up, uses Rouge for code highlighting and Kramdown for markdown conversion.  As detailed below, ruby and node are needed as well, depending on how much you want to customize the site.  
+This template is compatible with Jekyll 3.0 and up, uses Rouge for code highlighting and Kramdown for markdown conversion.  As detailed below, ruby is needed as well, depending on how much you want to customize the site.  
 
 ## Run Locally
 

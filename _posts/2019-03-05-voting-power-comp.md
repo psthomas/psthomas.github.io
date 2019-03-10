@@ -1,17 +1,17 @@
 ---
 layout: post
 title: "Where does political power reside in the United States?"
-excerpt: "Combining election results to find where voters are especially influential."
+excerpt: "Combining state and federal election results to find where voters are especially influential."
 tags: [Python, Jupyter notebook, politics, voting power, Geopandas, Pandas, altair]
 comments: true
 share: false
 ---
 
-It's difficult to get a broad mental overview of politics in the United States. There are so many elections covering different districts and each office holder has a different level of influence over policy.  This post is an attempt to help simplify things by bringing all the federal and state level election results together in one place. I then use an approach outlined below to combine all the results into a single voting power metric for each location.  The end result is a map that communicates the cumulative political influence of the voters by location:
+It's difficult to get a broad mental overview of politics in the United States. There are so many elections covering various districts and each office holder has a different level of influence over policy outcomes.  This post is an attempt to help simplify things by bringing all the federal and state level election results together into one place. I then use an approach outlined below to combine all the results into a single voting power metric for each location.  The end result is a map that communicates the cumulative political influence of voters by location:
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"></a>
-	<figcaption>The cumulative voting power for each geography over the last election cycle.</figcaption>
+	<figcaption>The cumulative voting power for each geography over the last election cycle.  All the white squiggles are unique sub-districts made from unique district overlaps.</figcaption>
 </figure>
 
 Here are my main takeaways from this analysis:
@@ -30,7 +30,9 @@ It seems to me that at least two things influence the political power of a voter
 1. Their ability to change election outcomes.  If there's no chance a voter will swing an election, there isn't much point in voting.
 2. The power held by their elected officials.  If a voter's representatives can't influence policy, they're powerless.
 
-So I build off these two concepts to come up with the voting power metric below.  The first step is to allocate potential power to each seat in the government.  I start out with an arbitrary 100 points of power, and allocate half to the federal government and half to the states.  The power at the federal level is then further subdivided between the President (25) and Congress (25), with the House and Senate dividing the congressional power evenly.  The other 50 points of power are divided between the states according to their fraction of the national population.  Each state's value is then split between the governor and state legislature just like at the federal level.  The end result is a potential power value for every seat of the state and federal government (judiciary excluded).
+So I build off these two concepts to come up with the voting power metric below.  
+
+The first step is to allocate potential power to each seat in the government.  I start out with an arbitrary 100 points of power, and allocate half to the federal government and half to the states.  The power at the federal level is then further subdivided between the President (25) and Congress (25), with the House and Senate dividing the congressional power evenly.  The other 50 points of power are divided between the states according to their fraction of the national population.  Each state's value is then split between the governor and state legislature just like at the federal level.  The end result is a potential power value for every seat of the state and federal government (judiciary excluded).
 
 The second step is to calculate a realized voting power value for each seat.  Here's the equation:
 
@@ -123,6 +125,9 @@ It's also interesting to note that the governors have more cumulative power than
 Next I thought it would be interesting to show detailed maps of the results for each level of government.  It's pretty rare to see all the state legislative results mapped out, so enjoy!    
 
 ## President
+
+Include a blurb about the data, where you got it from for each office.  
+
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/president.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/president.png"></a>
 </figure>
@@ -147,6 +152,16 @@ Next I thought it would be interesting to show detailed maps of the results for 
 	<a href="{{ site.baseurl }}/images/votepower-comp/governors.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/governors.png"></a>
 </figure>
 
+## State Senate
+
+<figure style="text-align:center">
+  <a href="{{ site.baseurl }}/images/votepower-comp/statesenate-margin.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/statesenate-margin.png"></a>
+</figure>
+
+<figure style="text-align:center">
+  <a href="{{ site.baseurl }}/images/votepower-comp/statesenate-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/statesenate-votepower.png"></a>
+</figure>
+
 ## State House
 Rare to see these, I never have. Include table of unopposed races here.   
 
@@ -156,16 +171,6 @@ Rare to see these, I never have. Include table of unopposed races here.
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/statehouse-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/statehouse-votepower.png"></a>
-</figure>
-
-## State Senate
-
-<figure style="text-align:center">
-	<a href="{{ site.baseurl }}/images/votepower-comp/statesenate-margin.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/statesenate-margin.png"></a>
-</figure>
-
-<figure style="text-align:center">
-	<a href="{{ site.baseurl }}/images/votepower-comp/statesenate-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/statesenate-votepower.png"></a>
 </figure>
 
 ## Combined Results
@@ -816,14 +821,23 @@ And here are the top offices within the top states.  Generally, governors or pre
       <td>0.007831</td>
     </tr>
   </tbody>
+</table>
 
-<!-- <figure style="text-align:center">
+### Sub-District Level Results
+
+Final thing to do is combine by district.  Done with the geopandas [union function](http://geopandas.org/set_operations.html) to create unique geographies for all overlapping and non-overlapping districts.  I had to simplify and buffer the district boundaries in order to get the computation to work, but the end result is still pretty interesting.
+
+First is the average democratic margin by sub-district:
+
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/avg-margin.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/avg-margin.png"></a>
 </figure>
 
+Next is the cumulative voting power value by sub-district.  All the white squiggles on the map below outline a unique district with a unique voting power value.  These maps make it clear that the elections that follow state boundaries drive the power values -- the between state variation exceeds the within state variation.   
+
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"></a>
-</figure> -->
+</figure>
 
 
 # Model Problems
