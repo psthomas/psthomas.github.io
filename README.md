@@ -1,4 +1,4 @@
-# psthomas.github.io
+# pstblog.com
 
 This is the source code for my personal website, [pstblog.com](http://pstblog.com).  
 

@@ -11,4 +11,6 @@ Gruntfile.js
 package.json
 Vagrantfile
 bootstrap.sh
-
+.vagrant/*
+install-ruby.sh
+install-rvm.sh
