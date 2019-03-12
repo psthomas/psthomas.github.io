@@ -1,13 +1,15 @@
 ---
 layout: post
-title: "Where are voters especially powerful in the United States?"
+title: "Where do the powerful voters live?"
 excerpt: "Combining state and federal election results to find where voters are especially influential."
 tags: [Python, Jupyter notebook, politics, voting power, Geopandas, Pandas, altair]
 comments: true
 share: false
 ---
 
-<!-- 
+<!--
+"Where do the powerful voters live?"
+
 "Where are voters especially powerful in the United States?"
 
 "Where are voters especially powerful?"
