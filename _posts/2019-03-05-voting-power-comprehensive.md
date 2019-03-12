@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Where does voting power reside in the United States?"
+title: "Where are voters especially powerful in the United States?"
 excerpt: "Combining state and federal election results to find where voters are especially influential."
 tags: [Python, Jupyter notebook, politics, voting power, Geopandas, Pandas, altair]
 comments: true
@@ -8,6 +8,10 @@ share: false
 ---
 
 <!-- 
+"Where are voters especially powerful in the United States?"
+
+"Where are voters especially powerful?"
+
 "Where does voting power reside in the United States?"
 
 "Where do the most influential voters live in the United States?"
@@ -887,3 +891,5 @@ Even with these concerns, I think the analysis above provides some useful insigh
 [3] State Legislative Election Returns, 1967-2016: Restructured For Use. Carl Klarner. [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DRSACA](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DRSACA).  
 
 [4] US Census Bureau Tiger Geodatabase, 2018 Legislative Areas National Database. [https://www.census.gov/geo/maps-data/data/tiger-geodatabases.html#tab_2018](https://www.census.gov/geo/maps-data/data/tiger-geodatabases.html#tab_2018).
+
+[5] Code and data for this post: voting-power-comprehensive repo.  [https://github.com/psthomas/voting-power-comprehensive](https://github.com/psthomas/voting-power-comprehensive).
