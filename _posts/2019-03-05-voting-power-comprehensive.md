@@ -24,7 +24,7 @@ title: "Where does voting power reside in the United States?"
 
 "Where does political power reside in the United States?" -->
 
-It's difficult to get a broad mental overview of politics in the United States. There are so many different elections covering different districts and each office holder has a different level of influence over policy outcomes.  This post is an attempt to help simplify things by bringing all the federal and state level election results together into one place. I then use an approach described below to combine all the results into a single voting power metric for each location.  The end result is a map that communicates the cumulative political influence of the voters in each place:
+It's difficult to get a broad mental overview of politics in the United States. There are so many elections covering different districts and each office holder has a different level of influence over policy outcomes.  This post is an attempt to help simplify things by bringing all the federal and state level election results together into one place. I then use an approach described below to combine all the results into a single voting power metric for each location.  The end result is a map that communicates the cumulative political influence of the voters in each place:
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"></a>
@@ -68,7 +68,7 @@ So after the theory above, what do these values look like if they're actually ca
 	<figcaption>The overall distribution of voting power values.</figcaption>
 </figure>
 
-Looking at the overall distribution above, it's clear the values follow something more extreme than a lognormal distribution.  The individual distributions below show that the federal elections ouperform the state level elections with the exception of the governor's races. 
+Looking at the overall distribution above, it's clear the values follow something more extreme than a lognormal distribution.  The individual distributions below show that the federal elections outperform the state level elections with the exception of the governor's races. 
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/ind-dist.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/ind-dists.png"></a>
@@ -863,12 +863,13 @@ First is the average democratic margin across all elections for each location:
 	<a href="{{ site.baseurl }}/images/votepower-comp/avg-margin.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/avg-margin.png"></a>
 </figure>
 
-Next is the cumulative voting power value for each location.  The small white lines on the map outline unique districts with their own voting power values.  Even though there's much more detail, this map doesn't look very different from the map from above that shows sums by state.  This is because the elections that follow state boundaries (e.g. governor/president/senate) drive the voting power values so the between state differences exceed the within state differences for the most part.     
+Next is the cumulative voting power value for each location.  The small white lines on the map outline unique districts with their own voting power values.  Even though there's much more detail, this map doesn't look very different from the map from above that shows sums by state.  This is because the elections that follow state boundaries (e.g. governor/president/senate) drive the voting power values, so the between state differences are greater than the within state differences for the most part.     
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"></a>
 </figure>
 
+I was expecting this map to be a lot more varied, but I guess it shows that statewide elections matter quite a bit.  This is both because the offices with statewide elections are more powerful and the margins of those elections tend to be closer.  
 
 # Model Problems
 
@@ -877,10 +878,10 @@ Here are a few potential problems I can think of with the above analysis:
 * **Sensitivity:** It's possible that these results are too sensitive to the outcome of a single election.  I try to include as many elections as possible to counteract this, but the power values are still driven by the races for governor and president.   
 * **Excluded elections:** Judiciary and local government elections are left out of this analysis.
 * **Calculations:** The power distribution and voting power calculations make a lot of assumptions which might not be true. It's possible that a different method of combining or normalizing the inputs would lead to better results.   
-* **Past results aren't indicative of the future:** The high power values might just driven by random variation in election margins and not say anything intrinsic about a place.  
+* **Past results aren't indicative of the future:** The high power values might just be driven by random variation in election margins and not say anything intrinsic about a place.  
 * **Legislative Control:** The threshold for flipping control of a legislative body matters too.  You don't have much power if you participate in close elections but there's no chance for your party to ever take the majority.  
 
-Even with these concerns, I think the analysis above provides some useful insights.  All the code for this project is [available](https://github.com/psthomas/voting-power-comprehensive) on GitHub, so I'd welcome any comments or contributions to make it better.  There are probably other interesting analyses to do with this data, so stay tuned for future posts on this subject.       
+Even with these concerns, I think the analysis above provides some useful insights.  All the code for this project is [available](https://github.com/psthomas/voting-power-comprehensive) on GitHub, so I'd welcome any comments or contributions to make it better.  There are probably other interesting analyses to do with these results, so stay tuned for future posts on this subject.       
 
 # References 
 
