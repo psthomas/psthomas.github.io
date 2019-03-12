@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Where do voters have the most political influence?"
+title: "Where are voters the most politically influential?"
 excerpt: "Combining state and federal election results to find where voters are especially influential."
 tags: [Python, Jupyter notebook, politics, voting power, Geopandas, Pandas, altair]
 comments: true
@@ -8,6 +8,7 @@ share: false
 ---
 
 <!--
+Where are voters the most politically influential?
 "Where do voters have the most political influence?"
 "Where do the powerful voters live?"
 "Where are voters especially powerful in the United States?"
