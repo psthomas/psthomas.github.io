@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Where do the powerful voters live?"
+title: "Where do voters have the most political influence?"
 excerpt: "Combining state and federal election results to find where voters are especially influential."
 tags: [Python, Jupyter notebook, politics, voting power, Geopandas, Pandas, altair]
 comments: true
@@ -8,22 +8,15 @@ share: false
 ---
 
 <!--
+"Where do voters have the most political influence?"
 "Where do the powerful voters live?"
-
 "Where are voters especially powerful in the United States?"
-
 "Where are voters especially powerful?"
-
 "Where does voting power reside in the United States?"
-
 "Where do the most influential voters live in the United States?"
-
 "Where are voters the most influential in the United States?"
-
 "Where do the most powerful voters live in the United States?"
-
 title: "Where does voting power reside in the United States?"
-
 "Where does political power reside in the United States?" -->
 
 It's difficult to get a broad mental overview of politics in the United States. There are so many elections covering different districts and each office holder has a different level of influence over policy outcomes.  This post is an attempt to help simplify things by bringing all the federal and state level election results together into one place. I then use an approach described below to combine all the results into a single voting power metric for each location.  The end result is a map that communicates the cumulative political influence of the voters in each place:
