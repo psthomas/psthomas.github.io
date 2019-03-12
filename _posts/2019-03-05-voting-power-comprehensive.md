@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Where are voters the most politically influential?"
+title: "Where do voters have the most political influence?"
 excerpt: "Combining state and federal election results to find where voters are especially influential."
 tags: [Python, Jupyter notebook, politics, voting power, Geopandas, Pandas, altair]
 comments: true
@@ -9,7 +9,7 @@ share: false
 
 <!--
 Where are voters the most politically influential?
-"Where do voters have the most political influence?"
+Where do voters have the most political influence?
 "Where do the powerful voters live?"
 "Where are voters especially powerful in the United States?"
 "Where are voters especially powerful?"
@@ -20,7 +20,7 @@ Where are voters the most politically influential?
 title: "Where does voting power reside in the United States?"
 "Where does political power reside in the United States?" -->
 
-It's difficult to get a broad mental overview of politics in the United States. There are so many elections covering different districts and each office holder has a different level of influence over policy outcomes.  This post is an attempt to help simplify things by bringing all the federal and state level election results together into one place. I then use an approach described below to combine all the results into a single voting power metric for each location.  The end result is a map that communicates the cumulative political influence of the voters in each place:
+It's difficult to get a broad mental overview of politics in the United States. There are so many elections covering different districts and each office holder has a different level of influence over policy outcomes.  This post is an attempt to help simplify things by bringing all the federal and state level election results together into one place. I then use an approach described below to combine all the results into a single voting power metric for each location.  The end result is a map that shows the cumulative political influence of the voters in each place:
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"></a>
@@ -176,7 +176,7 @@ The data for the governors races are from [David Leip's Election Atlas](https://
 
 ## State Senate
 
-Finally, the results for the state legislatures.  The data are from Carl Klarner's [state legislative dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DRSACA), which covers results through the 2016 elections.  The legislative district boundaries are from the [2018 Census Tiger Geodatabase](https://www.census.gov/geo/maps-data/data/tiger-geodatabases.html#tab_2018).  There are some missing results, mainly from NE, LA, OK and AR. Nebraska is missing from the Senate and House results below because it's legislature is unicameral and their elections are technically nonpartisan.   
+Finally, the results for the state legislatures.  The data are from Carl Klarner's [state legislative dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DRSACA), which covers results through the 2016 elections.  The legislative district boundaries are from the [2018 Census Tiger Geodatabase](https://www.census.gov/geo/maps-data/data/tiger-geodatabases.html#tab_2018).  There are some missing results, mainly from NE, LA, OK and AR. Nebraska is missing from both the Senate and House results because its legislature is unicameral and their elections are technically nonpartisan.   
 
 These maps are really interesting, mainly because I've never seen them before.  I think the main point of interest here is how extreme the margins are, which results in small the voting power values.  One major reason for this is that roughly 40 percent of the candidates for state office run unopposed, so their elections have margins of 100 percent.  This could be a [symptom of gerrymandering](https://twitter.com/bcburden/status/1069773072587206656) where [cracked](https://en.wikipedia.org/wiki/Gerrymandering) districts would have close margins and packed districts would have blowout margins.  But it could also just be a symptom of the geography of the state in some cases.            
 
@@ -859,13 +859,13 @@ First is the average democratic margin across all elections for each location:
 	<a href="{{ site.baseurl }}/images/votepower-comp/avg-margin.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/avg-margin.png"></a>
 </figure>
 
-Next is the cumulative voting power value for each location.  The small white lines on the map outline unique districts with their own voting power values.  Even though there's much more detail, this map doesn't look very different from the map from above that shows sums by state.  This is because the elections that follow state boundaries (e.g. governor/president/senate) drive the voting power values, so the between state differences are greater than the within state differences for the most part.     
+Next is the cumulative voting power value for each location.  The small white lines on the map outline unique districts with their own voting power values.  Even though there's much more detail, this map doesn't look very different from the map above that shows sums by state.  This is because elections that follow state boundaries (e.g. governor/president/senate) drive the voting power values, so the differences between states are greater than the within state differences in most cases.     
 
 <figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/votepower-comp/sum-votepower.png"></a>
 </figure>
 
-I was expecting this map to be a lot more varied, but I guess it shows that statewide elections matter quite a bit.  This is both because the offices with statewide elections are more powerful and the margins of those elections tend to be closer.  
+I was expecting this map to have a lot more within state variation, but instead it shows that statewide races are really important.  This is because the offices with statewide elections are more powerful and the margins of those elections tend to be closer.  
 
 # Model Problems
 
@@ -877,7 +877,7 @@ Here are a few potential problems I can think of with the above analysis:
 * **Past results aren't indicative of the future:** The high power values might just be driven by random variation in election margins and not say anything intrinsic about a place.  
 * **Legislative Control:** The threshold for flipping control of a legislative body matters too.  You don't have much power if you participate in close elections but there's no chance for your party to ever take the majority.  
 
-Even with these concerns, I think the analysis above provides some useful insights.  All the code for this project is [available](https://github.com/psthomas/voting-power-comprehensive) on GitHub, so I'd welcome any comments or contributions to make it better.  There are probably other interesting analyses to do with these results, so stay tuned for future posts on this subject.       
+Even with these concerns, I think the analysis above provides some useful insights.  All the code for this project is [available](https://github.com/psthomas/voting-power-comprehensive) on GitHub, so I'd welcome any comments or contributions to make it better.  There are probably other interesting analyses to do with this dataset, so stay tuned for future posts on this subject.       
 
 # References 
 
