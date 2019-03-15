@@ -36,10 +36,10 @@
 
     <p style="margin: 1.9rem 0 2rem 0;">Hello, I'm Philip Thomas. 
     This is my portfolio site and blog where I write about subjects ranging from economics and public health to my most recent programming projects. 
-    Feel free to explore the site and comment! &mdash; <a href="{{site.url}}/about/">about</a></p>
+    Feel free to explore the site and comment! &mdash; <a href="{{site.url}}/about/">about</a>, <a href="{{site.url}}/blog/">blog</a></p>
     
     <!--<h3><a href="{{ site.url}}/blog/">Recent Posts</a></h3>  limit:7-->
-    {% for post in site.posts limit:10 %}
+    {% for post in site.posts limit:9 %}
     <article>
       {% if post.link %}
         <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a></h2>
