@@ -221,58 +221,38 @@ td, th {
 }
 </style>
 
-
-
 </head>
 <body>
 <div id="container">
 
-<!-- Exclude Embed -->
-    <!-- header -->
-    <header id="header">
-        <h1 id="title">Tabula</h1>
-        <em>A simple, stateless password manager</em>
-    </header>
-
-    <!--Intro-->
-    <section class="intro">
-        <p><strong>What does it do?</strong> Tabula helps you create and remember strong passwords for each site without having to store them anywhere.</p>
-        <p> <strong>How does it work?</strong> When you enter a master password below, a table of characters that's unique to your password is created.  You then use this table to generate each site-specific password by starting at a memorable cell and following a pattern across the grid.  When you need a site's password in the future, just regenerate this table using your master password, find the starting cell, and follow the pattern.  This way you can remember strong passwords for every site without the risk of storing them anywhere.</p>
-        <p><strong>Note:</strong> This project is still experimental, so it needs more scrutiny before I'd recommend using it. If you do, print out a copy of the table so you have a backup if I change the code.</p>
-    </section>
-<!-- End Exclude -->
-
-    
     <!-- Sidebar -->
     <aside id="sidebar">
         <div class='input'> 
             <h3>1. Create a Table</h3>
-            <form onsubmit="return false;">
+            <form id="masterform">
             Master Password: <br>
             <input id="masterpassword" type="password" /> <br> <!--value="CorrectHorseBatteryStaple"-->
-            <input type="checkbox" onclick="toggleSe();">Show Password<br>
-            <input type="checkbox" id="mask" onclick="toggleMask();">Mask Table<br>
-            
-
+            <input type="checkbox" id="showpassword">Show Password<br>
+            <input type="checkbox" id="mask">Mask Table<br>
+    
             Character Set: <br>
-            <select id="characters" onchange="chooseCharacters();"> <!--onfocus="this.selectedIndex = -1;"-->
+            <select id="characters"> <!--onfocus="this.selectedIndex = -1;"-->
                 <option value="advanced" selected="selected">Letters, Numbers, Advanced Symbols</option>
                 <option value="standard">Letters, Numbers, Symbols</option>
                 <option value="alphanumeric">Letters, Numbers</option>
                 <option value="letters">Letters</option>
                 <option value="numbers">Numbers</option>
             </select> <br>
-            <button class="button" onclick="create();">Create</button>
-            <button type="button" class="button" onclick="clearAll();">Clear</button> 
-            <button type="button" class="button" onClick="window.print();">Print</button> <br>
+            <button class="button" id="create">Create</button>
+            <button type="button" class="button" id="cleartable">Clear</button> 
+            <button type="button" class="button" id="print">Print</button> <br>
             </form>
-            
         </div>
 
         <div class="input">
             <h3>2. Choose a Pattern</h3>
             Pattern:
-            <select id="method" onchange="renderDirections();"> <!--onfocus="this.selectedIndex = -1;"-->
+            <select id="method">
                     <option value="manual">Manual</option>
                     <option value="line">Line</option>
                     <option value="step" selected="selected">Step</option>
@@ -285,17 +265,15 @@ td, th {
         <div class="input">
             <h3>3. Click a Cell</h3>
             Click a memorable cell to start the password.  For example, choose coordinates [A,N] for <strong>a</strong>mazo<strong>n</strong>.com. <br>
-            <input id="highlight" type="checkbox" onclick="toggleHl();" checked>Highlight Selection
+            <input id="highlight" type="checkbox" checked>Highlight Selection
         </div>
 
         <div class="output">
             <h3>4. View the Results</h3>
-            <input type="password" value="" id="password"> <br><!--size="70" -->
-            <input type="checkbox" onclick="togglePs();">Show 
-            <!-- <button type="button" class="button" onclick="copyPs()">Copy</button> -->
-            <button type="button" id="copy" class="button" onclick="copyPs();">Copy</button>
-            
-            <button type="button" class="button" onclick="clearPs();">Clear</button> <br>
+            <input type="password" value="" id="password"> <br>
+            <input type="checkbox" id="show">Show 
+            <button type="button" id="copy" class="button">Copy</button>
+            <button type="button" class="button" id="clearpassword">Clear</button> <br>
         </div>
     </aside>
 
@@ -307,41 +285,32 @@ td, th {
             </div>
         </div>
     </section>
-
-<!-- Exclude Embed -->
-    <!-- About -->
-    <section class="intro"> <!--clearfix-->
-        <h3 id="about">About</h3>
-        <p> The name Tabula comes from a cryptographic tool called a <a href="https://en.wikipedia.org/wiki/Tabula_recta">tabula recta</a>, which is used to create ciphers.  I came across this concept while reading a interesting <a href="http://blog.jgc.org/2010/12/write-your-passwords-down.html">blog post</a> where the author describes using a tabula to generate his own passwords.  I decided to make the technique more user friendly by automating a few steps, and this is the result.</p>
-
-        <p>The table of characters is created by seeding a random number generator (<a href="https://github.com/davidbau/seedrandom">seedrandom.js</a>) with your master password after passing it through <a href="https://github.com/bitwiseshiftleft/sjcl/blob/master/core/scrypt.js">scrypt</a>.  The end result is a unique table that will be re-created whenever you enter your master password in the future.  This makes it easy to have many strong, site-specific passwords while just remembering a master password and a pattern.</p>
-
-        <p>The source code for this project is available on <a href="https://github.com/psthomas/tabula">GitHub</a>, and there are further details in my <a href="https://pstblog.com/2018/01/30/password-manager">blog post</a> about the project if you're interested.</p>
-
-        <h3>Characters</h3>
-        <p>These are the characters available in each set:</p>
-        <p><strong>Letters, numbers, advanced symbols:</strong> <code style="font-size:0.9em">AEIOUaeiouBCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz0123456789!@#$%^&amp;*()?,=[]_:+*'~;/.{}</code></p>
-        <p><strong>Letters, numbers, symbols:</strong> <code style="font-size:0.9em">AEIOUaeiouBCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz0123456789!@#$%^&amp;*()</code></p>
-        <p><strong>Letters, numbers:</strong> <code style="font-size:0.9em">AEIOUaeiouBCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz0123456789</code></p>
-        <p><strong>Letters:</strong> <code style="font-size:0.9em">AEIOUaeiouBCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz</code></p>
-        <p><strong>Numbers:</strong> <code style="font-size:0.9em">0123456789</code></p>
-
-
-        <h3>Security</h3>
-        <p>For web security, everything is included in a single HTML file that doesn't depend on any externally loaded scripts or make any network requests (your master password is never sent anywhere). As a result, you can still use this page when you're offline, or download the file and use it locally. Also, you could print out the table and only use the webpage in situations where you don't have access to a physical copy.  Depending on interest, I'm considering building an Electron or React Native app to avoid the web security issues altogether.</p> 
-        <p>In terms of cryptography, there are a few threats that I go more in-depth about in my <a href="https://pstblog.com/2018/01/30/password-manager">blogpost</a>.  The main one I'm concerned about is the situation where someone's table or master password is revealed because this opens them up to a brute force attack.  I'm looking for advice on how to reduce this risk.</p> 
-        <p>The current sha256 checksum of this page is available on <a href="https://github.com/psthomas/tabula">GitHub</a>.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer" class="clearfix">
-        <div  style="font-size:0.95em;">© 2018 <a href="https://pstblog.com">Philip Thomas</a>, <a href="https://github.com/psthomas/tabula">source</a>.</div>
-    </footer>
-<!-- End Exclude-->
 </div>
 
-
 <script>
+/*
+Copyright 2014 David Bau.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 /*
 Copyright 2014 David Bau.
 
@@ -589,6 +558,7 @@ if ((typeof module) == 'object' && module.exports) {
   [],     // pool: entropy pool starts empty
   Math    // math: package containing random, pow, and seedrandom
 );
+
 </script>
 
 
@@ -782,8 +752,8 @@ a);c=this.f;a=this.f=c+sjcl.bitArray.bitLength(a);if(0x1fffffffffffff<a)throw ne
 4294967296)));a.length;){e=a.splice(0,16);for(c=0;16>c;++c)e[c]=b(e[c]);d.call(this,e)}a=this.c;this.reset();for(c=0;5>c;++c)a[c]=b(a[c]);return a}};for(var c=[1732584193,4023233417,2562383102,271733878,3285377520],e=[0,1518500249,1859775393,2400959708,2840853838],f=[1352829926,1548603684,1836072691,2053994217,0],g=4;0<=g;--g)for(var h=1;16>h;++h)e.splice(g,0,e[g]),f.splice(g,0,f[g]);var k=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,7,4,13,1,10,6,15,3,12,0,9,5,2,14,11,8,3,10,14,4,9,15,8,1,2,7,0,6,13,11,
 5,12,1,9,11,10,0,8,12,4,13,3,7,15,14,5,6,2,4,0,5,9,7,12,2,10,14,1,3,8,11,6,15,13],l=[5,14,7,0,9,2,11,4,13,6,15,8,1,10,3,12,6,11,3,7,0,13,5,10,14,15,8,12,4,9,1,2,15,5,1,3,7,14,6,9,11,8,12,2,10,0,4,13,8,6,4,1,3,11,15,0,5,12,2,13,9,7,10,14,12,15,10,4,1,5,8,7,6,2,13,14,0,3,9,11],m=[11,14,15,12,5,8,7,9,11,13,14,15,6,7,9,8,7,6,8,13,11,9,7,15,7,12,15,9,11,7,13,12,11,13,6,7,14,9,13,15,14,8,13,6,5,12,7,5,11,12,14,15,14,15,9,8,9,14,5,6,8,6,5,12,9,15,5,11,6,8,13,12,5,12,13,14,11,8,5,6],n=[8,9,9,11,13,15,15,
 5,7,7,8,11,14,14,12,6,9,13,15,7,12,8,9,11,7,7,12,7,6,15,13,11,9,7,15,11,8,6,6,14,12,13,5,14,13,13,7,5,15,5,8,11,14,14,6,14,6,9,12,9,12,5,15,8,8,5,12,9,12,5,14,6,8,13,6,5,15,13,11,11]})();"undefined"!==typeof module&&module.exports&&(module.exports=sjcl);"function"===typeof define&&define([],function(){return sjcl});
-</script>
 
+</script>
 
 <script>
 /*
@@ -1037,7 +1007,10 @@ function generateCharacters(rows, cols, charset) {
     //https://github.com/bitwiseshiftleft/sjcl
     //Deriving salt from masterpass at least ensures a unique-ish salt per user, although 
     //not ideal.  Added to 128bit base64 string.
-    var seed = sjcl.misc.scrypt(master, master + 'njk1OhfB2y9mbLYLaFkEkD');
+    //var seed = sjcl.misc.scrypt(master, master + 'njk1OhfB2y9mbLYLaFkEkD');
+    //Note, using master + 'njk1OhfB2y9mbLYLaFkEkD' above won't add any security
+    //because whoever is building the rainbow table will know that from this source.
+    var seed = sjcl.misc.scrypt(master, 'njk1OhfB2y9mbLYLaFkEkD');
     Math.seedrandom(seed);
     //Math.seedrandom(sjcl.misc.pbkdf2(seed, 'njk1OhfB2y9mbLYLaFkEkD'));
     var charList = [];
@@ -1450,6 +1423,102 @@ function chooseCharacters() {
 //  " ": " "
 // };
 
+function printPage() {
+    //https://stackoverflow.com/questions/30167749
+    window.print();
+}
+
+function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    console.log(evt);
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    //evt.currentTarget.className += " active";
+    evt.originalTarget.className += " active";
+}
+
+function openSettings() {
+    var el = document.getElementById('settings');
+    var cls = el.className;
+    //console.log(e);
+    //var cls = e.target.className;
+    console.log(cls);
+    if (cls.indexOf('active') == -1) {
+        el.className += ' active';
+    } else {
+        el.className = cls.replace(' active', '');
+    }
+}
+
+// Need to replace all function calls within popup.html with even listeners
+// that wait for a click or onchange events on the elements.  
+//https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Add_a_button_to_the_toolbar
+//https://github.com/mdn/webextensions-examples/blob/master/menu-demo/background.js
+document.addEventListener("click", function(e) {
+    switch (e.target.id) {
+        case "showpassword":
+            toggleSe();
+            break;
+        case "mask":
+            toggleMask();
+            break;
+        case "create":
+            create();
+            break;
+        case "cleartable":
+            clearAll();
+            break;
+        case "print":
+            printPage();
+            break;
+        case "highlight":
+            toggleHl();
+            break;
+        case "show":
+            togglePs();
+            break;
+        case "copy":
+            copyPs();
+            break;
+        case "clearpassword":
+            clearPs();
+            break;
+    }
+});
+
+//https://stackoverflow.com/questions/2889840
+document.addEventListener("change", function(e) {
+    switch (e.target.id) {
+        case "characters":
+            chooseCharacters();
+            break;
+        case "method":
+            renderDirections();
+            break;
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById('masterpassword').focus();
+    document.getElementById('masterform').onsubmit = function(){return false;}
+});
+
 </script>
+
 </body>
 </html>
