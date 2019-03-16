@@ -20,14 +20,14 @@ After reading this, I realized it might be possible to make this system a little
 3. Click a memorable starting cell for the pattern, such as the grid location [A,N] for **a**mazo**n**.com.  If you chose an automated pattern, the password will be generated after you click.  
 4. When you need the password in the future, repeat steps 1-3 above. 
 
-Try it out below or try the [full page](https://pstblog.com/projects/tabula.html) version.  The source code is available on [GitHub](https://github.com/psthomas/tabula).
+Try it out below or try the [full page](https://pstblog.com/projects/tabula.html) version.  The source code is available on [GitHub](https://github.com/psthomas/tabula), along with a prototype Firefox extension.
 
 **Note**: This project is still experimental, so it needs more scrutiny before I'd recommend using it. If you do, print out a copy of the table so you have a backup if I change the code.
 
 <!--https://stackoverflow.com/questions/5867985-->
 <div class="outer">
 <div class="inner">
-<iframe src="{{ site.baseurl }}/projects/tabula-embed.html"
+<iframe src="https://raw.githubusercontent.com/psthomas/tabula/master/web/tabula.html"
     style="width: 98vw; height: 110vh; border: none; position: relative; right:-50%; scrolling:no;"></iframe>
 </div>
 </div> 
@@ -87,7 +87,7 @@ What it doesn't do:
 
 I put the code up on [GitHub](https://github.com/psthomas/tabula) so anyone can contribute and review.  I'm especially interested in improving the security against the potential attacks I outlined above.  Also, I want to know more about the [quality](http://davidbau.com/archives/2010/01/30/random_seeds_coded_hints_and_quintillions.html) of the [random number](https://github.com/davidbau/seedrandom/blob/released/seedrandom.js#L144) generator I'm using because this system depends on having a random grid of characters.
 
-If there's interest, I could also look into making a desktop app using something like the Electron framework, or a mobile app using React Native to avoid the browser altogether.   
+I also made a prototype Firefox extension that's available in the GitHub repo, which can be loaded as a temporary extension.  This might add a little security because extensions are [signed](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/Distribution) by Mozilla before installation.     
 
 ## Appendix
 
