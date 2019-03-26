@@ -56,42 +56,6 @@ body {
 
 
 /* Main content */
-// #main {
-// 	counter-reset: captions;
-// 	@include container;
-// 	@include clearfix;
-// 	clear: both;
-// 	margin-top: 2em;
-// 	.post {
-// 		h1 {
-// 			margin-top: 20px;
-// 			margin-bottom: 10px;
-// 		}
-// 		h2, h3, h4, h5 {
-// 			margin-top: 30px;
-// 			margin-bottom: 15px;
-// 		}
-// 	}
-// 	.post,
-// 	.page {
-// 		@include container;
-// 		@include grid(12,10); //12,10
-// 		@include prefix(12,1); //12,1
-// 		@include suffix(12,1); //12,1
-// 		margin-bottom: 2em;
-// 		@media #{$small} {
-// 			@include grid(12,8); //12, 8
-// 			@include prefix(12,0);
-// 			@include suffix(12,0);
-// 		}
-// 		@media #{$large} {
-// 			@include grid(12,6.25);  //12,6  6.25
-// 		}
-// 		@media #{$x-large} {
-// 			//@include grid(12,6.0); //12,5 Changed to 5.75 for a little wider text
-// 		}
-// 	}
-// }
 #main {
 	margin-top: 1.5em; //2em; 1.5em
 	//margin-bottom: 3em;  // 4em;
@@ -120,49 +84,6 @@ body {
 	// }
 }
 
-/* Index listing specific styling */
-// #index {
-// 	@include container;
-// 	@include grid(12,10);
-// 	@include prefix(12,1);
-// 	@include suffix(12,1);
-// 	margin-bottom: 2em;
-// 	//border-left: 1px solid lighten($black,70);
-// 	//padding-left: 20px;
-// 	@media #{$small} {
-// 		@include grid(12,8);
-// 		@include prefix(12,0);
-// 		@include suffix(12,0);
-// 	}
-// 	@media #{$large} {
-// 		@include grid(12,6);
-// 	}
-// 	@media #{$x-large} {
-// 		@include grid(12,6.25); //12,5 widen to 5.75  5.5  6.25
-// 	}
-// 	h3 {
-// 		margin: 0;
-// 		padding-bottom: .5em;
-// 		@include font-rem(28);
-// 		border-bottom: 1px solid lighten($black,70);
-// 	}
-// 	article {
-// 		h2 {
-// 			margin-bottom: 4px;
-// 			@include font-rem(20);
-// 			&.link-post {
-// 				margin-bottom: 0px + $doc-line-height;
-// 				margin-bottom: 0rem + ($doc-line-height / $doc-font-size);
-// 			}
-// 		}
-// 		p {
-// 			@include font-rem(14);
-// 		}
-// 		p+p {
-// 			text-indent: 0;
-// 		}
-// 	}
-// }
 #index {
 	margin-bottom: 2em;
 
@@ -183,7 +104,7 @@ body {
 		}
 		p {
 			//margin-top: 0;
-			margin-bottom: 1.86rem;
+			//margin-bottom: 1.86rem;
 			//@include font-rem(16); //14
 		}
 		p+p {
@@ -393,81 +314,6 @@ th {background-color: #f2f2f2;}
 	  text-decoration:underline;
 	}
 }
-
-
-/* Author sidebar */
-// .article-author-side {
-// 	margin-top: 7px; //added to adjust height
-// 	display: none;
-// 	.bio-photo {
-// 		max-width: 110px;
-// 		margin-bottom: 10px; //added to make up for no h3 uppper margin
-// 		@include rounded(150px); //original
-// 		//@include rounded(20px);
-// 	}
-// 	.icon-link {
-// 	  display: inline-block;
-// 	  color: #222;  //$black
-// 	  font-size: 16px;
-// 	}
-// 	.icon {
-// 	  height: 15px;
-// 	  width: 15px;
-// 	  display: inline-block;
-// 	  vertical-align: middle;
-// 	  padding: 0px 6px 4.5px 4px;
-// 	  fill: #222;
-// 	  //margin: 2px 0px;
-// 	  //fill: $textcolor;
-// 	}
-// 	.icon-link:hover {
-// 	  //color: steelblue;
-// 	  //fill: steelblue;
-// 	  transform: scale(1.1);
-// 	}
-// 	@media #{$small} {
-// 		display: block;
-// 		//@include grid(12,2);  //Original
-// 		@include grid(12,1.5);
-// 		@include prefix(12,.85); //0.5  0.75 to space out more
-// 		@include suffix(12,0.5);
-// 		h3,
-// 		p,
-// 		.author-social {
-// 			display: block;
-// 			max-width: 125px;
-// 		}
-// 		h3 {
-// 			margin-top: 0px; //10px;
-// 			margin-bottom: 6px;
-// 			font-size: 25px; //24
-// 		}
-// 		h4 {
-// 			margin-top: 0;
-// 			margin-bottom: 10px; //0
-// 		}
-// 		p {
-// 			margin-bottom: 6px; //20px 15px
-// 		}
-// 		.author-social {
-// 			margin-bottom: 5px;
-// 		}
-// 	}
-// 	@media #{$large} {
-// 		h3,
-// 		.bio-photo,
-// 		p,
-// 		.author-social {
-// 			max-width: 150px;
-// 		}
-// 	}
-// 	@media #{$x-large} {
-// 		// @include grid(12,1.5);  //Original, commented out to widen text area
-// 		// @include prefix(12,1.25);  //12,2
-// 		// @include grid(12,1.25);
-// 		// @include prefix(12,0.75);
-// 	}
-// }
 
 /* Author module - mobile only */
 .article-author-bottom {
@@ -681,47 +527,6 @@ th {background-color: #f2f2f2;}
 
 
 /* Footer wrapper */
-// .footer-wrap {
-// 	background-color: $graywrap; //Added to separate from page
-// 	border-top: 1px solid $grayborder; //Added
-// 	padding-top: 1.5em; //2em
-// 	@include container;
-// 	@include clearfix;
-// 	clear: both;
-// 	padding-bottom: 1.5em;  //3em //2.5 2
-
-// 	a,
-// 	a:active,
-// 	a:visited,
-// 	p,
-// 	h4,
-// 	h5,
-// 	h6,
-// 	span {
-// 		@include font-rem(14);
-// 	}
-// 	footer {
-// 		@include grid(12,10);
-// 		@include prefix(12,1);
-// 		@include suffix(12,1);
-// 		// @include prefix(12,2.5);
-// 		// @include suffix(12,1);
-// 		@media #{$small} {
-// 			@include grid(12,6.25);  //6 enlarged
-// 			// @include prefix(12,3);
-// 			// @include suffix(12,3);
-// 			@include prefix(12,2.85); //2.75
-// 			@include suffix(12,3);
-// 		}
-// 		@media #{$x-large} {
-// 			// @include grid(12,6); //12, 4.5, widen a bit to 6 
-// 			// @include prefix(12,3.25); //12, 4  //OK: 12,3.75
-// 			// @include suffix(12,2.75); //12,3.5 narrow to 2.25 //OK: 12,2.25
-// 			@include prefix(12,2.85);
-// 			@include suffix(12,1);
-// 		}
-// 	}
-// }
 .footer-wrap {
 	//background-color: $graywrap; //Added to separate from page
 	//border-top: 1px solid $grayborder; //Added
