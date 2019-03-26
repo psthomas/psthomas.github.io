@@ -23,13 +23,11 @@ It seems [intuitive](https://blog.givewell.org/2013/05/02/broad-market-efficienc
 
 Before I continue, I think it makes sense to define the terms **risk** and **return**.  By **return**, I mean the impact of an intervention using units like [disability adjusted life years](https://en.wikipedia.org/wiki/Disability-adjusted_life_year) per dollar, benefit to cost ratios, or research citation counts.  While some of these estimates are more complicated to construct than others, they all require making judgements about things like the value of a human life, the amount of suffering caused by different conditions, or the benefits from a highly cited paper.  
 
-The definition of the term **risk** is tricky to pin down.  To some, it's just a measure of the noisiness of an estimate and is measured using something like the [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation).  To others, an intervention is only risky when it could potentially underperform some target (e.g. [downside risk](https://en.wikipedia.org/wiki/Downside_risk)) or cause harm.  The best [definition](https://medium.com/guesstimate-blog/the-confusion-of-risk-vs-uncertainty-1c6cd512aa69) that I have found is that risk is the subset of uncertainty that underperforms a target outcome.  Because people seem to use risk and uncertainty interchangeably, and I think both are useful, I include both in my analysis where possible. 
-
-The uncertainty and risk values are useful for answering two separate but related questions: **(1)** Do we tend to be more uncertain about actions with high expected value?;  **(2)** Do actions with large expected value also have more potential to cause harm (or underperform the mean action)?  If **(1)** is correct, I think this is useful to know because we can be more confident in taking actions even if they have a high error around the estimated impact.   If **(2)** is correct, it might be ok to take actions that often perform poorly or have the potential to cause harm if they still have a high expected impact.   
+The definition of the term **risk** is tricky to pin down.  To some, it's just a measure of the noisiness of an estimate and is measured using something like the [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation).  To others, an intervention is only risky when it could potentially underperform some target or cause harm (e.g. [downside risk](https://en.wikipedia.org/wiki/Downside_risk)).  People seem to use the uncertainty and downside risk terms interchangeably, and I think both are useful, so I include both in my analysis where possible.  When I use the term `risk` below, I'm talking about the standard deviation of the outcome and `downside risk` refers to the underperformance of the mean.   
 
 Here are how the values are calculated:
 
-* `standard deviation = np.stdev(series)`  
+* `risk = standard deviation = np.stdev(series)`  
 * `downside risk (semideviation) = np.sqrt((np.minimum(0.0, series - t)**2).sum()/series.size)`, where `t` is the mean intervention outcome
 
 Finally, how do you determine if there is a **return to risk taking**?  One approach would be to run a linear regression through the data and see if it has a positive slope.  This is what I do for most of the sources below, but there's a problem with this approach.  To see why, imagine calculating the cost effectiveness of every possible action, including bogus things like "lighting $1000 on fire".  You'd end up with a lot of useless interventions that would mess up the slope of the linear regression.  So another approach would be to just see if the frontier that encloses the top end of the estimates has a positive slope.  In Modern Portfolio Theory, this frontier is called the [efficient frontier](https://en.wikipedia.org/wiki/Efficient_frontier):
@@ -52,7 +50,7 @@ All the code and data for this post are available [here](https://github.com/psth
 
 First, I look at a dataset from the [Washington State Institute for Public Policy](http://www.wsipp.wa.gov/BenefitCost) (WSIPP).  The WSIPP evaluates evidence based public policies and completes detailed benefit-cost analyses using monte carlo methods.  The end result is a list of benefit-cost ratios along with metrics like the chance that the benefit-cost ratio is positive. 
 
-The measure of risk I'm using here (`the chance costs exceed benefits`) sets a really low bar.  This ignores the upside of an intervention and much of the downside until the benefit cost ratio is below one.  It also counts a project with a very low downside the same of one with only a marginally low downside because they're just counting up benefit-cost ratios > 1 and [dividing by the total number of monte carlo runs](http://www.wsipp.wa.gov/TechnicalDocumentation/WsippBenefitCostTechnicalDocumentation.pdf).  The upside of this metric is that it is easy to interpret, but I wish they would include a standard deviation as well.         
+The measure of risk I'm using here (`the chance costs exceed benefits`) sets a really low bar.  This ignores the upside of an intervention and much of the downside until the benefit cost ratio is below one.  It also counts a project with a very low downside the same of one with only a marginally low downside because they're just counting up benefit-cost ratios < 1 and [dividing by the total number of monte carlo runs](http://www.wsipp.wa.gov/TechnicalDocumentation/WsippBenefitCostTechnicalDocumentation.pdf).  The benefit of this metric is that it is easy to interpret, but I wish they would include a standard deviation as well.         
 
 
 <div>
@@ -867,6 +865,8 @@ These estimates follow a similar pattern to the WSIPP data, with the top interve
 
 So it seems there might be returns to risk taking when using the spread as the (somewhat imperfect) measure of risk.
 
+### National Health Service
+
 The second dataset I found is from [a meta-analysis](https://academic.oup.com/jpubhealth/article/34/1/37/1554654) looking at the cost effectiveness of public health interventions within the English National Health Service (NHS) [15].  This dataset is similar to the DCP2 data above because the only measure of uncertainty is the spread of the estimates.  Overall, there seems to be a similar but weaker pattern here:
 
 <table >
@@ -1116,6 +1116,7 @@ The second dataset I found is from [a meta-analysis](https://academic.oup.com/jp
 	<a href="{{ site.baseurl }}/images/returns/output_36_0.png"><img src="{{ site.baseurl }}/images/returns/output_36_0.png"></a>
 </figure>
 
+### Global Health Cost Effectiveness Analysis Registry
 
 Finally, I look at a massive dataset from the [Global Health Cost Effectiveness Analysis Registry](http://healtheconomics.tuftsmedicalcenter.org/ghcearegistry/) (GHCEA).  First, I look at the full distribution of cost effectiveness estimates.  It's pretty clear they're lognormally distributed:
 
@@ -1231,7 +1232,7 @@ The cost effectiveness rankings here follow a similar pattern to the other datas
 </figure>
 
 
-So if you prefer to use the standard deviation as a measure, there do seem to be returns to risk taking -- higher impact estimates tend to be noisier.  But if the downside risk makes more sense to you, the lowest impact interventions underperform the mean to a greater extent.    
+So if you prefer to use the standard deviation as a measure, there do seem to be returns to risk taking -- higher impact estimates tend to be noisier.  But if the downside risk metric makes more sense to you, the highest impact estimates underperform the mean less often, so there's not a return to this measure of risk.  
 
 ## Evidence from Scientific Research
 
@@ -1593,10 +1594,10 @@ The effect size in this paper isn't huge -- a research strategy that is an order
 It's interesting to see some common patterns emerge across these different domains and datasets. 
 
 * First, the impact distributions make it clear that some interventions are much better than others.  As a result, it makes sense to spend a lot of time searching for good opportunities.  
-* Second, interventions with a high downside risk tend to have lower impacts.  Even though high impact interventions are more uncertain, they dip below the mean less often or to a lesser extent.   
-* Third, there do seem to be returns to uncertainty, so a large error bound on a cost effectiveness estimate shouldn't be disqualifying on it's own.  
+* Second, interventions with a high downside risk tend to have lower expected impacts.  Even though high impact interventions are more uncertain, they dip below the mean less often or to a lesser extent.  This is actually a good thing because it means there isn't a huge downside to pursuing the high impact opportunities, at least in this dataset.      
+* Third, there do seem to be returns to risk (uncertainty), so a large error bound on a cost effectiveness estimate shouldn't be disqualifying on it's own.  
 
-Whether or not there are returns to risk, then, depends on your definition of risk.  Using the definitions from the introduction, it makes more sense to say there are returns to uncertainty.  In other words, uncertainty is something you might have to learn to live with if you want to have a big effect on the world.  
+Whether or not there are returns to risk, then, depends on your definition of risk.  Using the definitions from the introduction, there do seem to be returns to risk (uncertainty).  In other words, uncertainty is something you might have to learn to live with if you want to have a big effect on the world.
 
 ## References
 
