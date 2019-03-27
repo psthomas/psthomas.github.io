@@ -55,7 +55,7 @@ I use social impact as the measure of progress rather than GDP.  I think the dis
 
 ## The Roles of Different Sectors
 
-Markets, government, and research all play different roles in the model.  Markets largely work at lower levels of risk, and, although the projects here have lower marginal impacts, the number of opportunities here outnumber those in other sectors.  I estimate lower marginal impacts here because the alternative for a consumer in a competitive marketplace is usually a similar product with a slightly higher price if a company doesn't offer a product.  The rarer case where a single company makes a decision that has a large social impact (because it's truly innovative or has monopoly power) is located in the tail of the distribution.    
+The main point here is that markets, governments, and research all draw from different probability distributions.  Markets largely work at lower levels of risk, and, although the projects here have lower marginal impacts, the number of opportunities here outnumber those in other sectors.  I estimate lower marginal impacts here because the alternative for a consumer in a competitive marketplace is usually a similar product with a slightly higher price if a company doesn't offer a product.  The rarer case where a single company makes a decision that has a large social impact (because it's truly innovative or has monopoly power) is located in the tail of the distribution.    
 
 Research, on the other hand, is able to accept higher variability for higher social returns.  Researchers are often criticized by the public for working on esoteric projects without clear applications, but occasionally something like [CRISPR-Cas9](http://science.sciencemag.org/content/346/6213/1258096.full) is discovered that has a revolutionary effect.  Both the exploration and exploitation phases of research need to be funded for research to work well -- if no exploitation is funded the highest impact findings never translate into markets.  But if you don't do enough exploration the pipeline of new ideas dries up, which prevents you from taking advantage of the full potential of research.    
 
@@ -92,11 +92,16 @@ There are a number of problems with this model.  In addition to the ones I menti
 
 ## Conclusion
 
-I hope you find this model interesting.  It's a first draft, so feel free to critique or [contribute](https://github.com/psthomas/mental-model).  In the future I might create a version that allows people to choose the probability distributions parameters to fit with their intuitions about the world, so stay tuned.
+It took me a while to understand this, but the above concepts imply that both of these can simultaneously be true:
+
+1. The vast majority of good that is done in the world is achieved through markets. 
+2. The best opportunities to do good in the world lie outside of markets.
+
+This is because the opportunities with the highest marginal impacts lie in the tails of the government and research distributions.  I hope you find this model interesting.  It's a first draft, so feel free to critique or [contribute](https://github.com/psthomas/mental-model).  In the future I might create a version that allows people to choose the probability distributions parameters to fit with their intuitions about the world, so stay tuned.
 
 ## Appendix A: How It Works
 
-There can be large differences in the impacts of different actions so I generate the data using a [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) [lognormal](https://en.wikipedia.org/wiki/Log-normal_distribution) probability distribution with a correlation between the risk and impact.  The specifics of how the joint distributions are generated are in the Appendix B below if you're interested.  I leave numbers and units off the axes because I don't think there's a single measure of wellbeing and the relationship between the sectors matters more than the numerical values.      
+There can be large differences in the impacts of different actions so I generate the data using a [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) [lognormal](https://en.wikipedia.org/wiki/Log-normal_distribution) probability distribution with a correlation between the risk and impact.  The specifics of how the joint distributions are generated are in a [separate blogpost](https://pstblog.com/2017/10/07/correlated-randoms) if you're interested.  I leave numbers and units off the axes because I don't think there's a single measure of wellbeing and the relationship between the sectors matters more than the numerical values.      
 
 The user can set the percentage of the budget devoted to each sector and the allocation of each sector's money between exploitation (funding existing projects), and exploration (searching for new projects).  When the user clicks the "Next" button, the exploit budget is allocated to each circle by finding the maximum percentage that can be multiplied times the project funding needs in each sector while staying below the budget.  This means that society funds every project by some amount because it doesn't always know the real marginal impact of each project.  
 
@@ -131,72 +136,8 @@ Because markets are driven by a profit motive and have a shorter time horizon, t
 
 Finally, three percent of the money allocated to markets is added to the budget each year.  This is meant to simulate the importance of economic growth, and penalizes putting too much money into research or government.  The growth rate and money allocated to markets are some of the most important factors in the long term performance of the model. 
 
-## Appendix B
+Generating samples from [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) lognormal distributions ended up being much more difficult than I thought it would be.  There are a number of resources out there and packages for languages like Python and R, but nothing for JavaScript.  See [this blogpost](https://pstblog.com/2017/10/07/correlated-randoms) for more on how I did this with JavaScript.
 
-Generating samples from a correlated, [joint](https://en.wikipedia.org/wiki/Joint_probability_distribution) lognormal distribution ended up being much more difficult than I thought it would be.  There are a number of resources out there and packages for languages like Python and R, but nothing for JavaScript.  I ended up using [jStat](https://github.com/jstat/jstat) for many of it's distributions and helper functions, along with this [Stackoverflow answer](https://stackoverflow.com/questions/32718752/how-to-generate-correlated-uniform0-1-variables).  
-
-Here are the steps:
-
-1. Create uncorrelated samples drawing from a standard normal distribution (mu=0, sigma=1). 
-2. Create a [correlation matrix](https://en.wikipedia.org/wiki/Correlation_and_dependence#Correlation_matrices) with the desired correlation between the samples. 
-3. Matrix multiply the [cholesky decomposition](https://en.wikipedia.org/wiki/Cholesky_decomposition) of the correlation matrix with the uncorrelated samples to create correlated normal samples. 
-4. Convert the correlated normal samples to correlated uniform samples using the standard normal cumulative distribution function (CDF).  I think the result of this is considered a [copula](https://en.wikipedia.org/wiki/Copula_(probability_theory)).  
-5. Use the inverted CDF of the desired lognormal distribution to convert the correlated uniform samples into correlated lognormal samples.  This is called [inverse transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling) sampling.   
-
-Note that the lognormal correlation won't be exactly what you specified in the correlation matrix, but it was close enough for my purposes.  Here's the code:
-
-{% highlight javascript %}
-
-//script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js" /script
-
-function generateCopula(rows, columns, correlation) {
-    //https://en.wikipedia.org/wiki/Copula_(probability_theory)
-
-    //Create uncorrelated standard normal samples
-    var normSamples = jStat.randn(rows, columns);
-
-    //Create lower triangular cholesky decomposition of correlation matrix
-    var A = jStat(jStat.cholesky(correlation));
-
-    //Create correlated samples through matrix multiplication
-    var normCorrSamples = A.multiply(normSamples);
-
-    //Convert to uniform correlated samples over 0,1 using normal CDF
-    var normDist = jStat.normal(0,1);
-    var uniformCorrSamples = normCorrSamples.map(function(x) {return normDist.cdf(x);});
-
-    return uniformCorrSamples;
-
-}
-
-function generateCorrLognorm(number, mu, sigma, correlation) {
-
-    //Create uniform correlated copula
-    var copula = generateCopula(mu.length, number, correlation);
-
-    //Create unique lognormal distribution for each marginal
-    var lognormDists = [];
-    for (var i = 0; i < mu.length; i++) {
-        lognormDists.push(jStat.lognormal(mu[i], sigma[i]));
-    }
-
-    //Generate correlated lognormal samples using the inverse transform method:
-    //https://en.wikipedia.org/wiki/Inverse_transform_sampling
-    var lognormCorrSamples = copula.map(function(x, row, col) {return lognormDists[row].inv(x);});
-    return lognormCorrSamples;
-}
-
-var mu = [0,0],
-	sigma = [0.25, 0.5],
-	correlation = [[1.0, 0.5],[0.5, 1.0]];
-
-var data  = generateCorrLognorm(100, mu, sigma, correlation);
-
-
-{% endhighlight %}
-
-
-A nice feature of this approach is that you can use any combination of distributions and create any number of correlated samples.  All you need is to do is create the desired correlation matrix, define the distributions with jStat, and then use their inverted CDFs to convert the copula.   
 
 ## References
 
