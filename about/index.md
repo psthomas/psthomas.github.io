@@ -42,6 +42,26 @@ A simple todo app written with React, Node, Express and Ajax. [[source](https://
 A JavaScript module for rendering Jupyter Notebooks as HTML. [[source](https://github.com/psthomas/notebook-html), [demo](https://psthomas.github.io/notebook-html/)]
 
 
+
+<h2>Site Search</h2>
+<div>
+Search <b>pstblog.com</b> on DuckDuckGo:
+<form onsubmit="return ss(this)" method="get">
+    <input type="text" size="40" id="goog-wm-qt" name="q" placeholder="Search Terms"> <!--style="width:350px"-->
+    <input type="submit" class="btn" value="Search">
+</form>
+</div>
+<script type="text/javascript">
+function ss(form) {
+    var q = window.encodeURIComponent(form["q"].value);
+    var url = "https://duckduckgo.com/?q=site:pstblog.com ";
+    url = url + q;
+    window.location = url;
+    return false;
+}
+</script> 
+
+
 <!--## Web Projects-->
 
 <!--I'm mostly familiar with Python and Flask for web development along with tools like Postgres and SQLAlchemy.  I'm also comfortable with JavaScript, and have used tools like React and D3.js for visualizing data.   -->
