@@ -29,6 +29,12 @@ Here are a few notable features of the data they point out in their [blog post](
 * 1950s-1970s: fairly flat temperatures as cooling sulphate aerosols mask the greenhouse gas warming
 * 1980-now: strong warming, with temperatures pushed higher in 1998 and 2016 due to strong El Nino events
 
+**Update:** If you're more of a fan of static visualizations, take a look at this great one showing more recent data [from Neil Kaye](https://twitter.com/neilrkaye/status/1217481970588037120). I actually think this graphic is more informative than the dynamic one because you can see everything at once and compare across years. ¯\\_(ツ)_/¯  
+
+<figure style="text-align:center">
+    <a href="{{ site.baseurl }}/images/climate/static_timeseries.jpg"><img style="max-height:800px" src="{{ site.baseurl }}/images/climate/static_timeseries.jpg"></a>
+</figure>
+
 The rest of this post walks through how I built the visualization, focusing on the tricky parts like plotting a radial path, adding the gradient, and animating the path using a tween function.  I started with a [Nadieh Bremer's example code](http://bl.ocks.org/nbremer/a43dbd5690ccd5ac4c6cc392415140e7) as a base, and went from there.  A full page version of the visualization is available [here](http://bl.ocks.org/psthomas/raw/269d0bd87f41135c95564cc032110c2b/), and the full code and data are available [here](https://gist.github.com/psthomas/269d0bd87f41135c95564cc032110c2b#file-index-html).    
 
 

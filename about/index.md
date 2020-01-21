@@ -43,7 +43,7 @@ A JavaScript module for rendering Jupyter Notebooks as HTML. [[source](https://g
 
 
 
-<h2>Site Search</h2>
+<h2>Search</h2>
 <div>
 Search <b>pstblog.com</b> on DuckDuckGo:
 <form onsubmit="return ss(this)" method="get">
