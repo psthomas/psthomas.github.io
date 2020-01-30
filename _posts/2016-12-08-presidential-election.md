@@ -23,7 +23,7 @@ Building a graphic that clearly communicates the election results is difficult b
 3. Show both the voter turnout and margins for each party.  Either can swing an election.
 4. Compare the outcomes with those of past elections so we can get an idea of what changed this time.  Ideally, compare with the average of the past few elections so you're not comparing against a single candidate or a single point in time.
 
-Below I attempt to accomplish most of those objectives using county level data from Wisconsin.  All the code for this post is available in a Jupyter Notebook [here](https://gist.github.com/psthomas/7fd45ee595e6c0617c01fffc5417ebc5), and the data is available in a zipped file [here](https://www.dropbox.com/s/6ubdl8mblq1lzpr/election_data.zip?dl=1).
+Below I attempt to accomplish most of those objectives using county level data from Wisconsin.  All the code for this post is available in a Jupyter Notebook [here](https://gist.github.com/psthomas/7fd45ee595e6c0617c01fffc5417ebc5), and the data is available in a zipped file [here](https://www.dropbox.com/s/6ubdl8mblq1lzpr/election_data.zip?dl=1). **Update:** I also have a new visualization [here](https://pstblog.com/2019/10/11/onevis) that does a good job of communicating the 2016 results at the national level.
 
 ## A Few Examples From Others
 
