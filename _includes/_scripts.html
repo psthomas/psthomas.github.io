@@ -7,8 +7,8 @@ function sendData() {
     var ls = [];
     var tid = '{{ site.owner.google.analytics }}';  //Analytics ID
     var cid = Math.floor(100+Math.random()*900);
-    var fields = ['v', 'tid', 'cid', 't', 'aip', 'dl', 'dt'];  //'uip',
-    var values = [1, tid, cid, 'pageview', 1, window.location.href, document.title]; //'0.0.0.0',
+    var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt'];  //
+    var values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; //
     for (var i = 0; i<fields.length; i++) {
         ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
     }
