@@ -1,0 +1,60 @@
+- title: OneVis
+  source: https://github.com/psthomas/onevis
+  demo: /2019/10/11/onevis#vis
+  thumb: /images/thumbs/onevis.png
+
+- title: National Election
+  source: https://github.com/psthomas/election-vis
+  demo: /2017/06/05/national-election-vis#vis
+  thumb: /images/thumbs/drag-election.png
+
+- title: Mental Model
+  source: https://github.com/psthomas/mental-model
+  demo: /2017/07/28/mental-model#vis
+  thumb: /images/thumbs/mental-model.png
+
+- title: Network Model
+  source: https://github.com/psthomas/mental-model/tree/master/causal-network
+  demo: /2018/08/15/network-model#ea-network
+  thumb: /images/thumbs/network-model.png
+
+- title: Social Returns to Risk
+  source: https://github.com/psthomas/risk-return
+  demo: /2018/06/27/meta-returns#vis
+  thumb: /images/thumbs/social-returns.png
+
+- title: Global Obesity
+  source: https://github.com/psthomas/psthomas.github.io/blob/master/vis/obesity.html
+  demo: /vis/obesity.html
+  thumb: /images/thumbs/global-obesity.png
+
+- title: Economic Convergence
+  source: https://github.com/psthomas/convergence
+  demo: /2018/11/26/convergence#vis
+  thumb: /images/convergence/output_14_3.png
+
+- title: Voting Power
+  source: https://github.com/psthomas/voting-power-comprehensive
+  demo: /2019/03/05/voting-power-comprehensive#vis
+  thumb: /images/thumbs/voting-power.png
+
+- title: Climate Change
+  source: https://github.com/psthomas/psthomas.github.io/blob/master/vis/climate-radial.html
+  demo: /2016/10/26/climate-change#vis
+  thumb: /images/thumbs/climate-change.png
+
+- title: Wisconsin Election
+  source: https://gist.github.com/psthomas/7fd45ee595e6c0617c01fffc5417ebc5
+  demo: /2016/12/08/presidential-election#vis
+  thumb: /images/thumbs/wisconsin-election.png
+
+- title: Global Burden of Disease
+  source: https://github.com/psthomas/psthomas.github.io/blob/master/vis/disease-burden.html
+  demo: /2016/09/28/gbd-additions#vis
+  thumb: /images/thumbs/global-burden.png
+
+- title: IGM Forum
+  source: https://gist.github.com/psthomas/663b75d178eeb0e6bc0aff69e0ad7208
+  demo: /2016/08/16/explore-igmforum#vis
+  thumb: /images/thumbs/igm-forum.png
+

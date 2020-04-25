@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Global Disease Burden</title>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<style type="text/css">
+svg {
+  font: 10px sans-serif;
+  shape-rendering: crispEdges;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+}
+
+path.domain {
+  stroke: none;
+}
+
+.y .tick line {
+  stroke: #ddd;
+}
+div.tooltip {   
+  position: absolute;           
+  text-align: left;           
+  width: 200px;                  
+  height: 40px;                 
+  padding: 6px;              
+  font: 12px sans-serif;        
+  background: #EEEEEE; 
+  border: 2px solid #b8b8b8; /*#FC9272;*/      
+  border-radius: 5px;          
+  pointer-events: none;         
+}
+</style>
+</head>
+
+<body>
+
+<div id="chart"></div> 
+
+<script type="text/javascript">
+  // Original stacked graph source: https://gist.github.com/mstanaland/6100713
+
+  // Setup svg using Bostock's margin convention
+  var margin = {top: 20, right: 210, bottom: 35, left: 25};  //left: 60  
+  var width = 850 - margin.left - margin.right,  //1100
+      height = 450 - margin.top - margin.bottom;  //500
+  var svg = d3.select("#chart")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+   var conditions = ['Forces of nature, war, and legal intervention', 'Self-harm and interpersonal violence','Unintentional injuries','Transport injuries', 'Other non-communicable diseases', 'Musculoskeletal disorders','Diabetes, urogenital, blood, and endocrine diseases', 'Mental and substance use disorders',  'Neurological disorders', 'Digestive diseases', 'Cirrhosis', 'Chronic respiratory diseases', 'Cardiovascular diseases', 'Neoplasms', 'Other communicable, maternal, neonatal, and nutritional diseases', 'Nutritional deficiencies', 'Neonatal disorders', 'Maternal disorders', 'Neglected tropical diseases and malaria', 'Diarrhea, lower respiratory, and other common infectious diseases','HIV/AIDS and tuberculosis'];
+  
+  var colors = ["#006D2C", "#31A354","#74C476", "#BAE4B3", "#54278F", "#756BB1","#9E9AC8", "#BCBDDC", "#DADAEB", "#08519C", "#3182BD",
+                "#6BAED6", "#9ECAE1", "#C6DBEF", "#99000D", "#CB181D", "#EF3B2C", "#FB6A4A", "#FC9272", "#FCBBA1", "#FEE0D2"];
+
+
+  var parse = d3.time.format("%Y").parse;
+
+  // Load data from CSV, Parse & Build Plot in callback
+  d3.csv( "gbd_data.csv", function(d) {    //http://pstblog.com/data/gbd_data.csv" "{{ site.baseurl }}/data/gbd_data.csv" {{site.data.gbd_data}} "https://dl.dropboxusercontent.com/u/44331453/gbd_data.csv"
+
+    data_csv = d;
+
+    data = parse_data(data_csv);  
+
+    // Transpose the data into layers, add conditions to each for tooltip
+    var dataset = d3.layout.stack()(conditions.map(function(dalys,i) {
+      return data.map(function(d) {
+        return {c:conditions[i], x: parse(d.year), y: +d[dalys] };
+      });
+    }));
+
+    //Tooltip using divs:
+    //src: http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
+    var div = d3.select("body").append("div")   
+        .attr("class", "tooltip")               
+        .style("opacity", 0);
+
+    // Set x, y and colors
+    var x = d3.scale.ordinal()
+      .domain(dataset[0].map(function(d) { return d.x; }))
+      .rangeRoundBands([10, width-10], 0.02);
+    var y = d3.scale.linear()
+      .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+      .range([height, 0]);
+
+    // Define and draw axes
+    var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .ticks(5)
+      .tickSize(-width, 0, 0)
+      .tickFormat( function(d) { return d/1000000000 + "B"} );
+    var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom")
+      .tickFormat(d3.time.format("%Y"));
+    svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+    // Create groups for each series, rects for each segment 
+    var groups = svg.selectAll("g.cost")
+      .data(dataset)
+      .enter().append("g")
+      .attr("class", "cost")
+      .style("fill", function(d, i) { return colors[i]; });
+    var rect = groups.selectAll("rect")
+      .data(function(d) { return d; })
+      .enter()
+      .append("rect")
+      .attr("x", function(d) { return x(d.x); })
+      .attr("y", function(d) { return y(d.y0 + d.y); })
+      .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+      .attr("width", x.rangeBand())
+      .on("mouseover", function(d) {
+        //http://stackoverflow.com/questions/21153074/d3-positioning-tooltip-on-svg-element-not-working
+        var xPosition = d3.event.pageX
+        var yPosition = d3.event.pageY
+        // var xPosition = d3.mouse(this)[0];
+        // var yPosition = d3.mouse(this)[1];      
+        div.transition()        
+            .duration(10)      
+            .style("opacity", 1.0);      
+        div .html(d.c + ":" +"</br>"+ Math.round(d3.round(d.y, -2)) + " (DALYs)")   //Math.round(d3.round(d.y, -6))
+            .style("left", (xPosition - 100) + "px")   //xPosition
+            .style("top", (yPosition - 65) + "px") //20
+            //.style("border-color", colors[colors.length-1-i] )   
+      })
+      .on("mousemove", function(d) {
+        var xPosition = d3.event.pageX
+        var yPosition = d3.event.pageY
+        // var xPosition = d3.mouse(this)[0];
+        // var yPosition = d3.mouse(this)[1]; 
+        div.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+        div .html(d.c + ":" +"</br>"+ Math.round(d3.round(d.y, -2)) + " (DALYs)") //Math.round(d3.round(d.y, -6))
+            .style("left", (xPosition - 100) + "px")  //35
+            .style("top", (yPosition - 65) + "px")
+            //.style("border-color", colors[colors.length-1-i] ) possible to set colors based on mouseover box?
+            .attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+      })                  
+      .on("mouseout", function(d) {       
+            div.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+      });
+
+
+    //Axes labels
+    svg.append("text")
+      .attr("class", "x label")
+      .attr("text-anchor", "end")
+      .attr("x", width - 10)
+      .attr("y", height + 15)
+      .text("Year");
+
+    svg.append("text")
+      .attr("class", "y label")
+      .attr("text-anchor", "end")
+      .attr("y", 1)
+      .attr("x", -20)
+      .attr("dy", ".75em")
+      .attr("transform", "rotate(-90)")
+      .text("DALYs");
+
+    //Draw legend
+    var legend = svg.selectAll(".legend")
+      .data(colors)
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });  //19 expands it
+     
+    legend.append("rect")
+      .attr("x", width - 25)  // 18 originally
+      .attr("width", 13)  //18 originally
+      .attr("height", 18)
+      .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+     
+    legend.append("text")
+      .attr("x", width - 5) // 5 moves text left
+      .attr("y", 9)
+      .attr("dy", ".35em")  // .35em
+      .style("text-anchor", "start")
+      .text(function(d,i) {
+        return conditions[conditions.length - 1 - i].split(",")[0]; //shorten text
+      });
+
+    // Wrapping legend text works, but not legible
+    // Shortened instead ^^ 
+    // legend.selectAll("text")
+    //       .call(wrap, x.rangeBand());
+
+  //End callback
+  });
+
+  //Helper function to parse data
+  function parse_data(data_csv) {    
+    var parsed = [{"year":"1990"},{"year":"1995"},{"year":"2000"},{"year":"2005"},{"year":"2010"},{"year":"2013"}];
+    for (i = 0; i < data_csv.length; i++) {
+      var current_year = data_csv[i].Year;
+      var cause = data_csv[i]["Cause of death or injury"];
+      var value = data_csv[i].Value;
+      for (b = 0; b < parsed.length; b++){
+        if (parsed[b]["year"] === current_year) { 
+          parsed[b][cause] = value;
+        };
+      };
+    };
+  return parsed
+  };
+  
+
+
+  // Modified text wrap function
+  // source: http://bl.ocks.org/mbostock/7555321  
+  function wrap(text, width) {
+    text.each(function() {
+      var text = d3.select(this),
+          words = text.text().split(/\s+/).reverse(),
+          word,
+          line = [],
+          lineNumber = 0,
+          lineHeight = 1.1, // ems
+          y = text.attr("y"),
+          x = text.attr("x"),  //modified to take initial x pos
+          dy = parseFloat(text.attr("dy")),
+          tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em"); //attr("x", 0) >> x to take x pos
+      while (word = words.pop()) {
+        line.push(word);
+        tspan.text(line.join(" "));
+        if (tspan.node().getComputedTextLength() > width) {
+          line.pop();
+          tspan.text(line.join(" "));
+          line = [word];
+          tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word); //.attr("x", 0)
+        }
+      }
+    });
+
+  }
+</script>
+</script>
+</body>
+</html>

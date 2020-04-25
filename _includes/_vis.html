@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="grid">
+    {% for vis in site.data.vis %}
+      {% if vis.demo contains 'http' %}
+        {% capture demo %}{{ vis.demo }}{% endcapture %}
+      {% else %}
+        {% capture demo %}{{ site.baseurl }}{{ vis.demo }}{% endcapture %}
+      {% endif %}
+      <div class="cell">
+        <a href="{{demo}}" target="_blank">
+          <img src="{{ site.baseurl }}{{vis.thumb}}" class="responsive-image" />
+        </a>
+        <div class="cell-text"> <b>{{vis.title}}</b> <br/> (<a href="{{demo}}" target="_blank">demo</a>, <a href="{{vis.source}}" target="_blank">source</a>)</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -7,21 +7,6 @@
   
 {% include _simplenav.html %}
 
-{% if page.image.feature %}
-  <div class="image-wrap">
-  <img src=
-    {% if page.image.feature contains 'http' %}
-      "{{ page.image.feature }}"
-    {% else %}
-      "{{ site.url }}/images/{{ page.image.feature }}"
-    {% endif %}
-  alt="{{ page.title }} feature image">
-  {% if page.image.credit %}
-    <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-  {% endif %}
-  </div><!-- /.image-wrap -->
-{% endif %}
-
 <div id="main" role="main">
   
   <!--<div class="article-author-side">-->
@@ -36,7 +21,7 @@
 
     <p style="margin: 1.9rem 0 2rem 0;">Hello, I'm Philip Thomas. 
     This is my portfolio site and blog where I write about subjects ranging from economics and public health to my most recent programming projects. 
-    Feel free to explore the site and comment! &mdash; <a href="{{site.url}}/about/">about</a>, <a href="{{site.url}}/blog/">blog</a></p>
+    Feel free to explore the site and comment! &mdash;<a href="{{site.url}}/about/">about</a>, <a href="{{site.url}}/blog/">blog</a></p>
     
     {% capture written_year %}'None'{% endcapture %}
     {% for post in site.posts %}  

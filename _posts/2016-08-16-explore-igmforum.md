@@ -11,9 +11,11 @@ share: false
 
 This post explores some of the the data I collected from the [IGM Experts Forum](http://www.igmchicago.org/igm-economic-experts-panel), which surveys a group of leading economists on a variety of policy questions.  A CSV of all the data is available [here](https://www.dropbox.com/s/ouuqg7occ6o37ao/output_all.csv?dl=1), as are separate datasets of the [questions](https://www.dropbox.com/s/n407kk704fvdvno/igm_questions.csv?dl=1) and [responses](https://www.dropbox.com/s/lg3y056owry3inh/igm_responses.csv?dl=1).  An IPython notebook with all of the code from this analysis is available [here](https://gist.github.com/psthomas/663b75d178eeb0e6bc0aff69e0ad7208).        
 
-I'm especially interested in how confidence changes with the scale of a claim, so I use a few different techniques to look at that relationship.  First, I look at confidence by vote type and find that economists seem to be more confident when they `strongly agree` or `strongly disagree`.  Second, I find that confidence actually increases the further a view is from the median, although this is relationship is mainly driven by `25` votes out of a `7024` vote sample.      
+I'm especially interested in how confidence changes with the scale of a claim, so I use a few different techniques to look at that relationship.  First, I look at confidence by vote type and find that economists seem to be more confident when they `strongly agree` or `strongly disagree`.  Second, I find that confidence actually increases the further a view is from the median, although this is relationship is mainly driven by `25` votes out of a `7024` vote sample.
 
-![png]({{ site.baseurl }}/images/igmimages/output_6_1.png)
+<figure id="vis" style="text-align:center">
+    <a href="{{ site.baseurl }}/images/igmimages/output_6_1.png"><img style="max-height:800px" src="{{ site.baseurl }}/images/igmimages/output_6_1.png"></a>
+</figure>     
 
 An earlier paper [[1, PDF]](http://econweb.ucsd.edu/~gdahl/papers/views-among-economists.pdf) by Gordon and Dahl found that male economists and economists that were educated at the University of Chicago and MIT seemed to be more confident.  I find less evidence of this in the newer data, although I lack the knowledge of statistics to say whether any of these differences are significant.   
 

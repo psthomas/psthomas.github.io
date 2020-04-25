@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>IHME Obesity Viz</title>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<style type="text/css">
+.bar {
+  fill: #FE6666; /*#FE4343;   */
+}
+.bar2 {
+  fill: #FE4343;   
+}
+.bar:hover  {
+    fill: #FE5050; 
+}
+.bar2:hover  {
+    fill: #FE5050; 
+}
+.axis {
+  font: 12px sans-serif;   
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #aaa; 
+  shape-rendering: crispEdges;
+}
+.axis text {
+  fill: #858585;
+}
+.key {
+  font: 14px sans-serif;
+  fill: #fcfcfa;   
+}
+.title {
+  font: 500 180px "Helvetica Neue";  
+  fill: #e5e5e5;
+}
+.incr {
+  font: 500 40px sans-serif;  /* "Helvetica Neue"; 55px + - */
+  fill: #e5e5e5; 
+  cursor: pointer;
+}
+.incr:hover {
+  fill: #ccc;
+}
+svg {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+body {
+  background: #fcfcfa;
+  color: #888;  /*#aaa;*/
+  font-family: "PT Serif", serif;  
+  margin: 1em auto 4em auto;
+  position: relative;
+  width: 960px;
+}
+body > p, li > p {
+  line-height: 1.5em;
+}
+body > p {
+  width: 960px;
+}
+</style>
+</head>
+<body>
+ 
+<script>
+var margin = {top: 20, right: 20, bottom: 30, left: 50},  
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .05); 
+var y = d3.scale.linear()
+    .range([height, 0]);
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10, "%");
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+d3.csv("Global_MF_Overweight_Obese.csv", function(error, data) {
+  if (error) throw error;
+  var parsed_data = {};
+  //Append both means, then write obese over overweight, giving a stacked effect, because overweight is inclusive of obese
+  data.forEach(function(object) {
+    if (parsed_data[object.year]) {
+      parsed_data[object.year].push([object.age_group, +object.overweight_mean, +object.obese_mean ]);  
+    }else {
+      parsed_data[object.year] = [[object.age_group, +object.overweight_mean, +object.obese_mean ]]; 
+    }
+  });
+  var years = Object.keys(parsed_data).map(Number).sort();
+  var current_year = years[0];
+  var current_data = parsed_data[current_year];
+  var title = svg.append("text")
+    .attr("class", "title")
+    .attr("dy", ".71em")  
+    .attr("dx", ".33em")  
+    .text(current_year);
+  // problem with unicode rendering on mobile, use standard chars 
+  // http://stackoverflow.com/questions/11982136/unicode-symbols-not-displaying-correctly-in-mobile-devices;
+  // Issue is with using .text() vs .html():
+  // .text("+") seems to work in mobile browser, but .html() is needed to convert &#9660
+  // instead try .text() with javascript string literal encoding.  
+  // http://stackoverflow.com/questions/31803514/d3-js-text-element-does-not-display-unicode-character-correctly 
+  // using e.g. .text("\u25b2") works on mobile
+  var incr = svg.append("text")
+    .attr("class", "incr")
+    .attr("dy", "2em")   //2 em w/ triangle
+    .attr("dx", ".5em")  //.5em w/ triange
+    .text("\u25b2")  // up arrow: &uarr; up triangle: &#9650; .html("+")  unicode triangle: U+25B2
+    .on("click", function() {
+      change_data("increase");
+    });
+  var decr = svg.append("text")
+    .attr("class", "incr")
+    .attr("dy", "3em")  //3em w/ triangle
+    .attr("dx", ".5em") //.5em w/ triangle
+    .text("\u25bc")  // down arrow: &darr;  down triangle: &#9660;  html("-")
+    .on("click", function() {
+      change_data("decrease")
+    });
+  //Max y is just overweight mean max
+  //Use all data to set ydomain, rather than using current.  Static axis
+  x.domain(current_data.map(function(d) { return d[0].split(' ').slice(0,3).join(' '); }));
+  y.domain([0, d3.max(data, function(d) { return +d.overweight_mean; })]); 
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "-3.75em")  
+      .style("text-anchor", "end")
+      .text("Overweight, Obese (Global)");
+  var overweightBar = svg.selectAll(".bar")
+      .data(current_data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d[0].split(' ').slice(0,3).join(' ')); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) {return y(+d[1]); })
+      .attr("height", function(d) {return height - y(d[1]); });
+  var obeseBar = svg.selectAll(".bar2")
+      .data(current_data)
+    .enter().append("rect")
+      .attr("class", "bar2")
+      .attr("x", function(d) { return x(d[0].split(' ').slice(0,3).join(' ')); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) {return y(+d[2]); })
+      .attr("height", function(d) {return height - y(d[2]); });
+  svg.append("g")
+    .attr("class", "key")
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("dy", width-15) 
+      .attr("dx", 50 - height ) 
+      .style("text-anchor", "end")
+      .text("Obese");
+  svg.append("g")
+    .attr("class", "key")
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("dy", width-15) 
+      .attr("dx", 220 - height ) 
+      .style("text-anchor", "end")
+      .text("Overweight");
+  function change_data(arg) {
+    if (arg === "increase") {
+      current_year++;
+      if (years.indexOf(current_year) === -1 ) {
+        current_year = years[0];
+      }
+    }else if(arg === "decrease") {
+      current_year--;
+      if (years.indexOf(current_year) === -1 ) {
+        current_year = years[years.length-1];
+      }
+    }
+    //Update year text
+    title.text(current_year)
+    //Select new data
+    new_data = parsed_data[current_year]; 
+    
+    overweightBar.data(new_data)
+       .transition()
+       .duration(500) // 500
+       .attr("x", function(d) { return x(d[0].split(' ').slice(0,3).join(' ')); })
+       .attr("width", x.rangeBand())
+       .attr("y", function(d) { return y(+d[1]); })
+       .attr("height", function(d) {return height - y(d[1]); });
+    obeseBar.data(new_data)
+       .transition()
+       .duration(500) // 500
+       .attr("x", function(d) { return x(d[0].split(' ').slice(0,3).join(' ')); })
+       .attr("width", x.rangeBand())
+       .attr("y", function(d) { return y(+d[2]); })
+       .attr("height", function(d) {return height - y(d[2]); });
+  }
+});
+</script>
+
+
+<h1> Global Prevalence of Overweight or Obese Individuals  </h1>
+
+<p> This visualization shows the percentage of each age group that is either overweight or obese on a global basis. Click the arrows to scroll through the years 1990 to 2013, and see how the percentage increases over time.  This example is built with D3.js, and the source code is available <a href = "https://github.com/psthomas/transition-d3js">here</a>.  </p>
+
+<p> The data is from the University of Washington <i>Institute for Health Metrics and Evaluation</i> Global Burden of Disease Study [1].  The associated Lancet paper [2] and related press releases are available on their <a href = "http://ghdx.healthdata.org/record/global-burden-disease-study-2013-gbd-2013-obesity-prevalence-1990-2013">website</a>.   </p>
+
+
+<p><small> [1] <i>Global Burden of Disease Study 2013.</i> Global Burden of Disease Study 2013 (GBD 2013) Obesity Prevalence 1990-2013. Seattle, United States: Institute for Health Metrics and Evaluation (IHME), 2014. </small></p>
+<p><small> [2] <i>Global, regional, and national prevalence of overweight and obesity in children and adults during 1980–2013: a systematic analysis for the Global Burden of Disease Study 2013.</i> The Lancet. <a href="http://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)60460-8/abstract">Volume 384, No. 9945, p766–781, 30</a>, August 2014. </small></p>
+
+<p><small>Built by: <a href="http://pstblog.com">Philip Thomas</a>
+
+</body>
+  

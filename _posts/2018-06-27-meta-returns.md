@@ -528,7 +528,7 @@ Finally, I use a modified version of an algorithm [described on Quantopian](http
 Note that the plot below is interactive with tooltips and scroll-to-zoom enabled.  
 
 <iframe id="vis" src="{{ site.baseurl }}/vis/meta-returns.html"
-    style="width: 100%; height:500px; border: none; position: relative; scrolling:no;">
+    style="width: 100%; height:550px; border: none; position: relative; scrolling:no;">
 </iframe>
 
 ## Conclusion

@@ -29,7 +29,8 @@ All the code and data are available at a GitHub repo [here](https://github.com/p
 </div>
 </div>
 
-<script src="https://d3js.org/d3.v4.js"></script> <script> d3.request("https://raw.githubusercontent.com/psthomas/election-vis/master/scatter.html").get(function(a) { document.getElementById("vis").srcdoc = a.response; }); </script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script> d3.request("https://raw.githubusercontent.com/psthomas/election-vis/master/scatter.html").get(function(a) { document.getElementById("vis").srcdoc = a.response; }); </script>
 
 ## A Few Notes
 

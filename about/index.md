@@ -8,44 +8,40 @@ prof_img: true
 
 ---
 
-<!--style="display:block; float:right"-->
 <div class="article-author-about">
-<img src="https://pstblog.com/images/author.jpg" class="bio-photo"  alt="{{ author.name }} bio photo">
+<img src="{{site.baseurl}}/images/author.jpg" class="bio-photo"  alt="{{ author.name }} bio photo">
 <div>
 <strong>Philip Thomas</strong><br>
-<a href="{{site.baseurl}}/images/email.png" title="Email">Email</a>, 
-<a href="https://www.linkedin.com/in/philip-thomas-2805b97a" title="Linkedin"> LinkedIn</a>,
+<!--href=" site.baseurl /images/email.png"-->
+<a style="cursor:pointer;" onclick="alert(['ptho','mas','.v3','@','gm','ail','.co','m'].join(''));" title="Email">Email</a>,
 <a href="http://github.com/psthomas" title="GitHub"> GitHub</a>, 
 <a href="https://pstblog.com/feed.xml" title="RSS"> RSS</a>
 </div>
-</div>  <!--/.article-author-about-->
+</div>
 
 <!-- I have an academic background in biology and environmental engineering.  Recently, I have been learning some Python and JavaScript, focusing mainly on web development.  I enjoy working with these two languages, which seem capable of building just about anything.  -->
 
-I have an academic background in environmental engineering and biology.  I picked up some Python and JavaScript along the way and currently work as a freelance programmer and data analyst.  I enjoy working with these two languages, which seem capable of building just about anything.
+I have an academic background in [biological systems engineering](https://bse.wisc.edu/) and biology. I picked up some Python and JavaScript along the way and currently work as a freelance programmer and data analyst. I enjoy working with these two languages, which seem capable of building just about anything.
 
-My other interests include economics, public health and life sciences research.  I'll write about some of these topics when I know enough to be competent, otherwise I'll stick to summarizing the views of others.  
+My other interests include economics, public health and life sciences research. I'll write about some of these topics when I know enough to be competent, otherwise I'll stick to summarizing the views of others.  
 
 ## Projects 
 
-I'm mostly familiar with Python and Flask for web development along with JavaScript on the frontend.  I also enjoy asking questions and trying to answer them with data, using tools like Jupyter Notebooks, Pandas, and D3.js.
+I'm mostly familiar with Python and Flask for web development along with JavaScript on the frontend. I also enjoy asking questions and trying to answer them with data, using tools like Jupyter Notebooks, Pandas, and D3.js.
 
 **Tabula**  
-A simple, stateless password manager built with JavaScript. [[source](https://github.com/psthomas/tabula), [demo](https://pstblog.com/projects/tabula.html)]  
-**Jupyter Notebooks**  
-There are a number of notebooks outlining my data projects here: [[source](https://nbviewer.jupyter.org/gist/psthomas)]  
-**Visualizations**  
-Some of the interactive visualizations I've build with D3.js: [[demo](https://bl.ocks.org/psthomas)]  
-**React Todo**  
-A simple todo app written with React, Node, Express and Ajax. [[source](https://github.com/psthomas/react-todo), [demo](http://psthomas.github.io/react-todo/)]   
+A simple, stateless password manager built with JavaScript. [[source](https://github.com/psthomas/tabula), [demo]({{site.baseurl}}/2018/01/30/password-manager#tabula)]  
 **notebook-html**  
-A JavaScript module for rendering Jupyter Notebooks as HTML. [[source](https://github.com/psthomas/notebook-html), [demo](https://psthomas.github.io/notebook-html/)]
-
+A JavaScript module for rendering Jupyter Notebooks as HTML. [[source](https://github.com/psthomas/notebook-html), [demo](https://psthomas.github.io/notebook-html/)]  
+**Jupyter Notebooks**  
+There are a number of notebooks outlining my data projects here: [[source](https://github.com/psthomas?tab=repositories&q=&type=source&language=jupyter+notebook)]  
+**Visualizations**  
+Some of the interactive visualizations I've built using tools like D3.js and Altair: [[demo]({{site.baseurl}}/vis/)]     
 
 
 <h2>Search</h2>
 <div>
-Search <b>pstblog.com</b> on DuckDuckGo:
+Search pstblog.com on DuckDuckGo:
 <form onsubmit="return ss(this)" method="get">
     <input type="text" size="40" id="goog-wm-qt" name="q" placeholder="Search Terms"> <!--style="width:350px"-->
     <input type="submit" class="btn" value="Search">
@@ -61,40 +57,5 @@ function ss(form) {
 }
 </script> 
 
-
-<!--## Web Projects-->
-
-<!--I'm mostly familiar with Python and Flask for web development along with tools like Postgres and SQLAlchemy.  I'm also comfortable with JavaScript, and have used tools like React and D3.js for visualizing data.   -->
-
-<!-- **TeXTmail**:   -->
-<!--A Flask web application for checking your email via text message. [[source](https://github.com/psthomas/textmail)]  -->
-<!--**web-graph**:   -->
-<!--A Flask application that scrapes websites, indexes them, and creates a graph visualization of the linking structure. [[source](https://github.com/psthomas/web-graph), [demo](http://web-graph.appspot.com/)]  -->
-  
-
-<!--## Data Projects-->
-
-<!--I enjoy asking questions and trying to answer them with data.  My tools of choice are Python, Jupyter Notebooks, Pandas, Matplotlib, D3.js, Requests and Beautiful Soup.  Most of these projects would be considered "data analysis" rather than "data science".-->
-
-<!--**Jupyter Notebooks**:  -->
-<!--I have a number of notebooks on Jupyter NBViewer outlining most of the work I've done: [[source](https://nbviewer.jupyter.org/gist/psthomas)]  -->
-<!--**Blog Posts**:  -->
-<!--I have summaries of most of the above notebooks on my [blog]({{site.baseurl}}/blog).  -->
-<!--**Visualizations**:  -->
-<!--I'm a fan of using D3.js to create interactive visualizations.  A few of them are here: [[demo](https://bl.ocks.org/psthomas)]  -->
-
-<!--
-## Technologies
-
-
-|               | **Python**        |    **JavaScript** | **Other** |
-| ----- | ------------- | ------------- | ------------- |
-| **Basic** | [Scraping](https://github.com/psthomas/web-graph), [Pandas, NumPy](https://github.com/psthomas/efficient-frontier), Conda  | [Node, Express, React](https://github.com/psthomas/react-todo), jQuery | Postgres, [SQLAlchemy](https://github.com/psthomas/crud-restaurant), SQLite, bash, Bootstrap CSS, AWS |
-| **Intermediate**| [Flask](https://github.com/psthomas/crud-restaurant)  | [D3](https://github.com/psthomas/stackedchart-d3js)   | [Git](https://github.com/psthomas), [Google App Engine](https://github.com/psthomas/textmail) |
-| **Advanced**  |   |               |  |  
--->
-
-<!--# Contact -->
-<!--[GitHub](https://github.com/psthomas), [Linkedin](https://www.linkedin.com/in/philip-thomas-2805b97a), [Facebook](https://www.facebook.com/phil.thomas.5264)-->
 
 

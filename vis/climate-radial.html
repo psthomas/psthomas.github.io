@@ -115,14 +115,16 @@ svg {
 }
 
 </style>
+
+<!-- D3.js https-->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script> -->
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<!-- Google Font http-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
-
-<!-- D3.js https-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-<!-- Google Font http-->
-<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
 
 <div id="weatherRadial"></div>
 
@@ -168,8 +170,7 @@ var parseDate = d3.time.format("%Y-%m-%d").parse;
 
 
 //Loads data, everything below is within callback: 
-//d3.text("https://pstblog.com/rawdata/HadCRUT.4.5.0.0.monthly_ns_avg.tsv", function(text) {
-d3.text("https://pstblog.com/rawdata/HadCRUT.4.5.0.0.monthly_ns_avg.tsv", function(text) {
+d3.text("HadCRUT_monthly_ns_avg.tsv", function(text) {
 
 var years = [];
 

@@ -27,7 +27,7 @@ So the slope goes from being roughly flat in 1970 to negative in 2010. All the c
 
 One question I had when looking at the original graphic is how the great recession influenced these results.  If the advanced economies were acting abnormally over the end period used for the calculations, it might lead us to the wrong conclusion about convergence.  So I decided to re-create [their code](https://www.dropbox.com/sh/eu5sob3hs56oymg/AAALaoQOCPt--3u1fQaHMihua?dl=0) in Python and make the original beta plot:
 
-<figure style="text-align:center">
+<figure id="vis" style="text-align:center">
 	<a href="{{ site.baseurl }}/images/convergence/output_14_3.png"><img src="{{ site.baseurl }}/images/convergence/output_14_3.png"></a>
 </figure>
 

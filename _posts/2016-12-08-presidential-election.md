@@ -9,7 +9,7 @@ share: false
 
 ---
 
-<figure>
+<figure id="vis">
 	<a href="{{ site.baseurl }}/images/votingwi/output_12_0.png"><img src="{{ site.baseurl }}/images/votingwi/output_12_0.png"></a>
 </figure>
 

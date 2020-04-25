@@ -15,7 +15,7 @@ share: false
 The original was created in MATLAB, and distributed as a GIF, with a new image overlaid for each year.  I thought it would be interesting to re-create this visualization using [d3.js](https://d3js.org/), which is a JavaScript data visualization library.  Using d3.js allows you to build a visualization that loads faster, and is more interactive and customizable than a GIF.  Try it out by clicking the play button below:
 
 
-<iframe src="{{site.url}}/vis/climate-radial.html" 
+<iframe id="vis" src="{{site.url}}/vis/climate-radial.html" 
     style="width: 625px; height: 760px; display:block; margin: 25px auto; border: none"></iframe>
 
 
