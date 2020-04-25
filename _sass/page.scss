@@ -416,26 +416,7 @@ th {background-color: #f2f2f2;}
 	}
 }
 
-
-/* Visualizations grid css */
-/* https://stackoverflow.com/questions/37502266 */
-/*.grid {
-  display: flex;                       // establish flex container 
-  flex-wrap: wrap;                     // enable flex items to wrap 
-  justify-content: space-around;
-  
-}
-.cell {
-  flex: 0 0 32%;                       // don't grow, don't shrink, width
-  height: 50px;
-  margin-bottom: 5px;
-  background-color: #999;
-}
-.cell:nth-child(3n) {
-  background-color: #F00;
-}*/
-
-
+/* Visualization Grid */
 /* https://www.taniarascia.com/how-to-build-a-responsive-image-gallery-with-flexbox/*/
 .container {
   margin: 0 auto;
@@ -466,33 +447,10 @@ th {background-color: #f2f2f2;}
   margin: auto;
 }
 
-
-
-
-/*//https://stackoverflow.com/questions/17123327
-.cell p {
-  align-self: flex-end;
-}*/
-
-.grid p {
-	align-self: flex-end;
-}
-
 .cell-text {
   //margin-top: auto;
   margin-top: 0.5rem;
 }
-
-/*.bottom-text {
-    position: absolute;  
-    left: 50%;
-    top: 100%;                   
-}*/
-/*.bottom { 
-	position: absolute;                  
-	bottom: 0;                          
-	right: 0;                          
-} */
 
 @media screen and (min-width: 600px) {
   .grid {
@@ -508,42 +466,11 @@ th {background-color: #f2f2f2;}
     text-align: center;
   }
 }
-
 /*@media screen and (min-width: 1000px) {
   .cell {
     width: calc(33.3333% - 2.1rem);  //-2rem
   }
 }*/
-
-/*https://stackoverflow.com/questions/5198392/css-float-floating-an-image-to-the-left-of-the-text*/
-/*.vis-container {
-    //margin: 20px 20px 0 0;  
-    //border: 5px solid #333;
-    overflow: auto
-}
-.vis-thumb {
-    float: left;
-    width: 20%;
-    max-width:200px;
-    min-width:140px;
-    padding-right: 15px;
-}
-.vis-thumb img {
-    display: block
-}
-.vis-content {
-    //margin-left: 210px;
-    //margin-left: 22%
-    h3 {
-    	margin: 3px 0 0 10px;
-    }
-}*/
-
-/*.vis-title {
-    font-weight: bold;
-    font-size: 200%
-}*/
-
 
 /* TOC trigger for collapsing */
 #drawer {
