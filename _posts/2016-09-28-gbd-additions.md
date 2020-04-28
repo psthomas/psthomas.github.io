@@ -2,22 +2,22 @@
 layout: post
 title: "Potential Additions to the Global Burden of Disease Study"
 excerpt: "I look at the potential impact of including pandemic disease and a longer life expectancy into the GBD estimates."
-#modified: 2016-02-22
+modified: 2020-04-28
 tags: [IHME, GBD, Global Burden of Disease, DALY, Python, Pandas]
 comments: true
 share: false
 
 ---
 
-The Global Burden of Disease (GBD) study is a comprehensive look at the magnitude and causes of lost life years globally.  This [project began](http://www.who.int/healthinfo/global_burden_disease/about/en/) as a World Health Organization (WHO) initiative in 1990, and went through a major update in 2010.  The [Institute for Health Metrics and Evaluation](http://www.healthdata.org/gbd) (IHME) played a leading role in the most recent update, organizing over 1600 GBD collaborators from 16 countries.  
+The Global Burden of Disease (GBD) study provides a comprehensive summary of global disease burdens every year by estimating the years of life lost to each disease. This [project began](http://www.who.int/healthinfo/global_burden_disease/about/en/) as a World Health Organization (WHO) initiative in 1990, and went through a major update in 2010. The [Institute for Health Metrics and Evaluation](http://www.healthdata.org/gbd) (IHME) played a leading role in the most recent update, organizing over 1600 GBD collaborators from 16 countries.  
 
-One interesting tool that they built is the [GBD Compare](http://www.healthdata.org/data-visualization/gbd-compare) visualization for viewing and interacting with the data.  This tool is especially helpful for comparing the scale of different public health problems, and how they relate to one another.  For example, here is a re-creation of one of their [visualizations](http://ihmeuw.org/3wfa) using D3.js, showing the total Disability Adjusted Life Years (DALY) burden by year for the world population:
+One interesting tool that they built is the [GBD Compare](http://www.healthdata.org/data-visualization/gbd-compare) visualization for viewing and interacting with the data. This tool is especially helpful for comparing the scale of different public health problems, and how they relate to one another. For example, here is a re-creation of one of their [visualizations](http://ihmeuw.org/3wfa) using D3.js, showing the total Disability Adjusted Life Years (DALY) burden by year for the world population:
 
 <iframe id="vis" src="{{site.baseurl}}/vis/disease-burden.html" style="width: 100%; height:520px; border: none; scrolling:no;"></iframe>
 
 The rest of this post looks at a few other disease burdens that it might make sense to add to the GBD analysis.
 
-**First**, I think they should add the annualized burden of potential pandemic disease to the study.  **Second**, it might make sense to increase the reference life expectancy so that years of life lost due to future increases in the life expectancy are incorporated into the estimates.  I provide the computations and graphics to visualize the scale of each one of these new burdens below.  All of the code for this post is available in an IPython notebook [here](https://gist.github.com/psthomas/fbda754b145dbdcf3c7c266228db51af).
+First, I think they should add the annualized burden of pandemic diseases to the study. Second, it might make sense to increase the reference life expectancy so that years of life lost due to future increases in the life expectancy are incorporated into the estimates. I provide the computations and graphics to visualize the scale of each one of these new burdens below. All of the code for this post is available in a Jupyter notebook [here](https://gist.github.com/psthomas/fbda754b145dbdcf3c7c266228db51af).
 
 
 ## Importing the Data
@@ -76,12 +76,11 @@ stacked_plot(gbd_df, 0.85, 3.0e9, colors)
 {% endhighlight %}
 
 
-![png]({{ site.baseurl }}/images/gbd_images/output_5_0.png)
+![png]({{site.baseurl}}/images/gbd_images/output_5_0.png)
 
 ## How would including pandemic disease risk change the picture?
 
-
-I recently read a paper called *The Neglected Dimension of Global Security: A Framework to Counter Infectious Disease Crises* [1], which looked at the risk of a global pandemic disease and called for a number of policy changes to increase our preparedness.  It's pretty surprising how little emphasis we put on pandemic disease risk, given the potential health and economic costs.  So I was interested in adding an annualized `DALY (YLL only)` burden to the plot to get a feel for the relative scale of the problem.  
+I recently read a paper called *The Neglected Dimension of Global Security: A Framework to Counter Infectious Disease Crises* [1], which looked at the risk of a global pandemic disease and called for a number of policy changes to increase our preparedness. It's pretty surprising how little emphasis we put on pandemic disease risk, given the potential health and economic costs. So I was interested in adding an annualized `DALY (YLL only)` burden to the plot to get a feel for the relative scale of the problem.  
 
 First, I obtained an annual risk of pandemic outbreak from the paper [1], which they put at `3 percent` per year (Appendix C).  This is based on the `20th century` rate, which had pandemic outbreaks in `1918, 1957 and 1968`.  The authors also make the point that the risk of a pandemic is increasing with time, so this `3 percent` may be an underestimate.  I obtained a mean age of death from a study that looked at the 2009 the A/H1N1 outbreak [2], and found an estimate from the `1918-20` spanish flu pandemic to use as the excess mortality figure [3].  
 
@@ -111,9 +110,7 @@ stacked_plot(pandemic_df, 0.1, 3.0e9, colors)
 
     Annualized years of life lost due to pandemics (billions):  0.0922188
 
-
-
-![png]({{ site.baseurl }}/images/gbd_images/output_7_1.png)
+![png]({{site.baseurl}}/images/gbd_images/output_7_1.png)
 
 
 ## What if we use a longer life expectancy as the reference?
@@ -127,7 +124,7 @@ But do Japanese women really have the longest life expectancy?  As a group with 
 
 One reason might be that a substantial portion of longevity could be due to genetic predisposition.  Some estimates put the genetic  portion at `20-30%` but this might be complicated by epigenetics and gene-environment interactions and might increase in cases of extreme longevity [5].  But at the end of the day, genetic predisposition results in some type of gene expression in the body that we could mimic if we had a better understanding of the aging process.  Also, note that the study authors are already ignoring genetic predisposition by using Japanese women as the comparison group.  
 
-Another argument against the extended life expectancy is that people are expressing their preference to live a shorter life by choosing a less healthy lifestyle (this often comes up when people express a love for bacon).  I think this is a stronger criticism, but it's important to note that people aren't always rational when it comes to long term decision making.  Also, plenty of other disease burdens that are due to conscious decisions (e.g. smoking) are included in the DALY estimates.       
+Another argument against the extended life expectancy is that people are expressing their preference to live a shorter life by choosing a less healthy lifestyle (people like eating bacon).  I think this is a stronger criticism, but it's important to note that people aren't always rational when it comes to long term decision making.  Also, plenty of other disease burdens that are due to conscious decisions (e.g. smoking) are included in the DALY estimates.       
 
 Anyways, the purpose of this article isn't to hash out every ethical consideration -- I just want to get a sense of the scale of the potential disease burden.  So how would using a life expectancy of, say, `100` change the analysis?  Below I use two methods, one a simple estimate, and a second more in-depth estimate using life tables and global deaths by age.  The end result is that using a life expectancy of `100` would result in an extra disease burden of around `500 million YLL` due to premature aging each year.  
 
@@ -156,7 +153,7 @@ print 'Years lost due to premature aging, simple estimate (billions): ', aging_y
 
 The second approach accounts for the fact that after you've lived through younger age cohorts, your current life expectancy actually exceeds your life expectancy at birth.  This is why someone at age 105 in the `life_table` below can still expect to live `1.63` more years even if this exceeds their life expectancy at birth.  *Of the people that reach that age, the average length of life afterwards is `1.63` years.*  Ok, so how do we take that into account?  
 
-The GBD already used the age in the life table plus the remaining years of life when they calculated YLL \[6\].  So I need to subtract this sum from the new upper limit of 100 years for each age cohort, and multiply that result times the number of deaths in each age cohort in 2013.  The deaths by age group data from [IHME's site](http://ihmeuw.org/3wgb) comes grouped by five year increments, so I use the mean life table value for the five year cohorts to do the analysis.  
+The GBD already used the age in the life table plus the remaining years of life when they calculated YLL [6].  So I need to subtract this sum from the new upper limit of 100 years for each age cohort, and multiply that result times the number of deaths in each age cohort in 2013.  The deaths by age group data from [IHME's site](http://ihmeuw.org/3wgb) comes grouped by five year increments, so I use the mean life table value for the five year cohorts to do the analysis.  
 
 
 {% highlight python %}
@@ -223,10 +220,9 @@ deaths_df.sort_values(by='lower_age')
 
 ## What's the relative scale?
 
-Finally, here is an updated visualization and table showing the added YLL due to premature aging.  The premature aging column turns out to be quite large.  In reality, this burden would be split up among all the different causes of death, but it's interesting to see it as a stand-alone category. 
+Finally, here is an updated visualization and table showing the added YLL due to premature aging. The premature aging column turns out to be quite large. Should this column actually just be split up among all the different causes of death? To answer this question, we need to know if aging is just the cumulative effect of many independent diseases, or if it is a biologically unique process that can be targed independently. I think the answer to this question is still elusive.    
 
-The final table below shows that the Pandemic disease burden is in the middle, with a similar value to that of *Neglected tropical diseases and malaria*.  The premature aging category has the largest burden of any single category, although it really should be split up among each of the diseases.  
-
+The final table below shows that the Pandemic disease burden is in the middle, with a similar value to that of *Neglected tropical diseases and malaria*.  
 
 {% highlight python %}
 #colors_update = colors[:]
@@ -544,6 +540,14 @@ gbd2013add_df.sort_values(by='Value')
   </tbody>
 </table>
 </div>
+
+## Conclusion
+
+I think back of the envelope calculations like these can be helpful for thinking about the relative scale of problems. I don't have a background in public health or epidemiology so these are really rough estimates, but I think they're at least in the right ballpark. 
+
+While these numbers are interesting, I don't think they go far enough because they don't include cost effectiveness estimates. This is what I think the Neglected Dimensions paper [1] and the advocates of anti-aging research are getting at. They're not just saying these are big problems. They're also saying that there are better opportunities for society to make investment in these areas *relative to other areas*, largely because these issues are neglected. In other words, these areas have a lot of low-hanging fruit.
+
+Now that we're in 2020 and are failing to respond to a pandemic while our economy goes into a tailspin, I think our 2020 selves could pretty easily make the case to our 2016 selves that more investment into pandemic preparedness was warranted. Why is our society so shortsighted?   
 
 ## References
 

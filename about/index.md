@@ -2,7 +2,6 @@
 layout: page
 title: About 
 tags: [blog, portfolio, Philip Thomas, software developer, web development, Python, JavaScript, Flask]
-modified: 2014-08-08T20:53:07.573882-04:00
 share: false
 prof_img: true
 
