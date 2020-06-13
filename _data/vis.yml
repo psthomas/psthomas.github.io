@@ -1,3 +1,13 @@
+- title: Covid Probability
+  source: https://github.com/psthomas/covid-vis
+  demo: /2020/06/10/covid-vis#vis3
+  thumb: /images/thumbs/covid-prob.png
+
+- title: Covid-19
+  source: https://github.com/psthomas/covid-vis
+  demo: /2020/06/10/covid-vis#vis1
+  thumb: /images/thumbs/covid.png
+
 - title: OneVis
   source: https://github.com/psthomas/onevis
   demo: /2019/10/11/onevis#vis
