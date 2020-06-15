@@ -1,9 +1,9 @@
-- title: Covid Probability
+- title: Covid-19 Probability
   source: https://github.com/psthomas/covid-vis
   demo: /2020/06/10/covid-vis#vis3
   thumb: /images/thumbs/covid-prob.png
 
-- title: Covid-19
+- title: Covid-19 Timeseries
   source: https://github.com/psthomas/covid-vis
   demo: /2020/06/10/covid-vis#vis1
   thumb: /images/thumbs/covid.png
