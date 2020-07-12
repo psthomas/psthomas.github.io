@@ -44,22 +44,17 @@ The problem with the above approach is that you depend on what Google is willing
 An alternative to loading analytics.js is to manually collect whatever data you need, then send it to them using the [measurement protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/reference).  This way you don't have to load analytics.js, and you have more [fine tuned](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters) control over what data is sent.  Here's an example script that sends a `GET` request (an example `POST` request is in the appendix):
 
 {% highlight javascript %}
-
-function sendData() {
-    var ls = [];
-    var tid = 'UA-XXXXX-Y';  //Your Analytics ID
-    var cid = Math.floor(100+Math.random()*900);
-    var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt']; 
-    var values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; 
-    for (var i = 0; i<fields.length; i++) {
-        ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
-    }
-    var url = "https://www.google-analytics.com/r/collect?" + ls.join('&');
-    var request = new XMLHttpRequest();
-    request.open("GET", url, true);
-    request.send();
+let ls = [];
+const tid = 'UA-XXXXX-Y';  //Your Analytics ID
+const cid = Math.floor(100+Math.random()*900);
+const fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt']; 
+const values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; 
+for (const i = 0; i<fields.length; i++) {
+    ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
 }
-sendData();
+const url = 'https://www.google-analytics.com/r/collect?' + ls.join('&');
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+fetch(url);
 {% endhighlight %}
 
 There are more details about how this works in the [reference](https://developers.google.com/analytics/devguides/collection/protocol/v1/reference), but the main point is I only collect the `page URL` and `page title` for each visit.  The `uip` field is an override that sets the IP to `0.0.0.0`, and the `aip` field tells Google to anonymize this IP address.
@@ -78,20 +73,20 @@ There are more details about how this works in the [reference](https://developer
 Note this uses a different URL (`/collect`), and sends the joined fields as the body of the `POST`.  
 
 {% highlight javascript %}
-function sendData() {
-    var ls = [];
-    var tid = 'UA-XXXXX-Y';  //Your Analytics ID
-    var cid = Math.floor(100+Math.random()*900);
-    var fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt']; 
-    var values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; 
-    for (var i = 0; i<fields.length; i++) {
-        ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
-    }
-    var data = ls.join('&');
-    var request = new XMLHttpRequest();
-    request.open("POST", "https://www.google-analytics.com/collect", true);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send(data);
+let ls = [];
+const tid = 'UA-XXXXX-Y';  //Your Analytics ID
+const cid = Math.floor(100+Math.random()*900);
+const fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt']; 
+const values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; 
+for (const i = 0; i<fields.length; i++) {
+  ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
 }
-sendData();
+const data = ls.join('&');
+const request = {
+  method: 'POST',
+  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  body: data
+};
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+fetch('https://www.google-analytics.com/collect', request);
 {% endhighlight %}
