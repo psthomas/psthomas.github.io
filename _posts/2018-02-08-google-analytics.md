@@ -49,7 +49,7 @@ const tid = 'UA-XXXXX-Y';  //Your Analytics ID
 const cid = Math.floor(100+Math.random()*900);
 const fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt']; 
 const values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; 
-for (const i = 0; i<fields.length; i++) {
+for (let i = 0; i<fields.length; i++) {
     ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
 }
 const url = 'https://www.google-analytics.com/r/collect?' + ls.join('&');
@@ -78,7 +78,7 @@ const tid = 'UA-XXXXX-Y';  //Your Analytics ID
 const cid = Math.floor(100+Math.random()*900);
 const fields = ['v', 'tid', 'cid', 't', 'aip', 'uip', 'dl', 'dt']; 
 const values = [1, tid, cid, 'pageview', 1, '0.0.0.0', window.location.href, document.title]; 
-for (const i = 0; i<fields.length; i++) {
+for (let i = 0; i<fields.length; i++) {
   ls.push(String(fields[i]) + '=' + encodeURIComponent(String(values[i])));
 }
 const data = ls.join('&');
