@@ -15,16 +15,16 @@ At first I thought this would be fairly simple question to answer. Just sum up t
 
 The end result is that it's probably more accurate to estimate the true number of infections using a [SEIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model) that matches the reported deaths, rather than back-calculating infections from reported cases. This is what the [model](https://covid19-projections.com/about/) I ended up choosing does; see the appendix below for more information. 
 
-So after that lengthy introduction, here's the probability that a person is infected by country:
+<!-- So after that lengthy introduction, here's the probability that a person is infected by country:
 
 <div class="outer" style="padding-left:25px">
 <div class="inner">
 <iframe id="vis1" src="{{ site.baseurl }}/vis/covid-world-model.html"
 style="width: 1020px; height: 650px; border: none; position: relative; right:-50%; scrolling:no;"></iframe>
 </div>
-</div>
+</div> -->
 
-Here are the results by state in the US:
+So after that lengthy introduction, here's the probability that a person is infected by state in the US:
 
 <div class="outer" style="padding-left:25px">
 <div class="inner">
@@ -46,7 +46,9 @@ style="width: 1000px; height: 650px; border: none; position: relative; right:-50
 <!-- <iframe id="vis4" src="{{ site.baseurl }}/vis/covid-county-model.html" style="width: 100%; height:600px; border:none;"></iframe> -->
 <!-- <div id="vis4" style="width: 100%; height:600px;"> </div> -->
 
-Note that although the peak for New York state above is a little over 5%, the peak for the five boroughs of New York City is over 10%.  This means that if you attended a meeting with 10 random people at the peak of the outbreak, there was a 65% chance someone attending was infected ([`1-(1-p)^n`](https://blogs.scientificamerican.com/observations/online-covid-19-dashboard-calculates-how-risky-reopenings-and-gatherings-can-be/)`= 1-(1-0.1)^10 = 0.65`). One thing to add is that the probability someone is *infected* isn't neccessarily equal to the probability they're *infectious* -- there may be a smaller window of time that someone can actually spread the infection but that's still uncertain for now.
+The model also has estimates for a number of countries, but I haven't found those results to be as reliable as the US focused models, so I'm leaving them out for now.
+
+Note that although the peak for New York state above is a little over 9%, the peak for the five boroughs of New York City is over 15%.  This means that if you attended a meeting with 10 random people at the peak of the outbreak, there was a 80% chance someone attending was infected ([`1-(1-p)^n`](https://blogs.scientificamerican.com/observations/online-covid-19-dashboard-calculates-how-risky-reopenings-and-gatherings-can-be/)`= 1-(1-0.15)^10 = 0.803`). One thing to add is that the probability someone is *infected* isn't neccessarily equal to the probability they're *infectious* -- there may be a smaller window of time that someone can actually spread the infection but that's still uncertain for now.
 
 Sometimes a table is the best way to visualize data, so here's a searchable table with data sorted by probability:
 
