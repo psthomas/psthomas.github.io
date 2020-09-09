@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Comprehensive Model for the 2020 Elections"
-excerpt: "I combine projections for elections at every level to find strategic places to focus in 2020."
+excerpt: "I combine forecasts for elections at every level to find strategic places to focus in 2020."
 tags: [Python, Jupyter notebook, politics, data visualization, Pandas, d3.js, seaborn]
 comments: true
 share: false
@@ -9,11 +9,11 @@ share: false
 
 This post is an introduction my new model for the 2020 elections, which is really a model of models. The general idea is to combine forecasts for elections at every level of government into an index, which can then be used to prioritize campaign efforts. I've made a [few](https://pstblog.com/2019/10/10/voting-power-2020) [models](https://pstblog.com/2019/03/05/voting-power-comprehensive) in the past that tried to find the most influential elections. But the main problem with those approaches was that they were retrospective and didn't consider tipping point thresholds in their calculations.
 
-This new model fixes both these problems by pulling together current projections for the 2020 presidential, Senate, House, governor, and state legislative elections. I then calculate a realized power value for each seat by adjusting a potential power value for the probability of a close election and the tipping point probability for each of the seats. There are more details on how the model works in the appendix below, but first the results. 
+This new model fixes both these problems by pulling together current forecasts for the 2020 presidential, Senate, House, governor, and state legislative elections. I then calculate a realized power value for each seat by adjusting a potential power value for the probability of a close election and the tipping point probability for each of the seats. There are more details on how the model works in the appendix below, but first the results. 
 
-## Election Projections
+## Election Forecasts
 
-Here are the projections for the different offices and legislative bodies on the ballot in November. The [presidential](https://projects.economist.com/us-2020-forecast/president) model is courtesy of The Economist, the [Senate](https://corymccartan.github.io/projects/senate-20/) model is from Cory McCartan, the [House](http://insideelections.com/ratings/house) and [governor](http://insideelections.com/ratings/governor) point estimates are from Inside Elections, and the [state legislative](https://www.cnalysiscom.website/) point estimates are from CNalysis. The confidence intervals are 95%, except for the Senate which reports a 90% confidence interval.
+Here are the forecasts for the different offices and legislative bodies on the ballot in November. The [presidential](https://projects.economist.com/us-2020-forecast/president) model is courtesy of The Economist, the [Senate](https://corymccartan.github.io/projects/senate-20/) model is from Cory McCartan, the [House](http://insideelections.com/ratings/house) and [governor](http://insideelections.com/ratings/governor) point estimates are from Inside Elections, and the [state legislative](https://www.cnalysiscom.website/) point estimates are from CNalysis. The confidence intervals are 95%, except for the Senate which reports a 90% confidence interval.
 
 <!--https://medium.com/modex/css-tricks-expanding-beyond-a-parent-div-10d7b7204c21-->
 <!--Note: flex wrapping isn't working for now, but just leave it, it's fine.-->
@@ -72,7 +72,8 @@ Here are the projections for the different offices and legislative bodies on the
 
 <!-- <div style="margin:25px 0px;width:85vw;position:relative;left: calc(-42.5vw + 50%);"> -->
 <!-- <div style="margin:25px 0px;width:85vw;max-width:1250px;position:relative;left: calc(-42.5vw + 50%);"> -->
-<div id="vis" class="wideDiv">
+<span id="vis"></span>
+<div class="wideDiv">
     <div class="flexContainer"> <!--style="max-width:1200px;"-->
         <img src="{{ site.baseurl }}/images/elections-meta/presidentialhist.png"/>
         <img src="{{ site.baseurl }}/images/elections-meta/senatehist.png"/>
@@ -90,11 +91,11 @@ Here are the projections for the different offices and legislative bodies on the
     </div>
 </div>
 
-So overall things look pretty good for the Democrats right now, but the Senate is still expected to be close. One other thing to mention is that these aren't nowcasts, they're forecasts. Each one of these projections takes into account how the race is expected to tighten from now until November, either through sophisticated modeling techniques in the case of the presidential and Senate models, or through expert judgement in the case of the categorical models. There's an ongoing debate about how confident we should be in forecasts in general, but these models are at least trying to incoporate the best practices.
+So overall things look pretty good for the Democrats right now, but the Senate is still expected to be close. One other thing to mention is that these aren't nowcasts, they're forecasts. Each one of these estimates takes into account how the race is expected to tighten from now until November, either through sophisticated modeling techniques in the case of the presidential and Senate models, or through expert judgement in the case of the categorical models. There's an ongoing debate about how confident we should be in forecasts in general, but these models are at least trying to incoporate the best practices.
 
 ## Power Values by State
 
-It's difficult to distill all of the election projections above into a set of priorities, but this is where my model comes in. I calculate a baseline power value for each office, then adjust it for how close the election is expected to be and how likely a seat is to be the tipping point for legislative control if applicable. The general intuition here is that you should target elections that are likely to be close, and target legislative bodies where a change in partisan control is more likely.
+It's difficult to distill all of the election forecasts above into a set of priorities, but this is where my model comes in. I calculate a baseline power value for each office, then adjust it for how close the election is expected to be and how likely a seat is to be the tipping point for legislative control if applicable. The general intuition here is that you should target elections that are likely to be close, and target legislative bodies where a change in partisan control is more likely.
 
 So here are the resulting power values, grouped by state and office. Note that table is sortable, and you can adjust the weights if you prefer. By default I give equal weights to the state and federal governments. The results for each individual election sorted by realized power are available [here](https://github.com/psthomas/elections-meta/blob/master/data/output/seat_realized_power.csv).
 
