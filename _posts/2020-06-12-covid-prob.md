@@ -7,7 +7,7 @@ comments: true
 share: false
 ---
 
-At first I thought this would be fairly simple question to answer. Just sum up the new cases over the past few weeks and divide by the total population of each region, right? This is the approach that I took in my [previous post](https://pstblog.com/2020/06/10/covid-vis), but this probability is actually much more difficult to estimate for a few reasons outlined in [this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7073841/):
+At first I thought this would be fairly simple question to answer. Just sum up the new cases over the past few weeks and divide by the total population of each region, right? I took a similar approach in my [previous post](https://pstblog.com/2020/06/10/covid-vis), but this probability is actually much more difficult to estimate for a few reasons outlined in [this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7073841/):
 1. There's a 10 day lag between an infection and a reported case and a 20 day lag between an infection and death on average. This means the counts we see today reflect the past. The effect of this lag on the numbers depends on the growth rate of the pandemic at the time.
 2. Roughly 35-40% of cases are [asymptomatic](https://www.cdc.gov/coronavirus/2019-ncov/hcp/planning-scenarios.html). These cases will never show up in the numbers unless we do random testing.
 3. Even among symptomatic people, a large fraction (right now [estimated](https://cmmid.github.io/topics/covid19/global_cfr_estimates.html) at 65% for the US) will never have a positive test. Perhaps they don't seek one out, one isn't available, or they have a [false negative](https://www.acpjournals.org/doi/10.7326/M20-1495) result.
