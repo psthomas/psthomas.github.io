@@ -1,3 +1,8 @@
+- title: Election Meta
+  source: https://github.com/psthomas/elections-meta
+  demo: 2020/09/09/elections-meta#vis
+  thumb: /images/thumbs/elections-meta.png
+
 - title: Covid-19 Probability
   source: https://github.com/psthomas/covid-vis
   demo: /2020/06/12/covid-prob#vis2

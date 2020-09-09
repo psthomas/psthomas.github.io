@@ -72,7 +72,7 @@ Here are the projections for the different offices and legislative bodies on the
 
 <!-- <div style="margin:25px 0px;width:85vw;position:relative;left: calc(-42.5vw + 50%);"> -->
 <!-- <div style="margin:25px 0px;width:85vw;max-width:1250px;position:relative;left: calc(-42.5vw + 50%);"> -->
-<div class="wideDiv">
+<div id="vis" class="wideDiv">
     <div class="flexContainer"> <!--style="max-width:1200px;"-->
         <img src="{{ site.baseurl }}/images/elections-meta/presidentialhist.png"/>
         <img src="{{ site.baseurl }}/images/elections-meta/senatehist.png"/>
@@ -96,15 +96,15 @@ So overall things look pretty good for the Democrats right now, but the Senate i
 
 It's difficult to distill all of the election projections above into a set of priorities, but this is where my model comes in. I calculate a baseline power value for each office, then adjust it for how close the election is expected to be and how likely a seat is to be the tipping point for legislative control if applicable. The general intuition here is that you should target elections that are likely to be close, and target legislative bodies where a change in partisan control is more likely.
 
-So here are the resulting power values, grouped by state and office. Note that table is sortable, and you can adjust the weights if you prefer. By default I give equal weights to the state and federal governments. The results for each individual election are available [here](https://github.com/psthomas/elections-meta/blob/master/data/output/seat_realized_power.csv).
+So here are the resulting power values, grouped by state and office. Note that table is sortable, and you can adjust the weights if you prefer. By default I give equal weights to the state and federal governments. The results for each individual election sorted by realized power are available [here](https://github.com/psthomas/elections-meta/blob/master/data/output/seat_realized_power.csv).
 
-<iframe id="vis" src="{{ site.baseurl }}/images/elections-meta/statescore-table.html"
+<iframe id="vis2" src="{{ site.baseurl }}/images/elections-meta/statescore-table.html"
     style="width:100%; height:1225px; border: none; position: relative; scrolling:no;">
 </iframe>
 
 ## Conclusion
 
-So if you trust these models and weights, North Carolina seems like a good place to focus right now. It has close elections at every level of government and has a potential tipping point seat for the US Senate. Otherwise, if you think Trump represents a unique threat to our democracy and the risk adjusted harm of another term outweighs any other considerations, sort or reweight by the presidential column and focus on those states (currently PA, FL, MI, WI, MN, NC). Or maybe you think the president presides over foreign policy decisions with more tail risk, so this office deserves more weight. The goal of this model isn't to give you an absolute answer, but instead give you results that can be adjusted based on your own assumptions and judgement.
+So if you trust these models and weights, North Carolina seems like a good place to focus right now. It has close elections at every level of government and has a potential tipping point seat for the US Senate. Otherwise, if you think Trump represents a unique threat to our democracy and the risk adjusted harm of another term outweighs any other considerations, sort or reweight by the presidential column and focus on those states (currently PA, FL, MI, WI, MN, NC). Or maybe you think the president presides over foreign policy decisions with more tail risk, so this office always deserves more weight. The goal of this model isn't to give you an absolute answer, but instead give you results that can be adjusted based on your own assumptions and judgement.
 
 I'll try to keep these results up to date as new versions of the supporting models are released. All the code and data for this project are available on GitHub [here](https://github.com/psthomas/elections-meta). 
 
