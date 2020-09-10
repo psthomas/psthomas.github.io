@@ -37,13 +37,15 @@ Here are the forecasts for the different offices and legislative bodies on the b
 .flexContainer {
   display:flex;
   width:100%;
+  flex-wrap: wrap;
+  flex-direction: row;
   /*max-height:200px;*/
   
 }
 .flexContainer > img {
   display: block;
   margin: auto;
-  /*flex:1;*/
+  flex:1;
   /*border:1px solid;*/
   /*margin:1px;*/
 }
@@ -108,7 +110,7 @@ So here are the resulting power values, grouped by state and office. Note that t
 
 ## Conclusion
 
-So if you trust these models and weights, North Carolina seems like a good place to focus right now. It has close elections at every level of government and has a potential tipping point seat for the US Senate. Otherwise, if you think Trump represents a unique threat to our democracy and the risk adjusted harm of another term outweighs any other considerations, sort or reweight by the presidential column and focus on those states (currently PA, FL, MI, WI, MN, NC). Or maybe you think the president makes policy decisions that have more tail risk in general, so this office always deserves more weight. The goal of this model isn't to give you an absolute answer, but instead give you results that can be adjusted based on your own assumptions and judgement.
+So if you trust these models and weights, North Carolina seems like a good place to focus right now. It has close elections at every level of government and has a potential tipping point seat for the US Senate. Otherwise, if you think Trump represents a unique threat to our democracy and the risk adjusted harm of another term outweighs any other considerations, sort or reweight by the presidential column and focus on those states (currently PA, FL, MI, WI, MN, NC). Or maybe you think the president makes policy decisions that have more tail risk in general, so this office should have more weight. Whatever your preference, the goal of this model isn't to give you an absolute answer, but instead give you results that can be adjusted based on your own assumptions.
 
 I'll try to keep these results up to date as new versions of the supporting models are released. All the code and data for this project are available on GitHub [here](https://github.com/psthomas/elections-meta). 
 
