@@ -7,6 +7,9 @@ comments: true
 share: false
 ---
 
+<!--A Metamodel for the 2020 Elections
+I combine forecasts for every election to find strategic places to focus in 2020.-->
+
 This post is an introduction my new model for the 2020 elections, which is really a model of models. The general idea is to combine forecasts for elections at every level of government into an index, which can then be used to prioritize campaign efforts. I've made a [few](https://pstblog.com/2019/10/10/voting-power-2020) [models](https://pstblog.com/2019/03/05/voting-power-comprehensive) in the past that tried to find the most influential elections. But the main problem with those approaches was that they were retrospective and didn't consider tipping point thresholds in their calculations.
 
 This new model fixes both these problems by pulling together current forecasts for the 2020 presidential, Senate, House, governor, and state legislative elections. I then calculate a realized power value for each seat by adjusting a potential power value for the probability of a close election and the tipping point probability for each of the seats. There are more details on how the model works in the appendix below, but first the results. 
@@ -105,7 +108,7 @@ So here are the resulting power values, grouped by state and office. Note that t
 
 ## Conclusion
 
-So if you trust these models and weights, North Carolina seems like a good place to focus right now. It has close elections at every level of government and has a potential tipping point seat for the US Senate. Otherwise, if you think Trump represents a unique threat to our democracy and the risk adjusted harm of another term outweighs any other considerations, sort or reweight by the presidential column and focus on those states (currently PA, FL, MI, WI, MN, NC). Or maybe you think the president presides over foreign policy decisions with more tail risk, so this office always deserves more weight. The goal of this model isn't to give you an absolute answer, but instead give you results that can be adjusted based on your own assumptions and judgement.
+So if you trust these models and weights, North Carolina seems like a good place to focus right now. It has close elections at every level of government and has a potential tipping point seat for the US Senate. Otherwise, if you think Trump represents a unique threat to our democracy and the risk adjusted harm of another term outweighs any other considerations, sort or reweight by the presidential column and focus on those states (currently PA, FL, MI, WI, MN, NC). Or maybe you think the president makes policy decisions that have more tail risk in general, so this office always deserves more weight. The goal of this model isn't to give you an absolute answer, but instead give you results that can be adjusted based on your own assumptions and judgement.
 
 I'll try to keep these results up to date as new versions of the supporting models are released. All the code and data for this project are available on GitHub [here](https://github.com/psthomas/elections-meta). 
 
