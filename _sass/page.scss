@@ -424,11 +424,15 @@ th {background-color: #f2f2f2;}
   padding: 0 1rem;
 }
 
+/*https://stackoverflow.com/questions/19414856/how-can-i-make-all-images-of-different-height-and-width-the-same-via-css/19414955#19414955*/
 .responsive-image {
   max-width: 100%;
   border-radius: 5px;
   //min-width: 100%;
   //min-height: 80%;
+  width:  300px;
+  height: 175px;
+  object-fit: cover;
 }
 
 .responsive-image:hover {
