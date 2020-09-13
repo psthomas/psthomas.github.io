@@ -78,7 +78,7 @@ Here are the forecasts for the different offices and legislative bodies on the b
 
 <!-- <div style="margin:25px 0px;width:85vw;position:relative;left: calc(-42.5vw + 50%);"> -->
 <!-- <div style="margin:25px 0px;width:85vw;max-width:1250px;position:relative;left: calc(-42.5vw + 50%);"> -->
-<span id="vis"></span>
+<div id="vis"></div>
 <div class="wideDiv">
     <div class="flexContainer"> <!--style="max-width:1200px;"-->
         <img src="{{ site.baseurl }}/images/elections-meta/presidentialhist.png"/>
@@ -101,7 +101,7 @@ So overall things look pretty good for the Democrats right now, but the Senate i
 
 ## Power Values by State
 
-It's difficult to distill all of the election forecasts above into a set of priorities, but this is where my model comes in. I calculate a baseline power value for each office, then adjust it for how close the election is expected to be and how likely a seat is to be the tipping point for legislative control if applicable. The general intuition here is that you should target elections that are likely to be close, and target legislative bodies where a change in partisan control is more likely.
+It's difficult to distill all of the election forecasts above into a set of priorities, but this is where my model comes in. I calculate a baseline power value for each office, then adjust it for how close the election is expected to be and how likely a seat is to be the tipping point for control if applicable. The general intuition here is that you should target elections that are likely to be close, and target legislative bodies where a change in partisan control is more likely.
 
 So here are the resulting power values, grouped by state and office. Note that table is sortable, and you can adjust the weights if you prefer. By default I give equal weights to the state and federal governments. The results for each individual election sorted by realized power are available [here](https://github.com/psthomas/elections-meta/blob/master/data/output/seat_realized_power.csv).
 

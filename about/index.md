@@ -42,7 +42,7 @@ Some of the interactive visualizations I've built using tools like D3.js and Alt
 <div>
 Search pstblog.com on DuckDuckGo:
 <form onsubmit="return ss(this)" method="get">
-    <input type="text" size="40" id="goog-wm-qt" name="q" placeholder="Search Terms"> <!--style="width:350px"-->
+    <input type="text" size="40" id="goog-wm-qt" name="q"> <!--placeholder="Search Terms" style="width:350px"-->
     <input type="submit" class="btn" value="Search">
 </form>
 </div>
