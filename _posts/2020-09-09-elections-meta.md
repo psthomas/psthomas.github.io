@@ -2,7 +2,7 @@
 layout: post
 title: "A Comprehensive Model of the 2020 Elections"
 excerpt: "I combine forecasts for elections at every level to find strategic places to focus in 2020."
-modified: 2020-09-20
+modified: 2020-09-21
 tags: [Python, Jupyter notebook, politics, data visualization, Pandas, d3.js, seaborn]
 comments: true
 share: false
