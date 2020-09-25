@@ -862,7 +862,7 @@ Here are a few potential problems I can think of with the above analysis:
 * **Excluded elections:** Judiciary and local government elections are left out of this analysis.
 * **Calculations:** The power distribution and voting power calculations make a lot of assumptions which might not be true. It's possible that a different method of combining or normalizing the inputs would lead to better results.   
 * **Past results aren't indicative of the future:** The high power values might just be driven by random variation in election margins and not say anything intrinsic about a place.  
-* **Legislative Control:** The threshold for flipping control of a legislative body matters too.  You don't have much power if you participate in close elections but there's no chance for your party to ever take the majority.  
+* **Legislative Control:** The threshold for flipping control of a legislative body matters too.  You don't have much power if you participate in close elections but there's no chance for your party to ever take the majority. My 2020 elections [model](https://pstblog.com/2020/09/09/elections-meta) fixes this problem by taking tipping point thresholds into account, so that might be worth a look too. 
 
 Even with these concerns, I think the analysis above provides some useful insights.  All the code for this project is [available](https://github.com/psthomas/voting-power-comprehensive) on GitHub, so I'd welcome any comments or contributions to make it better.  There are probably other interesting analyses I could do with this dataset, so stay tuned for future posts on this subject.       
 
