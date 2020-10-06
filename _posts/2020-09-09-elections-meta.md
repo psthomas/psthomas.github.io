@@ -1,14 +1,15 @@
 ---
 layout: post
-title: "A Comprehensive Model of the 2020 Elections"
+title: "Combining the 2020 Election Models"
 excerpt: "I combine forecasts for elections at every level to find strategic places to focus in 2020."
-modified: 2020-10-04
+modified: 2020-10-05
 tags: [Python, Jupyter notebook, politics, data visualization, Pandas, d3.js, seaborn]
 comments: true
 share: false
 ---
 
-<!--A Metamodel for the 2020 Elections
+<!--A Comprehensive Model of the 2020 Elections
+A Metamodel for the 2020 Elections
 I combine forecasts for every election to find strategic places to focus in 2020.-->
 
 This post is an introduction my new model of the 2020 elections, which is really a model of models. The general idea is to combine forecasts for elections at every level of government into an index, which can then be used to prioritize campaign efforts. I've made a [few](https://pstblog.com/2019/10/10/voting-power-2020) [models](https://pstblog.com/2019/03/05/voting-power-comprehensive) in the past that tried to find the most influential elections. But the main problem with those approaches was that they were retrospective and didn't consider tipping point thresholds in their calculations.
