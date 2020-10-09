@@ -2,7 +2,7 @@
 layout: post
 title: "Combining the 2020 Election Models"
 excerpt: "I combine forecasts for elections at every level to find strategic places to focus in 2020."
-modified: 2020-10-05
+modified: 2020-10-08
 tags: [Python, Jupyter notebook, politics, data visualization, Pandas, d3.js, seaborn]
 comments: true
 share: false
@@ -19,6 +19,9 @@ This new model fixes both these problems by pulling together current forecasts f
 ## Election Forecasts
 
 Here are the forecasts for the different offices and legislative bodies on the ballot in November. The [presidential](https://projects.economist.com/us-2020-forecast/president) model is courtesy of The Economist, the [Senate](https://corymccartan.github.io/projects/senate-20/) model is from Cory McCartan, the [House](http://insideelections.com/ratings/house) and [governor](http://insideelections.com/ratings/governor) point estimates are from Inside Elections, and the [state legislative](https://www.cnalysiscom.website/) point estimates are from CNalysis. The confidence intervals are 95%, except for the Senate which reports a 90% confidence interval.
+
+
+<div id="vis"></div>
 
 <!--https://medium.com/modex/css-tricks-expanding-beyond-a-parent-div-10d7b7204c21-->
 <!--Note: flex wrapping isn't working for now, but just leave it, it's fine.-->
@@ -79,7 +82,6 @@ Here are the forecasts for the different offices and legislative bodies on the b
 
 <!-- <div style="margin:25px 0px;width:85vw;position:relative;left: calc(-42.5vw + 50%);"> -->
 <!-- <div style="margin:25px 0px;width:85vw;max-width:1250px;position:relative;left: calc(-42.5vw + 50%);"> -->
-<div id="vis"></div>
 <div class="wideDiv">
     <div class="flexContainer"> <!--style="max-width:1200px;"-->
         <img src="{{ site.baseurl }}/images/elections-meta/presidentialhist.png"/>
