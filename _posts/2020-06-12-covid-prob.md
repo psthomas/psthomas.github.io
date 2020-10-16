@@ -24,7 +24,7 @@ style="width: 1020px; height: 650px; border: none; position: relative; right:-50
 </div>
 </div> -->
 
-So after that lengthy introduction, here's the probability that a person is infected by state in the US:
+So after that lengthy introduction, here's the probability that a person is infected by state in the US. **Note:** As of October 5th this model will no longer be updated, so I'm looking for a replacement currently.
 
 <div class="outer" style="padding-left:25px">
 <div class="inner">
