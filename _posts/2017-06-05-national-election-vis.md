@@ -80,16 +80,14 @@ My goal is to improve the accuracy and number of years covered over time, so sug
 
 ## Sources
 
-[1] 2004-2008 County Voting data: [https://github.com/helloworlddata/us-presidential-election-county-results](https://github.com/helloworlddata/us-presidential-election-county-results)
+[1] MIT Election Labs, 2000-2016 County level presidential results: [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ)
 
-[2] 2005-2009 County VAP data: [https://www.census.gov/rdo/data/voting_age_population_by_citizenship_and_race_cvap.html](https://www.census.gov/rdo/data/voting_age_population_by_citizenship_and_race_cvap.html)
+[2] Census Bureau County Voting Age Population data: [https://www.census.gov/rdo/data/voting_age_population_by_citizenship_and_race_cvap.html](https://www.census.gov/rdo/data/voting_age_population_by_citizenship_and_race_cvap.html)
 
-[3] 2012-2016 County Voting and VAP data: [https://github.com/kyaroch/2012_and_2016_presidential_election_results_by_county](https://github.com/kyaroch/2012_and_2016_presidential_election_results_by_county)
+[3] Voting and Registration Tables. US Census Bureau. [https://www.census.gov/topics/public-sector/voting/data/tables.All.html](https://www.census.gov/topics/public-sector/voting/data/tables.All.html)
 
-[4] Voting and Registration Tables. US Census Bureau. [https://www.census.gov/topics/public-sector/voting/data/tables.All.html](https://www.census.gov/topics/public-sector/voting/data/tables.All.html)
+[4] United States Election Project, demographic turnout data. [http://www.electproject.org/home/voter-turnout/demographics](http://www.electproject.org/home/voter-turnout/demographics)
 
-[5] United States Election Project. [http://www.electproject.org/home/voter-turnout/demographics](http://www.electproject.org/home/voter-turnout/demographics)
+[5] American National Election Studies, demographic margins data. [http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html](http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html)
 
-[6] American National Election Studies. [http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html](http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html)
-
-[7] Voter Trends in 2016. Center for American Progress. [https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/](https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/)
+[6] Voter Trends in 2016. Center for American Progress. [https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/](https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/)
