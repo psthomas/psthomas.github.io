@@ -1,0 +1,202 @@
+---
+layout: post
+title: "How did my election model perform?"
+excerpt: "Evaluating the polling and model error from my 2020 elections model"
+#modified: 2016-02-22
+tags: [pandas, python, politics, election model]
+comments: true
+share: false
+---
+
+It's been a little while since the 2020 elections, so I finally got around to evaluating my election model. I'm hoping to run a similar model in the future, so this post is an attempt to learn what worked and what didn't so I can improve it next time. If you haven't read my initial post on the subject, that will provide helpful context (especially the "How it Works" [section](https://pstblog.com/2020/09/09/elections-meta#how)).
+
+This evaluation is organized into three parts. First, I compare the actual vs. projected results and calculate the polling error for each office. Next, I evaluate my approach for combining the projections by rerunning the models centered on the actual election outcomes. Finally, I compare these model priorities to the revealed preference of donors via campaign spending to get an objective measure of its performance.
+
+Overall, I think my model performed pretty well and it was correct to focus on the Senate in the final weeks of the campaign. But systematic bias against Republicans in the polling made it really tough for anyone to accurately estimate Democratic win probabilities. This led to a situation where the rank order of the power values was correct (in my opinion), but the magnitude of the differences between them was off due to polling error.
+
+## Polling Error
+
+The [most difficult](https://centerforpolitics.org/crystalball/articles/poll-based-election-forecasts-will-always-struggle-with-uncertainty/) part of any model seems to be coming up with a method for averaging the polls, and then estimating how that polling average will change as the election approaches. For the presidency, I relied on the Economist's model which describes it's methodology [here](https://projects.economist.com/us-2020-forecast/president/how-this-works). I used Cory McCartan's model for the Senate, described [here](https://corymccartan.github.io/projects/senate-20/). For the rest of the legislative bodies, I quantified categorical ratings from Inside Elections and CNalysis using 538's [quantifications](https://fivethirtyeight.com/features/2018-house-forecast-methodology/), and then used those as my polling forecasts.
+
+Below, I re-created all of my pre-election plots with the actual results superimposed in green. At just about every level, the polls or categorical ratings were biased in favor of Democrats:
+
+<style>
+
+/*.wideDiv {
+  margin:25px 0px;
+  width:150%;
+  margin-left:-25%;
+  overflow:hidden;
+}*/
+.wideDiv {
+    margin:50px 0px;
+    width:100%;
+    overflow:hidden;
+}
+
+.flexContainer {
+  display:flex;
+  width:100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /*max-height:200px;*/
+  
+}
+.flexContainer > img {
+  display: block;
+  margin: auto;
+  /*flex:1;*/
+  /*border:1px solid;*/
+  /*margin:1px;*/
+}
+
+@media screen and (min-width: 600px) {
+  .flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .flexContainer > img {
+    width: 33.3333%;  //-2rem
+    text-align: center;
+  }
+
+  .wideDiv {
+    margin:50px 0px;
+    width:140%;
+    margin-left:-20%;
+    overflow:hidden;
+/*    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;*/
+  }
+}
+
+</style>
+
+<div class="wideDiv">
+    <div class="flexContainer">
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/presidentialhist.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/senatehist.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/househist.png"/>
+    </div>
+    <div class="flexContainer">
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/presidentialstates.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/senateseats.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/houseseats.png"/>
+    </div>
+    <div class="flexContainer">
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/govseats.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/statesenateseats.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/statehouseseats.png"/>
+    </div>
+</div>
+
+Here is a boxplot of the error by legislative body. Note that I'm only displaying the error for the elections that had close results (Democratic voteshare 40-60%). I explain more in appendix A below, but my model only needs accurate estimates for close elections so that's my focus.
+
+<!--style="max-width:500px;"-->
+<figure style="text-align:center;">
+    <a href="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.png">
+    <img src="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.png">
+    </a>
+</figure>
+
+And here's a summary table showing the mean error (a measure of bias), and the mean absolute error for each office.
+
+<!--you can embed snippets with blog styling as objects, https://stackoverflow.com/questions/8433319-->
+<!-- <div align="center">
+<object data="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.html" width="50%" height="275"></object>
+</div> -->
+<!-- <object data="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.html" width="100%" height="275"></object> -->
+
+<iframe src="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.html" onload="javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+30+'px';}(this));" style="height:200px;min-height:270px;width:100%;border:none;overflow:hidden;"></iframe>
+
+So the presidential and Senate polling forecasts were biased in favor of Democrats by about 2%, but overall these offices had the least amount of error (their sophisticated methods helped!). The House was a little more mixed, with a bias of 4.9% towards Democrats, and a very large absolute error of 8%. And the state legislative estimates of Democratic seat share had the most pro-D bias (7%) and the most absolute error.
+
+I think my main takeaway from this is that I need to come up with a better method of quantifying the categorical ratings. I used 538's quantifications that were based on the historical performance of a number of different election ratings, but I probably need to use conversions tailored to the specific Inside Elections and CNalysis ratings I used instead. In some sense I'd expect the performance at the state level to be worse than the federal level because there's much less polling and scrutiny of those elections, but I hoped to do a little better than this. 
+
+## Model Error
+
+So how would my model perform if we had really good polling? One way to test this is to center the probability distributions for all the elections at the actual outcomes, and then rerun my model to see what it prioritizes. That's exactly what I do below. Note that I didn't have access to the underlying source code for the Economist's model (and don't understand McCartan's Senate model well enough), so I had to rewrite my own Senate and presidential models. Here are summary histograms for the new presidential, Senate, and House simulations:
+
+<div class="wideDiv">
+    <div class="flexContainer">
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/model_presidentialhist.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/model_senatehist.png"/>
+        <img src="{{ site.baseurl }}/images/elections-meta/evaluation/model_househist.png"/>
+    </div>
+</div>
+
+So rerunning these models leads to a pretty dramatic shift in the histograms and Democratic win probabilities compared to the initial results. These legislative bodies that were highly likely to go to Democrats are now essentially tossups. 
+
+How does this influence the priorities of my model? Just as a reminder, here is how the realized power value is calculated: `realized_power = potential_power * pr_close * pr_tip`.  So the shifts in the probability distributions above will affect the `pr_close` variables for each legislative body, and the changes in the expected outcomes for the individual seats will change their tipping point probabilities (`pr_tip`).
+
+Here's a table showing the results for each seat and the sum by state. The color coding communicates the change from the original 2020 model:  
+
+<figure style="text-align:center;">
+    <a href="{{ site.baseurl }}/images/elections-meta/evaluation/heatmap.png">
+    <img src="{{ site.baseurl }}/images/elections-meta/evaluation/heatmap.png">
+    </a>
+</figure>
+
+Here are the resulting values grouped by office, and the change:
+
+<iframe src="{{ site.baseurl }}/images/elections-meta/evaluation/office_summary.html" onload="javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+30+'px';}(this));" style="height:200px;min-height:270px;width:100%;border:none;overflow:hidden;"></iframe>
+
+So the Senate has a similar power value as in the initial model, but relative importance of House and presidency have increased dramatically (3x). I find this result really interesting because the Senate histogram shifted just as much as that of the House and presidency. But because it shifted from one side of center to the other, the integrated value of `pr_close` around the center didn't change very much. So I guess this could be interpreted as saying that the Senate races are still the most important, but you need to increase the resources put into the House and presidency relative to the Senate if the current allocation of funds are out of line with this model. How do these numbers compare to the actual priorities of campaign funders?
+
+## Revealed Preference
+
+In some sense, my model is subjective (I choose the `potential_power`  values for each office), so any evaluation will also be subjective. But there might be one objective measure of priorities that I can compare against: campaign funding. Maybe the wisdom of the crowds revealed through campaign donations can show us what our true priorities should be (assuming the crowds aren't irrational or influenced by bad polling). So below I compare the percentage of power held by each office in the original 2020 analysis, the new recentered model, and the [actual](https://www.followthemoney.org/) funding allocations.
+
+<iframe src="{{ site.baseurl }}/images/elections-meta/evaluation/power_frac.html" onload="javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+30+'px';}(this));" style="height:200px;min-height:270px;width:100%;border:none;overflow:hidden;"></iframe>
+
+I'm actually fairly surprised at the agreement here, at least for the downballot races. But there are major disagreements when it comes to the presidency and the Senate, and the original model magnifies this difference due to polling error. Here are a few reasons the estimates might not agree when it comes to the presidency:
+* Donors were being irrational, and the correct thing to do was to donate more to the Senate races.
+* Donors were being rational, and the downside of another Trump term was so large that they were correct to focus on the presidency. Put another way, the `potential_power` values in my model were wrong.
+* There might be certain fixed costs for running a national presidential race that make it naturally more expensive.
+* Donors are "buying" power over the Senate for 2 years, but the presidency for 4. And they are only buying 1/3 of the Senate, but the full presidency.
+
+I'm not sure which of these explanations (if any) is correct, but I clearly need to do more thinking about what the exact implications of my model are for campaign funding.
+
+## Conclusion
+
+* Polling was systematically biased against Republicans, probably due to partisan nonresponse bias. Using wide probability distributions can only do so much to fix this problem.
+* I need to come up with more systematic way of quantifying categorical ratings.
+* I need to think more deeply about what the implications of the model are for campaign funding.
+* Overall, I think the model was right to put an emphasis on the Senate in the end. Especially considering that 13k vote switches towards David Perdue in the Georgia Senate race would have prevented a runoff and denied Democrats unified control of the federal government. But while the rank order of the power values was probably correct, the magnitude of the difference between them was exaggerated due to polling error. Finding a way to fix partisan nonresponse bias will be a major focus of pollsters and anyone else trying to model elections in 2022 and beyond.
+
+## Appendix A: All the Polling Error 
+
+Why did I only focus on the polling error for close elections? The main reason is that error for blowout elections doesn't matter very much -- I just need to shift the seats far enough away from the center that they have low tipping point probabilities (or low `pr_close` when it comes to state legislatures). So it doesn't make much difference if I estimate Democratic vote share at 40%, 30% or 20% in these cases because their resulting `realized_power` values will be near zero regardless.
+
+But here's the polling/ratings errors for all the elections for the sake of completeness:
+
+<figure style="text-align:center;">
+    <a href="{{ site.baseurl }}/images/elections-meta/evaluation/all_error.png">
+    <img src="{{ site.baseurl }}/images/elections-meta/evaluation/all_error.png">
+    </a>
+</figure>
+
+And here are some summary statistics for the graphic above. Interestingly, the mean error terms are smaller for the entire sample because the errors on both sides cancel out. But the absolute error values are still pretty similar:
+
+<iframe src="{{ site.baseurl }}/images/elections-meta/evaluation/all_error.html" onload="javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+30+'px';}(this));" style="height:200px;min-height:270px;width:100%;border:none;overflow:hidden;"></iframe>
+
+## References
+
+[1] Post Code and Data: psthomas/elections-meta. [https://github.com/psthomas/elections-meta](https://github.com/psthomas/elections-meta)
+
+[2] Original post: Combining the 2020 Election Models. [https://pstblog.com/2020/09/09/elections-meta](https://pstblog.com/2020/09/09/elections-meta)
+
+[3] Simple presidential model. Drew Linzer. [https://twitter.com/DrewLinzer/status/1293216060456329216](https://twitter.com/DrewLinzer/status/1293216060456329216)
+
+[4] Poll-Based Election Forecasts Will Always Struggle With Uncertainty. Natalie Jackson. [https://centerforpolitics.org/crystalball/articles/poll-based-election-forecasts-will-always-struggle-with-uncertainty/](https://centerforpolitics.org/crystalball/articles/poll-based-election-forecasts-will-always-struggle-with-uncertainty/)
+
+[5] 2020 Senate Forecast. Cory McCartan. [https://corymccartan.github.io/projects/senate-20/](https://corymccartan.github.io/projects/senate-20/)
+
+[6] Inside Elections House Ratings. Nathan Gonzales. [http://insideelections.com/ratings/house](http://insideelections.com/ratings/house)
+
+[7] Inside Elections Governor Ratings. Nathan Gonzales [http://insideelections.com/ratings/governor](http://insideelections.com/ratings/governor)
+
+[8] CNalysis State Legislature Ratings. Chaz Nuttycombe. [https://www.cnalysiscom.website/](https://www.cnalysiscom.website/)

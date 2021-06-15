@@ -118,7 +118,7 @@ So if you trust these models and weights, North Carolina seems like a good place
 
 I'll try to keep these results up to date as new versions of the supporting models are released. All the code and data for this project are available on GitHub [here](https://github.com/psthomas/elections-meta). 
 
-## Appendix: How it Works
+<h2 id="how">Appendix: How it Works</h2> 
 
 To start off, I create a hierarchical power sharing model. I begin with an arbitrary 100 points of power, and allocate half to the federal government and half to the states. The power at the federal level is then further subdivided between the president (25) and Congress (25), with the House and Senate dividing the congressional power evenly. The other 50 points of power are divided between the states according to their fraction of the national population. Each state’s value is then split between the governor and state legislatures just like at the federal level.
 
