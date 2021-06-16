@@ -8,11 +8,11 @@ comments: true
 share: false
 ---
 
-It's been a little while since the 2020 elections, so I finally got around to evaluating my election model. I'm hoping to run a similar model in the future, so this post is an attempt to learn what worked and what didn't so I can improve it next time. If you haven't read my initial post on the subject, that will provide helpful context (especially the "How it Works" [section](https://pstblog.com/2020/09/09/elections-meta#how)).
+It's been a little while since the 2020 elections, and I finally got around to evaluating my election model. I'm hoping to run a similar model in the future, so this post is an attempt to learn what didn't work so I can improve on it next time. If you haven't read my initial post on the subject, that will provide helpful context (especially the "How it Works" [section](https://pstblog.com/2020/09/09/elections-meta#how)).
+
+Overall, I think my model performed pretty well and it was correct to focus on the Senate in the final weeks of the campaign. But systematic bias against Republicans in the polling made it really tough for anyone to accurately estimate Democratic win probabilities. This led to a situation where the rank order of the power values was correct (in my opinion), but their magnitudes were off due to polling error.
 
 This evaluation is organized into three parts. First, I compare the actual vs. projected results and calculate the polling error for each office. Next, I evaluate my approach for combining the projections by rerunning the models centered on the actual election outcomes. Finally, I compare these model priorities to the revealed preference of donors via campaign spending to get an objective measure of its performance.
-
-Overall, I think my model performed pretty well and it was correct to focus on the Senate in the final weeks of the campaign. But systematic bias against Republicans in the polling made it really tough for anyone to accurately estimate Democratic win probabilities. This led to a situation where the rank order of the power values was correct (in my opinion), but the magnitude of the differences between them was off due to polling error.
 
 ## Polling Error
 
@@ -93,7 +93,7 @@ Below, I re-created all of my pre-election plots with the actual results superim
     </div>
 </div>
 
-Here is a boxplot of the error by legislative body. Note that I'm only displaying the error for the elections that had close results (Democratic voteshare 40-60%). I explain more in appendix A below, but my model only needs accurate estimates for close elections so that's my focus.
+Here is a boxplot of the error by legislative body. Note that I'm only displaying the error for the elections that had close results (Democratic projected or actual voteshare of 40-60%). I explain more in appendix A below, but my model only needs accurate estimates for close elections so that's my focus.
 
 <!--style="max-width:500px;"-->
 <figure style="text-align:center;">
@@ -144,7 +144,7 @@ Here are the resulting values grouped by office, and the change:
 
 <iframe src="{{ site.baseurl }}/images/elections-meta/evaluation/office_summary.html" onload="javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+30+'px';}(this));" style="height:200px;min-height:270px;width:100%;border:none;overflow:hidden;"></iframe>
 
-So the Senate has a similar power value as in the initial model, but relative importance of House and presidency have increased dramatically (3x). I find this result really interesting because the Senate histogram shifted just as much as that of the House and presidency. But because it shifted from one side of center to the other, the integrated value of `pr_close` around the center didn't change very much. So I guess this could be interpreted as saying that the Senate races are still the most important, but you need to increase the resources put into the House and presidency relative to the Senate if the current allocation of funds are out of line with this model. How do these numbers compare to the actual priorities of campaign funders?
+So the Senate has a similar power value as in the initial model, but relative importance of House and presidency have increased dramatically (3x). I find this result really interesting because the Senate histogram shifted just as much as that of the House and presidency. But because it shifted from one side of center to the other, the integrated value of `pr_close` around the center didn't change very much. So I guess this could be interpreted as saying that the Senate races are still the most important, but you need to increase the resources put into the House and presidency relative to the Senate if the current allocation of funds are out of line with this model. But how do these numbers compare to the actual priorities of campaign funders?
 
 ## Revealed Preference
 
@@ -165,11 +165,11 @@ I'm not sure which of these explanations (if any) is correct, but I clearly need
 * Polling was systematically biased against Republicans, probably due to partisan nonresponse bias. Using wide probability distributions can only do so much to fix this problem.
 * I need to come up with more systematic way of quantifying categorical ratings.
 * I need to think more deeply about what the implications of the model are for campaign funding.
-* Overall, I think the model was right to put an emphasis on the Senate in the end. Especially considering that 13k vote switches towards David Perdue in the Georgia Senate race would have prevented a runoff and denied Democrats unified control of the federal government. But while the rank order of the power values was probably correct, the magnitude of the difference between them was exaggerated due to polling error. Finding a way to fix partisan nonresponse bias will be a major focus of pollsters and anyone else trying to model elections in 2022 and beyond.
+* Overall, I think the model was right to put an emphasis on the Senate in the end. Especially considering that 13k vote switches towards David Perdue in the Georgia Senate race would have prevented a runoff and denied Democrats unified control of the federal government. But while the rank order of the power values was probably correct, their magnitudes were off due to polling error. Finding a way to fix partisan nonresponse bias will be a major focus of pollsters and anyone else trying to model elections in 2022 and beyond.
 
 ## Appendix A: All the Polling Error 
 
-Why did I only focus on the polling error for close elections? The main reason is that error for blowout elections doesn't matter very much -- I just need to shift the seats far enough away from the center that they have low tipping point probabilities (or low `pr_close` when it comes to state legislatures). So it doesn't make much difference if I estimate Democratic vote share at 40%, 30% or 20% in these cases because their resulting `realized_power` values will be near zero regardless.
+Why did I only focus on the polling error for close elections? The main reason is that error for blowout elections doesn't matter very much -- I just need to shift the seats far enough away from the center that they have low tipping point probabilities (or low `pr_close` when it comes to state legislatures). So it doesn't make much difference if I estimate Democratic vote share at 30% or 10% in these cases because their resulting `realized_power` values will be near zero regardless.
 
 But here's the polling/ratings errors for all the elections for the sake of completeness:
 
