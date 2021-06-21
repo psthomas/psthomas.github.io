@@ -8,7 +8,7 @@ comments: true
 share: false
 ---
 
-It's been a little while since the 2020 elections, and I finally got around to evaluating my election model. I'm hoping to run a similar model in the future, so this post is an attempt to learn what didn't work so I can improve on it next time. If you haven't read my initial post on the subject, that will provide helpful context (especially the "How it Works" [section](https://pstblog.com/2020/09/09/elections-meta#how)).
+It's been a little while since the 2020 elections so I finally got around to evaluating my election model. I'm hoping to run a similar model in the future, so this post is an attempt to learn what worked and what didn't so I can improve on it next time. If you haven't read my initial post on the subject, that will provide helpful context (especially the "How it Works" [section](https://pstblog.com/2020/09/09/elections-meta#how)).
 
 Overall, I think my model performed pretty well and it was correct to focus on the Senate in the final weeks of the campaign. But systematic bias against Republicans in the polling made it really tough for anyone to accurately estimate Democratic win probabilities. This led to a situation where the rank order of the power values was correct (in my opinion), but their magnitudes were off due to polling error.
 
@@ -169,7 +169,7 @@ I'm not sure which of these explanations (if any) is correct, but I clearly need
 
 ## Appendix A: All the Polling Error 
 
-Why did I only focus on the polling error for close elections? The main reason is that error for blowout elections doesn't matter very much -- I just need to shift the seats far enough away from the center that they have low tipping point probabilities (or low `pr_close` when it comes to state legislatures). So it doesn't make much difference if I estimate Democratic vote share at 30% or 10% in these cases because their resulting `realized_power` values will be near zero regardless.
+Why did I only focus on the polling error for close elections? The main reason is that error for blowout elections doesn't matter very much -- I just need to shift the seats far enough away from the center that they have low tipping point probabilities (or low `pr_close` when it comes to state legislatures). So it doesn't make much difference if I estimate Democratic vote share at 30%, 20%, or 10% in these cases because their resulting `realized_power` values will be near zero regardless.
 
 But here's the polling/ratings errors for all the elections for the sake of completeness:
 
