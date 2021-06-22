@@ -10,15 +10,15 @@ share: false
 
 It's been a little while since the 2020 elections so I finally got around to evaluating my election model. I'm hoping to run a similar model in the future, so this post is an attempt to learn what worked and what didn't so I can improve on it next time. If you haven't read my initial post on the subject, that will provide helpful context (especially the "How it Works" [section](https://pstblog.com/2020/09/09/elections-meta#how)).
 
-Overall, I think my model performed pretty well and it was correct to focus on the Senate in the final weeks of the campaign. But systematic bias against Republicans in the polling made it really tough for anyone to accurately estimate Democratic win probabilities. This led to a situation where the rank order of the power values was correct (in my opinion), but their magnitudes were off due to polling error.
+Overall, I think my model performed pretty well and it was correct to focus on the Senate in the final weeks of the campaign. But systematic polling bias against Republicans made it really tough for anyone to accurately estimate Democratic win probabilities. This led to a situation where the rank order of the power values was correct (in my opinion), but their magnitudes were off due to polling error.
 
-This evaluation is organized into three parts. First, I compare the actual vs. projected results and calculate the polling error for each office. Next, I evaluate my approach for combining the projections by rerunning the models centered on the actual election outcomes. Finally, I compare these model priorities to the revealed preference of donors via campaign spending to get an objective measure of its performance.
+This evaluation is organized into three parts. First, I compare the actual vs. projected results and calculate the forecasting error for each office. Next, I evaluate my approach for combining the projections by rerunning the models centered on the actual election outcomes. Finally, I compare these model priorities to the revealed preference of donors via campaign spending to get an objective measure of its performance.
 
-## Polling Error
+## Forecasting Error
 
-The [most difficult](https://centerforpolitics.org/crystalball/articles/poll-based-election-forecasts-will-always-struggle-with-uncertainty/) part of any model seems to be coming up with a method for averaging the polls, and then estimating how that polling average will change as the election approaches. For the presidency, I relied on the Economist's model which describes it's methodology [here](https://projects.economist.com/us-2020-forecast/president/how-this-works). I used Cory McCartan's model for the Senate, described [here](https://corymccartan.github.io/projects/senate-20/). For the rest of the legislative bodies, I quantified categorical ratings from Inside Elections and CNalysis using 538's [quantifications](https://fivethirtyeight.com/features/2018-house-forecast-methodology/), and then used those as my polling forecasts.
+My model relies on a variety of different forecasts, ranging from simple judgment based ratings to complex quantitative forecasts. For the presidency, I relied on the Economist's forecast which describes it's methodology [here](https://projects.economist.com/us-2020-forecast/president/how-this-works). I used Cory McCartan's forecast for the Senate, described [here](https://corymccartan.github.io/projects/senate-20/). For the rest of the legislative bodies, I quantified categorical ratings from Inside Elections and CNalysis using 538's [categories](https://fivethirtyeight.com/features/2018-house-forecast-methodology/), and then sampled around those ratings using normal distributions to create basic models.
 
-Below, I re-created all of my pre-election plots with the actual results superimposed in green. At just about every level, the polls or categorical ratings were biased in favor of Democrats:
+Below, I recreated all of my pre-election plots with the actual results superimposed in green. At just about every level, the forecasts were biased in favor of Democrats:
 
 <style>
 
@@ -104,21 +104,17 @@ Here is a boxplot of the error by legislative body. Note that I'm only displayin
 
 And here's a summary table showing the mean error (a measure of bias), and the mean absolute error for each office.
 
-<!--you can embed snippets with blog styling as objects, https://stackoverflow.com/questions/8433319-->
-<!-- <div align="center">
-<object data="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.html" width="50%" height="275"></object>
-</div> -->
-<!-- <object data="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.html" width="100%" height="275"></object> -->
-
 <iframe src="{{ site.baseurl }}/images/elections-meta/evaluation/close_error.html" onload="javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+30+'px';}(this));" style="height:200px;min-height:270px;width:100%;border:none;overflow:hidden;"></iframe>
 
-So the presidential and Senate polling forecasts were biased in favor of Democrats by about 2%, but overall these offices had the least amount of error (their sophisticated methods helped!). The House was a little more mixed, with a bias of 4.9% towards Democrats, and a very large absolute error of 8%. And the state legislative estimates of Democratic seat share had the most pro-D bias (7%) and the most absolute error.
+So the presidential and Senate forecasts were biased in favor of Democrats by about 2%, but overall these offices had the least amount of error (their sophisticated methods helped!). The House was a little more mixed, with a bias of 4.9% towards Democrats, and a very large absolute error of 8%. And the state legislative estimates of Democratic seat share had the most pro-D bias (7%) and the most absolute error.
 
-I think my main takeaway from this is that I need to come up with a better method of quantifying the categorical ratings. I used 538's quantifications that were based on the historical performance of a number of different election ratings, but I probably need to use conversions tailored to the specific Inside Elections and CNalysis ratings I used instead. In some sense I'd expect the performance at the state level to be worse than the federal level because there's much less polling and scrutiny of those elections, but I hoped to do a little better than this. 
+I think my main takeaway from this is that I need to come up with a better method of quantifying the categorical ratings. I used 538's quantifications that were based on the historical performance of a number of different election ratings, but I probably need to use conversions tailored to the specific Inside Elections and CNalysis ratings I used instead. In some sense I'd expect the performance at the state level to be worse than the federal level because there's much less polling and scrutiny of those elections, but I hoped to do a little better than this.
+
+The [most difficult](https://centerforpolitics.org/crystalball/articles/poll-based-election-forecasts-will-always-struggle-with-uncertainty/) part of any forecast seems to be coming up with a method for averaging the polls, and then estimating how that polling average will change as the election approaches. Polling error seems to be the core reason that many of the forecasts, both [quantitative](https://statmodeling.stat.columbia.edu/2020/11/04/dont-kid-yourself-the-polls-messed-up-and-that-would-be-the-case-even-wed-forecasted-biden-losing-florida-and-only-barely-winning-the-electoral-college/) and [categorical](https://cookpolitical.com/analysis/national/national-politics/many-are-afraid-say-it-not-close-race), were off. And partisan nonresponse bias [was](https://www.vox.com/policy-and-politics/2020/11/10/21551766/election-polls-results-wrong-david-shor) the [major](https://www.dataforprogress.org/memos/2020-polling-retrospective) source of polling error, so fixing this bias needs to be the focus of anyone hoping to forecast elections in the future.
 
 ## Model Error
 
-So how would my model perform if we had really good polling? One way to test this is to center the probability distributions for all the elections at the actual outcomes, and then rerun my model to see what it prioritizes. That's exactly what I do below. Note that I didn't have access to the underlying source code for the Economist's model (and don't understand McCartan's Senate model well enough), so I had to rewrite my own Senate and presidential models. Here are summary histograms for the new presidential, Senate, and House simulations:
+So how would my model perform if we had near perfect forecasts? One way to test this is to center the probability distributions for all the elections at the actual outcomes, and then rerun my model to see what it prioritizes. That's exactly what I do below. Note that I didn't have access to the underlying source code for the Economist's forecast (and don't understand McCartan's Senate forecast well enough), so I had to rewrite my own Senate and presidential models. Here are summary histograms for the new presidential, Senate, and House simulations:
 
 <div class="wideDiv">
     <div class="flexContainer">
@@ -162,16 +158,16 @@ I'm not sure which of these explanations (if any) is correct, but I clearly need
 
 ## Conclusion
 
-* Polling was systematically biased against Republicans, probably due to partisan nonresponse bias. Using wide probability distributions can only do so much to fix this problem.
+* Polling (and forecasts) were systematically biased against Republicans, probably due to partisan nonresponse bias. Using wide probability distributions can only do so much to fix this problem.
 * I need to come up with more systematic way of quantifying categorical ratings.
 * I need to think more deeply about what the implications of the model are for campaign funding.
-* Overall, I think the model was right to put an emphasis on the Senate in the end. Especially considering that 13k vote switches towards David Perdue in the Georgia Senate race would have prevented a runoff and denied Democrats unified control of the federal government. But while the rank order of the power values was probably correct, their magnitudes were off due to polling error. Finding a way to fix partisan nonresponse bias will be a major focus of pollsters and anyone else trying to model elections in 2022 and beyond.
+* Overall, I think the model was right to put an emphasis on the Senate in the end. Especially considering that 13k vote switches towards David Perdue in the Georgia Senate race would have prevented a runoff and denied Democrats unified control of the federal government. But while the rank order of the power values was probably correct, their magnitudes were off due to polling error. Finding a way to fix partisan nonresponse bias will be a major focus of pollsters and anyone else trying to forecast elections in 2022 and beyond.
 
-## Appendix A: All the Polling Error 
+## Appendix A: All the Forecasting Error 
 
-Why did I only focus on the polling error for close elections? The main reason is that error for blowout elections doesn't matter very much -- I just need to shift the seats far enough away from the center that they have low tipping point probabilities (or low `pr_close` when it comes to state legislatures). So it doesn't make much difference if I estimate Democratic vote share at 30%, 20%, or 10% in these cases because their resulting `realized_power` values will be near zero regardless.
+Why did I only focus on the forecasting error for close elections? The main reason is that the error for blowout elections doesn't matter very much -- I just need to shift the seats far enough away from the center that they have low tipping point probabilities (or low `pr_close` when it comes to state legislatures). So it doesn't make much difference if I estimate Democratic vote share at 30, 20, or 10% in these cases because their resulting `realized_power` values will be near zero regardless.
 
-But here's the polling/ratings errors for all the elections for the sake of completeness:
+But here are the forecasting errors for all the elections for the sake of completeness:
 
 <figure style="text-align:center;">
     <a href="{{ site.baseurl }}/images/elections-meta/evaluation/all_error.png">
@@ -193,10 +189,18 @@ And here are some summary statistics for the graphic above. Interestingly, the m
 
 [4] Poll-Based Election Forecasts Will Always Struggle With Uncertainty. Natalie Jackson. [https://centerforpolitics.org/crystalball/articles/poll-based-election-forecasts-will-always-struggle-with-uncertainty/](https://centerforpolitics.org/crystalball/articles/poll-based-election-forecasts-will-always-struggle-with-uncertainty/)
 
-[5] 2020 Senate Forecast. Cory McCartan. [https://corymccartan.github.io/projects/senate-20/](https://corymccartan.github.io/projects/senate-20/)
+[5] Don’t kid yourself. The polls messed up—and that would be the case even if we’d forecasted Biden losing Florida and only barely winning the electoral college. Andrew Gelman. [https://statmodeling.stat.columbia.edu/2020/11/04/dont-kid-yourself-the-polls-messed-up-and-that-would-be-the-case-even-wed-forecasted-biden-losing-florida-and-only-barely-winning-the-electoral-college/](https://statmodeling.stat.columbia.edu/2020/11/04/dont-kid-yourself-the-polls-messed-up-and-that-would-be-the-case-even-wed-forecasted-biden-losing-florida-and-only-barely-winning-the-electoral-college/)
 
-[6] Inside Elections House Ratings. Nathan Gonzales. [http://insideelections.com/ratings/house](http://insideelections.com/ratings/house)
+[6] Many Are Afraid To Say It, but This Is Not a Close Race. Charlie Cook. [https://cookpolitical.com/analysis/national/national-politics/many-are-afraid-say-it-not-close-race](https://cookpolitical.com/analysis/national/national-politics/many-are-afraid-say-it-not-close-race)
 
-[7] Inside Elections Governor Ratings. Nathan Gonzales [http://insideelections.com/ratings/governor](http://insideelections.com/ratings/governor)
+[7] One pollster’s explanation for why the polls got it wrong. Dylan Matthews. [https://www.vox.com/policy-and-politics/2020/11/10/21551766/election-polls-results-wrong-david-shor](https://www.vox.com/policy-and-politics/2020/11/10/21551766/election-polls-results-wrong-david-shor)
 
-[8] CNalysis State Legislature Ratings. Chaz Nuttycombe. [https://www.cnalysiscom.website/](https://www.cnalysiscom.website/)
+[8] Memo: 2020 Polling Retrospective. Data For Progress. [https://www.dataforprogress.org/memos/2020-polling-retrospective](https://www.dataforprogress.org/memos/2020-polling-retrospective)
+
+[9] 2020 Senate Forecast. Cory McCartan. [https://corymccartan.github.io/projects/senate-20/](https://corymccartan.github.io/projects/senate-20/)
+
+[10] Inside Elections House Ratings. Nathan Gonzales. [http://insideelections.com/ratings/house](http://insideelections.com/ratings/house)
+
+[11] Inside Elections Governor Ratings. Nathan Gonzales [http://insideelections.com/ratings/governor](http://insideelections.com/ratings/governor)
+
+[12] CNalysis State Legislature Ratings. Chaz Nuttycombe. [https://www.cnalysiscom.website/](https://www.cnalysiscom.website/)
