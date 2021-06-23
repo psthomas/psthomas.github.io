@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How did my election model perform?"
-excerpt: "Evaluating the polling and model error from my 2020 elections model"
+excerpt: "Evaluating the different sources of error in my 2020 elections model"
 #modified: 2016-02-22
 tags: [pandas, python, politics, election model]
 comments: true
@@ -16,7 +16,7 @@ This evaluation is organized into three parts. First, I compare the actual vs. p
 
 ## Forecasting Error
 
-My model relies on a variety of different forecasts, ranging from simple judgment based ratings to complex quantitative forecasts. For the presidency, I relied on the Economist's forecast which describes it's methodology [here](https://projects.economist.com/us-2020-forecast/president/how-this-works). I used Cory McCartan's forecast for the Senate, described [here](https://corymccartan.github.io/projects/senate-20/). For the rest of the legislative bodies, I quantified categorical ratings from Inside Elections and CNalysis using 538's [categories](https://fivethirtyeight.com/features/2018-house-forecast-methodology/), and then sampled around those ratings using normal distributions to create basic models.
+My model relies on a variety of different forecasts, ranging from simple judgment based ratings to complex quantitative forecasts. For the presidency, I relied on the Economist's forecast which describes it's methodology [here](https://projects.economist.com/us-2020-forecast/president/how-this-works). I used Cory McCartan's forecast for the Senate, described [here](https://corymccartan.github.io/projects/senate-20/). For the rest of the legislative bodies, I quantified categorical ratings from Inside Elections and CNalysis using 538's [categories](https://fivethirtyeight.com/features/2018-house-forecast-methodology/), and then sampled around those ratings using normal distributions to create basic forecasts.
 
 Below, I recreated all of my pre-election plots with the actual results superimposed in green. At just about every level, the forecasts were biased in favor of Democrats:
 
