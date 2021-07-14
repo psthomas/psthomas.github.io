@@ -13,9 +13,9 @@ I'm a big fan of using [Jupyter Notebooks](http://jupyter.org/) for Python proje
 
 There are a number of [proposed solutions](https://stackoverflow.com/questions/18734739/using-ipython-notebooks-under-version-control), but they require either changing your git configuration or generating a Jupyter [configuration file and modifying it](https://stackoverflow.com/a/25765194).  These approaches could vary by user and it's not clear from the code or repo how the changes are being tracked.  Below I outline an approach that might be better because the solution is included directly in a notebook cell.
 
-## The Approach
+## One Approach
 
-I use a tool called [nbstripout](https://github.com/kynan/nbstripout) (installable via pip) along with a bash command in a notebook cell to solve this problem.  Just add a cell like this one to your notebook, set the filenames, save the notebook, then run the cell to create a cleaned version of your notebook without the output.  
+One possibility is to use a tool called [nbstripout](https://github.com/kynan/nbstripout) (installable via pip) along with a bash command in a notebook cell to solve this problem.  Just add a cell like this one to your notebook, set the filenames, save the notebook, then run the cell to create a cleaned version of your notebook without the output.  
 
 {% highlight python %}
 
