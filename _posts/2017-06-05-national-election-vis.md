@@ -71,7 +71,7 @@ It's pretty interesting to click through the years and see the turnout and margi
 
 I'm fairly confident that the aggregate data are accurate because vote counts and electoral outcomes are similar to those of David Leip's [Election Atlas](http://uselectionatlas.org/).  But even if the aggregates are accurate, it's still possible that there are problems at the individual county level.   
 
-The turnout exceeded 100% in a few counties, which I made note of and filtered out in the [Jupyter notebook](https://github.com/psthomas/election-vis/blob/master/voting_national.ipynb).  This issue is either caused by bad county level vote tallies or bad voting age population data. I'm using a new approach to estimating the citizen voting age population data by running a regression the census bureau data, so this partially resolves the problem.  
+The turnout exceeded 100% in a few counties, which I made note of and filtered out in the [Jupyter notebook](https://github.com/psthomas/election-vis/blob/master/voting_national.ipynb).  This issue is either caused by bad county level vote tallies or bad voting age population data. I'm using a new approach to estimating the citizen voting age population data by running a regression on census bureau data, so this partially resolves the problem [3].  
 
 It's also important to mention the [distinction](http://www.electproject.org/home/voter-turnout/faq/denominator) between Citizen Voting Age Population (VAP) and Voting Eligible Population (VEP).  VEP estimates remove felons (depending on state law), and other groups that are ineligible to vote.  This means that using the VAP data could underestimate turnout in counties with e.g. high felony convictions.  The Sentencing Project [estimates](http://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2016/10/10/more-than-six-million-felons-cant-vote-in-2016) that 6 million felons were ineligible to vote in 2016, so the effect on estimated turnout could be substantial.  Unfortunately, VEP data isn't available at the county level so I used VAP data instead.  This might be preferable in some ways though because it highlights a problem -- close to 2.5 percent of the US Population isn't being represented by their government.  
 
@@ -83,12 +83,14 @@ My goal is to improve the accuracy and number of years covered over time, so sug
 
 [1] MIT Election Labs, 2000-2016 County level presidential results: [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ)
 
-[2] Census Bureau County Voting Age Population data: [https://www.census.gov/rdo/data/voting_age_population_by_citizenship_and_race_cvap.html](https://www.census.gov/rdo/data/voting_age_population_by_citizenship_and_race_cvap.html)
+[2] Census Bureau County Voting Age Population data: [https://www.census.gov/rdo/data/voting_age_population_by_citizenship_and_race_cvap.html](https://www.census.gov/programs-surveys/decennial-census/about/voting-rights/cvap.html)
 
-[3] Voting and Registration Tables. US Census Bureau. [https://www.census.gov/topics/public-sector/voting/data/tables.All.html](https://www.census.gov/topics/public-sector/voting/data/tables.All.html)
+[3] CVAP, my project estimating annual citizen voting age population by state and county. [https://github.com/psthomas/cvap](https://github.com/psthomas/cvap)
 
-[4] United States Election Project, demographic turnout data. [http://www.electproject.org/home/voter-turnout/demographics](http://www.electproject.org/home/voter-turnout/demographics)
+[4] Voting and Registration Tables. US Census Bureau. [https://www.census.gov/topics/public-sector/voting/data/tables.All.html](https://www.census.gov/topics/public-sector/voting/data/tables.All.html)
 
-[5] American National Election Studies, demographic margins data. [http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html](http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html)
+[5] United States Election Project, demographic turnout data. [http://www.electproject.org/home/voter-turnout/demographics](http://www.electproject.org/home/voter-turnout/demographics)
 
-[6] Voter Trends in 2016. Center for American Progress. [https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/](https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/)
+[6] American National Election Studies, demographic margins data. [http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html](http://www.electionstudies.org/studypages/download/datacenter_all_NoData.html)
+
+[7] Voter Trends in 2016. Center for American Progress. [https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/](https://www.americanprogress.org/issues/democracy/reports/2017/11/01/441926/voter-trends-in-2016/)
