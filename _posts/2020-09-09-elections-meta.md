@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Combining the 2020 Election Models"
+title: "Combining the 2020 Election Forecasts"
 excerpt: "I combine forecasts for federal and state elections to find strategic places to focus in 2020."
 modified: 2020-11-03
 tags: [Python, Jupyter notebook, politics, data visualization, Pandas, d3.js, seaborn]
@@ -100,13 +100,13 @@ Here are the forecasts for the different offices and legislative bodies on the b
     </div>
 </div>
 
-So overall things look pretty good for the Democrats right now, but the Senate is still expected to be close. One other thing to mention is that these aren't nowcasts, they're forecasts. Each one of these estimates takes into account how the race is expected to tighten from now until November, either through sophisticated modeling techniques in the case of the presidential and Senate models, or through expert judgement in the case of the categorical models. There's an ongoing debate about how confident we should be in forecasts in general, but these models are at least trying to incoporate the best practices.
+So overall things look pretty good for the Democrats right now, but the Senate is still expected to be close. One other thing to mention is that these aren't nowcasts, they're forecasts. Each one of these estimates takes into account how the race is expected to tighten from now until November, either through sophisticated modeling techniques in the case of the presidential and Senate models, or through expert judgement in the case of the categorical models. There's an ongoing debate about how confident we should be in forecasts in general, but these models are at least trying to incorporate the best practices.
 
 ## Power Values by State
 
 It's difficult to distill all of the election forecasts above into a set of priorities, but this is where my model comes in. I calculate a baseline power value for each office, then adjust it for how close the election is expected to be and how likely a seat is to be the tipping point for control if applicable. The general intuition here is that you should target elections that are likely to be close, and target legislative bodies where a change in partisan control is more likely.
 
-So here are the resulting power values, grouped by state and office. Note that table is sortable, and you can adjust the weights if you prefer. By default I give equal weights to the state and federal governments. The results for each individual election sorted by realized power are available [here](https://github.com/psthomas/elections-meta/blob/master/data/output/seat_realized_power.csv).
+So here are the resulting power values, grouped by state and office. Note that table is sortable, and you can adjust the weights if you prefer. By default I give equal weights to the state and federal governments. The results for each individual election sorted by realized power are available [here](https://github.com/psthomas/elections-meta/blob/master/analysis-2020/data/output/seat_realized_power.csv)).
 
 <iframe id="vis2" src="{{ site.baseurl }}/images/elections-meta/statescore-table.html"
     style="width:100%; height:1200px; border: none; position: relative; scrolling:no;">
