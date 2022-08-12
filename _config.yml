@@ -1,29 +1,15 @@
 # Site wide configuration
-title:            pstblog
-locale:           en_US
-url:              https://pstblog.com #comment out for local development
-#c9.io development:
-# url: "https://ruby-blog-psthomas.c9users.io"
-# baseurl: ""
-#Cloud9: $ bundle exec jekyll serve --host $IP --port $PORT
-# bundle exec jekyll serve --host $IP --port $PORT --config _config.yml
+title: pstblog
+locale: en_US
+url: https://pstblog.com
 
 # Jekyll configuration
 permalink:   /:year/:month/:day/:title 
 markdown:    kramdown
-# kramdown:     #Added
-#   input: GFM  #Added, but is default
 highlighter: rouge
 sass:
   sass_dir: _sass
   style: compressed
-
-# kramdown:
-#   auto_ids: true
-#   footnote_nr: 1
-#   entity_output: as_char
-#   toc_levels: 1..6
-#   enable_coderay: false
 
 # Site owner
 owner:
@@ -41,11 +27,13 @@ owner:
     ad-slot:
   bing-verify:
   github: psthomas #username
-  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  stackoverflow: #123456/username
   linkedin: philip-thomas-2805b97a #username
 
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
-
-
+exclude: ["Dockerfile", "docker-compose.yaml", ".dockerignore", "install-ruby.sh",
+  "install-rvm.sh", "bootstrap.sh", "Vagrantfile", "lib", "config.rb", "Capfile",
+  "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project",
+  "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", 
+  "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
