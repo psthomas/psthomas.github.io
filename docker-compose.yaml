@@ -1,0 +1,17 @@
+version: "3.8"
+
+services: 
+    jekyll-site:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: blog-image
+        container_name: blog-container
+        volumes:
+            - $PWD:/home/app
+        ports: 
+            - 4000:4000
+
+# Command line alternatives:
+# docker image build --tag blog-image .
+# docker container run --rm --publish 4000:4000 --name blog-container --volume $(pwd):/home/app blog-image
