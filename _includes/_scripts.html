@@ -29,3 +29,7 @@ fetch('https://www.google-analytics.com/collect', request);
 {% if page.comments %}
   {% include _disqus_comments.html %}
 {% endif %}
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "528244e5c6af4f0584923f2f4852d7ac"}'></script>
+<!-- End Cloudflare Web Analytics -->
