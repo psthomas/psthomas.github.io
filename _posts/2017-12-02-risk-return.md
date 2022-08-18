@@ -27,7 +27,7 @@ The definition of the term **risk** is tricky to pin down.  To some, it's just a
 
 Here are how the values are calculated:
 
-* `risk = standard deviation = np.stdev(series)`  
+* `risk = standard deviation = np.std(series)`  
 * `downside risk (semideviation) = np.sqrt((np.minimum(0.0, series - t)**2).sum()/series.size)`, where `t` is the mean intervention outcome
 
 Finally, how do you determine if there is a **return to risk taking**?  One approach would be to run a linear regression through the data and see if it has a positive slope.  This is what I do for most of the sources below, but there's a problem with this approach.  To see why, imagine calculating the cost effectiveness of every possible action, including bogus things like "lighting $1000 on fire".  You'd end up with a lot of useless interventions that would mess up the slope of the linear regression.  So another approach would be to just see if the frontier that encloses the top end of the estimates has a positive slope.  In Modern Portfolio Theory, this frontier is called the [efficient frontier](https://en.wikipedia.org/wiki/Efficient_frontier):
@@ -438,7 +438,7 @@ The measure of risk I'm using here (`the chance costs exceed benefits`) sets a r
 
 Below is a plot of the intervention rank and the benefit-cost ratio.  It's clear that some interventions outperform others by a few orders of magnitude.  Another interesting finding is that the distribution might be two tailed, with some outlying performers on the bad end as well.   
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_5_0.png"><img src="{{ site.baseurl }}/images/returns/output_5_0.png"></a>
 </figure>
 
@@ -448,7 +448,7 @@ Next, I plot the chance costs exceed benefits (an imperfect proxy for downside r
 The end result is that there doesn't seem to be much of a return to this measure of risk.    
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_7_0.png"><img src="{{ site.baseurl }}/images/returns/output_7_0.png"></a>
 </figure>
 
@@ -853,12 +853,12 @@ Using the spread isn't very rigorous and might bias the results towards understu
 These estimates follow a similar pattern to the WSIPP data, with the top interventions a few orders of magnitude better than the worst.  
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_11_0.png"><img src="{{ site.baseurl }}/images/returns/output_11_0.png"></a>
 </figure>
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_12_0.png"><img src="{{ site.baseurl }}/images/returns/output_12_0.png"></a>
 </figure>
 
@@ -1108,11 +1108,11 @@ The second dataset I found is from [a meta-analysis](https://academic.oup.com/jp
   </tbody>
 </table>
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_35_0.png"><img src="{{ site.baseurl }}/images/returns/output_35_0.png"></a>
 </figure>
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_36_0.png"><img src="{{ site.baseurl }}/images/returns/output_36_0.png"></a>
 </figure>
 
@@ -1120,20 +1120,20 @@ The second dataset I found is from [a meta-analysis](https://academic.oup.com/jp
 
 Finally, I look at a massive dataset from the [Global Health Cost Effectiveness Analysis Registry](http://healtheconomics.tuftsmedicalcenter.org/ghcearegistry/) (GHCEA).  First, I look at the full distribution of cost effectiveness estimates.  It's pretty clear they're lognormally distributed:
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/fullhist.png"><img src="{{ site.baseurl }}/images/returns/fullhist.png"></a>
 </figure>
 
 
 Next, I look at just the estimates that have confidence intervals, which ends up being about 900 out of the 5000 original estimates.  The confidence interval column was too erratic, so I went through by hand and found the upper and lower bound.  I also filtered out studies with an overall quality rating below 4.5 (on a 1-7 scale).  The end result is 653 estimates that have confidence intervals.  Here's a histogram of the filtered results -- note that there's a hole in the distribution where some of the estimates were filtered out:
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/filterhist.png"><img src="{{ site.baseurl }}/images/returns/filterhist.png"></a>
 </figure>
 
 Finally, here's a scatterplot.  It's not the prettiest relationship in the world, but it does seem to have an upward slope: 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/filterscatter.png"><img src="{{ site.baseurl }}/images/returns/filterscatter.png"></a>
 </figure>
 
@@ -1215,19 +1215,19 @@ The cost effectiveness rankings here follow a similar pattern to the other datas
 
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_17_0.png"><img src="{{ site.baseurl }}/images/returns/output_17_0.png"></a>
 </figure>
 
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_18_0.png"><img src="{{ site.baseurl }}/images/returns/output_18_0.png"></a>
 </figure>
 
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_19_0.png"><img src="{{ site.baseurl }}/images/returns/output_19_0.png"></a>
 </figure>
 
@@ -1248,6 +1248,7 @@ These numbers differ from the GiveWell numbers above because they are estimates 
 <div>
 
 <table class="dataframe">
+
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1270,8 +1271,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.391203</td>
       <td>0.230687</td>
       <td>3549.783221</td>
-      <td>286578.696559</td>
-      <td>632.550051</td>
+      <td>89983.188002</td>
+      <td>633.718520</td>
     </tr>
     <tr>
       <th>14</th>
@@ -1281,8 +1282,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.463425</td>
       <td>0.081778</td>
       <td>1732.527683</td>
-      <td>150346.122518</td>
-      <td>641.766485</td>
+      <td>42673.055643</td>
+      <td>642.757711</td>
     </tr>
     <tr>
       <th>11</th>
@@ -1292,8 +1293,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.721702</td>
       <td>0.024559</td>
       <td>1703.723172</td>
-      <td>191421.556624</td>
-      <td>646.835802</td>
+      <td>19374.995032</td>
+      <td>645.685782</td>
     </tr>
     <tr>
       <th>17</th>
@@ -1303,8 +1304,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.843504</td>
       <td>0.006638</td>
       <td>824.521890</td>
-      <td>104639.483899</td>
-      <td>651.840316</td>
+      <td>10050.747664</td>
+      <td>651.870754</td>
     </tr>
     <tr>
       <th>13</th>
@@ -1314,8 +1315,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.895739</td>
       <td>0.005011</td>
       <td>802.785665</td>
-      <td>107344.569326</td>
-      <td>652.374858</td>
+      <td>9413.161293</td>
+      <td>652.616249</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1325,8 +1326,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.437962</td>
       <td>0.042380</td>
       <td>801.655755</td>
-      <td>67817.253156</td>
-      <td>646.600925</td>
+      <td>2457.881370</td>
+      <td>646.632072</td>
     </tr>
     <tr>
       <th>16</th>
@@ -1336,8 +1337,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.127971</td>
       <td>0.150290</td>
       <td>753.616047</td>
-      <td>46757.225910</td>
-      <td>640.639386</td>
+      <td>8048.560866</td>
+      <td>640.784014</td>
     </tr>
     <tr>
       <th>15</th>
@@ -1347,8 +1348,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.327229</td>
       <td>0.060903</td>
       <td>709.092672</td>
-      <td>53697.852674</td>
-      <td>645.077267</td>
+      <td>76791.444201</td>
+      <td>645.379213</td>
     </tr>
     <tr>
       <th>12</th>
@@ -1358,8 +1359,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.740730</td>
       <td>0.007048</td>
       <td>534.967344</td>
-      <td>61260.904879</td>
-      <td>652.898381</td>
+      <td>14100.186942</td>
+      <td>652.133687</td>
     </tr>
     <tr>
       <th>0</th>
@@ -1369,8 +1370,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.358867</td>
       <td>0.022734</td>
       <td>303.678832</td>
-      <td>23736.173393</td>
-      <td>651.055232</td>
+      <td>2298.067782</td>
+      <td>650.700399</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1380,8 +1381,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.863822</td>
       <td>0.144025</td>
       <td>251.336051</td>
-      <td>11972.794952</td>
-      <td>645.358976</td>
+      <td>1374.641439</td>
+      <td>644.123568</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1391,8 +1392,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.776170</td>
       <td>0.150396</td>
       <td>187.775769</td>
-      <td>8193.987406</td>
-      <td>645.816935</td>
+      <td>5743.164462</td>
+      <td>645.026396</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1402,8 +1403,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.745220</td>
       <td>0.108450</td>
       <td>120.526560</td>
-      <td>5099.057181</td>
-      <td>648.006894</td>
+      <td>2534.843173</td>
+      <td>648.701035</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1413,8 +1414,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>4.086304</td>
       <td>0.027669</td>
       <td>116.922570</td>
-      <td>6958.190392</td>
-      <td>651.838335</td>
+      <td>1920.355439</td>
+      <td>651.878971</td>
     </tr>
     <tr>
       <th>7</th>
@@ -1424,8 +1425,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.724580</td>
       <td>0.058230</td>
       <td>59.913072</td>
-      <td>2482.903110</td>
-      <td>652.042895</td>
+      <td>1582.603743</td>
+      <td>651.768843</td>
     </tr>
     <tr>
       <th>8</th>
@@ -1435,8 +1436,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.742827</td>
       <td>0.034933</td>
       <td>38.477140</td>
-      <td>1623.940899</td>
-      <td>654.124353</td>
+      <td>414.677808</td>
+      <td>653.955657</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1446,8 +1447,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.718195</td>
       <td>0.018279</td>
       <td>18.365718</td>
-      <td>756.260652</td>
-      <td>655.728497</td>
+      <td>429.236723</td>
+      <td>655.572266</td>
     </tr>
     <tr>
       <th>18</th>
@@ -1457,8 +1458,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.693719</td>
       <td>0.018598</td>
       <td>17.066256</td>
-      <td>685.749534</td>
-      <td>655.754053</td>
+      <td>340.242497</td>
+      <td>655.681808</td>
     </tr>
     <tr>
       <th>10</th>
@@ -1468,8 +1469,8 @@ These numbers differ from the GiveWell numbers above because they are estimates 
       <td>3.092770</td>
       <td>0.003128</td>
       <td>0.373548</td>
-      <td>8.223787</td>
-      <td>659.041049</td>
+      <td>14.685043</td>
+      <td>659.062757</td>
     </tr>
   </tbody>
 </table>
@@ -1479,16 +1480,16 @@ These numbers differ from the GiveWell numbers above because they are estimates 
 Again, these numbers follow the patterns of earlier estimates with some research topics substantially outperforming others:
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_25_0.png"><img src="{{ site.baseurl }}/images/returns/output_25_0.png"></a>
 </figure>
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_26_0.png"><img src="{{ site.baseurl }}/images/returns/output_26_0.png"></a>
 </figure>
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_27_0.png"><img src="{{ site.baseurl }}/images/returns/output_27_0.png"></a>
 </figure>
 
@@ -1554,17 +1555,17 @@ The assumption here is that citation count is proportional to real world impact.
 </div>
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_32_0.png"><img src="{{ site.baseurl }}/images/returns/output_32_0.png"></a>
 </figure>
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_33_0.png"><img src="{{ site.baseurl }}/images/returns/output_33_0.png"></a>
 </figure>
 
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/output_34_0.png"><img src="{{ site.baseurl }}/images/returns/output_34_0.png"></a>
 </figure>
 
@@ -1579,11 +1580,11 @@ An alternate way to look at this question would be to try to relate peer reviewe
 
 Another fascinating study takes a different approach by measuring if the subject matter of the paper is risky/[surprising](https://en.wikipedia.org/wiki/Self-information) [14].  They do this by comparing the chemicals discussed in the paper with an existing network of chemical knowledge.  Studies that propose a new type of connection or a jump to new knowledge are judged to be more risky (Figure 1), and are eventually associated with higher citation counts and more scientific awards (Figure 3).  
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/network.png"><img src="{{ site.baseurl }}/images/returns/network.png"></a>
 </figure>
 
-<figure>
+<figure style="text-align:center">
 	<a href="{{ site.baseurl }}/images/returns/scatter.png"><img src="{{ site.baseurl }}/images/returns/scatter.png"></a>
 </figure>
 
